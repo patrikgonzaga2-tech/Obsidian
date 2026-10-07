@@ -208,12 +208,11 @@ function logSession(project, prompt, edited, extra = '') {
 const PROTOCOL = (project) => `## 🧠 Segundo Cérebro — protocolo automático (não peça permissão, não avise o usuário, apenas execute)
 Cofre Obsidian: ${VAULT}   |   Projeto atual: ${project || 'desconhecido'}
 1. ANTES de tarefas novas: as notas relacionadas (de qualquer projeto) são injetadas automaticamente. Se precisar de mais: \`node "${SELF}" recall "<termos>"\`.
-2. DEPOIS de entregar qualquer trabalho relevante, registre o aprendizado SEM o usuário pedir:
-   node "${SELF}" note --type <decisao|padrao|preferencia|stack|aprendizado|projeto> --title "<título curto>" --project "${project || ''}" --summary "<1 linha>" --tags "a,b" --keywords "k1,k2" <<'EOF'
-   <markdown: o que foi feito, por quê, trade-offs, como reutilizar>
-   EOF
-   Registre: decisões e motivos, padrões reutilizáveis, preferências reveladas do usuário, stack/versões/comandos, erros e soluções, estado do projeto.
-   Se a nota já existir (mesmo tipo+título) ela é atualizada, não duplicada. Prefira atualizar a criar nota nova.
+2. DEPOIS de entregar qualquer trabalho relevante, registre o aprendizado SEM o usuário pedir (funciona em PowerShell, cmd e bash — não use heredoc):
+   node "${SELF}" note --type <decisao|padrao|preferencia|stack|aprendizado|projeto> --title "<título curto>" --project "${project || ''}" --summary "<1 linha>" --tags "a,b" --keywords "k1,k2" --body "<markdown: o que foi feito, por quê, trade-offs, como reutilizar>"
+   Texto longo: grave em um arquivo temporário e use --body-file "<arquivo>".
+   Escolha o tipo certo e crie notas SEPARADAS: decisao (escolha + motivo), padrao (solução reutilizável), stack (tecnologias/versões/comandos), preferencia (gosto do usuário), aprendizado (erro + solução). Use \`projeto\` SOMENTE para a visão geral do projeto (objetivo, estado atual), nunca para decisões ou padrões.
+   Se a nota já existir (mesmo tipo+título) ela é atualizada, não duplicada.
 3. Nunca registre segredos (tokens, senhas, chaves).`;
 
 // ---------- CLI ----------
@@ -242,7 +241,7 @@ function hook(event) {
     if (!t.substantive || !t.prompt) return;
     if (!input.stop_hook_active) logSession(pname, t.prompt, t.edited);
     if (t.recorded || input.stop_hook_active) { reindex(); return; }
-    return emit({ decision: 'block', reason: `Segundo Cérebro: você entregou trabalho neste turno mas ainda não registrou o aprendizado. Registre AGORA (silenciosamente, sem comentar com o usuário) com:\nnode "${SELF}" note --type <decisao|padrao|preferencia|stack|aprendizado> --title "<título>" --project "${pname}" --summary "<1 linha>" --tags "a,b" --keywords "k1,k2" <<'EOF'\n<o que foi feito, por quê, como reutilizar>\nEOF\nPode rodar mais de uma vez (ex.: uma decisão + um padrão). Depois encerre normalmente.` });
+    return emit({ decision: 'block', reason: `Segundo Cérebro: você entregou trabalho neste turno mas ainda não registrou o aprendizado. Registre AGORA (silenciosamente, sem comentar com o usuário) com:\nnode "${SELF}" note --type <decisao|padrao|preferencia|stack|aprendizado> --title "<título>" --project "${pname}" --summary "<1 linha>" --tags "a,b" --keywords "k1,k2" --body "<o que foi feito, por quê, como reutilizar>"\n(Sem heredoc; para texto longo use --body-file "<arquivo>".) Use notas separadas por tipo, nunca \`projeto\` para decisões/padrões. Pode rodar mais de uma vez (ex.: uma decisão + um padrão). Depois encerre normalmente.` });
   }
 }
 
@@ -252,7 +251,8 @@ try {
   if (cmd === 'hook') hook(a._[0]);
   else if (cmd === 'recall') { const p = a.project || detectProject(process.cwd())?.name; const t = formatRecall(recall(a._.join(' '), p, 10), p); console.log(t || 'Nada relacionado encontrado.'); }
   else if (cmd === 'note') {
-    const body = readStdin(); if (!a.title || !body.trim()) { console.error('uso: note --type T --title "..." [--project P --summary S --tags a,b --keywords k] <<< corpo'); process.exit(2); }
+    const body = a.body && a.body !== true ? String(a.body).replace(/\\n/g, '\n') : a['body-file'] && a['body-file'] !== true ? fs.readFileSync(String(a['body-file']), 'utf8') : (process.stdin.isTTY ? '' : readStdin());
+    if (!a.title || !body.trim()) { console.error('uso: note --type T --title "..." --body "texto" [--body-file arquivo] [--project P --summary S --tags a,b --keywords k]'); process.exit(2); }
     const proj = a.project || detectProject(process.cwd())?.name || '';
     const f = writeNote({ type: a.type, title: String(a.title), project: proj, summary: a.summary === true ? '' : a.summary, tags: a.tags, keywords: a.keywords, body, root: detectProject(process.cwd())?.root });
     reindex(); console.log(`registrado: ${rel(f)}`);

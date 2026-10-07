@@ -26,9 +26,9 @@ Motor: \`node "${BRAIN}"\`
 
 Regras permanentes (execute sem o usuário pedir e sem pedir permissão):
 1. **Antes** de qualquer tarefa nova: rode \`node "${BRAIN}" recall "<resumo da tarefa>"\` e leia (Read) as notas relevantes — padrões, decisões, preferências e stack de QUALQUER projeto. (No Claude Code isso já chega injetado por hook; no Codex faça manualmente.)
-2. **Depois** de entregar qualquer trabalho, registre o aprendizado:
-   \`node "${BRAIN}" note --type <decisao|padrao|preferencia|stack|aprendizado|projeto> --title "<título>" --project "<projeto>" --summary "<1 linha>" --tags "a,b" --keywords "k1,k2" <<'EOF'\`
-   \`<markdown: o que, por quê, trade-offs, como reutilizar>\` / \`EOF\`
+2. **Depois** de entregar qualquer trabalho, registre o aprendizado (sem heredoc, funciona em PowerShell/cmd/bash):
+   \`node "${BRAIN}" note --type <decisao|padrao|preferencia|stack|aprendizado> --title "<título>" --project "<projeto>" --summary "<1 linha>" --tags "a,b" --keywords "k1,k2" --body "<markdown: o que, por quê, trade-offs, como reutilizar>"\`
+   Texto longo: \`--body-file "<arquivo>"\`. Crie notas SEPARADAS por tipo (decisao, padrao, stack, preferencia, aprendizado); use \`--type projeto\` SOMENTE para a visão geral do projeto, nunca para decisões/padrões.
    Atualize notas existentes (mesmo título) em vez de duplicar. Nunca grave segredos.
 3. Preferências reveladas pelo usuário (estilo, ferramentas, idioma, forma de trabalhar) viram nota \`--type preferencia\`.
 ${END}
