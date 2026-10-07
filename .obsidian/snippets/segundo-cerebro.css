@@ -1,0 +1,34 @@
+/* Segundo Cérebro — cores por tipo (explorador, tags e propriedades) */
+:root{--sb-projeto:#4F8EF7;--sb-padrao:#A855F7;--sb-decisao:#F59E0B;--sb-preferencia:#EC4899;--sb-stack:#10B981;--sb-aprendizado:#06B6D4;--sb-sessao:#9CA3AF;--sb-indice:#FACC15;}
+.nav-folder-title[data-path="01-Projetos"],.nav-folder-title[data-path^="01-Projetos/"]{color:var(--sb-projeto);font-weight:600}
+.nav-file-title[data-path^="01-Projetos/"]{border-left:3px solid var(--sb-projeto);border-radius:0 4px 4px 0}
+a.tag[href^="#tipo/projeto"]{background:color-mix(in srgb,var(--sb-projeto) 22%,transparent);color:var(--sb-projeto);border-color:var(--sb-projeto)}
+.markdown-rendered[data-type="projeto"] h1,.markdown-source-view[data-type="projeto"] .cm-header-1{color:var(--sb-projeto)}
+.nav-folder-title[data-path="02-Padroes"],.nav-folder-title[data-path^="02-Padroes/"]{color:var(--sb-padrao);font-weight:600}
+.nav-file-title[data-path^="02-Padroes/"]{border-left:3px solid var(--sb-padrao);border-radius:0 4px 4px 0}
+a.tag[href^="#tipo/padrao"]{background:color-mix(in srgb,var(--sb-padrao) 22%,transparent);color:var(--sb-padrao);border-color:var(--sb-padrao)}
+.markdown-rendered[data-type="padrao"] h1,.markdown-source-view[data-type="padrao"] .cm-header-1{color:var(--sb-padrao)}
+.nav-folder-title[data-path="03-Decisoes"],.nav-folder-title[data-path^="03-Decisoes/"]{color:var(--sb-decisao);font-weight:600}
+.nav-file-title[data-path^="03-Decisoes/"]{border-left:3px solid var(--sb-decisao);border-radius:0 4px 4px 0}
+a.tag[href^="#tipo/decisao"]{background:color-mix(in srgb,var(--sb-decisao) 22%,transparent);color:var(--sb-decisao);border-color:var(--sb-decisao)}
+.markdown-rendered[data-type="decisao"] h1,.markdown-source-view[data-type="decisao"] .cm-header-1{color:var(--sb-decisao)}
+.nav-folder-title[data-path="04-Preferencias"],.nav-folder-title[data-path^="04-Preferencias/"]{color:var(--sb-preferencia);font-weight:600}
+.nav-file-title[data-path^="04-Preferencias/"]{border-left:3px solid var(--sb-preferencia);border-radius:0 4px 4px 0}
+a.tag[href^="#tipo/preferencia"]{background:color-mix(in srgb,var(--sb-preferencia) 22%,transparent);color:var(--sb-preferencia);border-color:var(--sb-preferencia)}
+.markdown-rendered[data-type="preferencia"] h1,.markdown-source-view[data-type="preferencia"] .cm-header-1{color:var(--sb-preferencia)}
+.nav-folder-title[data-path="05-Stack"],.nav-folder-title[data-path^="05-Stack/"]{color:var(--sb-stack);font-weight:600}
+.nav-file-title[data-path^="05-Stack/"]{border-left:3px solid var(--sb-stack);border-radius:0 4px 4px 0}
+a.tag[href^="#tipo/stack"]{background:color-mix(in srgb,var(--sb-stack) 22%,transparent);color:var(--sb-stack);border-color:var(--sb-stack)}
+.markdown-rendered[data-type="stack"] h1,.markdown-source-view[data-type="stack"] .cm-header-1{color:var(--sb-stack)}
+.nav-folder-title[data-path="06-Aprendizados"],.nav-folder-title[data-path^="06-Aprendizados/"]{color:var(--sb-aprendizado);font-weight:600}
+.nav-file-title[data-path^="06-Aprendizados/"]{border-left:3px solid var(--sb-aprendizado);border-radius:0 4px 4px 0}
+a.tag[href^="#tipo/aprendizado"]{background:color-mix(in srgb,var(--sb-aprendizado) 22%,transparent);color:var(--sb-aprendizado);border-color:var(--sb-aprendizado)}
+.markdown-rendered[data-type="aprendizado"] h1,.markdown-source-view[data-type="aprendizado"] .cm-header-1{color:var(--sb-aprendizado)}
+.nav-folder-title[data-path="07-Sessoes"],.nav-folder-title[data-path^="07-Sessoes/"]{color:var(--sb-sessao);font-weight:600}
+.nav-file-title[data-path^="07-Sessoes/"]{border-left:3px solid var(--sb-sessao);border-radius:0 4px 4px 0}
+a.tag[href^="#tipo/sessao"]{background:color-mix(in srgb,var(--sb-sessao) 22%,transparent);color:var(--sb-sessao);border-color:var(--sb-sessao)}
+.markdown-rendered[data-type="sessao"] h1,.markdown-source-view[data-type="sessao"] .cm-header-1{color:var(--sb-sessao)}
+.nav-folder-title[data-path="00-Indices"],.nav-folder-title[data-path^="00-Indices/"]{color:var(--sb-indice);font-weight:600}
+.nav-file-title[data-path^="00-Indices/"]{border-left:3px solid var(--sb-indice);border-radius:0 4px 4px 0}
+a.tag[href^="#tipo/indice"]{background:color-mix(in srgb,var(--sb-indice) 22%,transparent);color:var(--sb-indice);border-color:var(--sb-indice)}
+.markdown-rendered[data-type="indice"] h1,.markdown-source-view[data-type="indice"] .cm-header-1{color:var(--sb-indice)}

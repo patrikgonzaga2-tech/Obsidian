@@ -1,0 +1,86 @@
+{
+  "collapse-filter": true,
+  "search": "-path:_sistema -path:99-Templates -path:07-Sessoes",
+  "showTags": false,
+  "showAttachments": false,
+  "hideUnresolved": false,
+  "showOrphans": true,
+  "collapse-color-groups": false,
+  "colorGroups": [
+    {
+      "query": "path:\"01-Projetos\"",
+      "color": {
+        "a": 1,
+        "rgb": 5213943
+      }
+    },
+    {
+      "query": "path:\"02-Padroes\"",
+      "color": {
+        "a": 1,
+        "rgb": 11032055
+      }
+    },
+    {
+      "query": "path:\"03-Decisoes\"",
+      "color": {
+        "a": 1,
+        "rgb": 16096779
+      }
+    },
+    {
+      "query": "path:\"04-Preferencias\"",
+      "color": {
+        "a": 1,
+        "rgb": 15485081
+      }
+    },
+    {
+      "query": "path:\"05-Stack\"",
+      "color": {
+        "a": 1,
+        "rgb": 1096065
+      }
+    },
+    {
+      "query": "path:\"06-Aprendizados\"",
+      "color": {
+        "a": 1,
+        "rgb": 440020
+      }
+    },
+    {
+      "query": "path:\"07-Sessoes\"",
+      "color": {
+        "a": 1,
+        "rgb": 10265519
+      }
+    },
+    {
+      "query": "path:\"00-Indices\"",
+      "color": {
+        "a": 1,
+        "rgb": 16436245
+      }
+    },
+    {
+      "query": "path:\"99-Templates\"",
+      "color": {
+        "a": 1,
+        "rgb": 7041664
+      }
+    }
+  ],
+  "collapse-display": false,
+  "showArrow": true,
+  "textFadeMultiplier": -0.5,
+  "nodeSizeMultiplier": 1.2,
+  "lineSizeMultiplier": 1,
+  "collapse-forces": true,
+  "centerStrength": 0.4,
+  "repelStrength": 12,
+  "linkStrength": 1,
+  "linkDistance": 200,
+  "scale": 1,
+  "close": false
+}
