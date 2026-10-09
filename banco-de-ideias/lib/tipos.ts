@@ -1,6 +1,6 @@
 // Tipos compartilhados entre servidor e cliente.
 
-export type Status = 'em_andamento' | 'no_ar' | 'pausado'
+export type Status = 'em_andamento' | 'no_ar' | 'pausado' | 'arquivado'
 export type Fase = 'inicio' | 'meio' | 'fim'
 export type Prioridade = 'alta' | 'media' | 'baixa'
 export type Origem = 'manual' | 'audio' | 'github' | 'desktop' | 'chat'
@@ -73,6 +73,7 @@ export const STATUS_LABEL: Record<Status, string> = {
   em_andamento: 'Em andamento',
   no_ar: 'No ar',
   pausado: 'Pausado',
+  arquivado: 'Arquivado',
 }
 
 export const FASE_LABEL: Record<Fase, string> = {

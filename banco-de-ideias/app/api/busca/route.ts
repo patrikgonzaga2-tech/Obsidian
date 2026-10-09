@@ -7,7 +7,7 @@ export async function POST(req: Request) {
   const { q } = (await req.json()) as { q?: string }
   const consulta = (q || '').trim()
   if (!consulta) return NextResponse.json({ modo: 'local', intencao: '', resultados: [] })
-  const ideias = await listarIdeias()
+  const ideias = (await listarIdeias()).filter((i) => i.status !== 'arquivado')
   if (iaConfigurada()) {
     try {
       return NextResponse.json(await buscarComIA(consulta, ideias))

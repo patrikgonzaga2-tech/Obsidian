@@ -6,7 +6,7 @@ create table if not exists public.hub_ideias (
   id               text primary key,
   titulo           text not null,
   categoria        text not null default 'Outro',
-  status           text not null default 'em_andamento' check (status in ('em_andamento', 'no_ar', 'pausado')),
+  status           text not null default 'em_andamento' check (status in ('em_andamento', 'no_ar', 'pausado', 'arquivado')),
   fase             text not null default 'inicio' check (fase in ('inicio', 'meio', 'fim')),
   progresso        int  not null default 0 check (progresso between 0 and 100),
   prioridade       text not null default 'media' check (prioridade in ('alta', 'media', 'baixa')),

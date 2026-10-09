@@ -83,11 +83,13 @@ const COR_STATUS: Record<Status, string> = {
   em_andamento: 'bg-laranja-500',
   no_ar: 'bg-verde-500',
   pausado: 'bg-slate-400',
+  arquivado: 'bg-slate-300',
 }
 const PILL_STATUS: Record<Status, string> = {
   em_andamento: 'bg-laranja-100 text-laranja-700',
   no_ar: 'bg-verde-100 text-verde-700',
   pausado: 'bg-slate-100 text-slate-600',
+  arquivado: 'bg-slate-100 text-slate-500',
 }
 
 export function BolinhaStatus({ status, className = '' }: { status: Status; className?: string }) {

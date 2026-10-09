@@ -1,6 +1,6 @@
 'use client'
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
-import { Lightbulb, Mic, PanelLeft, Plus, Rocket, X } from 'lucide-react'
+import { Lightbulb, Mic, PanelLeft, Plus, Rocket, Undo2, X } from 'lucide-react'
 import type { Conexao, ConexaoId, Ideia, RespostaBusca, Status } from '@/lib/tipos'
 import { faseDoProgresso, progressoDasTarefas } from '@/lib/tipos'
 import { buscarLocal } from '@/lib/busca-local'
@@ -52,7 +52,9 @@ export default function Hub({
   const [novaIdeia, setNovaIdeia] = useState(false)
   const [conexaoAberta, setConexaoAberta] = useState<ConexaoId | null>(null)
   const [sidebarMobile, setSidebarMobile] = useState(false)
-  const [aviso, setAviso] = useState(erroInicial ? `Erro ao carregar ideias: ${erroInicial}` : '')
+  const [aviso, setAviso] = useState<{ texto: string; desfazer?: () => void } | null>(
+    erroInicial ? { texto: `Erro ao carregar ideias: ${erroInicial}` } : null
+  )
   const timerBusca = useRef<ReturnType<typeof setTimeout> | null>(null)
   const ultimaConsulta = useRef('')
 
@@ -60,9 +62,10 @@ export default function Hub({
 
   const selecionada = ideias.find((i) => i.id === selecionadaId) ?? null
 
-  const avisar = useCallback((msg: string) => {
-    setAviso(msg)
-    setTimeout(() => setAviso((a) => (a === msg ? '' : a)), 4000)
+  const avisar = useCallback((texto: string, desfazer?: () => void) => {
+    const novo = { texto, desfazer }
+    setAviso(novo)
+    setTimeout(() => setAviso((a) => (a === novo ? null : a)), desfazer ? 7000 : 4000)
   }, [])
 
   const recarregar = useCallback(async () => {
@@ -120,6 +123,32 @@ export default function Hub({
     [avisar, recarregar]
   )
 
+  // ações rápidas do card: pausar, arquivar, retomar (com "Desfazer")
+  const mudarStatus = useCallback(
+    (id: string, status: Status) => {
+      const atual = ideiasRef.current.find((i) => i.id === id)
+      if (!atual || atual.status === status) return
+      const anterior = { status: atual.status, progresso: atual.progresso, fase: atual.fase }
+      atualizar(id, { status })
+      const texto =
+        status === 'arquivado'
+          ? `“${atual.titulo}” arquivada — saiu do painel.`
+          : status === 'pausado'
+            ? `“${atual.titulo}” em stand-by (Pausadas).`
+            : `“${atual.titulo}” de volta ao andamento.`
+      avisar(texto, () => atualizar(id, anterior))
+    },
+    [atualizar, avisar]
+  )
+
+  const excluirComAviso = useCallback(
+    (i: Ideia) => {
+      excluir(i.id)
+      avisar(`“${i.titulo}” excluída.`)
+    },
+    [excluir, avisar]
+  )
+
   const abrir = useCallback((id: string, conversa = false) => {
     setSelecionadaId(id)
     setAbrirConversa(conversa)
@@ -137,7 +166,7 @@ export default function Hub({
         setBuscandoIA(false)
         return
       }
-      setBusca(buscarLocal(limpa, ideias)) // instantâneo
+      setBusca(buscarLocal(limpa, ideias.filter((i) => i.status !== 'arquivado'))) // instantâneo
       if (!config.ia) return
       const disparar = async () => {
         ultimaConsulta.current = limpa
@@ -180,11 +209,14 @@ export default function Hub({
       em_andamento: ideias.filter((i) => i.status === 'em_andamento').length,
       no_ar: noAr.length,
       pausado: ideias.filter((i) => i.status === 'pausado').length,
+      arquivado: ideias.filter((i) => i.status === 'arquivado').length,
     }),
     [ideias, noAr]
   )
   const grade = useMemo(() => {
-    const lista = ideias.filter((i) => (filtro === 'todas' ? i.status !== 'no_ar' : i.status === filtro))
+    const lista = ideias.filter((i) =>
+      filtro === 'todas' ? i.status === 'em_andamento' || i.status === 'pausado' : i.status === filtro
+    )
     return [...lista].sort((a, b) => {
       if (ordem === 'progresso') return b.progresso - a.progresso
       if (ordem === 'recentes') return b.atualizado_em.localeCompare(a.atualizado_em)
@@ -276,7 +308,16 @@ export default function Hub({
               {resultados.length ? (
                 <div className="grid gap-4 sm:grid-cols-2 2xl:grid-cols-3">
                   {resultados.map(({ ideia, motivo }, n) => (
-                    <CardIdeia key={ideia.id} ideia={ideia} motivo={motivo} destaque={n === 0} onAbrir={() => abrir(ideia.id)} indice={n} />
+                    <CardIdeia
+                      key={ideia.id}
+                      ideia={ideia}
+                      motivo={motivo}
+                      destaque={n === 0}
+                      onAbrir={() => abrir(ideia.id)}
+                      onStatus={(s) => mudarStatus(ideia.id, s)}
+                      onExcluir={() => excluirComAviso(ideia)}
+                      indice={n}
+                    />
                   ))}
                 </div>
               ) : (
@@ -296,6 +337,9 @@ export default function Hub({
                       ['em_andamento', `Em andamento · ${contagem.em_andamento}`],
                       ['pausado', `Pausadas · ${contagem.pausado}`],
                       ['no_ar', `No ar · ${contagem.no_ar}`],
+                      ...(contagem.arquivado || filtro === 'arquivado'
+                        ? [['arquivado', `Arquivadas · ${contagem.arquivado}`]]
+                        : []),
                     ] as [Filtro, string][]
                   ).map(([f, label]) => (
                     <button
@@ -322,8 +366,17 @@ export default function Hub({
                 {grade.length ? (
                   <div className="grid gap-4 sm:grid-cols-2 2xl:grid-cols-3">
                     {grade.map((i, n) => (
-                      <CardIdeia key={i.id} ideia={i} onAbrir={() => abrir(i.id)} onConversar={() => abrir(i.id, true)} indice={n} />
+                      <CardIdeia
+                        key={i.id}
+                        ideia={i}
+                        onAbrir={() => abrir(i.id)}
+                        onConversar={() => abrir(i.id, true)}
+                        onStatus={(s) => mudarStatus(i.id, s)}
+                        onExcluir={() => excluirComAviso(i)}
+                        indice={n}
+                      />
                     ))}
+                    {filtro !== 'arquivado' && (
                     <button
                       onClick={() => setNovaIdeia(true)}
                       className="group flex min-h-56 flex-col items-center justify-center gap-3 rounded-3xl border-2 border-dashed border-verde-900/12 text-tinta-suave transition-colors hover:border-laranja-300 hover:bg-white/50 hover:text-laranja-600"
@@ -331,9 +384,16 @@ export default function Hub({
                       <Icone3D icone={Plus} tamanho={52} de="#fdba74" ate="#f97316" />
                       <span className="text-sm font-bold">Ditar uma nova ideia</span>
                     </button>
+                    )}
                   </div>
                 ) : (
-                  <Vazio texto="Nenhuma ideia aqui ainda." />
+                  <Vazio
+                    texto={
+                      filtro === 'arquivado'
+                        ? 'Nenhuma ideia arquivada.'
+                        : 'Nenhuma ideia aqui ainda.'
+                    }
+                  />
                 )}
               </section>
             </>
@@ -380,9 +440,20 @@ export default function Hub({
           aviso ? 'translate-y-0 opacity-100' : 'pointer-events-none translate-y-4 opacity-0'
         }`}
       >
-        <div className="flex items-center gap-2 rounded-2xl bg-tinta px-4 py-3 text-sm font-semibold text-white shadow-2xl">
-          <Rocket size={16} className="text-laranja-300" />
-          {aviso}
+        <div className="flex w-max max-w-[min(calc(100vw-32px),34rem)] items-center gap-2 rounded-2xl bg-tinta px-4 py-3 text-sm font-semibold text-white shadow-2xl">
+          <Rocket size={16} className="shrink-0 text-laranja-300" />
+          <span className="min-w-0">{aviso?.texto}</span>
+          {aviso?.desfazer && (
+            <button
+              onClick={() => {
+                aviso.desfazer?.()
+                setAviso(null)
+              }}
+              className="ml-2 flex shrink-0 items-center gap-1 rounded-lg bg-white/10 px-2.5 py-1 text-xs font-bold text-laranja-200 hover:bg-white/20"
+            >
+              <Undo2 size={13} /> Desfazer
+            </button>
+          )}
         </div>
       </div>
     </div>

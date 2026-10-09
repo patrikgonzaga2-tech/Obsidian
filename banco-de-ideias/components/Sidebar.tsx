@@ -2,7 +2,7 @@
 import type { Conexao, ConexaoId, Ideia } from '@/lib/tipos'
 import { BarraProgresso, BolinhaStatus, ICONE_CONEXAO, Icone3D, StatusConexao } from './ui'
 
-const ORDEM_STATUS = { em_andamento: 0, pausado: 1, no_ar: 2 }
+const ORDEM_STATUS = { em_andamento: 0, pausado: 1, no_ar: 2, arquivado: 3 }
 
 export default function Sidebar({
   ideias,
@@ -21,7 +21,7 @@ export default function Sidebar({
   onAbrirIdeia: (id: string) => void
   onAbrirConexao: (id: ConexaoId) => void
 }) {
-  const lista = [...ideias].sort((a, b) => ORDEM_STATUS[a.status] - ORDEM_STATUS[b.status] || b.progresso - a.progresso)
+  const lista = ideias.filter((i) => i.status !== 'arquivado').sort((a, b) => ORDEM_STATUS[a.status] - ORDEM_STATUS[b.status] || b.progresso - a.progresso)
   return (
     <>
       <div
@@ -68,7 +68,7 @@ export default function Sidebar({
         {/* ideias */}
         <section className="px-3 pb-6">
           <h3 className="mb-1.5 flex items-center px-2 text-[11px] font-extrabold uppercase tracking-[0.12em] text-tinta-suave">
-            Ideias <span className="ml-auto rounded-full bg-verde-100 px-2 py-0.5 text-verde-700">{ideias.length}</span>
+            Ideias <span className="ml-auto rounded-full bg-verde-100 px-2 py-0.5 text-verde-700">{lista.length}</span>
           </h3>
           <ul className="space-y-0.5">
             {lista.map((i) => (

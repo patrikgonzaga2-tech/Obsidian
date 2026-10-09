@@ -208,9 +208,10 @@ async function anexarHistorico(id: string, novas: Mensagem[]) {
 
 // ---------- busca ----------
 async function buscar(q: string): Promise<RespostaBusca> {
-  const local = buscarLocal(q, lista())
+  const visiveis = lista().filter((i) => i.status !== 'arquivado')
+  const local = buscarLocal(q, visiveis)
   if (!q.trim() || !iaDisponivel()) return local
-  const catalogo = lista().map((i) => ({
+  const catalogo = visiveis.map((i) => ({
     id: i.id,
     titulo: i.titulo,
     categoria: i.categoria,
