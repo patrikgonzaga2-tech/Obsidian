@@ -16,6 +16,10 @@ import { Icone3D } from './ui'
 export interface Config {
   ia: boolean
   transcricaoServidor: boolean
+  /** false quando o navegador/host não libera o microfone (ex.: artifact no Claude) */
+  microfone?: boolean
+  /** false: a busca com IA só roda no Enter (cada busca gasta uso) */
+  buscaIAAutomatica?: boolean
 }
 
 type Filtro = 'todas' | Status
@@ -27,11 +31,14 @@ export default function Hub({
   conexoesIniciais,
   config,
   erroInicial,
+  assinar,
 }: {
   ideiasIniciais: Ideia[]
   conexoesIniciais: Conexao[]
   config: Config
   erroInicial?: string
+  /** atualizações ao vivo vindas do armazenamento (retorna o cancelamento) */
+  assinar?: (aoMudar: (ideias: Ideia[]) => void) => () => void
 }) {
   const [ideias, setIdeias] = useState(ideiasIniciais)
   const [conexoes, setConexoes] = useState(conexoesIniciais)
@@ -48,6 +55,8 @@ export default function Hub({
   const [aviso, setAviso] = useState(erroInicial ? `Erro ao carregar ideias: ${erroInicial}` : '')
   const timerBusca = useRef<ReturnType<typeof setTimeout> | null>(null)
   const ultimaConsulta = useRef('')
+
+  useEffect(() => assinar?.(setIdeias), [assinar])
 
   const selecionada = ideias.find((i) => i.id === selecionadaId) ?? null
 
@@ -146,9 +155,9 @@ export default function Hub({
         }
       }
       if (imediato) disparar()
-      else timerBusca.current = setTimeout(disparar, 900)
+      else if (config.buscaIAAutomatica !== false) timerBusca.current = setTimeout(disparar, 900)
     },
-    [config.ia, ideias]
+    [config.ia, config.buscaIAAutomatica, ideias]
   )
 
   // atalhos: "/" foca a busca (no componente), "Esc" fecha o que estiver aberto
@@ -206,7 +215,7 @@ export default function Hub({
           </button>
           <div className="flex items-center gap-2.5">
             <Icone3D icone={Lightbulb} tamanho={38} de="#34d483" ate="#059651" />
-            <div className="hidden leading-tight sm:block">
+            <div className="hidden whitespace-nowrap leading-tight md:block">
               <div className="text-[15px] font-extrabold tracking-tight">Banco de Ideias</div>
               <div className="text-[11px] font-medium text-tinta-suave">centro de comando</div>
             </div>
@@ -247,7 +256,13 @@ export default function Hub({
                     busca.modo === 'ia' ? 'bg-laranja-100 text-laranja-700' : 'bg-verde-100 text-verde-700'
                   }`}
                 >
-                  {busca.modo === 'ia' ? 'busca semântica (IA)' : buscandoIA ? 'refinando com IA…' : 'busca local'}
+                  {busca.modo === 'ia'
+                    ? 'busca semântica (IA)'
+                    : buscandoIA
+                      ? 'refinando com IA…'
+                      : config.ia && config.buscaIAAutomatica === false
+                        ? 'busca local · Enter para a IA'
+                        : 'busca local'}
                 </span>
                 <button onClick={() => buscar('')} className="ml-auto flex items-center gap-1 text-sm font-semibold text-tinta-suave hover:text-tinta">
                   <X size={15} /> limpar

@@ -101,7 +101,11 @@ export default function AgenteConexao({
                     <pre className="whitespace-pre-wrap rounded-xl bg-tinta px-3 py-2.5 pr-9 font-mono text-[11.5px] leading-relaxed text-verde-100">{p.ajuda}</pre>
                     <button
                       onClick={async () => {
-                        await navigator.clipboard.writeText(p.ajuda!)
+                        try {
+                          await navigator.clipboard.writeText(p.ajuda!)
+                        } catch {
+                          return
+                        }
                         setCopiado(n)
                         setTimeout(() => setCopiado(null), 1500)
                       }}

@@ -69,7 +69,7 @@ export default function ModalNovaIdeia({
 
   useEffect(() => {
     if (aberto) {
-      setEtapa('pronto')
+      setEtapa(config.microfone === false ? 'digitar' : 'pronto')
       setTranscricao('')
       setParcial('')
       setErro('')
@@ -83,7 +83,7 @@ export default function ModalNovaIdeia({
       }
       limpar()
     }
-  }, [aberto, limpar])
+  }, [aberto, limpar, config.microfone])
 
   const organizar = useCallback(
     async (texto: string) => {
@@ -230,7 +230,11 @@ export default function ModalNovaIdeia({
         <div className="relative px-8 pb-8 pt-9 text-center">
           <h2 className="text-2xl font-extrabold tracking-tight">Nova ideia</h2>
           <p className="mt-1 text-sm text-tinta-suave">
-            {etapa === 'digitar' ? 'Escreva do seu jeito — a IA organiza.' : 'Fale à vontade. Eu transcrevo, organizo e crio o card.'}
+            {etapa !== 'digitar'
+              ? 'Fale à vontade. Eu transcrevo, organizo e crio o card.'
+              : config.microfone === false
+                ? 'Toque no microfone do teclado (celular) ou use o ditado do sistema e fale — a IA organiza.'
+                : 'Escreva do seu jeito — a IA organiza.'}
           </p>
 
           {etapa === 'digitar' ? (
@@ -326,7 +330,12 @@ export default function ModalNovaIdeia({
             </>
           )}
           <p className="mt-6 text-[11px] text-tinta-suave/80">
-            Transcrição: {config.transcricaoServidor ? 'Whisper (servidor)' : 'reconhecimento de voz do navegador'} · Organização:{' '}
+            Transcrição:{' '}
+            {config.microfone === false
+              ? 'ditado do teclado'
+              : config.transcricaoServidor
+                ? 'Whisper (servidor)'
+                : 'reconhecimento de voz do navegador'} · Organização:{' '}
             {config.ia ? 'Claude' : 'automática (sem IA)'}
           </p>
         </div>

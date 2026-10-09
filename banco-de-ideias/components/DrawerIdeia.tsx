@@ -182,12 +182,7 @@ export default function DrawerIdeia({
                     />
                   </section>
 
-                  <button
-                    onClick={() => confirm(`Excluir “${i.titulo}”? Isso apaga também o histórico de conversa.`) && onExcluir(i.id)}
-                    className="flex items-center gap-1.5 text-xs font-semibold text-slate-400 hover:text-red-500"
-                  >
-                    <Trash size={13} /> Excluir ideia
-                  </button>
+                  <BotaoExcluir key={`del-${i.id}`} onConfirmar={() => onExcluir(i.id)} />
                 </div>
 
                 {/* ações */}
@@ -220,6 +215,27 @@ export default function DrawerIdeia({
         )}
       </aside>
     </>
+  )
+}
+
+function BotaoExcluir({ onConfirmar }: { onConfirmar: () => void }) {
+  const [certeza, setCerteza] = useState(false)
+  if (!certeza)
+    return (
+      <button onClick={() => setCerteza(true)} className="flex items-center gap-1.5 text-xs font-semibold text-slate-400 hover:text-red-500">
+        <Trash size={13} /> Excluir ideia
+      </button>
+    )
+  return (
+    <div className="flex flex-wrap items-center gap-2 rounded-2xl bg-red-50 px-3 py-2 text-xs font-semibold text-red-700">
+      Apagar a ideia e o histórico de conversa?
+      <button onClick={onConfirmar} className="rounded-lg bg-red-600 px-2.5 py-1 text-white hover:bg-red-700">
+        Excluir
+      </button>
+      <button onClick={() => setCerteza(false)} className="rounded-lg px-2 py-1 text-red-700 hover:bg-red-100">
+        Cancelar
+      </button>
+    </div>
   )
 }
 

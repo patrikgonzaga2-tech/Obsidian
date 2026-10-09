@@ -151,7 +151,7 @@ const SEMENTES: Semente[] = [
       t('Página de pós-compra levando ao grupo', true),
       t('Rotina diária de status das campanhas'),
     ],
-    url_produto: null,
+    url_produto: 'https://www.laurarosapersonal.com/efeito-lipo-quiz',
     repo: 'patrikgonzaga2-tech/LR_LauraRosaPersonal',
     origem: 'manual',
   },

@@ -1,0 +1,6 @@
+@import '../app/globals.css';
+
+/* dentro do Claude: o cabeçalho fixo respeita a área segura do celular */
+header.sticky {
+  top: env(safe-area-inset-top, 0px);
+}

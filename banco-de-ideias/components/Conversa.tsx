@@ -81,7 +81,12 @@ export default function Conversa({ ideia, config, onHistorico }: { ideia: Ideia;
 
   const prompt = promptRetomada(ideia)
   const copiar = async () => {
-    await navigator.clipboard.writeText(prompt)
+    try {
+      await navigator.clipboard.writeText(prompt)
+    } catch {
+      setVerContexto(true) // sem área de transferência: mostra o texto para copiar à mão
+      return
+    }
     setCopiado(true)
     setTimeout(() => setCopiado(false), 2000)
   }
@@ -140,7 +145,7 @@ export default function Conversa({ ideia, config, onHistorico }: { ideia: Ideia;
             <div key={m.id} className="flex gap-2.5">
               <Icone3D categoria="ia" tamanho={30} />
               <div className="max-w-[85%] whitespace-pre-wrap rounded-3xl rounded-tl-lg bg-white px-4 py-3 text-sm leading-relaxed shadow-sm ring-1 ring-verde-900/6">
-                {m.conteudo || (
+                {m.conteudo ? formatar(m.conteudo) : (
                   <span className="flex gap-1 py-1">
                     {[0, 1, 2].map((n) => (
                       <span key={n} className="size-1.5 animate-bounce rounded-full bg-verde-400" style={{ animationDelay: `${n * 120}ms` }} />
@@ -187,5 +192,20 @@ export default function Conversa({ ideia, config, onHistorico }: { ideia: Ideia;
         </div>
       </form>
     </div>
+  )
+}
+
+/** Markdown mínimo das respostas: **negrito** e `código`. O resto fica como texto. */
+function formatar(texto: string) {
+  return texto.split(/(\*\*[^*]+\*\*|`[^`]+`)/g).map((parte, n) =>
+    parte.startsWith('**') && parte.endsWith('**') && parte.length > 4 ? (
+      <b key={n}>{parte.slice(2, -2)}</b>
+    ) : parte.startsWith('`') && parte.endsWith('`') && parte.length > 2 ? (
+      <code key={n} className="rounded bg-verde-50 px-1 text-[13px]">
+        {parte.slice(1, -1)}
+      </code>
+    ) : (
+      parte
+    )
   )
 }

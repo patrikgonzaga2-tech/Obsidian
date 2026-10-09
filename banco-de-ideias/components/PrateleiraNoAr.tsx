@@ -38,10 +38,11 @@ export default function PrateleiraNoAr({ ideias, onDetalhes }: { ideias: Ideia[]
                 className="group relative w-64 shrink-0 animate-entrar snap-start overflow-hidden rounded-3xl p-[1.5px] transition-transform duration-500 ease-[var(--ease-mola)] hover:-translate-y-1"
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-verde-300 via-verde-500 to-laranja-400" />
-                <button
-                  onClick={() => (temUrl ? window.open(i.url_produto!, '_blank', 'noopener') : onDetalhes(i.id))}
-                  className="relative flex h-full w-full flex-col rounded-[22px] bg-gradient-to-br from-white via-white to-verde-50 p-4 text-left shadow-[0_18px_30px_-18px_rgb(5_150_81/.6)]"
-                >
+                {(() => {
+                  const classe =
+                    'relative flex h-full w-full flex-col rounded-[22px] bg-gradient-to-br from-white via-white to-verde-50 p-4 text-left shadow-[0_18px_30px_-18px_rgb(5_150_81/.6)]'
+                  const conteudo = (
+                    <>
                   <div className="flex items-center gap-3">
                     <Icone3D categoria={i.categoria} tamanho={44} />
                     <div className="min-w-0">
@@ -65,7 +66,18 @@ export default function PrateleiraNoAr({ ideias, onDetalhes }: { ideias: Ideia[]
                       'Adicionar link'
                     )}
                   </span>
-                </button>
+                    </>
+                  )
+                  return temUrl ? (
+                    <a href={i.url_produto!} target="_blank" rel="noopener noreferrer" className={classe}>
+                      {conteudo}
+                    </a>
+                  ) : (
+                    <button onClick={() => onDetalhes(i.id)} className={classe}>
+                      {conteudo}
+                    </button>
+                  )
+                })()}
                 <button
                   onClick={() => onDetalhes(i.id)}
                   className="absolute right-3 top-3 grid size-7 place-items-center rounded-lg bg-white/90 text-tinta-suave opacity-0 shadow ring-1 ring-verde-900/8 transition-opacity group-hover:opacity-100"

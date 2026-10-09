@@ -63,3 +63,19 @@ conexão Desktop só funciona rodando localmente.
 
 > O painel não tem login. Se publicar, proteja o projeto (Vercel → Settings → Deployment Protection)
 > — as rotas de API usam a chave service_role do Supabase e a da Anthropic.
+
+## Versão dentro do Claude (artifact)
+
+`artifact/` empacota o mesmo painel num arquivo só (`artifact/dist/banco-de-ideias.html`) para abrir na
+lateral do Claude, sem servidor e sem chave de API:
+
+- ideias e histórico ficam no banco do próprio artifact (o Claude Code também lê e escreve nele);
+- busca com IA, organização da ideia e conversa usam o Claude da conta de quem abre (o Claude pede
+  permissão no primeiro uso);
+- o microfone não é liberado dentro do Claude: a "nova ideia" usa o ditado do teclado.
+
+```bash
+node artifact/build.mjs   # gera artifact/dist/banco-de-ideias.html
+```
+
+`artifact/backend.ts` atende as mesmas rotas `/api/*` do app, então os componentes são os mesmos.
