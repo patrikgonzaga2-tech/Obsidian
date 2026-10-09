@@ -18,6 +18,7 @@ export function contextoDaIdeia(i: Ideia, historico: Mensagem[] = []): string {
     '',
     i.resumo_detalhado ? `## Detalhes\n${i.resumo_detalhado}\n` : '',
     i.como_usar ? `## Como usar\n${i.como_usar}\n` : '',
+    i.passos_uso?.length ? `## Passo a passo de uso\n${i.passos_uso.map((p, n) => `${n + 1}. ${p}`).join('\n')}\n` : '',
     i.links?.length ? `## Links\n${i.links.map((l) => `- ${l.rotulo}: ${l.url}`).join('\n')}\n` : '',
     i.comandos?.length
       ? `## Comandos que este agente entende\n${i.comandos.map((c) => `- ${c.titulo} (${c.onde}): ${c.texto}`).join('\n')}\n`

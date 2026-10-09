@@ -8,7 +8,7 @@ import BarraBusca from './BarraBusca'
 import Sidebar from './Sidebar'
 import PrateleiraNoAr from './PrateleiraNoAr'
 import CardIdeia from './CardIdeia'
-import DrawerIdeia from './DrawerIdeia'
+import DrawerIdeia, { type Aba } from './DrawerIdeia'
 import ModalNovaIdeia from './ModalNovaIdeia'
 import AgenteConexao from './AgenteConexao'
 import { Icone3D } from './ui'
@@ -43,7 +43,7 @@ export default function Hub({
   const [ideias, setIdeias] = useState(ideiasIniciais)
   const [conexoes, setConexoes] = useState(conexoesIniciais)
   const [selecionadaId, setSelecionadaId] = useState<string | null>(null)
-  const [abrirConversa, setAbrirConversa] = useState(false)
+  const [abaInicial, setAbaInicial] = useState<Aba>('geral')
   const [consulta, setConsulta] = useState('')
   const [busca, setBusca] = useState<RespostaBusca | null>(null)
   const [buscandoIA, setBuscandoIA] = useState(false)
@@ -132,7 +132,7 @@ export default function Hub({
       atualizar(id, { status })
       const texto =
         status === 'arquivado'
-          ? `“${atual.titulo}” arquivada — saiu do painel.`
+          ? `“${atual.titulo}” foi para a Lixeira.`
           : status === 'pausado'
             ? `“${atual.titulo}” em stand-by (Pausadas).`
             : `“${atual.titulo}” de volta ao andamento.`
@@ -149,9 +149,11 @@ export default function Hub({
     [excluir, avisar]
   )
 
-  const abrir = useCallback((id: string, conversa = false) => {
+  // ideias no ar abrem na Descrição (o que fazer antes de abrir o painel); as outras na Visão geral
+  const abrir = useCallback((id: string, aba?: Aba) => {
+    const i = ideiasRef.current.find((x) => x.id === id)
     setSelecionadaId(id)
-    setAbrirConversa(conversa)
+    setAbaInicial(aba ?? (i?.status === 'no_ar' ? 'descricao' : 'geral'))
     setSidebarMobile(false)
   }, [])
 
@@ -329,7 +331,7 @@ export default function Hub({
             </section>
           ) : (
             <>
-              <PrateleiraNoAr ideias={noAr} onDetalhes={(id) => abrir(id)} />
+              <PrateleiraNoAr ideias={noAr} onDetalhes={(id) => abrir(id, 'descricao')} />
 
               <section className="mt-8">
                 <div className="mb-4 flex flex-wrap items-center gap-2">
@@ -340,9 +342,7 @@ export default function Hub({
                       ['em_andamento', `Em andamento · ${contagem.em_andamento}`],
                       ['pausado', `Pausadas · ${contagem.pausado}`],
                       ['no_ar', `No ar · ${contagem.no_ar}`],
-                      ...(contagem.arquivado || filtro === 'arquivado'
-                        ? [['arquivado', `Arquivadas · ${contagem.arquivado}`]]
-                        : []),
+                      ['arquivado', `Lixeira · ${contagem.arquivado}`],
                     ] as [Filtro, string][]
                   ).map(([f, label]) => (
                     <button
@@ -373,7 +373,7 @@ export default function Hub({
                         key={i.id}
                         ideia={i}
                         onAbrir={() => abrir(i.id)}
-                        onConversar={() => abrir(i.id, true)}
+                        onConversar={() => abrir(i.id, 'conversa')}
                         onStatus={(s) => mudarStatus(i.id, s)}
                         onExcluir={() => excluirComAviso(i)}
                         indice={n}
@@ -393,7 +393,7 @@ export default function Hub({
                   <Vazio
                     texto={
                       filtro === 'arquivado'
-                        ? 'Nenhuma ideia arquivada.'
+                        ? 'A Lixeira está vazia. Ideias excluídas ficam aqui até você restaurar ou apagar para sempre.'
                         : 'Nenhuma ideia aqui ainda.'
                     }
                   />
@@ -406,11 +406,12 @@ export default function Hub({
 
       <DrawerIdeia
         ideia={selecionada}
-        abrirConversa={abrirConversa}
+        abaInicial={abaInicial}
         config={config}
         onFechar={() => setSelecionadaId(null)}
         onAtualizar={atualizar}
-        onExcluir={excluir}
+        onStatus={mudarStatus}
+        onExcluir={excluirComAviso}
       />
 
       <ModalNovaIdeia

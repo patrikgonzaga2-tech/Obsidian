@@ -5,7 +5,7 @@ import { FASES, faseDoProgresso, novoId, progressoDasTarefas, STATUS_LABEL } fro
 export const EDITAVEIS: (keyof Ideia)[] = [
   'titulo', 'categoria', 'status', 'fase', 'progresso', 'prioridade',
   'resumo', 'resumo_detalhado', 'tarefas', 'url_produto', 'repo',
-  'como_usar', 'comandos', 'links',
+  'como_usar', 'passos_uso', 'comandos', 'links',
 ]
 
 const STATUS = Object.keys(STATUS_LABEL) as Status[]
@@ -30,6 +30,10 @@ function tarefas(v: unknown): Tarefa[] {
           : null
     )
     .filter((t): t is Tarefa => Boolean(t && t.texto.trim()))
+}
+
+function listaTexto(v: unknown): string[] {
+  return Array.isArray(v) ? v.map(texto).map((x) => x.trim()).filter(Boolean) : []
 }
 
 function comandos(v: unknown): Comando[] {
@@ -63,6 +67,7 @@ export function aplicarRegras(entrada: unknown): Partial<Ideia> {
   if ('progresso' in b && Number.isFinite(Number(b.progresso))) patch.progresso = Math.max(0, Math.min(100, Math.round(Number(b.progresso))))
   if ('tarefas' in b) patch.tarefas = tarefas(b.tarefas)
   if ('comandos' in b) patch.comandos = comandos(b.comandos)
+  if ('passos_uso' in b) patch.passos_uso = listaTexto(b.passos_uso)
   if ('links' in b) patch.links = links(b.links)
   if ('url_produto' in b) patch.url_produto = normalizarUrl(b.url_produto)
   if ('repo' in b) patch.repo = texto(b.repo).trim() || null
@@ -90,6 +95,7 @@ export function normalizarIdeia(d: Partial<Ideia>): Ideia {
     prioridade: PRIORIDADES.includes(d.prioridade as Prioridade) ? (d.prioridade as Prioridade) : 'media',
     tarefas: tarefas(d.tarefas),
     comandos: comandos(d.comandos),
+    passos_uso: listaTexto(d.passos_uso),
     links: links(d.links),
     progresso: Number(d.progresso) || 0,
     titulo: texto(d.titulo) || 'Sem título',

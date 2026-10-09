@@ -8,32 +8,37 @@ import Conversa from './Conversa'
 import { normalizarUrl } from '@/lib/regras'
 import { BarraProgresso, BolinhaStatus, chaveIcone, Icone3D, IndicadorFase } from './ui'
 
+export type Aba = 'descricao' | 'geral' | 'conversa'
+
 export default function DrawerIdeia({
   ideia,
-  abrirConversa,
+  abaInicial,
   config,
   onFechar,
   onAtualizar,
+  onStatus,
   onExcluir,
 }: {
   ideia: Ideia | null
-  abrirConversa: boolean
+  abaInicial: Aba
   config: Config
   onFechar: () => void
   onAtualizar: (id: string, patch: Partial<Ideia>) => void
-  onExcluir: (id: string) => void
+  onStatus: (id: string, s: Status) => void
+  onExcluir: (i: Ideia) => void
 }) {
   // mantém a última ideia durante a animação de saída
   const [visivel, setVisivel] = useState<Ideia | null>(ideia)
-  const [conversa, setConversa] = useState(false)
+  const [aba, setAba] = useState<Aba>('geral')
+  const conversa = aba === 'conversa'
   const [temHistorico, setTemHistorico] = useState(false)
   useEffect(() => {
     if (ideia) setVisivel(ideia)
   }, [ideia])
   const idAtual = ideia?.id
   useEffect(() => {
-    if (idAtual) setConversa(abrirConversa)
-  }, [idAtual, abrirConversa])
+    if (idAtual) setAba(abaInicial)
+  }, [idAtual, abaInicial])
   // a conversa, depois de aberta, fica montada (escondida) enquanto for a mesma ideia:
   // trocar de aba não perde a resposta em andamento nem repete a abertura
   const [conversaDe, setConversaDe] = useState<string | null>(null)
@@ -92,7 +97,9 @@ export default function DrawerIdeia({
                 </button>
               </div>
               <div className="relative mt-4 flex flex-wrap gap-2">
-                {(Object.keys(STATUS_LABEL) as Status[]).map((s) => (
+                {(Object.keys(STATUS_LABEL) as Status[])
+                  .filter((s) => s !== 'arquivado' || i.status === 'arquivado') // Lixeira só aparece se a ideia estiver nela
+                  .map((s) => (
                   <button
                     key={s}
                     onClick={() => onAtualizar(i.id, { status: s })}
@@ -117,18 +124,21 @@ export default function DrawerIdeia({
                 </select>
               </div>
               <div className="relative mt-4 flex rounded-2xl bg-white/70 p-1 ring-1 ring-verde-900/5">
-                {[
-                  ['Visão geral', false],
-                  ['Conversa', true],
-                ].map(([label, v]) => (
+                {(
+                  [
+                    ['Descrição', 'descricao'],
+                    ['Visão geral', 'geral'],
+                    ['Conversa', 'conversa'],
+                  ] as [string, Aba][]
+                ).map(([label, v]) => (
                   <button
-                    key={String(label)}
-                    onClick={() => setConversa(v as boolean)}
+                    key={v}
+                    onClick={() => setAba(v)}
                     className={`flex-1 rounded-xl py-1.5 text-sm font-bold transition-all ${
-                      conversa === v ? 'bg-white text-tinta shadow-sm' : 'text-tinta-suave'
+                      aba === v ? 'bg-white text-tinta shadow-sm' : 'text-tinta-suave'
                     }`}
                   >
-                    {label as string}
+                    {label}
                   </button>
                 ))}
               </div>
@@ -139,14 +149,12 @@ export default function DrawerIdeia({
                 <Conversa key={i.id} ideia={i} config={config} ativa={conversa} onHistorico={() => setTemHistorico(true)} />
               </div>
             )}
-            {!conversa && (
+            {aba === 'descricao' && (
+              <Descricao key={`desc-${i.id}`} ideia={i} temHistorico={temHistorico} onConversar={() => setAba('conversa')} />
+            )}
+            {aba === 'geral' && (
               <>
                 <div className="rolagem-fina flex-1 space-y-6 overflow-y-auto px-6 pb-6 pt-1">
-                  {/* agentes e painéis: como usar, links e comandos prontos */}
-                  {(i.como_usar || i.links?.length || i.comandos?.length) && (
-                    <ComoUsar key={`uso-${i.id}`} comoUsar={i.como_usar} links={i.links ?? []} comandos={i.comandos ?? []} />
-                  )}
-
                   {/* fase */}
                   <section className="rounded-3xl bg-white p-5 ring-1 ring-verde-900/6">
                     <div className="mb-4 flex items-center justify-between">
@@ -202,13 +210,21 @@ export default function DrawerIdeia({
                     />
                   </section>
 
-                  <BotaoExcluir key={`del-${i.id}`} onConfirmar={() => onExcluir(i.id)} />
+                  <BotaoExcluir
+                    key={`del-${i.id}`}
+                    naLixeira={i.status === 'arquivado'}
+                    onLixeira={() => {
+                      onStatus(i.id, 'arquivado')
+                      onFechar()
+                    }}
+                    onApagar={() => onExcluir(i)}
+                  />
                 </div>
 
                 {/* ações */}
                 <div className="flex gap-3 border-t border-verde-900/6 bg-white/80 px-6 py-4 backdrop-blur">
                   <button
-                    onClick={() => setConversa(true)}
+                    onClick={() => setAba('conversa')}
                     className="btn-verde flex flex-1 items-center justify-center gap-2 rounded-2xl px-4 py-3 text-sm font-bold"
                   >
                     <MessagesSquare size={17} />
@@ -238,19 +254,25 @@ export default function DrawerIdeia({
   )
 }
 
-function BotaoExcluir({ onConfirmar }: { onConfirmar: () => void }) {
+function BotaoExcluir({ naLixeira, onLixeira, onApagar }: { naLixeira: boolean; onLixeira: () => void; onApagar: () => void }) {
   const [certeza, setCerteza] = useState(false)
+  if (!naLixeira)
+    return (
+      <button onClick={onLixeira} className="flex items-center gap-1.5 text-xs font-semibold text-slate-400 hover:text-red-500">
+        <Trash size={13} /> Excluir (vai para a Lixeira)
+      </button>
+    )
   if (!certeza)
     return (
       <button onClick={() => setCerteza(true)} className="flex items-center gap-1.5 text-xs font-semibold text-slate-400 hover:text-red-500">
-        <Trash size={13} /> Excluir ideia
+        <Trash size={13} /> Apagar para sempre
       </button>
     )
   return (
     <div className="flex flex-wrap items-center gap-2 rounded-2xl bg-red-50 px-3 py-2 text-xs font-semibold text-red-700">
-      Apagar a ideia e o histórico de conversa?
-      <button onClick={onConfirmar} className="rounded-lg bg-red-600 px-2.5 py-1 text-white hover:bg-red-700">
-        Excluir
+      Apagar para sempre a ideia e a conversa? Não dá para desfazer.
+      <button onClick={onApagar} className="rounded-lg bg-red-600 px-2.5 py-1 text-white hover:bg-red-700">
+        Apagar
       </button>
       <button onClick={() => setCerteza(false)} className="rounded-lg px-2 py-1 text-red-700 hover:bg-red-100">
         Cancelar
@@ -370,6 +392,64 @@ function TextoEditavel({
           : 'bg-white text-tinta-suave ring-1 ring-verde-900/8'
       }`}
     />
+  )
+}
+
+/** Aba Descrição: o que é, o passo a passo de uso, links e comandos — antes de abrir o painel. */
+function Descricao({ ideia: i, temHistorico, onConversar }: { ideia: Ideia; temHistorico: boolean; onConversar: () => void }) {
+  const passos = i.passos_uso ?? []
+  const temUso = Boolean(i.como_usar || passos.length || i.links?.length || i.comandos?.length)
+  return (
+    <>
+      <div className="rolagem-fina flex-1 space-y-6 overflow-y-auto px-6 pb-6 pt-1">
+        <section>
+          <h4 className="mb-2 text-xs font-extrabold uppercase tracking-[0.12em] text-tinta-suave">O que é</h4>
+          <p className="text-sm leading-relaxed text-tinta">{i.resumo_detalhado || i.resumo}</p>
+        </section>
+
+        {passos.length > 0 && (
+          <section>
+            <h4 className="mb-2 text-xs font-extrabold uppercase tracking-[0.12em] text-tinta-suave">Passo a passo · o que você faz</h4>
+            <ol className="space-y-2">
+              {passos.map((p, n) => (
+                <li key={n} className="flex gap-3 rounded-2xl bg-white px-4 py-3 ring-1 ring-verde-900/8">
+                  <span className="btn-laranja grid size-6 shrink-0 place-items-center rounded-full text-[11px] font-extrabold">{n + 1}</span>
+                  <span className="text-sm leading-relaxed">{p}</span>
+                </li>
+              ))}
+            </ol>
+          </section>
+        )}
+
+        {(i.como_usar || i.links?.length || i.comandos?.length) && (
+          <ComoUsar comoUsar={i.como_usar} links={i.links ?? []} comandos={i.comandos ?? []} />
+        )}
+
+        {!temUso && (
+          <p className="rounded-2xl bg-laranja-50 px-4 py-3 text-sm text-laranja-800 ring-1 ring-laranja-200">
+            Esta ideia ainda não tem descrição de uso. Peça numa sessão do Claude Code: “No Banco de Ideias, escreva a descrição
+            de uso de “{i.titulo}”.”
+          </p>
+        )}
+      </div>
+
+      <div className="flex gap-3 border-t border-verde-900/6 bg-white/80 px-6 py-4 backdrop-blur">
+        <button onClick={onConversar} className="btn-verde flex flex-1 items-center justify-center gap-2 rounded-2xl px-4 py-3 text-sm font-bold">
+          <MessagesSquare size={17} />
+          {temHistorico ? 'Continuar conversa' : 'Tirar dúvidas'}
+        </button>
+        {i.url_produto && (
+          <a
+            href={i.url_produto}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-laranja flex flex-1 items-center justify-center gap-2 rounded-2xl px-4 py-3 text-sm font-bold"
+          >
+            {i.status === 'no_ar' ? 'Usar agora' : 'Abrir'} <ArrowUpRight size={17} />
+          </a>
+        )}
+      </div>
+    </>
   )
 }
 

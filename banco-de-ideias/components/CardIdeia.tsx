@@ -1,6 +1,6 @@
 'use client'
 import { useEffect, useRef, useState } from 'react'
-import { Archive, ArrowRight, Ellipsis, MessagesSquare, Pause, Play, Sparkles, Trash } from 'lucide-react'
+import { ArchiveRestore, ArrowRight, Ellipsis, MessagesSquare, Pause, Play, Sparkles, Trash } from 'lucide-react'
 import type { Ideia, Status } from '@/lib/tipos'
 import { BarraProgresso, chaveIcone, Icone3D, IndicadorFase, PillPrioridade, PillStatus } from './ui'
 
@@ -98,7 +98,7 @@ export default function CardIdeia({
   )
 }
 
-/** Menu "⋯" do card: pausar (stand-by), retomar, arquivar (sai do painel) e excluir de vez. */
+/** Menu "⋯" do card: pausar (stand-by), retomar, excluir (vai para a Lixeira) e, na Lixeira, restaurar ou apagar para sempre. */
 function MenuAcoes({ status, onStatus, onExcluir }: { status: Status; onStatus: (s: Status) => void; onExcluir: () => void }) {
   const [aberto, setAberto] = useState(false)
   const [confirmar, setConfirmar] = useState(false)
@@ -125,13 +125,14 @@ function MenuAcoes({ status, onStatus, onExcluir }: { status: Status; onStatus: 
     fechar()
   }
 
+  const naLixeira = status === 'arquivado'
   const itens: { icone: typeof Pause; titulo: string; dica: string; f: () => void; cor?: string }[] = []
   if (status === 'em_andamento' || status === 'no_ar')
-    itens.push({ icone: Pause, titulo: 'Pausar (stand-by)', dica: 'Fica em Pausadas, fora do foco', f: () => onStatus('pausado') })
-  if (status === 'pausado' || status === 'arquivado')
+    itens.push({ icone: Pause, titulo: 'Pausar (stand-by)', dica: 'Fica na aba Pausadas, fora do foco', f: () => onStatus('pausado') })
+  if (status === 'pausado')
     itens.push({ icone: Play, titulo: 'Retomar', dica: 'Volta para Em andamento', f: () => onStatus('em_andamento'), cor: 'text-verde-700' })
-  if (status !== 'arquivado')
-    itens.push({ icone: Archive, titulo: 'Arquivar', dica: 'Sai do painel; recupere em Arquivadas', f: () => onStatus('arquivado') })
+  if (naLixeira)
+    itens.push({ icone: ArchiveRestore, titulo: 'Restaurar', dica: 'Volta para Em andamento', f: () => onStatus('em_andamento'), cor: 'text-verde-700' })
 
   return (
     <div ref={caixa} className="relative" onClick={(e) => e.stopPropagation()} onKeyDown={(e) => e.stopPropagation()}>
@@ -157,12 +158,20 @@ function MenuAcoes({ status, onStatus, onExcluir }: { status: Status; onStatus: 
             </button>
           ))}
           <div className="my-1 h-px bg-verde-900/6" />
-          {confirmar ? (
+          {!naLixeira ? (
+            <button onClick={acao(() => onStatus('arquivado'))} className="flex w-full items-start gap-3 rounded-xl px-3 py-2.5 text-left hover:bg-red-50">
+              <Trash size={16} className="mt-0.5 shrink-0 text-red-500" />
+              <span>
+                <span className="block text-sm font-bold text-red-600">Excluir</span>
+                <span className="block text-xs text-tinta-suave">Vai para a Lixeira; dá para restaurar</span>
+              </span>
+            </button>
+          ) : confirmar ? (
             <div className="rounded-xl bg-red-50 px-3 py-2.5">
-              <p className="text-xs font-semibold text-red-700">Apagar esta ideia e a conversa dela? Não dá para desfazer.</p>
+              <p className="text-xs font-semibold text-red-700">Apagar para sempre esta ideia e a conversa dela? Não dá para desfazer.</p>
               <div className="mt-2 flex gap-2">
                 <button onClick={acao(onExcluir)} className="rounded-lg bg-red-600 px-3 py-1 text-xs font-bold text-white hover:bg-red-700">
-                  Excluir
+                  Apagar
                 </button>
                 <button onClick={() => setConfirmar(false)} className="rounded-lg px-2 py-1 text-xs font-bold text-red-700 hover:bg-red-100">
                   Cancelar
@@ -173,8 +182,8 @@ function MenuAcoes({ status, onStatus, onExcluir }: { status: Status; onStatus: 
             <button onClick={() => setConfirmar(true)} className="flex w-full items-start gap-3 rounded-xl px-3 py-2.5 text-left hover:bg-red-50">
               <Trash size={16} className="mt-0.5 shrink-0 text-red-500" />
               <span>
-                <span className="block text-sm font-bold text-red-600">Excluir de vez</span>
-                <span className="block text-xs text-tinta-suave">Apaga a ideia e o histórico</span>
+                <span className="block text-sm font-bold text-red-600">Apagar para sempre</span>
+                <span className="block text-xs text-tinta-suave">Some a ideia e a conversa; não libera espaço relevante</span>
               </span>
             </button>
           )}

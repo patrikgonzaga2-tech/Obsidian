@@ -50,6 +50,7 @@ const SEMENTES: Semente[] = [
       c('Criativo novo', 'Chat do painel · assunto Criativo novo', 'Crie 2 criativos (feed 4:5 e stories 9:16) para o conjunto <nome>. Ângulo: <ideia>. Só fotos da Laura.', 'Volta como proposta com as imagens prontas. Sem antes e depois, corpo em foco, remédio ou promessa de quilos.'),
       c('Subir campanha no padrão', CC_LR, 'Suba uma campanha no padrão da seção 3.2 de docs/ANALISE_CAMPANHAS_QUIZ.md com os criativos aprovados <letras>, R$ 20/dia por conjunto.', 'ABO, pixel da LP, evento Compra Realizada, sem Audience Network. Depois ligue o complemento do WhatsApp 0948 no Gerenciador.'),
     ],
+    passos_uso: ["Toda manhã, depois das 7h, chega no celular e no e-mail o resumo do dia: gasto, sessões no quiz, vendas e custo por venda.", "Abra o painel de anúncios e leia a \"Análise do dia\": o que melhorou, o que piorou e o que fazer.", "Nas propostas, aprove, peça ajuste (escrevendo uma nota) ou recuse cada uma. Aprovado = pode subir no Meta.", "Veja a aba Criativos: o que pausar, trocar, ajustar ou escalar, com os números de cada anúncio.", "Para pedir algo novo, escreva no chat do painel no assunto certo: Campanha, Criativo novo ou Quiz.", "Quer que aconteça agora e não só às 7h? Copie um comando abaixo e mande numa sessão do Claude Code.", "Toda segunda, atualize os \"outros custos\" (menu ☰ → Meta do painel → Atualizar custos) para o lucro sair certo.", "Depois que um anúncio novo subir, ligue o complemento do WhatsApp 0948 no Gerenciador de Anúncios."],
     tarefas: [
       t('Painel com Meta ao vivo, análise, propostas e chat', true),
       t('Rotina diária às 7h com conectores ligados', true),
@@ -84,6 +85,7 @@ const SEMENTES: Semente[] = [
       c('Reenviar o relatório das 8h', CC, 'Dispare a rotina "Relatório no grupo Vendas Aline 8h" agora.', 'Manda uma mensagem de verdade no grupo. Use só se o envio das 8h falhou.'),
       c('O que está pendente no comercial', CC_LR, 'Leia docs/CONTEXTO_COMERCIAL.md e me diga em 5 linhas o que está pendente no comercial.'),
     ],
+    passos_uso: ["Abra o Painel de Leads para ver os leads do dia e os que ainda estão em andamento. Ele atualiza sozinho às 11:59 e às 23:59.", "Às 8h, confira no grupo \"Vendas Aline\" a mensagem com o dia anterior e o total do mês.", "Peça para a Aline manter a aba VENDAS do mês da planilha dela em dia: o relatório confere com ela.", "Use a planilha automática para ver o histórico e filtrar por dia ou etapa.", "Se o relatório das 8h não chegar, use o comando \"Reenviar o relatório das 8h\".", "As rotinas só leem o CRM: nada é movido nem enviado para clientes sem você."],
     tarefas: [
       t('Rotinas 11:59, 23:59 e 8h funcionando', true),
       t('Preencher a aba VENDAS OUTUBRO 2026 da planilha da Aline (01 a 06/10)'),
@@ -117,6 +119,7 @@ const SEMENTES: Semente[] = [
       c('Retomar o trabalho no quiz', CC_LR, 'Vamos continuar o trabalho no quiz. Siga a seção 1 do docs/QUIZ_REVISAO.md e não altere nada ainda.'),
       c('Diagnóstico do funil', CC_LR, 'Em que tela as pessoas param no quiz desde 08/10, por anúncio e por conjunto? Compare com a régua (T1 32%, comprar 18,7%) e diga o que ajustar primeiro.'),
     ],
+    passos_uso: ["Veja o quiz como a cliente vê pelo link \"Quiz no ar\".", "Para mudar um texto: abra a \"Página de revisão do quiz\", escolha a tela, edite o campo (fica laranja) e clique em Salvar pedidos.", "Numa sessão do Claude Code no repositório LR_LauraRosaPersonal, mande \"aplica a fila do quiz\".", "O Claude prepara a mudança e abre um pull request; você confere a prévia e só depois vai ao ar.", "Para mudar foto, layout, ordem das telas ou lógica, descreva no Claude Code dizendo a tela (T1 a T26).", "Oferta, preço, parcelamento e checkout: sempre com antes/depois e a sua aprovação.", "Acompanhe no painel de anúncios a aba \"Sugestão quiz\": onde as pessoas param e o que mudar."],
     tarefas: [
       t('Quiz publicado com a T1 Volta ao Eixo', true),
       t('Página de pós-compra levando ao grupo', true),
@@ -139,6 +142,14 @@ const SEMENTES: Semente[] = [
     resumo: 'App de entrega da jornada de 7 dias publicado; progresso salvo no aparelho e planilha ligada.',
     resumo_detalhado:
       'Uma única página pensada para celular, com cadastro, dias guiados, fotos de antes/depois só no aparelho e envio para o Google Planilhas com fila offline.',
+    como_usar: "É o app de entrega da jornada para quem comprou. Você não precisa abrir todo dia: acompanhe pela planilha quem começou, em que dia parou e o que comentou.",
+    passos_uso: ["Depois da compra, envie o link laurarosapersonal.site para a cliente. No cadastro ela usa o mesmo WhatsApp da compra.", "Ela faz um dia por vez: marca os 3 passos para concluir. Se não conseguir, escreve o motivo e faz a tarefa de recuperação do Kit.", "Acompanhe na planilha \"Volta ao Eixo 7D: Clientes\": cadastros, comentários, motivos de \"não consegui\", dias concluídos e resultado final.", "No Dia 7 ela registra peso e medidas, vê a evolução e recebe o convite para a Comunidade Corpo Feliz.", "Para trocar textos, vídeo aulas, áudios ou o link da oferta, peça no Claude Code no repositório 7diasdevolta.", "Ainda faltam os áudios da Profe Laura, as vídeo aulas e a aula de fotos e medidas (aparecem como \"EM BREVE\")."],
+    links: [{"rotulo": "Abrir o desafio", "url": "https://laurarosapersonal.site"}, {"rotulo": "Como ligar a planilha", "url": "https://github.com/patrikgonzaga2-tech/7diasdevolta/blob/HEAD/planilha/COMO-CONFIGURAR.md"}],
+    comandos: [
+      c("Colocar a vídeo aula de um dia", "Claude Code · 7diasdevolta", "No desafio 7D, coloque o link <url do vídeo> como vídeo aula do Dia <n>."),
+      c("Resumo da turma", "Claude Code · qualquer sessão", "Leia a planilha do Volta ao Eixo 7D e me diga quantas começaram, em que dia param e os principais motivos de \"não consegui\"."),
+      c("Trocar o link da oferta do Dia 7", "Claude Code · 7diasdevolta", "Troque o link do botão \"Ver minha oferta exclusiva\" por <link>.", "É link de oferta: o Claude mostra antes e depois e espera o seu ok."),
+    ],
     tarefas: [
       t('Jornada de 7 dias', true),
       t('Envio para a planilha com fila offline', true),
@@ -158,6 +169,13 @@ const SEMENTES: Semente[] = [
     prioridade: 'baixa',
     resumo: 'Página de candidatura da Comunidade publicada pela Vercel a cada envio na main.',
     resumo_detalhado: 'Site com VSL, depoimentos e formulário de candidatura. Publicação automática pela Vercel.',
+    como_usar: "Página de candidatura da Comunidade. A principal (/cf-whats) leva para o WhatsApp, sem preço. Tudo que é enviado na main vai ao ar sozinho pela Vercel.",
+    passos_uso: ["Mande o tráfego da Comunidade para teamcorpofeliz.com.br: ele leva para /cf-whats e mantém as UTMs do anúncio.", "Quem se candidata cai no WhatsApp da equipe; acompanhe pelo Painel de Leads.", "Outras versões para testar: /cf-whats/b e /cf-whats/c (com planos e checkout) e /cf-whats/d (a antiga, com vídeo).", "Para mudar texto, imagem ou o número do WhatsApp, peça no Claude Code no repositório LR_TeamCorpoFeliz.", "Antes de publicar, confira no navegador: o build passa mesmo com erro de tipo.", "O manual de operação explica tudo do zero (link abaixo)."],
+    links: [{"rotulo": "Abrir o site", "url": "https://teamcorpofeliz.com.br"}, {"rotulo": "Manual de operação", "url": "https://claude.ai/code/artifact/325faca1-d6e4-42ce-9ebe-de225b822722"}],
+    comandos: [
+      c("Trocar o número do WhatsApp", "Claude Code · LR_TeamCorpoFeliz", "Troque o WhatsApp da página principal (WA_HREF) para <número> e me mostre antes de publicar."),
+      c("Mudar um texto", "Claude Code · LR_TeamCorpoFeliz", "Na página /cf-whats, troque \"<texto atual>\" por \"<texto novo>\" e me mostre antes de publicar."),
+    ],
     tarefas: [t('Página publicada', true), t('Depoimentos e logo dentro do projeto', true)],
     url_produto: 'https://teamcorpofeliz.com.br',
     repo: 'patrikgonzaga2-tech/LR_TeamCorpoFeliz',
@@ -183,6 +201,7 @@ const SEMENTES: Semente[] = [
       c('Vídeo novo a partir de uma ideia', CC_LR, '/video-laura criativo novo: <ângulo do anúncio, ex.: recomeço na segunda-feira>'),
       c('Só a prévia grátis', CC_LR, 'Monte só a prévia grátis (--simular) do roteiro <id> e me mande.'),
     ],
+    passos_uso: ["Abra o Claude Code no repositório LR_LauraRosaPersonal.", "Mande /video-laura com o id do roteiro (ex.: criativo-04) ou \"criativo novo: <ângulo>\".", "O roteirista escreve e o revisor confere as regras do Meta; você recebe a fala completa, os textos na tela e a legenda.", "Veja a prévia grátis (MP4 com a foto parada) e diga se aprova.", "Só com o seu \"sim\" ele gasta créditos de voz (ElevenLabs) e avatar (HeyGen). O custo estimado aparece antes.", "Você recebe o MP4 final 9:16, com legenda e música, pronto para virar proposta de criativo no gestor de tráfego."],
     tarefas: [
       t('Roteirista + revisor de anúncio funcionando', true),
       t('Montagem 9:16 com legenda e zoom', true),
@@ -213,6 +232,7 @@ const SEMENTES: Semente[] = [
       c('Aula de um dia da jornada', 'Claude Code · corpo-feliz-agente', '/aula 1 <tema do dia>'),
       c('Publicar um vídeo pronto', 'Claude Code · corpo-feliz-agente', '/publicar saidas/<arquivo>.mp4 aula "<título>" 1', 'Sobe para o Supabase como rascunho; só vira aprovado quando você mandar.'),
     ],
+    passos_uso: ["Abra o Claude Code no repositório corpo-feliz-agente.", "Mande /criativo <ângulo> para um anúncio de 30–45 s, ou /aula <dia> <tema> para a aula da jornada.", "Ele mostra roteiro e cenas e espera o seu ok antes de gerar; prefere acervo e narração gratuitos.", "O vídeo pronto fica em ./saidas/.", "Mande /publicar para subir ao Supabase como rascunho; só vira aprovado quando você disser."],
     tarefas: [
       t('BRAND.md com regras de promessa segura', true),
       t('Comandos /criativo, /aula, /publicar', true),
@@ -243,11 +263,13 @@ const SEMENTES: Semente[] = [
       c('Adicionar uma ideia', CC, 'Adicione ao Banco de Ideias: <a ideia, do seu jeito>.'),
       c('Atualizar onde parei', CC, 'No Banco de Ideias, atualize a ideia "<nome>": <o que eu fiz hoje>.'),
     ],
+    passos_uso: ["Abra o painel quando for decidir o que fazer. A busca entende frases como \"quero terminar hoje o de vídeo\" (Enter usa a IA).", "Toque numa ideia: Descrição explica como usar, Visão geral mostra fase, onde parou e o passo a passo, Conversa retoma com a IA.", "Marque as tarefas feitas: o progresso e a fase andam sozinhos.", "Ideia nova: botão Nova ideia e fale pelo ditado do teclado; a IA organiza e cria o card.", "Não quer mais uma ideia? ⋯ → Pausar (stand-by) ou Excluir (vai para a Lixeira e dá para restaurar)."],
     tarefas: [
       t('Layout, cards, drawer e prateleira "No ar"', true),
       t('Nova ideia por voz/ditado', true),
       t('Painel dentro do Claude (sem chave de API)', true),
-      t('Botões de pausar, arquivar e excluir', true),
+      t('Pausar e Lixeira (excluir com volta)', true),
+      t('Aba Descrição com o passo a passo de cada agente', true),
       t('Comandos de cada agente', true),
       t('Importar os repositórios do GitHub'),
       t('Trazer as pastas do computador (GitHub Desktop)'),
@@ -274,6 +296,7 @@ const SEMENTES: Semente[] = [
       c('Registrar uma decisão', CC, 'Registre no segundo cérebro a decisão: <o que foi decidido e por quê>.'),
       c('Refazer os índices', 'Terminal · pasta do cofre', 'node _sistema/brain.mjs reindex'),
     ],
+    passos_uso: ["Trabalhe normalmente com o Claude Code ou o Codex: as notas relacionadas entram sozinhas antes de cada tarefa.", "No fim, o Claude registra decisões e aprendizados no cofre.", "Para consultar, pergunte \"O que o segundo cérebro sabe sobre <assunto>?\".", "Para ver as notas, abra a pasta do repositório Obsidian como cofre no app Obsidian."],
     tarefas: [
       t('Estrutura de pastas e templates', true),
       t('brain.mjs com recall/registro', true),
@@ -301,6 +324,8 @@ const SEMENTES: Semente[] = [
     comandos: [
       c('Pedir o plano de recuperação', 'Chat do painel de anúncios', 'Monte a recuperação de quem clicou e não comprou: remarketing de 7–14 dias e sequência no WhatsApp com os textos.'),
     ],
+    como_usar: "Abra a aba \"Clicou e não comprou\" do painel de anúncios, veja o motivo principal e peça o plano pelo chat. Cada ação (público, criativo, mensagem) vem como proposta para você aprovar.",
+    passos_uso: ["Abra o painel de anúncios → aba \"Clicou e não comprou\".", "Leia quantos clicaram, quantos deixaram Pix sem pagar e quantos saíram do checkout, e o motivo provável.", "No chat do painel, mande o comando abaixo.", "Aprove as propostas que fizerem sentido: público de remarketing, criativo e mensagens no WhatsApp.", "Confira o resultado 3 dias depois na própria proposta."],
     tarefas: [
       t('Ler a aba "Clicou e não comprou" e o motivo principal'),
       t('Aprovar um público de remarketing (iniciou checkout / viu o quiz, 7–14 dias)'),
@@ -331,6 +356,8 @@ const SEMENTES: Semente[] = [
     comandos: [
       c('Propor a promessa única', CC_LR, 'Proponha UMA promessa para anúncio, T1, perguntas e oferta do quiz, com antes/depois de cada texto. Não altere nada ainda.'),
     ],
+    como_usar: "Peça a proposta no Claude Code com o comando abaixo. Você escolhe a promessa; o Claude prepara os textos com antes e depois e os criativos, e nada vai ao ar sem a sua aprovação.",
+    passos_uso: ["Mande o comando abaixo numa sessão do Claude Code no repositório LR_LauraRosaPersonal.", "Escolha uma das promessas propostas (recomeço ou resultado).", "Aprove os textos novos da T1, das perguntas e da oferta, com antes e depois.", "Aprove 2 criativos que falam exatamente a mesma coisa.", "Acompanhe por 3 dias quantas pessoas passam da 1ª tela no painel de anúncios."],
     tarefas: [
       t('Escolher a promessa (recomeço ou resultado)'),
       t('Ajustar a T1 e o botão para a mesma promessa'),

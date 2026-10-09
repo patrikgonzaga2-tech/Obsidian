@@ -40,6 +40,7 @@ export interface Ideia {
   origem: Origem
   origem_ref: string | null // id na fonte (repo, caminho da nota...) para não importar duas vezes
   como_usar?: string // para agentes e painéis: como funciona no dia a dia
+  passos_uso?: string[] // passo a passo do que a pessoa faz para usar
   comandos?: Comando[]
   links?: LinkIdeia[]
   criado_em: string
@@ -89,7 +90,7 @@ export const STATUS_LABEL: Record<Status, string> = {
   em_andamento: 'Em andamento',
   no_ar: 'No ar',
   pausado: 'Pausado',
-  arquivado: 'Arquivado',
+  arquivado: 'Na lixeira', // status interno 'arquivado' = Lixeira (recuperável)
 }
 
 export const FASE_LABEL: Record<Fase, string> = {
