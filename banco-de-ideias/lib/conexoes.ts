@@ -179,7 +179,10 @@ async function importarGithub(existentes: Ideia[]): Promise<string[]> {
   })
   if (!r.ok) throw new Error(`GitHub respondeu ${r.status}`)
   const repos = ((await r.json()) as Repo[]).filter((x) => !x.fork)
-  const ja = new Set(existentes.map((i) => i.repo).filter(Boolean))
+  const ja = new Set([
+    ...existentes.map((i) => i.repo),
+    ...existentes.filter((i) => i.origem === 'github').map((i) => i.origem_ref),
+  ].filter(Boolean))
   const novos = repos.filter((x) => !ja.has(x.full_name))
   log.push(`${repos.length} repositórios encontrados, ${novos.length} ainda não estão no banco.`)
   for (const repo of novos.slice(0, 15)) {

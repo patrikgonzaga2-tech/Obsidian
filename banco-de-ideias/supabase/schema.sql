@@ -17,6 +17,9 @@ create table if not exists public.hub_ideias (
   repo             text,
   origem           text not null default 'manual' check (origem in ('manual', 'audio', 'github', 'desktop', 'chat')),
   origem_ref       text,
+  como_usar        text not null default '',
+  comandos         jsonb not null default '[]'::jsonb, -- [{titulo, texto, onde, dica}]
+  links            jsonb not null default '[]'::jsonb, -- [{rotulo, url}]
   criado_em        timestamptz not null default now(),
   atualizado_em    timestamptz not null default now()
 );
@@ -42,3 +45,10 @@ create index if not exists hub_historico_ideia_idx on public.hub_historico (idei
 alter table public.hub_ideias    enable row level security;
 alter table public.hub_conexoes  enable row level security;
 alter table public.hub_historico enable row level security;
+
+-- Para quem já tinha criado as tabelas antes destes campos:
+alter table public.hub_ideias add column if not exists como_usar text not null default '';
+alter table public.hub_ideias add column if not exists comandos jsonb not null default '[]'::jsonb;
+alter table public.hub_ideias add column if not exists links jsonb not null default '[]'::jsonb;
+alter table public.hub_ideias drop constraint if exists hub_ideias_status_check;
+alter table public.hub_ideias add constraint hub_ideias_status_check check (status in ('em_andamento', 'no_ar', 'pausado', 'arquivado'));

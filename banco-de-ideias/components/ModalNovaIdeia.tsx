@@ -3,7 +3,7 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import { Check, Keyboard, LoaderCircle, Mic, Square, X } from 'lucide-react'
 import type { Ideia } from '@/lib/tipos'
 import type { Config } from './Hub'
-import { Icone3D } from './ui'
+import { chaveIcone, Icone3D } from './ui'
 
 // Web Speech API (Chrome/Edge/Safari) — não vem tipada no lib.dom
 interface ReconhecimentoVoz {
@@ -49,6 +49,7 @@ export default function ModalNovaIdeia({
   const reconhecimento = useRef<ReconhecimentoVoz | null>(null)
   const textoFinal = useRef('')
   const textoParcial = useRef('')
+  const tentativa = useRef(0)
   const audioCtx = useRef<AudioContext | null>(null)
   const raf = useRef(0)
   const relogio = useRef<ReturnType<typeof setInterval> | null>(null)
@@ -68,6 +69,7 @@ export default function ModalNovaIdeia({
   }, [])
 
   useEffect(() => {
+    tentativa.current++ // respostas de uma tentativa anterior passam a ser ignoradas
     if (aberto) {
       setEtapa(config.microfone === false ? 'digitar' : 'pronto')
       setTranscricao('')
@@ -87,6 +89,7 @@ export default function ModalNovaIdeia({
 
   const organizar = useCallback(
     async (texto: string) => {
+      const minha = ++tentativa.current
       setEtapa('organizando')
       setTranscricao(texto)
       try {
@@ -97,15 +100,17 @@ export default function ModalNovaIdeia({
         })
         const dados = await r.json()
         if (!r.ok) throw new Error(dados.erro || 'Não consegui organizar a ideia')
+        if (minha !== tentativa.current) return // o modal foi fechado ou recomeçado
         setCriada(dados.ideia)
         setEtapa('feito')
-        setTimeout(() => onCriada(dados.ideia), 1400)
+        setTimeout(() => minha === tentativa.current && onCriada(dados.ideia), 1400)
       } catch (e) {
+        if (minha !== tentativa.current) return
         setErro((e as Error).message)
-        setEtapa('erro')
+        setEtapa(config.microfone === false ? 'digitar' : 'erro') // sem microfone, volta para o texto
       }
     },
-    [onCriada]
+    [onCriada, config.microfone]
   )
 
   const iniciar = async () => {
@@ -176,6 +181,7 @@ export default function ModalNovaIdeia({
       relogio.current = setInterval(() => setSegundos((n) => n + 1), 1000)
       setEtapa('gravando')
     } catch {
+      limpar() // não deixa o microfone ligado se algo falhou no meio
       setErro('Não consegui acessar o microfone. Libere a permissão no navegador ou digite a ideia.')
       setEtapa('erro')
     }
@@ -247,6 +253,7 @@ export default function ModalNovaIdeia({
                 placeholder="Ex.: quero um app que pega meus vídeos brutos e já corta os silêncios e põe legenda…"
                 className="w-full resize-none rounded-2xl bg-verde-50/50 p-4 text-sm outline-none ring-1 ring-verde-900/10 focus:ring-2 focus:ring-laranja-300"
               />
+              {erro && <p className="mt-3 rounded-2xl bg-red-50 px-4 py-3 text-sm font-medium text-red-700">{erro}</p>}
               <button
                 onClick={() => organizar(transcricao)}
                 disabled={transcricao.trim().length < 5}
@@ -307,7 +314,7 @@ export default function ModalNovaIdeia({
 
               {etapa === 'feito' && criada && (
                 <div className="mt-5 flex animate-entrar items-center gap-3 rounded-2xl bg-white p-3 text-left shadow-lg ring-1 ring-verde-900/8">
-                  <Icone3D categoria={criada.categoria} tamanho={44} />
+                  <Icone3D categoria={chaveIcone(criada)} tamanho={44} />
                   <div className="min-w-0">
                     <div className="truncate font-extrabold">{criada.titulo}</div>
                     <div className="text-xs text-tinta-suave">

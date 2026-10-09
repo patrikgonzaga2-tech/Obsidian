@@ -1,6 +1,6 @@
 'use client'
 import type { Conexao, ConexaoId, Ideia } from '@/lib/tipos'
-import { BarraProgresso, BolinhaStatus, ICONE_CONEXAO, Icone3D, StatusConexao } from './ui'
+import { BarraProgresso, BolinhaStatus, ICONE_CONEXAO, chaveIcone, Icone3D, StatusConexao } from './ui'
 
 const ORDEM_STATUS = { em_andamento: 0, pausado: 1, no_ar: 2, arquivado: 3 }
 
@@ -79,7 +79,7 @@ export default function Sidebar({
                     selecionadaId === i.id ? 'bg-white shadow-sm ring-1 ring-laranja-200' : 'hover:bg-white/70'
                   }`}
                 >
-                  <Icone3D categoria={i.categoria} tamanho={28} />
+                  <Icone3D categoria={chaveIcone(i)} tamanho={28} />
                   <div className="min-w-0 flex-1">
                     <div className="flex items-center gap-1.5">
                       <span className="truncate text-[13px] font-semibold">{i.titulo}</span>

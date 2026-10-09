@@ -6,7 +6,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import type { Conexao, ConexaoId, Ideia, Mensagem, RespostaBusca } from '@/lib/tipos'
 import { novoId } from '@/lib/tipos'
-import { aplicarRegras } from '@/lib/regras'
+import { aplicarRegras, normalizarIdeia } from '@/lib/regras'
 import { buscarLocal } from '@/lib/busca-local'
 import { CATEGORIAS, organizarLocal, type IdeiaOrganizada } from '@/lib/organizar-local'
 import { systemDaConversa } from '@/lib/contexto'
@@ -68,7 +68,7 @@ export async function iniciarBackend(): Promise<{
       db!.collection('ideias').onSnapshot(
         (snap: any) => {
           ideias.clear()
-          for (const doc of snap.docs) if (doc.exists) ideias.set(doc.id, normalizar(doc.data()))
+          for (const doc of snap.docs) if (doc.exists) ideias.set(doc.id, normalizar({ ...doc.data(), id: doc.id }))
           avisarOuvintes()
           if (primeira) {
             primeira = false
@@ -97,9 +97,7 @@ export async function iniciarBackend(): Promise<{
   }
 }
 
-function normalizar(d: any): Ideia {
-  return { ...d, tarefas: Array.isArray(d?.tarefas) ? d.tarefas : [], progresso: Number(d?.progresso) || 0 } as Ideia
-}
+const normalizar = (d: any): Ideia => normalizarIdeia({ ...d, id: d?.id })
 
 // ---------- roteador /api/* ----------
 function instalarFetch() {
@@ -129,7 +127,10 @@ async function rotear(metodo: string, caminho: string, corpo: any): Promise<Resp
   if (rota === 'ideias' && !id && metodo === 'GET') return resposta(lista())
   if (rota === 'ideias' && !id && metodo === 'POST') return resposta(await criar(corpo), 201)
   if (rota === 'ideias' && id && sub === 'historico') return resposta(await historico(id))
-  if (rota === 'ideias' && id && metodo === 'PATCH') return resposta(await atualizar(id, corpo))
+  if (rota === 'ideias' && id && metodo === 'PATCH') {
+    const nova = await atualizar(id, corpo)
+    return nova ? resposta(nova) : resposta({ erro: 'Ideia não encontrada' }, 404)
+  }
   if (rota === 'ideias' && id && metodo === 'DELETE') return excluir(id)
   if (rota === 'busca') return resposta(await buscar(String(corpo?.q ?? '')))
   if (rota === 'organizar') return organizar(String(corpo?.transcricao ?? ''))
@@ -143,28 +144,32 @@ async function rotear(metodo: string, caminho: string, corpo: any): Promise<Resp
 
 // ---------- ideias ----------
 async function gravar(i: Ideia) {
-  ideias.set(i.id, i)
   if (db) await db.collection('ideias').doc(i.id).set(JSON.parse(JSON.stringify(i)))
+  ideias.set(i.id, i) // só depois de salvo no banco
 }
 
-async function criar(b: Partial<Ideia> & { tarefas?: any[] }): Promise<Ideia> {
+async function criar(b: any): Promise<Ideia> {
   const agora = new Date().toISOString()
-  const base = aplicarRegras({ status: 'em_andamento', prioridade: 'media', progresso: 0, ...b } as Partial<Ideia>)
+  const v = aplicarRegras({ status: 'em_andamento', prioridade: 'media', ...b })
+  const progresso = v.progresso ?? 0
   const i: Ideia = {
     id: novoId('id-'),
-    titulo: String(b.titulo || 'Nova ideia'),
-    categoria: b.categoria || 'Outro',
-    status: base.status!,
-    fase: base.fase || 'inicio',
-    progresso: base.progresso ?? 0,
-    prioridade: base.prioridade!,
-    resumo: b.resumo || '',
-    resumo_detalhado: b.resumo_detalhado || '',
-    tarefas: (b.tarefas || []).map((t: any) => (typeof t === 'string' ? { id: novoId(), texto: t, feito: false } : t)),
-    url_produto: b.url_produto || null,
-    repo: b.repo || null,
-    origem: b.origem || 'manual',
-    origem_ref: b.origem_ref || null,
+    titulo: v.titulo || 'Nova ideia',
+    categoria: v.categoria || 'Outro',
+    status: v.status ?? 'em_andamento',
+    fase: v.fase ?? (b?.fase as Ideia['fase']) ?? 'inicio',
+    progresso,
+    prioridade: v.prioridade ?? 'media',
+    resumo: v.resumo ?? '',
+    resumo_detalhado: v.resumo_detalhado ?? '',
+    tarefas: v.tarefas ?? [],
+    url_produto: v.url_produto ?? null,
+    repo: v.repo ?? null,
+    origem: ['manual', 'audio', 'github', 'desktop', 'chat'].includes(b?.origem) ? b.origem : 'manual',
+    origem_ref: typeof b?.origem_ref === 'string' ? b.origem_ref : null,
+    como_usar: v.como_usar ?? '',
+    comandos: v.comandos ?? [],
+    links: v.links ?? [],
     criado_em: agora,
     atualizado_em: agora,
   }
@@ -173,13 +178,13 @@ async function criar(b: Partial<Ideia> & { tarefas?: any[] }): Promise<Ideia> {
   return i
 }
 
-async function atualizar(id: string, b: Partial<Ideia>) {
+async function atualizar(id: string, b: unknown) {
   const atual = ideias.get(id)
   if (!atual) return null
   const patch = { ...aplicarRegras(b), atualizado_em: new Date().toISOString() }
-  const nova = { ...atual, ...patch }
-  ideias.set(id, nova)
   if (db) await db.collection('ideias').doc(id).update(JSON.parse(JSON.stringify(patch)))
+  const nova = { ...(ideias.get(id) ?? atual), ...patch } // só depois de salvo no banco
+  ideias.set(id, nova)
   return nova
 }
 
@@ -232,7 +237,7 @@ async function buscar(q: string): Promise<RespostaBusca> {
         `Pedido: ${q}\n\nCatálogo:\n${JSON.stringify(catalogo)}`,
       { modelTier: 'quick' }
     )
-    const validos = new Set(ideias.keys())
+    const validos = new Set(visiveis.map((i) => i.id))
     const resultados = (Array.isArray(r?.resultados) ? r.resultados : [])
       .map((x: any) => ({ id: String(x?.id ?? ''), motivo: String(x?.motivo ?? '') }))
       .filter((x) => validos.has(x.id))

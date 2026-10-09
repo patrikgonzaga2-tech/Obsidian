@@ -6,6 +6,7 @@ import fs from 'node:fs/promises'
 import path from 'node:path'
 import type { Ideia, Mensagem } from './tipos'
 import { sementes } from './seed'
+import { normalizarIdeia } from './regras'
 
 const SB_URL = (process.env.SUPABASE_URL || '').replace(/\s/g, '').replace(/\/+$/, '')
 const SB_KEY = (process.env.SUPABASE_SERVICE_ROLE_KEY || '').replace(/\s/g, '')
@@ -56,40 +57,71 @@ interface BancoLocal {
   historico: Mensagem[]
 }
 let memoria: BancoLocal | null = null
+let carregando: Promise<BancoLocal> | null = null
 
 async function lerLocal(): Promise<BancoLocal> {
   if (memoria) return memoria
-  try {
-    memoria = JSON.parse(await fs.readFile(ARQ, 'utf8')) as BancoLocal
-  } catch {
-    memoria = { ideias: sementes(), historico: [] }
-    await gravarLocal()
-  }
-  return memoria
-}
-async function gravarLocal() {
-  if (!memoria) return
-  try {
-    await fs.mkdir(path.dirname(ARQ), { recursive: true })
-    await fs.writeFile(ARQ, JSON.stringify(memoria, null, 2))
-  } catch {
-    // disco somente leitura (ex.: Vercel sem Supabase) — fica só em memória
-  }
+  carregando ??= (async () => {
+    let raw: string | null = null
+    try {
+      raw = await fs.readFile(ARQ, 'utf8')
+    } catch {
+      /* arquivo ainda não existe: primeira vez */
+    }
+    if (raw == null) {
+      memoria = { ideias: sementes(), historico: [] }
+      await gravarLocal()
+    } else {
+      try {
+        const b = JSON.parse(raw) as BancoLocal
+        memoria = { ideias: (b.ideias ?? []).map(normalizar), historico: b.historico ?? [] }
+      } catch {
+        // arquivo corrompido: guarda uma cópia e NÃO sobrescreve com as sementes
+        await fs.copyFile(ARQ, `${ARQ}.corrompido-${Date.now()}`).catch(() => {})
+        throw new Error('O arquivo .data/banco.json está corrompido. Foi feita uma cópia ao lado; corrija ou apague o arquivo.')
+      }
+    }
+    return memoria!
+  })().finally(() => {
+    carregando = null
+  })
+  return carregando
 }
 
-// Supabase guarda tarefas como jsonb; normaliza o que vier.
-function normalizar(i: Ideia): Ideia {
-  return { ...i, tarefas: Array.isArray(i.tarefas) ? i.tarefas : [], progresso: Number(i.progresso) || 0 }
+// gravações em fila, sempre em arquivo temporário + rename (nunca deixa o JSON pela metade)
+let fila: Promise<void> = Promise.resolve()
+function gravarLocal(): Promise<void> {
+  fila = fila.then(async () => {
+    if (!memoria) return
+    try {
+      await fs.mkdir(path.dirname(ARQ), { recursive: true })
+      const tmp = `${ARQ}.${process.pid}.tmp`
+      await fs.writeFile(tmp, JSON.stringify(memoria, null, 2))
+      await fs.rename(tmp, ARQ)
+    } catch {
+      // disco somente leitura (ex.: Vercel sem Supabase) — fica só em memória
+    }
+  })
+  return fila
 }
+
+const normalizar = (i: Ideia) => normalizarIdeia(i)
 
 // ---------- ideias ----------
 export async function listarIdeias(): Promise<Ideia[]> {
   if (supabaseConfigurado()) {
     const rows = await sb<Ideia[]>('hub_ideias', 'select=*&order=atualizado_em.desc')
     if (rows.length === 0) {
-      // primeira vez: popula com as sementes
+      // instalação nova (nenhuma verificação de conexão registrada ainda): popula com as sementes.
+      // Se você apagou tudo depois, o painel continua vazio.
+      const marcas = await sb<unknown[]>('hub_conexoes', 'select=id&limit=1').catch(() => [1])
+      if (marcas.length > 0) return []
       const s = sementes()
-      await sb('hub_ideias', '', { method: 'POST', body: JSON.stringify(s), headers: { Prefer: 'return=minimal' } })
+      await sb('hub_ideias', 'on_conflict=id', {
+        method: 'POST',
+        body: JSON.stringify(s),
+        headers: { Prefer: 'resolution=ignore-duplicates,return=minimal' },
+      })
       return s
     }
     return rows.map(normalizar)

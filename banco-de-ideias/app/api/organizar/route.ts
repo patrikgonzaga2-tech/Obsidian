@@ -2,12 +2,12 @@ import { NextResponse } from 'next/server'
 import { criarIdeia } from '@/lib/store'
 import { iaConfigurada, organizarComIA } from '@/lib/ia'
 import { organizarLocal } from '@/lib/organizar-local'
+import { lerJson } from '@/lib/regras'
 import { novoId, type Ideia } from '@/lib/tipos'
 
 // Recebe a transcrição do áudio, organiza (IA ou plano B) e já cria a ideia.
 export async function POST(req: Request) {
-  const { transcricao } = (await req.json()) as { transcricao?: string }
-  const texto = (transcricao || '').trim()
+  const texto = String((await lerJson(req)).transcricao ?? '').trim()
   if (texto.length < 5) return NextResponse.json({ erro: 'Não entendi a ideia — tente falar de novo.' }, { status: 400 })
 
   let org = organizarLocal(texto)

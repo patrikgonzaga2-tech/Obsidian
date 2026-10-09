@@ -11,6 +11,19 @@ export interface Tarefa {
   feito: boolean
 }
 
+/** Um pedido pronto para entregar ao agente/projeto. */
+export interface Comando {
+  titulo: string // o que o comando faz
+  texto: string // o que digitar ou colar
+  onde: string // onde usar: "Claude Code (LR_LauraRosaPersonal)", "Chat do painel", ...
+  dica?: string
+}
+
+export interface LinkIdeia {
+  rotulo: string
+  url: string
+}
+
 export interface Ideia {
   id: string
   titulo: string
@@ -26,6 +39,9 @@ export interface Ideia {
   repo: string | null // owner/repo no GitHub, quando houver
   origem: Origem
   origem_ref: string | null // id na fonte (repo, caminho da nota...) para não importar duas vezes
+  como_usar?: string // para agentes e painéis: como funciona no dia a dia
+  comandos?: Comando[]
+  links?: LinkIdeia[]
   criado_em: string
   atualizado_em: string
 }

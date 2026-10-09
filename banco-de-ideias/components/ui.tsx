@@ -9,10 +9,12 @@ import {
   Globe,
   HardDrive,
   HeartPulse,
+  ListChecks,
   Lightbulb,
   Megaphone,
   MessagesSquare,
   Smartphone,
+  Users,
   Wallet,
   type LucideIcon,
 } from 'lucide-react'
@@ -22,6 +24,10 @@ import { norm } from '@/lib/busca-local'
 
 // ---------- ícone 3D por categoria ----------
 const TEMAS: { chaves: string[]; icone: LucideIcon; de: string; ate: string; sombra: string }[] = [
+  // específicos primeiro (casam pelo título): agentes e painéis
+  { chaves: ['trafego', 'anuncio'], icone: Megaphone, de: '#fb923c', ate: '#ea580c', sombra: 'rgb(234 88 12 / .55)' },
+  { chaves: ['lead', 'comercial', 'crm'], icone: Users, de: '#34d483', ate: '#047843', sombra: 'rgb(4 120 67 / .55)' },
+  { chaves: ['quiz'], icone: ListChecks, de: '#fdba74', ate: '#10b964', sombra: 'rgb(16 185 100 / .5)' },
   { chaves: ['video', 'edicao', 'reels'], icone: Clapperboard, de: '#fb923c', ate: '#ea580c', sombra: 'rgb(234 88 12 / .55)' },
   { chaves: ['site', 'pagina', 'landing'], icone: Globe, de: '#34d483', ate: '#047843', sombra: 'rgb(4 120 67 / .55)' },
   { chaves: ['app', 'painel', 'sistema'], icone: Smartphone, de: '#4ade80', ate: '#059651', sombra: 'rgb(5 150 81 / .55)' },
@@ -33,6 +39,9 @@ const TEMAS: { chaves: string[]; icone: LucideIcon; de: string; ate: string; som
   { chaves: ['saude', 'treino'], icone: HeartPulse, de: '#fda4af', ate: '#f97316', sombra: 'rgb(249 115 22 / .5)' },
 ]
 const PADRAO = { icone: Lightbulb, de: '#fdba74', ate: '#ea580c', sombra: 'rgb(234 88 12 / .5)' }
+
+/** Texto usado para escolher o ícone: título + categoria (o título desempata agentes da mesma categoria). */
+export const chaveIcone = (i: { titulo: string; categoria: string }) => `${i.titulo} ${i.categoria}`
 
 export function temaDaCategoria(categoria: string) {
   // casa pelo começo de cada palavra ("ia" não pode casar com "ideia")

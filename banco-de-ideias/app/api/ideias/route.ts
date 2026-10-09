@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server'
 import { criarIdeia, listarIdeias } from '@/lib/store'
 import { faseDoProgresso, novoId, type Ideia } from '@/lib/tipos'
+import { aplicarRegras, lerJson } from '@/lib/regras'
 
 export const dynamic = 'force-dynamic'
 
@@ -13,27 +14,30 @@ export async function GET() {
 }
 
 export async function POST(req: Request) {
-  const b = (await req.json()) as Partial<Ideia> & { tarefas?: (string | Ideia['tarefas'][number])[] }
-  if (!b.titulo?.trim()) return NextResponse.json({ erro: 'Título obrigatório' }, { status: 400 })
+  const b = await lerJson(req)
+  const v = aplicarRegras({ status: 'em_andamento', prioridade: 'media', ...b })
+  if (!v.titulo) return NextResponse.json({ erro: 'Título obrigatório' }, { status: 400 })
   const agora = new Date().toISOString()
-  const progresso = Math.max(0, Math.min(100, Number(b.progresso) || 0))
+  const progresso = v.progresso ?? 0
+  const origens = ['manual', 'audio', 'github', 'desktop', 'chat']
   const ideia: Ideia = {
     id: novoId('id-'),
-    titulo: b.titulo.trim(),
-    categoria: b.categoria || 'Outro',
-    status: b.status || 'em_andamento',
-    fase: b.fase || faseDoProgresso(progresso),
+    titulo: v.titulo,
+    categoria: v.categoria || 'Outro',
+    status: v.status ?? 'em_andamento',
+    fase: v.fase ?? faseDoProgresso(progresso),
     progresso,
-    prioridade: b.prioridade || 'media',
-    resumo: b.resumo || '',
-    resumo_detalhado: b.resumo_detalhado || '',
-    tarefas: (b.tarefas || []).map((t) =>
-      typeof t === 'string' ? { id: novoId(), texto: t, feito: false } : { ...t, id: t.id || novoId() }
-    ),
-    url_produto: b.url_produto || null,
-    repo: b.repo || null,
-    origem: b.origem || 'manual',
-    origem_ref: b.origem_ref || null,
+    prioridade: v.prioridade ?? 'media',
+    resumo: v.resumo ?? '',
+    resumo_detalhado: v.resumo_detalhado ?? '',
+    tarefas: v.tarefas ?? [],
+    url_produto: v.url_produto ?? null,
+    repo: v.repo ?? null,
+    origem: origens.includes(String(b.origem)) ? (b.origem as Ideia['origem']) : 'manual',
+    origem_ref: typeof b.origem_ref === 'string' ? b.origem_ref : null,
+    como_usar: v.como_usar ?? '',
+    comandos: v.comandos ?? [],
+    links: v.links ?? [],
     criado_em: agora,
     atualizado_em: agora,
   }

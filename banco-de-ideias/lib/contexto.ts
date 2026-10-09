@@ -17,6 +17,11 @@ export function contextoDaIdeia(i: Ideia, historico: Mensagem[] = []): string {
     i.resumo,
     '',
     i.resumo_detalhado ? `## Detalhes\n${i.resumo_detalhado}\n` : '',
+    i.como_usar ? `## Como usar\n${i.como_usar}\n` : '',
+    i.links?.length ? `## Links\n${i.links.map((l) => `- ${l.rotulo}: ${l.url}`).join('\n')}\n` : '',
+    i.comandos?.length
+      ? `## Comandos que este agente entende\n${i.comandos.map((c) => `- ${c.titulo} (${c.onde}): ${c.texto}`).join('\n')}\n`
+      : '',
     feitas.length ? `## Já feito\n${feitas.map((t) => `- [x] ${t.texto}`).join('\n')}\n` : '',
     pendentes.length
       ? `## Passo a passo pendente\n${pendentes.map((t, n) => `${n + 1}. ${t.texto}`).join('\n')}\n`

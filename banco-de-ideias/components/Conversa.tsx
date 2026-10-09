@@ -9,7 +9,20 @@ import { Icone3D } from './ui'
 const ABERTURA = 'Vamos retomar de onde parei. Qual é o próximo passo e por onde começo agora?'
 
 /** Conversa com a IA já com todo o contexto da ideia injetado. */
-export default function Conversa({ ideia, config, onHistorico }: { ideia: Ideia; config: Config; onHistorico: () => void }) {
+// ideias que já receberam a abertura automática nesta visita (evita pagar duas vezes)
+const aberturaEnviada = new Set<string>()
+
+export default function Conversa({
+  ideia,
+  config,
+  ativa,
+  onHistorico,
+}: {
+  ideia: Ideia
+  config: Config
+  ativa: boolean
+  onHistorico: () => void
+}) {
   const [msgs, setMsgs] = useState<Pick<Mensagem, 'id' | 'papel' | 'conteudo'>[]>([])
   const [carregado, setCarregado] = useState(false)
   const [texto, setTexto] = useState('')
@@ -17,7 +30,6 @@ export default function Conversa({ ideia, config, onHistorico }: { ideia: Ideia;
   const [verContexto, setVerContexto] = useState(false)
   const [copiado, setCopiado] = useState(false)
   const fim = useRef<HTMLDivElement>(null)
-  const iniciou = useRef(false)
 
   const enviar = useCallback(
     async (mensagem: string) => {
@@ -38,13 +50,15 @@ export default function Conversa({ ideia, config, onHistorico }: { ideia: Ideia;
         }
         const leitor = r.body.getReader()
         const dec = new TextDecoder()
+        let tudo = ''
         for (;;) {
           const { value, done } = await leitor.read()
           if (done) break
           const pedaco = dec.decode(value, { stream: true })
+          tudo += pedaco
           setMsgs((m) => m.map((x) => (x.id === idResp ? { ...x, conteudo: x.conteudo + pedaco } : x)))
         }
-        onHistorico()
+        if (!tudo.includes('⚠️')) onHistorico() // só conta como histórico se a resposta foi salva
       } catch (e) {
         setMsgs((m) => m.map((x) => (x.id === idResp ? { ...x, conteudo: `⚠️ ${(e as Error).message}` } : x)))
       } finally {
@@ -54,26 +68,31 @@ export default function Conversa({ ideia, config, onHistorico }: { ideia: Ideia;
     [enviando, ideia.id, onHistorico]
   )
 
-  // carrega o histórico; se não houver, a IA já abre retomando o contexto
+  // carrega o histórico uma vez por ideia
+  const [vazio, setVazio] = useState(false)
   useEffect(() => {
     let vivo = true
     fetch(`/api/ideias/${ideia.id}/historico`)
       .then((r) => (r.ok ? r.json() : []))
       .then((h: Mensagem[]) => {
         if (!vivo) return
-        setMsgs(Array.isArray(h) ? h : [])
+        const lista = Array.isArray(h) ? h : []
+        setMsgs(lista)
+        setVazio(lista.length === 0)
         setCarregado(true)
-        if (config.ia && (!Array.isArray(h) || h.length === 0) && !iniciou.current) {
-          iniciou.current = true
-          enviar(ABERTURA)
-        }
       })
-      .catch(() => setCarregado(true))
+      .catch(() => vivo && setCarregado(true))
     return () => {
       vivo = false
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ideia.id])
+
+  // sem histórico, a IA abre retomando o contexto — só quando a aba está visível e uma vez por ideia
+  useEffect(() => {
+    if (!ativa || !carregado || !vazio || !config.ia || aberturaEnviada.has(ideia.id)) return
+    aberturaEnviada.add(ideia.id)
+    enviar(ABERTURA)
+  }, [ativa, carregado, vazio, config.ia, ideia.id, enviar])
 
   useEffect(() => {
     fim.current?.scrollIntoView({ behavior: 'smooth', block: 'end' })
@@ -120,6 +139,13 @@ export default function Conversa({ ideia, config, onHistorico }: { ideia: Ideia;
             </a>
           </div>
         </div>
+
+        {!!(ideia.comandos?.length || ideia.links?.length) && (
+          <p className="rounded-2xl bg-white px-4 py-3 text-xs leading-relaxed text-tinta-suave ring-1 ring-verde-900/6">
+            Esta conversa é sobre a ideia, aqui no Banco de Ideias. Para falar com o próprio agente, use os links e os comandos
+            em <b className="text-tinta">Visão geral → Como usar</b>.
+          </p>
+        )}
 
         {!config.ia && (
           <div className="rounded-2xl bg-laranja-50 px-4 py-3 text-sm text-laranja-800 ring-1 ring-laranja-200">

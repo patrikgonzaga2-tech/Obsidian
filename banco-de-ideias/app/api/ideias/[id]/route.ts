@@ -1,12 +1,11 @@
 import { NextResponse } from 'next/server'
 import { atualizarIdeia, excluirIdeia } from '@/lib/store'
-import { aplicarRegras } from '@/lib/regras'
-import type { Ideia } from '@/lib/tipos'
+import { aplicarRegras, lerJson } from '@/lib/regras'
 
 export async function PATCH(req: Request, { params }: { params: Promise<{ id: string }> }) {
   const { id } = await params
-  const b = (await req.json()) as Partial<Ideia>
-  const patch = aplicarRegras(b)
+  const patch = aplicarRegras(await lerJson(req))
+  if (!Object.keys(patch).length) return NextResponse.json({ erro: 'Nada para alterar' }, { status: 400 })
   try {
     const ideia = await atualizarIdeia(id, patch)
     return ideia ? NextResponse.json(ideia) : NextResponse.json({ erro: 'Não encontrada' }, { status: 404 })

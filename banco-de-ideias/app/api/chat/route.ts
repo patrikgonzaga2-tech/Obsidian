@@ -3,13 +3,16 @@ import Anthropic from '@anthropic-ai/sdk'
 import { listarHistorico, obterIdeia, salvarMensagens } from '@/lib/store'
 import { cliente, iaConfigurada, MODELO } from '@/lib/ia'
 import { systemDaConversa } from '@/lib/contexto'
+import { lerJson } from '@/lib/regras'
 import { novoId, type Mensagem } from '@/lib/tipos'
 
 export const dynamic = 'force-dynamic'
 
 // Conversa com a IA já com o contexto completo da ideia. Responde em texto corrido (stream).
 export async function POST(req: Request) {
-  const { ideiaId, mensagem } = (await req.json()) as { ideiaId?: string; mensagem?: string }
+  const corpo0 = await lerJson(req)
+  const ideiaId = typeof corpo0.ideiaId === 'string' ? corpo0.ideiaId : ''
+  const mensagem = typeof corpo0.mensagem === 'string' ? corpo0.mensagem : ''
   if (!ideiaId || !mensagem?.trim()) return NextResponse.json({ erro: 'ideiaId e mensagem são obrigatórios' }, { status: 400 })
   if (!iaConfigurada()) {
     return NextResponse.json({ erro: 'ANTHROPIC_API_KEY não configurada', semIA: true }, { status: 503 })

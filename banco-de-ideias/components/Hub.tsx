@@ -161,15 +161,16 @@ export default function Hub({
       setConsulta(q)
       if (timerBusca.current) clearTimeout(timerBusca.current)
       const limpa = q.trim()
+      ultimaConsulta.current = limpa // qualquer resposta de uma consulta anterior passa a ser ignorada
+      setBuscandoIA(false)
       if (!limpa) {
         setBusca(null)
-        setBuscandoIA(false)
         return
       }
       setBusca(buscarLocal(limpa, ideias.filter((i) => i.status !== 'arquivado'))) // instantâneo
       if (!config.ia) return
       const disparar = async () => {
-        ultimaConsulta.current = limpa
+        if (ultimaConsulta.current !== limpa) return
         setBuscandoIA(true)
         try {
           const r = await fetch('/api/busca', {
@@ -178,7 +179,9 @@ export default function Hub({
             body: JSON.stringify({ q: limpa }),
           })
           const res = (await r.json()) as RespostaBusca
-          if (ultimaConsulta.current === limpa) setBusca(res)
+          if (r.ok && Array.isArray(res?.resultados) && ultimaConsulta.current === limpa) setBusca(res)
+        } catch {
+          // fica a busca local que já está na tela
         } finally {
           if (ultimaConsulta.current === limpa) setBuscandoIA(false)
         }
@@ -229,7 +232,7 @@ export default function Hub({
     const porId = new Map(ideias.map((i) => [i.id, i]))
     return busca.resultados.flatMap((r) => {
       const i = porId.get(r.id)
-      return i ? [{ ideia: i, motivo: r.motivo }] : []
+      return i && i.status !== 'arquivado' ? [{ ideia: i, motivo: r.motivo }] : []
     })
   }, [busca, ideias])
 

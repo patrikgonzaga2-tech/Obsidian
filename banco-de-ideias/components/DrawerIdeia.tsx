@@ -1,11 +1,12 @@
 'use client'
 import { useEffect, useState } from 'react'
-import { ArrowUpRight, Check, GitBranch, MessagesSquare, Pencil, Plus, Trash, X } from 'lucide-react'
-import type { Ideia, Prioridade, Status, Tarefa } from '@/lib/tipos'
+import { ArrowUpRight, Check, Copy, GitBranch, MessagesSquare, Pencil, Plus, SquareTerminal, Trash, X } from 'lucide-react'
+import type { Comando, Ideia, LinkIdeia, Prioridade, Status, Tarefa } from '@/lib/tipos'
 import { FASE_LABEL, novoId, PRIORIDADE_LABEL, STATUS_LABEL } from '@/lib/tipos'
 import type { Config } from './Hub'
 import Conversa from './Conversa'
-import { BarraProgresso, BolinhaStatus, Icone3D, IndicadorFase } from './ui'
+import { normalizarUrl } from '@/lib/regras'
+import { BarraProgresso, BolinhaStatus, chaveIcone, Icone3D, IndicadorFase } from './ui'
 
 export default function DrawerIdeia({
   ideia,
@@ -29,17 +30,28 @@ export default function DrawerIdeia({
   useEffect(() => {
     if (ideia) setVisivel(ideia)
   }, [ideia])
+  const idAtual = ideia?.id
   useEffect(() => {
-    setConversa(abrirConversa)
-  }, [ideia?.id, abrirConversa])
+    if (idAtual) setConversa(abrirConversa)
+  }, [idAtual, abrirConversa])
+  // a conversa, depois de aberta, fica montada (escondida) enquanto for a mesma ideia:
+  // trocar de aba não perde a resposta em andamento nem repete a abertura
+  const [conversaDe, setConversaDe] = useState<string | null>(null)
   useEffect(() => {
-    if (!ideia?.id) return
+    if (conversa && visivel) setConversaDe(visivel.id)
+  }, [conversa, visivel])
+  useEffect(() => {
+    if (!idAtual) return
+    let vivo = true
     setTemHistorico(false)
-    fetch(`/api/ideias/${ideia.id}/historico`)
+    fetch(`/api/ideias/${idAtual}/historico`)
       .then((r) => (r.ok ? r.json() : []))
-      .then((h: unknown[]) => setTemHistorico(Array.isArray(h) && h.length > 0))
+      .then((h: unknown[]) => vivo && setTemHistorico(Array.isArray(h) && h.length > 0))
       .catch(() => {})
-  }, [ideia?.id])
+    return () => {
+      vivo = false
+    }
+  }, [idAtual])
 
   const aberto = Boolean(ideia)
   const i = visivel
@@ -64,9 +76,9 @@ export default function DrawerIdeia({
             <div className="relative overflow-hidden px-6 pb-5 pt-6">
               <div className="absolute inset-0 -z-0 bg-gradient-to-br from-verde-100/80 via-white to-laranja-100/70" />
               <div className="relative flex items-start gap-4">
-                <Icone3D categoria={i.categoria} tamanho={60} />
+                <Icone3D categoria={chaveIcone(i)} tamanho={60} />
                 <div className="min-w-0 flex-1">
-                  <TituloEditavel valor={i.titulo} onSalvar={(titulo) => onAtualizar(i.id, { titulo })} />
+                  <TituloEditavel key={`titulo-${i.id}`} valor={i.titulo} onSalvar={(titulo) => onAtualizar(i.id, { titulo })} />
                   <input
                     defaultValue={i.categoria}
                     key={`cat-${i.id}`}
@@ -122,11 +134,19 @@ export default function DrawerIdeia({
               </div>
             </div>
 
-            {conversa ? (
-              <Conversa key={i.id} ideia={i} config={config} onHistorico={() => setTemHistorico(true)} />
-            ) : (
+            {conversaDe === i.id && (
+              <div className={conversa ? 'flex min-h-0 flex-1 flex-col' : 'hidden'}>
+                <Conversa key={i.id} ideia={i} config={config} ativa={conversa} onHistorico={() => setTemHistorico(true)} />
+              </div>
+            )}
+            {!conversa && (
               <>
                 <div className="rolagem-fina flex-1 space-y-6 overflow-y-auto px-6 pb-6 pt-1">
+                  {/* agentes e painéis: como usar, links e comandos prontos */}
+                  {(i.como_usar || i.links?.length || i.comandos?.length) && (
+                    <ComoUsar key={`uso-${i.id}`} comoUsar={i.como_usar} links={i.links ?? []} comandos={i.comandos ?? []} />
+                  )}
+
                   {/* fase */}
                   <section className="rounded-3xl bg-white p-5 ring-1 ring-verde-900/6">
                     <div className="mb-4 flex items-center justify-between">
@@ -159,7 +179,7 @@ export default function DrawerIdeia({
                   </section>
 
                   {/* passo a passo */}
-                  <Checklist tarefas={i.tarefas} onMudar={(tarefas) => onAtualizar(i.id, { tarefas })} />
+                  <Checklist key={`check-${i.id}`} tarefas={i.tarefas} onMudar={(tarefas) => onAtualizar(i.id, { tarefas })} />
 
                   {/* links */}
                   <section className="space-y-2">
@@ -169,7 +189,7 @@ export default function DrawerIdeia({
                       label="Produto no ar"
                       valor={i.url_produto ?? ''}
                       placeholder="https://…"
-                      onSalvar={(v) => onAtualizar(i.id, { url_produto: v || null })}
+                      onSalvar={(v) => onAtualizar(i.id, { url_produto: normalizarUrl(v) })}
                     />
                     <CampoLink
                       key={`repo-${i.id}`}
@@ -353,6 +373,72 @@ function TextoEditavel({
   )
 }
 
+function ComoUsar({ comoUsar, links, comandos }: { comoUsar?: string; links: LinkIdeia[]; comandos: Comando[] }) {
+  const [copiado, setCopiado] = useState<number | null>(null)
+  const copiar = async (texto: string, n: number) => {
+    try {
+      await navigator.clipboard.writeText(texto)
+      setCopiado(n)
+      setTimeout(() => setCopiado((c) => (c === n ? null : c)), 1500)
+    } catch {
+      // sem área de transferência: o texto continua selecionável no quadro
+    }
+  }
+  return (
+    <section className="rounded-3xl bg-gradient-to-br from-verde-50 to-white p-5 ring-1 ring-verde-200/70">
+      <h4 className="flex items-center gap-2 text-xs font-extrabold uppercase tracking-[0.12em] text-verde-800">
+        <SquareTerminal size={15} /> Como usar
+      </h4>
+      {comoUsar && <p className="mt-2 text-sm leading-relaxed text-tinta">{comoUsar}</p>}
+      {links.length > 0 && (
+        <div className="mt-3 flex flex-wrap gap-2">
+          {links.map((l) => (
+            <a
+              key={l.url}
+              href={l.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-verde inline-flex items-center gap-1.5 rounded-xl px-3 py-1.5 text-xs font-bold"
+            >
+              {l.rotulo} <ArrowUpRight size={13} />
+            </a>
+          ))}
+        </div>
+      )}
+      {comandos.length > 0 && (
+        <>
+          <div className="mt-4 text-xs font-extrabold uppercase tracking-[0.12em] text-tinta-suave">
+            Comandos · o que pedir a este agente
+          </div>
+          <ol className="mt-2 space-y-2">
+            {comandos.map((c, n) => (
+              <li key={n} className="rounded-2xl bg-white p-3 ring-1 ring-verde-900/8">
+                <div className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
+                  <span className="text-sm font-bold">{c.titulo}</span>
+                  <span className="rounded-full bg-laranja-50 px-2 py-0.5 text-[11px] font-semibold text-laranja-700">{c.onde}</span>
+                </div>
+                <div className="relative mt-2">
+                  <pre className="whitespace-pre-wrap break-words rounded-xl bg-tinta px-3 py-2.5 pr-10 font-mono text-[12px] leading-relaxed text-verde-100 select-all">
+                    {c.texto}
+                  </pre>
+                  <button
+                    onClick={() => copiar(c.texto, n)}
+                    className="absolute right-2 top-2 rounded-md p-1 text-verde-200 hover:bg-white/10"
+                    aria-label={`Copiar comando: ${c.titulo}`}
+                  >
+                    {copiado === n ? <Check size={14} /> : <Copy size={14} />}
+                  </button>
+                </div>
+                {c.dica && <p className="mt-1.5 text-xs leading-relaxed text-tinta-suave">{c.dica}</p>}
+              </li>
+            ))}
+          </ol>
+        </>
+      )}
+    </section>
+  )
+}
+
 function CampoLink({
   label,
   valor,
@@ -369,6 +455,7 @@ function CampoLink({
   href?: string
 }) {
   const [texto, setTexto] = useState(valor)
+  useEffect(() => setTexto(valor), [valor])
   const destino = href ?? (valor || undefined)
   return (
     <div className="flex items-center gap-2 rounded-2xl bg-white px-3 py-2 ring-1 ring-verde-900/8">
