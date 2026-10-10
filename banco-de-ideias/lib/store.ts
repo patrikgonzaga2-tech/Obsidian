@@ -4,7 +4,8 @@
 import 'server-only'
 import fs from 'node:fs/promises'
 import path from 'node:path'
-import type { Ideia, Mensagem } from './tipos'
+import type { Ideia, Mensagem, Perfil } from './tipos'
+import { normalizarPerfil, perfilInicial } from './perfil'
 import { sementes } from './seed'
 import { normalizarIdeia } from './regras'
 
@@ -55,6 +56,7 @@ const ARQ = path.join(process.cwd(), '.data', 'banco.json')
 interface BancoLocal {
   ideias: Ideia[]
   historico: Mensagem[]
+  perfil?: Perfil | null
 }
 let memoria: BancoLocal | null = null
 let carregando: Promise<BancoLocal> | null = null
@@ -69,12 +71,12 @@ async function lerLocal(): Promise<BancoLocal> {
       /* arquivo ainda não existe: primeira vez */
     }
     if (raw == null) {
-      memoria = { ideias: sementes(), historico: [] }
+      memoria = { ideias: sementes(), historico: [], perfil: perfilInicial() }
       await gravarLocal()
     } else {
       try {
         const b = JSON.parse(raw) as BancoLocal
-        memoria = { ideias: (b.ideias ?? []).map(normalizar), historico: b.historico ?? [] }
+        memoria = { ideias: (b.ideias ?? []).map(normalizar), historico: b.historico ?? [], perfil: normalizarPerfil(b.perfil) }
       } catch {
         // arquivo corrompido: guarda uma cópia e NÃO sobrescreve com as sementes
         await fs.copyFile(ARQ, `${ARQ}.corrompido-${Date.now()}`).catch(() => {})
@@ -214,4 +216,37 @@ export async function registrarConexao(id: string, status: string, detalhe: stri
   } catch {
     // tabela opcional — não derruba a verificação
   }
+}
+
+// ---------- "Meu trabalho" (perfil) ----------
+export async function lerPerfil(): Promise<Perfil | null> {
+  if (supabaseConfigurado()) {
+    const rows = await sb<{ dados: unknown }[]>('hub_perfil', 'select=dados&id=eq.atual').catch(() => [])
+    if (rows[0]) return normalizarPerfil(rows[0].dados)
+    // instalação nova: grava o perfil sugerido uma vez
+    const p = perfilInicial()
+    await sb('hub_perfil', 'on_conflict=id', {
+      method: 'POST',
+      body: JSON.stringify({ id: 'atual', dados: p }),
+      headers: { Prefer: 'resolution=ignore-duplicates,return=minimal' },
+    }).catch(() => {})
+    return p
+  }
+  return (await lerLocal()).perfil ?? null
+}
+
+export async function salvarPerfil(perfil: Perfil): Promise<Perfil> {
+  const p = { ...perfil, atualizado_em: new Date().toISOString() }
+  if (supabaseConfigurado()) {
+    await sb('hub_perfil', 'on_conflict=id', {
+      method: 'POST',
+      body: JSON.stringify({ id: 'atual', dados: p }),
+      headers: { Prefer: 'resolution=merge-duplicates,return=minimal' },
+    })
+    return p
+  }
+  const b = await lerLocal()
+  b.perfil = p
+  await gravarLocal()
+  return p
 }

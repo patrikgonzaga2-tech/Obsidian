@@ -6,21 +6,15 @@ import { contextoDaIdeia, promptRetomada } from '@/lib/contexto'
 import type { Config } from './Hub'
 import { Icone3D } from './ui'
 
-const ABERTURA = 'Vamos retomar de onde parei. Qual é o próximo passo e por onde começo agora?'
 
 /** Conversa com a IA já com todo o contexto da ideia injetado. */
-// ideias que já receberam a abertura automática nesta visita (evita pagar duas vezes)
-const aberturaEnviada = new Set<string>()
-
 export default function Conversa({
   ideia,
   config,
-  ativa,
   onHistorico,
 }: {
   ideia: Ideia
   config: Config
-  ativa: boolean
   onHistorico: () => void
 }) {
   const [msgs, setMsgs] = useState<Pick<Mensagem, 'id' | 'papel' | 'conteudo'>[]>([])
@@ -69,7 +63,6 @@ export default function Conversa({
   )
 
   // carrega o histórico uma vez por ideia
-  const [vazio, setVazio] = useState(false)
   useEffect(() => {
     let vivo = true
     fetch(`/api/ideias/${ideia.id}/historico`)
@@ -78,7 +71,6 @@ export default function Conversa({
         if (!vivo) return
         const lista = Array.isArray(h) ? h : []
         setMsgs(lista)
-        setVazio(lista.length === 0)
         setCarregado(true)
       })
       .catch(() => vivo && setCarregado(true))
@@ -87,12 +79,6 @@ export default function Conversa({
     }
   }, [ideia.id])
 
-  // sem histórico, a IA abre retomando o contexto — só quando a aba está visível e uma vez por ideia
-  useEffect(() => {
-    if (!ativa || !carregado || !vazio || !config.ia || aberturaEnviada.has(ideia.id)) return
-    aberturaEnviada.add(ideia.id)
-    enviar(ABERTURA)
-  }, [ativa, carregado, vazio, config.ia, ideia.id, enviar])
 
   useEffect(() => {
     fim.current?.scrollIntoView({ behavior: 'smooth', block: 'end' })
@@ -152,6 +138,12 @@ export default function Conversa({
             A conversa dentro do painel precisa da <b>ANTHROPIC_API_KEY</b> (veja a conexão “Chats no cloud”). Enquanto isso, use
             <b> Abrir no Claude.ai</b> — o contexto completo vai junto.
           </div>
+        )}
+
+        {carregado && msgs.length === 0 && (
+          <p className="py-4 text-center text-xs text-tinta-suave">
+            Pergunte algo rápido sobre esta ideia. Para configurar de verdade, use “Iniciar conversa no Claude” acima.
+          </p>
         )}
 
         {!carregado && (

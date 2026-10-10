@@ -19,6 +19,10 @@ create table if not exists public.hub_ideias (
   origem_ref       text,
   como_usar        text not null default '',
   passos_uso       jsonb not null default '[]'::jsonb, -- ["passo 1", ...]
+  objetivo_conversa text not null default '',
+  onde_conversa    text not null default 'code' check (onde_conversa in ('code', 'chat')),
+  preparos         jsonb not null default '[]'::jsonb, -- [{id, texto, como, link, feito}]
+  conversa_claude  jsonb,                               -- {iniciada_em, ultima_em, retomadas, url, tamanho, resumo}
   comandos         jsonb not null default '[]'::jsonb, -- [{titulo, texto, onde, dica}]
   links            jsonb not null default '[]'::jsonb, -- [{rotulo, url}]
   criado_em        timestamptz not null default now(),
@@ -43,7 +47,13 @@ create table if not exists public.hub_historico (
 );
 create index if not exists hub_historico_ideia_idx on public.hub_historico (ideia_id, criado_em);
 
+create table if not exists public.hub_perfil (
+  id    text primary key, -- 'atual'
+  dados jsonb not null    -- {montando, meta, funcoes[], preciso[], atualizado_em}
+);
+
 alter table public.hub_ideias    enable row level security;
+alter table public.hub_perfil    enable row level security;
 alter table public.hub_conexoes  enable row level security;
 alter table public.hub_historico enable row level security;
 
@@ -51,6 +61,10 @@ alter table public.hub_historico enable row level security;
 alter table public.hub_ideias add column if not exists como_usar text not null default '';
 alter table public.hub_ideias add column if not exists comandos jsonb not null default '[]'::jsonb;
 alter table public.hub_ideias add column if not exists passos_uso jsonb not null default '[]'::jsonb;
+alter table public.hub_ideias add column if not exists objetivo_conversa text not null default '';
+alter table public.hub_ideias add column if not exists onde_conversa text not null default 'code';
+alter table public.hub_ideias add column if not exists preparos jsonb not null default '[]'::jsonb;
+alter table public.hub_ideias add column if not exists conversa_claude jsonb;
 alter table public.hub_ideias add column if not exists links jsonb not null default '[]'::jsonb;
 alter table public.hub_ideias drop constraint if exists hub_ideias_status_check;
 alter table public.hub_ideias add constraint hub_ideias_status_check check (status in ('em_andamento', 'no_ar', 'pausado', 'arquivado'));

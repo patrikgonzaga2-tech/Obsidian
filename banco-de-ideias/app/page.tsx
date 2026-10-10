@@ -1,5 +1,6 @@
 import Hub from '@/components/Hub'
-import { listarIdeias } from '@/lib/store'
+import { lerPerfil, listarIdeias } from '@/lib/store'
+import type { Perfil } from '@/lib/tipos'
 import { verificarConexoes, transcricaoServidor } from '@/lib/conexoes'
 import { iaConfigurada } from '@/lib/ia'
 import type { Ideia } from '@/lib/tipos'
@@ -15,11 +16,13 @@ export default async function Pagina() {
     erro = String(e)
   }
   const conexoes = await verificarConexoes()
+  const perfil: Perfil | null = await lerPerfil().catch(() => null)
   return (
     <Hub
       ideiasIniciais={ideias}
       conexoesIniciais={conexoes}
       config={{ ia: iaConfigurada(), transcricaoServidor: transcricaoServidor() }}
+      perfilInicial={perfil}
       erroInicial={erro}
     />
   )

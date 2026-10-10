@@ -14,6 +14,16 @@ raiz.render(
   </div>
 )
 
-iniciarBackend().then(({ ideias, conexoes, config, erro, assinar }) => {
-  raiz.render(<Hub ideiasIniciais={ideias} conexoesIniciais={conexoes} config={config} erroInicial={erro} assinar={assinar} />)
+iniciarBackend().then(({ ideias, conexoes, config, perfil, erro, assinar }) => {
+  raiz.render(
+    <Hub
+      ideiasIniciais={ideias}
+      conexoesIniciais={conexoes}
+      config={config}
+      perfilInicial={perfil}
+      linkPainel="https://claude.ai/artifact/TZyEtoYKaRR9qPUe3NWU4U"
+      erroInicial={erro}
+      assinar={assinar}
+    />
+  )
 })

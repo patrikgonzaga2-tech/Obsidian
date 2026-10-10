@@ -4,7 +4,8 @@
 // - busca, organização e conversa usam o Claude da conta de quem abre (capability `sample`),
 //   sem chave de API.
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import type { Conexao, ConexaoId, Ideia, Mensagem, RespostaBusca } from '@/lib/tipos'
+import type { Conexao, ConexaoId, Ideia, Mensagem, Perfil, RespostaBusca } from '@/lib/tipos'
+import { normalizarPerfil } from '@/lib/perfil'
 import { novoId } from '@/lib/tipos'
 import { aplicarRegras, normalizarIdeia } from '@/lib/regras'
 import { buscarLocal } from '@/lib/busca-local'
@@ -50,6 +51,7 @@ export async function iniciarBackend(): Promise<{
   ideias: Ideia[]
   conexoes: Conexao[]
   config: Config
+  perfil: Perfil | null
   erro: string
   assinar: (f: (l: Ideia[]) => void) => () => void
 }> {
@@ -84,8 +86,18 @@ export async function iniciarBackend(): Promise<{
   } else {
     erro = 'Banco indisponível nesta visualização: as mudanças não serão salvas.'
   }
+  let perfil: Perfil | null = null
+  if (db) {
+    try {
+      const snap = await db.doc('perfil/atual').get()
+      if (snap.exists) perfil = normalizarPerfil(snap.data())
+    } catch {
+      /* sem perfil ainda */
+    }
+  }
   instalarFetch()
   return {
+    perfil,
     ideias: lista(),
     conexoes: conexoes(),
     config: { ia: Boolean(sample), transcricaoServidor: false, microfone: false, buscaIAAutomatica: false },
@@ -138,6 +150,17 @@ async function rotear(metodo: string, caminho: string, corpo: any): Promise<Resp
   if (rota === 'transcrever') return resposta({ erro: 'Sem transcrição de áudio no Claude.', usarNavegador: true }, 501)
   if (rota === 'conexoes' && !id) return resposta(conexoes())
   if (rota === 'conexoes' && id && metodo === 'POST') return resposta(await iniciarConexao(id as ConexaoId))
+  if (rota === 'perfil' && metodo === 'GET') {
+    const snap = db ? await db.doc('perfil/atual').get() : null
+    return resposta(snap?.exists ? normalizarPerfil(snap.data()) : null)
+  }
+  if (rota === 'perfil' && metodo === 'PUT') {
+    const p = normalizarPerfil(corpo)
+    if (!p) return resposta({ erro: 'Perfil inválido' }, 400)
+    p.atualizado_em = new Date().toISOString()
+    if (db) await db.doc('perfil/atual').set(JSON.parse(JSON.stringify(p)))
+    return resposta(p)
+  }
   if (rota === 'config') return resposta({ ia: Boolean(sample), transcricaoServidor: false })
   return resposta({ erro: 'Rota desconhecida' }, 404)
 }

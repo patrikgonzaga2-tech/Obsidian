@@ -1,7 +1,8 @@
 'use client'
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Lightbulb, Mic, PanelLeft, Plus, Rocket, Undo2, X } from 'lucide-react'
-import type { Conexao, ConexaoId, Ideia, RespostaBusca, Status } from '@/lib/tipos'
+import type { Conexao, ConexaoId, Ideia, Perfil, RespostaBusca, Status } from '@/lib/tipos'
+import MeuTrabalho from './MeuTrabalho'
 import { faseDoProgresso, progressoDasTarefas } from '@/lib/tipos'
 import { buscarLocal } from '@/lib/busca-local'
 import BarraBusca from './BarraBusca'
@@ -32,6 +33,8 @@ export default function Hub({
   config,
   erroInicial,
   assinar,
+  perfilInicial = null,
+  linkPainel,
 }: {
   ideiasIniciais: Ideia[]
   conexoesIniciais: Conexao[]
@@ -39,7 +42,10 @@ export default function Hub({
   erroInicial?: string
   /** atualizações ao vivo vindas do armazenamento (retorna o cancelamento) */
   assinar?: (aoMudar: (ideias: Ideia[]) => void) => () => void
+  perfilInicial?: Perfil | null
+  linkPainel?: string
 }) {
+  const [perfil, setPerfil] = useState<Perfil | null>(perfilInicial)
   const [ideias, setIdeias] = useState(ideiasIniciais)
   const [conexoes, setConexoes] = useState(conexoesIniciais)
   const [selecionadaId, setSelecionadaId] = useState<string | null>(null)
@@ -331,6 +337,27 @@ export default function Hub({
             </section>
           ) : (
             <>
+              <MeuTrabalho
+                perfil={perfil}
+                ideias={ideias}
+                linkPainel={linkPainel}
+                onAbrir={abrir}
+                onSalvar={async (p) => {
+                  const r = await fetch('/api/perfil', {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(p),
+                  }).catch(() => null)
+                  if (!r?.ok) {
+                    avisar('Não consegui salvar o Meu trabalho.')
+                    return false
+                  }
+                  setPerfil(await r.json())
+                  avisar('Meu trabalho atualizado.')
+                  return true
+                }}
+              />
+
               <PrateleiraNoAr ideias={noAr} onDetalhes={(id) => abrir(id, 'descricao')} />
 
               <section className="mt-8">

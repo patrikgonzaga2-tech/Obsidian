@@ -1,12 +1,20 @@
 // Ideias iniciais: usadas só quando o banco ainda está vazio.
 // Baseadas nos projetos, painéis e rotinas que já existem (repositórios, docs e rotinas do Claude).
-import type { Comando, Ideia, Tarefa } from './tipos'
+import type { Comando, Ideia, Preparo, Tarefa } from './tipos'
 
 const agora = new Date().toISOString()
 const t = (texto: string, feito = false): Tarefa => ({
   id: Math.random().toString(36).slice(2, 10),
   texto,
   feito,
+})
+// id estável a partir do texto (atualizações não duplicam e preservam o "Resolvido")
+const prep = (texto: string, como?: string, link?: string): Preparo => ({
+  id: 'p-' + texto.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').slice(0, 40),
+  texto,
+  ...(como ? { como } : {}),
+  ...(link ? { link } : {}),
+  feito: false,
 })
 const c = (titulo: string, onde: string, texto: string, dica?: string): Comando => ({ titulo, onde, texto, ...(dica ? { dica } : {}) })
 
@@ -51,6 +59,13 @@ const SEMENTES: Semente[] = [
       c('Subir campanha no padrão', CC_LR, 'Suba uma campanha no padrão da seção 3.2 de docs/ANALISE_CAMPANHAS_QUIZ.md com os criativos aprovados <letras>, R$ 20/dia por conjunto.', 'ABO, pixel da LP, evento Compra Realizada, sem Audience Network. Depois ligue o complemento do WhatsApp 0948 no Gerenciador.'),
     ],
     passos_uso: ["Toda manhã, depois das 7h, chega no celular e no e-mail o resumo do dia: gasto, sessões no quiz, vendas e custo por venda.", "Abra o painel de anúncios e leia a \"Análise do dia\": o que melhorou, o que piorou e o que fazer.", "Nas propostas, aprove, peça ajuste (escrevendo uma nota) ou recuse cada uma. Aprovado = pode subir no Meta.", "Veja a aba Criativos: o que pausar, trocar, ajustar ou escalar, com os números de cada anúncio.", "Para pedir algo novo, escreva no chat do painel no assunto certo: Campanha, Criativo novo ou Quiz.", "Quer que aconteça agora e não só às 7h? Copie um comando abaixo e mande numa sessão do Claude Code.", "Toda segunda, atualize os \"outros custos\" (menu ☰ → Meta do painel → Atualizar custos) para o lucro sair certo.", "Depois que um anúncio novo subir, ligue o complemento do WhatsApp 0948 no Gerenciador de Anúncios."],
+    objetivo_conversa: "Revisar e ajustar o gestor de tráfego para a nossa base: conectores e rotina das 7h, régua (custo por venda até R$ 37, 32% passando da T1, 18,7% clicando em comprar), padrão de campanha, abas do painel e propostas pendentes, até a rotina fazer exatamente o que eu preciso.",
+    onde_conversa: 'code',
+    preparos: [
+      prep("Conectores ligados no claude.ai: Meta Ads, Supabase, Google Drive, Gmail, UMCLIQUE e Metricool", "claude.ai → Configurações → Conectores. Cada um precisa aparecer como conectado; se algum pedir login de novo, refaça.", "https://claude.ai/settings/connectors"),
+      prep("Abrir o painel de anúncios uma vez e liberar o que ele pedir", "Se aparecer o pedido para usar o Claude ou os conectores, clique em Permitir. Confira se os números do Meta carregam.", "https://claude.ai/artifact/FkDqzBBekcELvdVp4EWgEN"),
+      prep("Na sessão nova do Claude Code: repositório LR_LauraRosaPersonal e ambiente \"Default\"", "Em claude.ai/code, clique em \"Novo\", escolha o repositório LR_LauraRosaPersonal e confira o ambiente no ícone de nuvem no topo (\"Default\"). O botão \"Iniciar conversa no Claude\" já abre essa página.", "https://claude.ai/code"),
+    ],
     tarefas: [
       t('Painel com Meta ao vivo, análise, propostas e chat', true),
       t('Rotina diária às 7h com conectores ligados', true),
@@ -86,6 +101,13 @@ const SEMENTES: Semente[] = [
       c('O que está pendente no comercial', CC_LR, 'Leia docs/CONTEXTO_COMERCIAL.md e me diga em 5 linhas o que está pendente no comercial.'),
     ],
     passos_uso: ["Abra o Painel de Leads para ver os leads do dia e os que ainda estão em andamento. Ele atualiza sozinho às 11:59 e às 23:59.", "Às 8h, confira no grupo \"Vendas Aline\" a mensagem com o dia anterior e o total do mês.", "Peça para a Aline manter a aba VENDAS do mês da planilha dela em dia: o relatório confere com ela.", "Use a planilha automática para ver o histórico e filtrar por dia ou etapa.", "Se o relatório das 8h não chegar, use o comando \"Reenviar o relatório das 8h\".", "As rotinas só leem o CRM: nada é movido nem enviado para clientes sem você."],
+    objetivo_conversa: "Revisar e ajustar o comercial: rotinas das 11:59, 23:59 e 8h, Painel de Leads, planilha automática e o relatório do grupo Vendas Aline, e resolver as pendências (planilha da Aline, Instagram no UMCLIQUE, webhooks da Greenn).",
+    onde_conversa: 'code',
+    preparos: [
+      prep("Conectores ligados no claude.ai: UMCLIQUE, Supabase e Google Drive", "claude.ai → Configurações → Conectores. Cada um precisa aparecer como conectado; se algum pedir login de novo, refaça.", "https://claude.ai/settings/connectors"),
+      prep("Reconectar o Instagram no UMCLIQUE", "No painel do UMCLIQUE: Canais → Instagram → Reconectar. Sem isso os leads do Instagram não chegam ao CRM."),
+      prep("Na sessão nova do Claude Code: repositório LR_LauraRosaPersonal e ambiente \"Default\"", "Em claude.ai/code, clique em \"Novo\", escolha o repositório LR_LauraRosaPersonal e confira o ambiente no ícone de nuvem no topo (\"Default\"). O botão \"Iniciar conversa no Claude\" já abre essa página.", "https://claude.ai/code"),
+    ],
     tarefas: [
       t('Rotinas 11:59, 23:59 e 8h funcionando', true),
       t('Preencher a aba VENDAS OUTUBRO 2026 da planilha da Aline (01 a 06/10)'),
@@ -120,6 +142,13 @@ const SEMENTES: Semente[] = [
       c('Diagnóstico do funil', CC_LR, 'Em que tela as pessoas param no quiz desde 08/10, por anúncio e por conjunto? Compare com a régua (T1 32%, comprar 18,7%) e diga o que ajustar primeiro.'),
     ],
     passos_uso: ["Veja o quiz como a cliente vê pelo link \"Quiz no ar\".", "Para mudar um texto: abra a \"Página de revisão do quiz\", escolha a tela, edite o campo (fica laranja) e clique em Salvar pedidos.", "Numa sessão do Claude Code no repositório LR_LauraRosaPersonal, mande \"aplica a fila do quiz\".", "O Claude prepara a mudança e abre um pull request; você confere a prévia e só depois vai ao ar.", "Para mudar foto, layout, ordem das telas ou lógica, descreva no Claude Code dizendo a tela (T1 a T26).", "Oferta, preço, parcelamento e checkout: sempre com antes/depois e a sua aprovação.", "Acompanhe no painel de anúncios a aba \"Sugestão quiz\": onde as pessoas param e o que mudar."],
+    objetivo_conversa: "Revisar o quiz De Volta ao Eixo tela a tela e ajustar promessa, perguntas e oferta para vender mais, usando os números do painel de anúncios. Oferta e checkout só com antes/depois e minha aprovação.",
+    onde_conversa: 'code',
+    preparos: [
+      prep("Salvar na página de revisão os textos que você já quer mudar", "Escolha a tela, edite o texto (fica laranja) e clique em Salvar pedidos. Se ainda não tem nenhum, marque como resolvido.", "https://claude.ai/artifact/1CpgLoG6JcvucRM21TPfiQ"),
+      prep("Conectores ligados no claude.ai: Supabase (para ler o funil do quiz)", "claude.ai → Configurações → Conectores. Cada um precisa aparecer como conectado; se algum pedir login de novo, refaça.", "https://claude.ai/settings/connectors"),
+      prep("Na sessão nova do Claude Code: repositório LR_LauraRosaPersonal e ambiente \"Default\"", "Em claude.ai/code, clique em \"Novo\", escolha o repositório LR_LauraRosaPersonal e confira o ambiente no ícone de nuvem no topo (\"Default\"). O botão \"Iniciar conversa no Claude\" já abre essa página.", "https://claude.ai/code"),
+    ],
     tarefas: [
       t('Quiz publicado com a T1 Volta ao Eixo', true),
       t('Página de pós-compra levando ao grupo', true),
@@ -150,6 +179,14 @@ const SEMENTES: Semente[] = [
       c("Resumo da turma", "Claude Code · qualquer sessão", "Leia a planilha do Volta ao Eixo 7D e me diga quantas começaram, em que dia param e os principais motivos de \"não consegui\"."),
       c("Trocar o link da oferta do Dia 7", "Claude Code · 7diasdevolta", "Troque o link do botão \"Ver minha oferta exclusiva\" por <link>.", "É link de oferta: o Claude mostra antes e depois e espera o seu ok."),
     ],
+    objetivo_conversa: "Deixar o Desafio 7D completo: planilha ligada, vídeo aulas e áudios no lugar, textos revisados e o link da oferta do Dia 7 conferido.",
+    onde_conversa: 'code',
+    preparos: [
+      prep("Planilha \"Volta ao Eixo 7D: Clientes\" criada e ligada ao app", "Siga o guia \"Como ligar a planilha\" (uns 10 minutos, uma vez só, com a conta Google da equipe). Se já fez, marque resolvido.", "https://github.com/patrikgonzaga2-tech/7diasdevolta/blob/HEAD/planilha/COMO-CONFIGURAR.md"),
+      prep("Links das vídeo aulas e dos áudios em mãos", "YouTube, Drive ou outro link. Se ainda não gravou, marque resolvido: o Claude deixa os campos prontos para depois."),
+      prep("Conectores ligados no claude.ai: Google Drive (para ler a planilha)", "claude.ai → Configurações → Conectores. Cada um precisa aparecer como conectado; se algum pedir login de novo, refaça.", "https://claude.ai/settings/connectors"),
+      prep("Na sessão nova do Claude Code: repositório 7diasdevolta e ambiente \"Default\"", "Em claude.ai/code, clique em \"Novo\", escolha o repositório 7diasdevolta e confira o ambiente no ícone de nuvem no topo (\"Default\"). O botão \"Iniciar conversa no Claude\" já abre essa página.", "https://claude.ai/code"),
+    ],
     tarefas: [
       t('Jornada de 7 dias', true),
       t('Envio para a planilha com fila offline', true),
@@ -175,6 +212,12 @@ const SEMENTES: Semente[] = [
     comandos: [
       c("Trocar o número do WhatsApp", "Claude Code · LR_TeamCorpoFeliz", "Troque o WhatsApp da página principal (WA_HREF) para <número> e me mostre antes de publicar."),
       c("Mudar um texto", "Claude Code · LR_TeamCorpoFeliz", "Na página /cf-whats, troque \"<texto atual>\" por \"<texto novo>\" e me mostre antes de publicar."),
+    ],
+    objetivo_conversa: "Revisar a página de candidatura da Comunidade (textos, WhatsApp, imagens e as versões /b, /c e /d) e alinhar com o que o comercial precisa. Planos e checkout só com minha aprovação.",
+    onde_conversa: 'code',
+    preparos: [
+      prep("Ler o manual de operação do site (5 minutos)", "Explica como publicar e o que muda em cada versão da página.", "https://claude.ai/code/artifact/325faca1-d6e4-42ce-9ebe-de225b822722"),
+      prep("Na sessão nova do Claude Code: repositório LR_TeamCorpoFeliz e ambiente \"Default\"", "Em claude.ai/code, clique em \"Novo\", escolha o repositório LR_TeamCorpoFeliz e confira o ambiente no ícone de nuvem no topo (\"Default\"). O botão \"Iniciar conversa no Claude\" já abre essa página.", "https://claude.ai/code"),
     ],
     tarefas: [t('Página publicada', true), t('Depoimentos e logo dentro do projeto', true)],
     url_produto: 'https://teamcorpofeliz.com.br',
@@ -202,6 +245,14 @@ const SEMENTES: Semente[] = [
       c('Só a prévia grátis', CC_LR, 'Monte só a prévia grátis (--simular) do roteiro <id> e me mande.'),
     ],
     passos_uso: ["Abra o Claude Code no repositório LR_LauraRosaPersonal.", "Mande /video-laura com o id do roteiro (ex.: criativo-04) ou \"criativo novo: <ângulo>\".", "O roteirista escreve e o revisor confere as regras do Meta; você recebe a fala completa, os textos na tela e a legenda.", "Veja a prévia grátis (MP4 com a foto parada) e diga se aprova.", "Só com o seu \"sim\" ele gasta créditos de voz (ElevenLabs) e avatar (HeyGen). O custo estimado aparece antes.", "Você recebe o MP4 final 9:16, com legenda e música, pronto para virar proposta de criativo no gestor de tráfego."],
+    objetivo_conversa: "Deixar o estúdio de vídeo da Laura pronto para produzir criativos toda semana: chaves e ambiente, roteiros, prévia grátis e o encadeamento aprovação → voz → avatar → montagem num comando só.",
+    onde_conversa: 'code',
+    preparos: [
+      prep("Contas HeyGen e ElevenLabs criadas e com créditos", "Partes 1 e 2 do GUIA do estúdio (estudio-video/GUIA.md). Só é preciso para gerar voz e avatar; roteiro e prévia grátis funcionam sem."),
+      prep("Ambiente \"Estúdio Vídeo Laura\" criado no Claude Code, com as chaves e os sites liberados", "claude.ai/code → ícone de nuvem → Add environment. Sites: api.heygen.com, upload.heygen.com, *.heygen.ai, api.elevenlabs.io. Chaves HEYGEN_API_KEY e ELEVENLABS_API_KEY na configuração do ambiente (nunca no chat). Passo a passo na Parte 3 do GUIA.", "https://claude.ai/code"),
+      prep("Autorização de imagem e voz da Laura assinada, fotos e áudio enviados", "Parte 4 do GUIA. O áudio vai como documento, não como áudio de WhatsApp."),
+      prep("Na sessão nova do Claude Code: repositório LR_LauraRosaPersonal e ambiente \"Estúdio Vídeo Laura\"", "Em claude.ai/code, clique em \"Novo\", escolha o repositório LR_LauraRosaPersonal e confira o ambiente no ícone de nuvem no topo (\"Estúdio Vídeo Laura\"). O botão \"Iniciar conversa no Claude\" já abre essa página.", "https://claude.ai/code"),
+    ],
     tarefas: [
       t('Roteirista + revisor de anúncio funcionando', true),
       t('Montagem 9:16 com legenda e zoom', true),
@@ -233,6 +284,13 @@ const SEMENTES: Semente[] = [
       c('Publicar um vídeo pronto', 'Claude Code · corpo-feliz-agente', '/publicar saidas/<arquivo>.mp4 aula "<título>" 1', 'Sobe para o Supabase como rascunho; só vira aprovado quando você mandar.'),
     ],
     passos_uso: ["Abra o Claude Code no repositório corpo-feliz-agente.", "Mande /criativo <ângulo> para um anúncio de 30–45 s, ou /aula <dia> <tema> para a aula da jornada.", "Ele mostra roteiro e cenas e espera o seu ok antes de gerar; prefere acervo e narração gratuitos.", "O vídeo pronto fica em ./saidas/.", "Mande /publicar para subir ao Supabase como rascunho; só vira aprovado quando você disser."],
+    objetivo_conversa: "Rodar o primeiro vídeo ponta a ponta do Agente Corpo Feliz (aula do Dia 1) e ajustar o agente para o nosso padrão de marca.",
+    onde_conversa: 'code',
+    preparos: [
+      prep("OpenMontage instalado no seu computador", "Precisa do computador: no terminal, dentro da pasta corpo-feliz-agente, rode bash setup.sh (WSL, Linux ou Mac)."),
+      prep("Arquivo .env com SUPABASE_URL e SUPABASE_SERVICE_ROLE_KEY preenchido", "Para o /publicar. Pegue em Supabase → Project Settings → API. Nunca cole a chave no chat."),
+      prep("Abrir o Claude Code no computador, na pasta corpo-feliz-agente", "No terminal da pasta: claude (ou o app Claude Desktop, aba Code). Na nuvem o OpenMontage não está instalado; aí, cole o prompt nessa sessão."),
+    ],
     tarefas: [
       t('BRAND.md com regras de promessa segura', true),
       t('Comandos /criativo, /aula, /publicar', true),
@@ -264,12 +322,21 @@ const SEMENTES: Semente[] = [
       c('Atualizar onde parei', CC, 'No Banco de Ideias, atualize a ideia "<nome>": <o que eu fiz hoje>.'),
     ],
     passos_uso: ["Abra o painel quando for decidir o que fazer. A busca entende frases como \"quero terminar hoje o de vídeo\" (Enter usa a IA).", "Toque numa ideia: Descrição explica como usar, Visão geral mostra fase, onde parou e o passo a passo, Conversa retoma com a IA.", "Marque as tarefas feitas: o progresso e a fase andam sozinhos.", "Ideia nova: botão Nova ideia e fale pelo ditado do teclado; a IA organiza e cria o card.", "Não quer mais uma ideia? ⋯ → Pausar (stand-by) ou Excluir (vai para a Lixeira e dá para restaurar)."],
+    objetivo_conversa: "Organizar o Banco de Ideias como meu centro de comando: importar os repositórios do GitHub, trazer as pastas do computador, revisar cada ideia e o \"Meu trabalho\".",
+    onde_conversa: 'code',
+    preparos: [
+      prep("Decidir quais repositórios do GitHub entram no painel", "São 10. Arquivados e cópias (forks) podem ficar de fora.", "https://github.com/patrikgonzaga2-tech?tab=repositories"),
+      prep("Publicar pelo GitHub Desktop as pastas do computador que você quer trazer", "GitHub Desktop → Repository → Push (ou \"Publish repository\", privado). Se ainda não quer trazer, marque resolvido."),
+      prep("Na sessão nova do Claude Code: repositório Obsidian e ambiente \"Default\"", "Em claude.ai/code, clique em \"Novo\", escolha o repositório Obsidian e confira o ambiente no ícone de nuvem no topo (\"Default\"). O botão \"Iniciar conversa no Claude\" já abre essa página.", "https://claude.ai/code"),
+    ],
     tarefas: [
       t('Layout, cards, drawer e prateleira "No ar"', true),
       t('Nova ideia por voz/ditado', true),
       t('Painel dentro do Claude (sem chave de API)', true),
       t('Pausar e Lixeira (excluir com volta)', true),
       t('Aba Descrição com o passo a passo de cada agente', true),
+      t('Conversa no Claude com pré-requisitos e controle de tamanho', true),
+      t('Meu trabalho e texto para a Personalização do Claude', true),
       t('Comandos de cada agente', true),
       t('Importar os repositórios do GitHub'),
       t('Trazer as pastas do computador (GitHub Desktop)'),
@@ -297,6 +364,12 @@ const SEMENTES: Semente[] = [
       c('Refazer os índices', 'Terminal · pasta do cofre', 'node _sistema/brain.mjs reindex'),
     ],
     passos_uso: ["Trabalhe normalmente com o Claude Code ou o Codex: as notas relacionadas entram sozinhas antes de cada tarefa.", "No fim, o Claude registra decisões e aprendizados no cofre.", "Para consultar, pergunte \"O que o segundo cérebro sabe sobre <assunto>?\".", "Para ver as notas, abra a pasta do repositório Obsidian como cofre no app Obsidian."],
+    objetivo_conversa: "Alimentar o segundo cérebro com as decisões, padrões e preferências dos projetos ativos e conferir se a memória automática funciona no Claude Code e no Codex.",
+    onde_conversa: 'code',
+    preparos: [
+      prep("Instalar a memória automática no seu computador (uma vez)", "Precisa do computador: no terminal, dentro da pasta do repositório Obsidian, rode node _sistema/install.mjs."),
+      prep("Na sessão nova do Claude Code: repositório Obsidian e ambiente \"Default\"", "Em claude.ai/code, clique em \"Novo\", escolha o repositório Obsidian e confira o ambiente no ícone de nuvem no topo (\"Default\"). O botão \"Iniciar conversa no Claude\" já abre essa página.", "https://claude.ai/code"),
+    ],
     tarefas: [
       t('Estrutura de pastas e templates', true),
       t('brain.mjs com recall/registro', true),
@@ -326,6 +399,13 @@ const SEMENTES: Semente[] = [
     ],
     como_usar: "Abra a aba \"Clicou e não comprou\" do painel de anúncios, veja o motivo principal e peça o plano pelo chat. Cada ação (público, criativo, mensagem) vem como proposta para você aprovar.",
     passos_uso: ["Abra o painel de anúncios → aba \"Clicou e não comprou\".", "Leia quantos clicaram, quantos deixaram Pix sem pagar e quantos saíram do checkout, e o motivo provável.", "No chat do painel, mande o comando abaixo.", "Aprove as propostas que fizerem sentido: público de remarketing, criativo e mensagens no WhatsApp.", "Confira o resultado 3 dias depois na própria proposta."],
+    objetivo_conversa: "Montar a recuperação de quem clicou em comprar e não comprou: remarketing de 7 a 14 dias, 1 criativo que responde o medo principal e a sequência no WhatsApp (UMCLIQUE), tudo como proposta para eu aprovar.",
+    onde_conversa: 'code',
+    preparos: [
+      prep("Conectores ligados no claude.ai: Meta Ads, Supabase e UMCLIQUE", "claude.ai → Configurações → Conectores. Cada um precisa aparecer como conectado; se algum pedir login de novo, refaça.", "https://claude.ai/settings/connectors"),
+      prep("Ler a aba \"Clicou e não comprou\" do painel de anúncios", "Veja quantos clicaram, quantos deixaram Pix sem pagar e o motivo provável.", "https://claude.ai/artifact/FkDqzBBekcELvdVp4EWgEN"),
+      prep("Na sessão nova do Claude Code: repositório LR_LauraRosaPersonal e ambiente \"Default\"", "Em claude.ai/code, clique em \"Novo\", escolha o repositório LR_LauraRosaPersonal e confira o ambiente no ícone de nuvem no topo (\"Default\"). O botão \"Iniciar conversa no Claude\" já abre essa página.", "https://claude.ai/code"),
+    ],
     tarefas: [
       t('Ler a aba "Clicou e não comprou" e o motivo principal'),
       t('Aprovar um público de remarketing (iniciou checkout / viu o quiz, 7–14 dias)'),
@@ -358,6 +438,12 @@ const SEMENTES: Semente[] = [
     ],
     como_usar: "Peça a proposta no Claude Code com o comando abaixo. Você escolhe a promessa; o Claude prepara os textos com antes e depois e os criativos, e nada vai ao ar sem a sua aprovação.",
     passos_uso: ["Mande o comando abaixo numa sessão do Claude Code no repositório LR_LauraRosaPersonal.", "Escolha uma das promessas propostas (recomeço ou resultado).", "Aprove os textos novos da T1, das perguntas e da oferta, com antes e depois.", "Aprove 2 criativos que falam exatamente a mesma coisa.", "Acompanhe por 3 dias quantas pessoas passam da 1ª tela no painel de anúncios."],
+    objetivo_conversa: "Escolher uma promessa só e alinhar anúncio, T1, perguntas e oferta do quiz, com antes e depois de cada texto e 2 criativos, sem mudar nada antes da minha aprovação.",
+    onde_conversa: 'code',
+    preparos: [
+      prep("Ver o funil do quiz no painel de anúncios (aba Sugestão quiz)", "Onde as pessoas param e o que a rotina já sugeriu.", "https://claude.ai/artifact/FkDqzBBekcELvdVp4EWgEN"),
+      prep("Na sessão nova do Claude Code: repositório LR_LauraRosaPersonal e ambiente \"Default\"", "Em claude.ai/code, clique em \"Novo\", escolha o repositório LR_LauraRosaPersonal e confira o ambiente no ícone de nuvem no topo (\"Default\"). O botão \"Iniciar conversa no Claude\" já abre essa página.", "https://claude.ai/code"),
+    ],
     tarefas: [
       t('Escolher a promessa (recomeço ou resultado)'),
       t('Ajustar a T1 e o botão para a mesma promessa'),

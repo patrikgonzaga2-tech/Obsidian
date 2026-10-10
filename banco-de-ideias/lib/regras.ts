@@ -1,11 +1,12 @@
 // Regras de edição aplicadas no servidor e na versão artifact.
-import type { Comando, Fase, Ideia, LinkIdeia, Prioridade, Status, Tarefa } from './tipos'
+import type { Comando, ConversaClaude, Fase, Ideia, LinkIdeia, Preparo, Prioridade, Status, Tarefa } from './tipos'
 import { FASES, faseDoProgresso, novoId, progressoDasTarefas, STATUS_LABEL } from './tipos'
 
 export const EDITAVEIS: (keyof Ideia)[] = [
   'titulo', 'categoria', 'status', 'fase', 'progresso', 'prioridade',
   'resumo', 'resumo_detalhado', 'tarefas', 'url_produto', 'repo',
   'como_usar', 'passos_uso', 'comandos', 'links',
+  'objetivo_conversa', 'onde_conversa', 'preparos', 'conversa_claude',
 ]
 
 const STATUS = Object.keys(STATUS_LABEL) as Status[]
@@ -34,6 +35,37 @@ function tarefas(v: unknown): Tarefa[] {
 
 function listaTexto(v: unknown): string[] {
   return Array.isArray(v) ? v.map(texto).map((x) => x.trim()).filter(Boolean) : []
+}
+
+function preparos(v: unknown): Preparo[] {
+  if (!Array.isArray(v)) return []
+  return v
+    .filter((p) => p && typeof p === 'object')
+    .map((p) => ({
+      id: texto(p.id) || novoId(),
+      texto: texto(p.texto),
+      ...(p.como ? { como: texto(p.como) } : {}),
+      ...(p.link ? { link: normalizarUrl(p.link) ?? undefined } : {}),
+      feito: Boolean(p.feito),
+    }))
+    .filter((p) => p.texto.trim())
+}
+
+function conversaClaude(v: unknown): ConversaClaude | null {
+  if (!v || typeof v !== 'object') return null
+  const c = v as Record<string, unknown>
+  const agora = new Date().toISOString()
+  const tamanhos = ['pequena', 'media', 'grande']
+  return {
+    iniciada_em: texto(c.iniciada_em) || agora,
+    ultima_em: texto(c.ultima_em) || texto(c.iniciada_em) || agora,
+    retomadas: Math.max(0, Math.round(Number(c.retomadas) || 0)),
+    // campos sempre presentes (vazios quando não há): o banco do artifact junta objetos ao atualizar,
+    // então omitir um campo manteria o valor antigo
+    url: normalizarUrl(c.url) ?? '',
+    tamanho: tamanhos.includes(c.tamanho as string) ? (c.tamanho as ConversaClaude['tamanho']) : '',
+    resumo: texto(c.resumo).trim(),
+  }
 }
 
 function comandos(v: unknown): Comando[] {
@@ -68,6 +100,10 @@ export function aplicarRegras(entrada: unknown): Partial<Ideia> {
   if ('tarefas' in b) patch.tarefas = tarefas(b.tarefas)
   if ('comandos' in b) patch.comandos = comandos(b.comandos)
   if ('passos_uso' in b) patch.passos_uso = listaTexto(b.passos_uso)
+  if ('objetivo_conversa' in b) patch.objetivo_conversa = texto(b.objetivo_conversa)
+  if (b.onde_conversa === 'code' || b.onde_conversa === 'chat') patch.onde_conversa = b.onde_conversa
+  if ('preparos' in b) patch.preparos = preparos(b.preparos)
+  if ('conversa_claude' in b) patch.conversa_claude = conversaClaude(b.conversa_claude)
   if ('links' in b) patch.links = links(b.links)
   if ('url_produto' in b) patch.url_produto = normalizarUrl(b.url_produto)
   if ('repo' in b) patch.repo = texto(b.repo).trim() || null
@@ -96,6 +132,8 @@ export function normalizarIdeia(d: Partial<Ideia>): Ideia {
     tarefas: tarefas(d.tarefas),
     comandos: comandos(d.comandos),
     passos_uso: listaTexto(d.passos_uso),
+    preparos: preparos(d.preparos),
+    conversa_claude: conversaClaude(d.conversa_claude),
     links: links(d.links),
     progresso: Number(d.progresso) || 0,
     titulo: texto(d.titulo) || 'Sem título',

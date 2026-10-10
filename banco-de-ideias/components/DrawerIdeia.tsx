@@ -4,7 +4,7 @@ import { ArrowUpRight, Check, Copy, GitBranch, MessagesSquare, Pencil, Plus, Squ
 import type { Comando, Ideia, LinkIdeia, Prioridade, Status, Tarefa } from '@/lib/tipos'
 import { FASE_LABEL, novoId, PRIORIDADE_LABEL, STATUS_LABEL } from '@/lib/tipos'
 import type { Config } from './Hub'
-import Conversa from './Conversa'
+import ConversaClaude from './ConversaClaude'
 import { normalizarUrl } from '@/lib/regras'
 import { BarraProgresso, BolinhaStatus, chaveIcone, Icone3D, IndicadorFase } from './ui'
 
@@ -146,7 +146,13 @@ export default function DrawerIdeia({
 
             {conversaDe === i.id && (
               <div className={conversa ? 'flex min-h-0 flex-1 flex-col' : 'hidden'}>
-                <Conversa key={i.id} ideia={i} config={config} ativa={conversa} onHistorico={() => setTemHistorico(true)} />
+                <ConversaClaude
+                  key={i.id}
+                  ideia={i}
+                  config={config}
+                  onAtualizar={(patch) => onAtualizar(i.id, patch)}
+                  onHistorico={() => setTemHistorico(true)}
+                />
               </div>
             )}
             {aba === 'descricao' && (
@@ -228,7 +234,7 @@ export default function DrawerIdeia({
                     className="btn-verde flex flex-1 items-center justify-center gap-2 rounded-2xl px-4 py-3 text-sm font-bold"
                   >
                     <MessagesSquare size={17} />
-                    {temHistorico ? 'Continuar conversa' : 'Iniciar conversa'}
+                    {i.conversa_claude ? 'Continuar no Claude' : 'Iniciar conversa no Claude'}
                   </button>
                   {i.status === 'no_ar' && (
                     <a
@@ -436,7 +442,7 @@ function Descricao({ ideia: i, temHistorico, onConversar }: { ideia: Ideia; temH
       <div className="flex gap-3 border-t border-verde-900/6 bg-white/80 px-6 py-4 backdrop-blur">
         <button onClick={onConversar} className="btn-verde flex flex-1 items-center justify-center gap-2 rounded-2xl px-4 py-3 text-sm font-bold">
           <MessagesSquare size={17} />
-          {temHistorico ? 'Continuar conversa' : 'Tirar dúvidas'}
+          {i.conversa_claude ? 'Continuar no Claude' : 'Iniciar conversa no Claude'}
         </button>
         {i.url_produto && (
           <a

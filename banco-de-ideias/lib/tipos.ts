@@ -19,6 +19,25 @@ export interface Comando {
   dica?: string
 }
 
+/** Algo que a pessoa precisa fazer FORA do Claude antes de começar a conversa (conector, chave, clique). */
+export interface Preparo {
+  id: string
+  texto: string
+  como?: string // onde clicar, passo a passo curto
+  link?: string
+  feito: boolean
+}
+
+/** A conversa de verdade no Claude (Claude Code ou chat) usada para configurar esta ideia/agente. */
+export interface ConversaClaude {
+  iniciada_em: string
+  ultima_em: string
+  retomadas: number
+  url?: string // link da conversa, colado pela pessoa ('' = sem link)
+  tamanho?: 'pequena' | 'media' | 'grande' | '' // até 10, 10–20, mais de 20 mensagens ('' = não informado)
+  resumo?: string // "RESUMO PARA NOVA CONVERSA" colado da conversa anterior
+}
+
 export interface LinkIdeia {
   rotulo: string
   url: string
@@ -41,6 +60,10 @@ export interface Ideia {
   origem_ref: string | null // id na fonte (repo, caminho da nota...) para não importar duas vezes
   como_usar?: string // para agentes e painéis: como funciona no dia a dia
   passos_uso?: string[] // passo a passo do que a pessoa faz para usar
+  objetivo_conversa?: string // o que a conversa no Claude deve configurar/ajustar
+  onde_conversa?: 'code' | 'chat' // Claude Code (repositório + conectores) ou chat do claude.ai
+  preparos?: Preparo[]
+  conversa_claude?: ConversaClaude | null
   comandos?: Comando[]
   links?: LinkIdeia[]
   criado_em: string
@@ -126,4 +149,19 @@ export function novoId(prefixo = ''): string {
       ? crypto.randomUUID()
       : Math.random().toString(36).slice(2) + Date.now().toString(36)
   return prefixo + r
+}
+
+/** "Meu trabalho": o mapa do que o Patrik está montando, para o painel e para o Claude. */
+export interface Funcao {
+  nome: string
+  descricao: string
+  ideias: string[] // ids das ideias desta função
+}
+
+export interface Perfil {
+  montando: string // o que estou montando
+  meta: string // a meta de agora
+  funcoes: Funcao[]
+  preciso: string[] // o que preciso resolver/decidir
+  atualizado_em: string
 }
