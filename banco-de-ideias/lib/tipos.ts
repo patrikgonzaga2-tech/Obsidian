@@ -73,10 +73,28 @@ export interface Ideia {
 export type ConexaoId = 'supabase' | 'github' | 'desktop' | 'chats'
 export type ConexaoStatus = 'conectado' | 'pendente' | 'desconectado'
 
+export interface OpcaoPendencia {
+  valor: string
+  rotulo: string
+  dica?: string
+}
+
 export interface Pendencia {
+  id?: string // estável: guarda o "Resolvido" e a escolha
   texto: string
   ajuda?: string // instrução ou trecho para copiar
+  link?: string // onde resolver (abre em outra aba)
+  fora?: boolean // depende de você, fora do Claude: tem botão "Resolvido"
+  depois?: boolean // marcar depois da conversa (não bloqueia o botão de iniciar)
+  opcoes?: OpcaoPendencia[] // é uma decisão: botões de escolha
+  escolha?: string
   resolvida: boolean
+}
+
+/** O que você marcou no agente de conexão (Resolvido e escolhas). */
+export interface EstadoConexao {
+  resolvidos: string[]
+  escolhas: Record<string, string>
 }
 
 export interface Conexao {
@@ -88,6 +106,11 @@ export interface Conexao {
   pendencias: Pendencia[]
   pode_sincronizar: boolean // "Iniciar conexão" também importa ideias da fonte
   verificado_em: string
+  /** o que o botão principal faz: abrir a conversa no Claude, testar aqui, ou nada (já está ok) */
+  acao?: 'conversa' | 'teste' | 'nenhuma' | 'verificar'
+  prompt?: string // prompt para começar a conexão no Claude, item a item
+  destino?: string // onde a conversa acontece (ex.: https://claude.ai/code)
+  destino_instrucao?: string
 }
 
 export interface Mensagem {

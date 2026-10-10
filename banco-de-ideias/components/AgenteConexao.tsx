@@ -1,10 +1,13 @@
 'use client'
 import { useEffect, useState } from 'react'
-import { Check, Copy, LoaderCircle, Play, X } from 'lucide-react'
-import type { Conexao } from '@/lib/tipos'
+import { ArrowUpRight, Check, ChevronDown, CircleAlert, Copy, LoaderCircle, Play, RotateCcw, X } from 'lucide-react'
+import type { Conexao, Pendencia } from '@/lib/tipos'
 import { ICONE_CONEXAO, Icone3D, StatusConexao } from './ui'
 
-/** "Agente de conexão": lista as pendências numeradas e roda a conexão passo a passo. */
+/**
+ * "Agente de conexão": as pendências numeradas (com onde clicar, "Resolvido" e escolhas)
+ * e o botão que abre a conversa no Claude para fazer a conexão item a item.
+ */
 export default function AgenteConexao({
   conexao,
   onFechar,
@@ -18,27 +21,76 @@ export default function AgenteConexao({
   const [rodando, setRodando] = useState(false)
   const [log, setLog] = useState<string[]>([])
   const [copiado, setCopiado] = useState<number | null>(null)
+  const [aviso, setAviso] = useState('')
+  const [verPrompt, setVerPrompt] = useState(false)
+  const [ignorar, setIgnorar] = useState(false)
 
   useEffect(() => {
     if (conexao) setVisivel(conexao)
   }, [conexao])
   useEffect(() => {
     setLog([])
+    setAviso('')
+    setVerPrompt(false)
+    setIgnorar(false)
   }, [conexao?.id])
 
   const c = visivel
   const aberto = Boolean(conexao)
   if (!c) return null
   const ic = ICONE_CONEXAO[c.id]
-  const abertas = c.pendencias.filter((p) => !p.resolvida).length
+  const abertas = c.pendencias.filter((p) => !p.resolvida)
+  const foraPendentes = c.pendencias.filter((p) => !p.resolvida && ((p.fora && !p.depois) || p.opcoes))
+  const acao = c.acao ?? 'verificar'
+  const liberado = foraPendentes.length === 0 || ignorar
 
-  const iniciar = async () => {
+  // guarda "Resolvido" / escolha da pendência
+  const marcar = async (p: Pendencia, dados: { resolvida?: boolean; escolha?: string | null }) => {
+    if (!p.id) return
+    // otimista: atualiza a tela na hora
+    const otimista: Conexao = {
+      ...c,
+      pendencias: c.pendencias.map((x) =>
+        x.id === p.id
+          ? { ...x, resolvida: dados.resolvida ?? (dados.escolha ? true : x.resolvida), escolha: dados.escolha ?? x.escolha }
+          : x
+      ),
+    }
+    setVisivel(otimista)
+    try {
+      const r = await fetch(`/api/conexoes/${c.id}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ pendencia: p.id, ...dados }),
+      })
+      if (r.ok) {
+        const nova = (await r.json()) as Conexao
+        setVisivel(nova)
+        onAtualizada(nova, false)
+      }
+    } catch {
+      /* fica o otimista; na próxima abertura recarrega */
+    }
+  }
+
+  const copiarPrompt = async () => {
+    if (!c.prompt) return
+    try {
+      await navigator.clipboard.writeText(c.prompt)
+      setAviso('Prompt copiado. No Claude, cole com Ctrl+V (ou toque e segure → Colar) e envie.')
+    } catch {
+      setVerPrompt(true)
+      setAviso('Não consegui copiar sozinho: o prompt está aberto abaixo, selecione e copie.')
+    }
+  }
+
+  // "Testar agora" / "Verificar": roda aqui mesmo e mostra o resultado
+  const verificar = async () => {
     setRodando(true)
     setLog([])
     try {
       const r = await fetch(`/api/conexoes/${c.id}`, { method: 'POST' })
       const dados = (await r.json()) as { conexao: Conexao; log: string[] }
-      // mostra o log linha a linha, como um agente trabalhando
       for (const linha of dados.log) {
         setLog((l) => [...l, linha])
         await new Promise((res) => setTimeout(res, 220))
@@ -77,15 +129,15 @@ export default function AgenteConexao({
             <Icone3D categoria="ia" tamanho={28} />
             <div className="rounded-3xl rounded-tl-lg bg-white px-4 py-3 text-sm leading-relaxed shadow-sm ring-1 ring-verde-900/6">
               {c.descricao}{' '}
-              {abertas
-                ? `Encontrei ${abertas} pendência${abertas > 1 ? 's' : ''} para deixar tudo conectado:`
-                : 'Está tudo certo por aqui. ✅'}
+              {abertas.length
+                ? `Falta ${abertas.length} ${abertas.length === 1 ? 'passo' : 'passos'} para deixar tudo conectado:`
+                : 'Está tudo certo por aqui.'}
             </div>
           </div>
 
           <ol className="space-y-2">
             {c.pendencias.map((p, n) => (
-              <li key={n} className={`rounded-2xl px-4 py-3 ring-1 ${p.resolvida ? 'bg-verde-50/70 ring-verde-200/70' : 'bg-white ring-laranja-200'}`}>
+              <li key={p.id ?? n} className={`rounded-2xl px-4 py-3 ring-1 ${p.resolvida ? 'bg-verde-50/70 ring-verde-200/70' : 'bg-white ring-laranja-200'}`}>
                 <div className="flex items-start gap-3">
                   <span
                     className={`grid size-6 shrink-0 place-items-center rounded-full text-[11px] font-extrabold ${
@@ -94,36 +146,111 @@ export default function AgenteConexao({
                   >
                     {p.resolvida ? <Check size={12} strokeWidth={3} /> : n + 1}
                   </span>
-                  <span className={`text-sm ${p.resolvida ? 'text-tinta-suave' : 'font-semibold'}`}>{p.texto}</span>
-                </div>
-                {p.ajuda && !p.resolvida && (
-                  <div className="relative mt-2.5 ml-9">
-                    <pre className="whitespace-pre-wrap rounded-xl bg-tinta px-3 py-2.5 pr-9 font-mono text-[11.5px] leading-relaxed text-verde-100">{p.ajuda}</pre>
-                    <button
-                      onClick={async () => {
-                        try {
-                          await navigator.clipboard.writeText(p.ajuda!)
-                        } catch {
-                          return
-                        }
-                        setCopiado(n)
-                        setTimeout(() => setCopiado(null), 1500)
-                      }}
-                      className="absolute right-2 top-2 rounded-md p-1 text-verde-200 hover:bg-white/10"
-                      aria-label="Copiar"
-                    >
-                      {copiado === n ? <Check size={13} /> : <Copy size={13} />}
-                    </button>
+                  <div className="min-w-0 flex-1">
+                    <span className={`text-sm ${p.resolvida && !p.opcoes ? 'text-tinta-suave' : 'font-semibold'}`}>{p.texto}</span>
+
+                    {/* decisão: botões de escolha */}
+                    {p.opcoes && (
+                      <div className="mt-2 grid gap-2">
+                        {p.opcoes.map((o) => {
+                          const sel = p.escolha === o.valor
+                          return (
+                            <button
+                              key={o.valor}
+                              onClick={() => marcar(p, { escolha: o.valor })}
+                              className={`rounded-xl px-3 py-2 text-left text-sm ring-1 transition-all ${
+                                sel ? 'btn-verde ring-transparent' : 'bg-white text-tinta ring-verde-900/10 hover:ring-laranja-300'
+                              }`}
+                            >
+                              <span className="flex items-center gap-2 font-bold">
+                                {sel && <Check size={14} strokeWidth={3} />} {o.rotulo}
+                              </span>
+                              {o.dica && <span className={`block text-xs ${sel ? 'text-white/85' : 'text-tinta-suave'}`}>{o.dica}</span>}
+                            </button>
+                          )
+                        })}
+                      </div>
+                    )}
+
+                    {p.ajuda && !(p.resolvida && !p.opcoes) && (
+                      <div className="relative mt-2">
+                        <p className="whitespace-pre-line rounded-xl bg-verde-50/60 px-3 py-2 pr-9 text-xs leading-relaxed text-tinta-suave">{p.ajuda}</p>
+                        <button
+                          onClick={async () => {
+                            try {
+                              await navigator.clipboard.writeText(p.ajuda!)
+                            } catch {
+                              return
+                            }
+                            setCopiado(n)
+                            setTimeout(() => setCopiado(null), 1500)
+                          }}
+                          className="absolute right-2 top-2 rounded-md p-1 text-tinta-suave hover:bg-white"
+                          aria-label="Copiar"
+                        >
+                          {copiado === n ? <Check size={13} /> : <Copy size={13} />}
+                        </button>
+                      </div>
+                    )}
+
+                    {/* passo fora do Claude: abrir + Resolvido */}
+                    {p.fora && (
+                      <div className="mt-2 flex flex-wrap gap-2">
+                        {p.link && !p.resolvida && (
+                          <a
+                            href={p.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1 rounded-lg bg-white px-2.5 py-1 text-xs font-bold text-verde-700 ring-1 ring-verde-900/10"
+                          >
+                            Abrir <ArrowUpRight size={12} />
+                          </a>
+                        )}
+                        <button
+                          onClick={() => marcar(p, { resolvida: !p.resolvida })}
+                          className={`inline-flex items-center gap-1 rounded-lg px-2.5 py-1 text-xs font-bold ${
+                            p.resolvida ? 'text-tinta-suave hover:bg-white' : 'btn-verde'
+                          }`}
+                        >
+                          {p.resolvida ? (
+                            <>
+                              <RotateCcw size={12} /> Desfazer
+                            </>
+                          ) : (
+                            <>
+                              <Check size={12} strokeWidth={3} /> Resolvido
+                            </>
+                          )}
+                        </button>
+                      </div>
+                    )}
                   </div>
-                )}
+                </div>
               </li>
             ))}
           </ol>
 
+          {acao === 'conversa' && c.prompt && (
+            <section className="rounded-2xl bg-white ring-1 ring-verde-900/8">
+              <button
+                onClick={() => setVerPrompt((v) => !v)}
+                className="flex w-full items-center gap-2 px-4 py-3 text-left text-xs font-extrabold uppercase tracking-[0.12em] text-tinta-suave"
+              >
+                Ver o prompt que vai para o Claude
+                <ChevronDown size={14} className={`ml-auto transition-transform ${verPrompt ? 'rotate-180' : ''}`} />
+              </button>
+              {verPrompt && (
+                <pre className="mx-4 mb-4 max-h-64 overflow-auto whitespace-pre-wrap rounded-xl bg-tinta px-3 py-3 font-mono text-[11.5px] leading-relaxed text-verde-100 select-all">
+                  {c.prompt}
+                </pre>
+              )}
+            </section>
+          )}
+
           {log.length > 0 && (
             <div className="rounded-2xl bg-tinta p-4 font-mono text-xs leading-relaxed text-verde-100">
-              {log.map((l, i) => (
-                <div key={i} className={`animate-entrar ${l.startsWith('✗') ? 'text-laranja-300' : l.startsWith('+') ? 'text-verde-300' : ''}`}>
+              {log.map((l, k) => (
+                <div key={k} className={`animate-entrar ${l.startsWith('✗') ? 'text-laranja-300' : l.startsWith('+') ? 'text-verde-300' : ''}`}>
                   {l}
                 </div>
               ))}
@@ -133,13 +260,63 @@ export default function AgenteConexao({
         </div>
 
         <div className="border-t border-verde-900/6 bg-white px-6 py-4">
-          <button onClick={iniciar} disabled={rodando} className="btn-verde flex w-full items-center justify-center gap-2 rounded-2xl py-3 text-sm font-bold">
-            {rodando ? <LoaderCircle size={17} className="animate-spin" /> : <Play size={16} fill="white" />}
-            {rodando ? 'Conectando…' : c.pode_sincronizar ? 'Iniciar conexão e importar ideias' : 'Iniciar conexão'}
-          </button>
-          <p className="mt-2 text-center text-[11px] text-tinta-suave">
-            Verificado {new Date(c.verificado_em).toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })} · as chaves ficam só no servidor (.env.local / Vercel)
-          </p>
+          {acao === 'conversa' && (
+            <>
+              {!liberado && (
+                <div className="mb-3 flex items-start gap-2 rounded-2xl bg-laranja-50 px-3 py-2.5 text-xs font-semibold text-laranja-800 ring-1 ring-laranja-200">
+                  <CircleAlert size={15} className="mt-px shrink-0" />
+                  <span>
+                    Falta resolver {foraPendentes.length} {foraPendentes.length === 1 ? 'item' : 'itens'} acima.{' '}
+                    <button onClick={() => setIgnorar(true)} className="underline">
+                      Começar mesmo assim
+                    </button>
+                  </span>
+                </div>
+              )}
+              {c.destino ? (
+                <a
+                  href={c.destino}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={copiarPrompt}
+                  className={`btn-laranja flex w-full items-center justify-center gap-2 rounded-2xl py-3 text-sm font-bold ${liberado ? '' : 'pointer-events-none opacity-50'}`}
+                >
+                  Iniciar conexão no Claude <ArrowUpRight size={16} />
+                </a>
+              ) : (
+                <button
+                  onClick={copiarPrompt}
+                  disabled={!liberado}
+                  className="btn-laranja flex w-full items-center justify-center gap-2 rounded-2xl py-3 text-sm font-bold"
+                >
+                  <Copy size={16} /> Copiar o prompt
+                </button>
+              )}
+              <p className="mt-2 text-center text-[11px] leading-relaxed text-tinta-suave">{c.destino_instrucao}</p>
+              {aviso && <p className="mt-2 rounded-xl bg-tinta px-3 py-2 text-xs font-semibold text-white">{aviso}</p>}
+            </>
+          )}
+
+          {acao === 'nenhuma' && (
+            <>
+              <button onClick={onFechar} className="btn-verde flex w-full items-center justify-center gap-2 rounded-2xl py-3 text-sm font-bold">
+                <Check size={16} strokeWidth={3} /> {abertas.length ? 'Escolha uma opção acima' : 'Tudo certo, fechar'}
+              </button>
+              {!abertas.length && <p className="mt-2 text-center text-[11px] text-tinta-suave">Nada para fazer no Claude nesta conexão.</p>}
+            </>
+          )}
+
+          {(acao === 'teste' || acao === 'verificar') && (
+            <>
+              <button onClick={verificar} disabled={rodando} className="btn-verde flex w-full items-center justify-center gap-2 rounded-2xl py-3 text-sm font-bold">
+                {rodando ? <LoaderCircle size={17} className="animate-spin" /> : <Play size={16} fill="white" />}
+                {rodando ? 'Testando…' : acao === 'teste' ? 'Testar agora' : c.pode_sincronizar ? 'Verificar e importar ideias' : 'Verificar de novo'}
+              </button>
+              <p className="mt-2 text-center text-[11px] text-tinta-suave">
+                Verificado {new Date(c.verificado_em).toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })}
+              </p>
+            </>
+          )}
         </div>
       </div>
     </div>

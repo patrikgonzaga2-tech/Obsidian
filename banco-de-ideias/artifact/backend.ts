@@ -4,7 +4,7 @@
 // - busca, organização e conversa usam o Claude da conta de quem abre (capability `sample`),
 //   sem chave de API.
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import type { Conexao, ConexaoId, Ideia, Mensagem, Perfil, RespostaBusca } from '@/lib/tipos'
+import type { Conexao, ConexaoId, EstadoConexao, Ideia, Mensagem, Pendencia, Perfil, RespostaBusca } from '@/lib/tipos'
 import { normalizarPerfil } from '@/lib/perfil'
 import { novoId } from '@/lib/tipos'
 import { aplicarRegras, normalizarIdeia } from '@/lib/regras'
@@ -95,6 +95,7 @@ export async function iniciarBackend(): Promise<{
       /* sem perfil ainda */
     }
   }
+  await carregarEstadosConexao()
   instalarFetch()
   return {
     perfil,
@@ -150,6 +151,7 @@ async function rotear(metodo: string, caminho: string, corpo: any): Promise<Resp
   if (rota === 'transcrever') return resposta({ erro: 'Sem transcrição de áudio no Claude.', usarNavegador: true }, 501)
   if (rota === 'conexoes' && !id) return resposta(conexoes())
   if (rota === 'conexoes' && id && metodo === 'POST') return resposta(await iniciarConexao(id as ConexaoId))
+  if (rota === 'conexoes' && id && metodo === 'PATCH') return resposta(await marcarConexao(id as ConexaoId, corpo))
   if (rota === 'perfil' && metodo === 'GET') {
     const snap = db ? await db.doc('perfil/atual').get() : null
     return resposta(snap?.exists ? normalizarPerfil(snap.data()) : null)
@@ -358,83 +360,253 @@ async function conversar(ideiaId: string, mensagem: string) {
 }
 
 // ---------- conexões (o que vale dentro do Claude) ----------
+// O "Resolvido" e as escolhas de cada pendência ficam em conexoes_estado/<id>.
+const PAINEL = 'https://claude.ai/artifact/TZyEtoYKaRR9qPUe3NWU4U'
+const CODE = 'https://claude.ai/code'
+const CONECTORES = 'https://claude.ai/settings/connectors'
+const estados = new Map<string, EstadoConexao>()
+const estadoDe = (id: string): EstadoConexao => estados.get(id) ?? { resolvidos: [], escolhas: {} }
+
+export async function carregarEstadosConexao() {
+  if (!db) return
+  for (const id of ['supabase', 'github', 'desktop', 'chats']) {
+    try {
+      const snap = await db.doc(`conexoes_estado/${id}`).get()
+      if (snap.exists) {
+        const d = snap.data() ?? {}
+        estados.set(id, {
+          resolvidos: Array.isArray(d.resolvidos) ? d.resolvidos.map(String) : [],
+          escolhas: d.escolhas && typeof d.escolhas === 'object' ? d.escolhas : {},
+        })
+      }
+    } catch {}
+  }
+}
+
+async function marcarConexao(id: ConexaoId, b: any) {
+  const e = estadoDe(id)
+  const pend = String(b?.pendencia ?? '')
+  const resolvidos = new Set(e.resolvidos)
+  if (typeof b?.resolvida === 'boolean' && pend) (b.resolvida ? resolvidos.add(pend) : resolvidos.delete(pend))
+  const escolhas = { ...e.escolhas }
+  if (pend && typeof b?.escolha === 'string') escolhas[pend] = b.escolha
+  if (pend && b?.escolha === null) delete escolhas[pend]
+  const novo = { resolvidos: [...resolvidos], escolhas }
+  if (db) await db.doc(`conexoes_estado/${id}`).set(novo)
+  estados.set(id, novo)
+  return conexoes().find((c) => c.id === id)!
+}
+
+const COMO_TRABALHAR = `Trabalhe um passo por vez: diga o que vai fazer, faça UMA pergunta ou proponha UMA ação e espere a minha resposta. Responda em português do Brasil, com frases curtas. Se algo depender de mim fora do Claude, diga exatamente onde clicar. Numere as respostas [n] e, na resposta 20, me entregue um "RESUMO PARA NOVA CONVERSA".`
+
 function conexoes(): Conexao[] {
   const agora = new Date().toISOString()
   const temDb = Boolean(db)
   const temIa = iaDisponivel()
-  return [
+
+  // marca resolvidas as pendências guardadas e aplica as escolhas
+  const montar = (id: ConexaoId, lista: Pendencia[]) => {
+    const e = estadoDe(id)
+    return lista.map((p) => {
+      const escolha = p.id ? e.escolhas[p.id] : undefined
+      return { ...p, escolha, resolvida: p.resolvida || Boolean(p.id && (e.resolvidos.includes(p.id) || (p.opcoes && escolha))) }
+    })
+  }
+  const status = (ps: Pendencia[], base: boolean) => (!base ? 'desconectado' : ps.every((x) => x.resolvida) ? 'conectado' : 'pendente') as Conexao['status']
+
+  // ----- Supabase
+  const escolhaSb = estadoDe('supabase').escolhas['onde-ficam'] // 'claude' | 'separado'
+  const sbPend = montar('supabase', [
+    { id: 'banco-claude', texto: 'Ideias guardadas no banco do painel, dentro do Claude', resolvida: temDb },
     {
-      id: 'supabase',
-      nome: 'Supabase',
-      descricao: 'Nesta versão as ideias ficam guardadas no banco do próprio painel, dentro do Claude.',
-      status: temDb ? 'pendente' : 'desconectado',
-      detalhe: temDb ? 'Ideias salvas no Claude' : 'Sem banco nesta visualização',
-      pendencias: [
-        { texto: 'Guardar as ideias no banco do painel (Claude)', resolvida: temDb },
-        {
-          texto: 'Projeto Supabase separado "Banco de Ideias" — opcional, aguardando sua decisão',
-          resolvida: false,
-          ajuda: 'Sua organização no Supabase já tem 2 projetos. Um 3º pode ter custo mensal.\nResponda no chat se quer criar mesmo assim.',
-        },
+      id: 'onde-ficam',
+      texto: 'Onde as ideias vão ficar daqui para frente?',
+      ajuda: 'O painel já salva tudo no banco do Claude, de graça. Um projeto Supabase separado serve para a versão fora do Claude e como cópia de segurança; sua organização já tem 2 projetos, então um 3º pode ter custo mensal.',
+      opcoes: [
+        { valor: 'claude', rotulo: 'Ficar no banco do Claude (grátis)', dica: 'Recomendado agora' },
+        { valor: 'separado', rotulo: 'Criar projeto Supabase separado', dica: 'O Claude mostra o custo antes de criar' },
       ],
-      pode_sincronizar: false,
-      verificado_em: agora,
+      resolvida: false,
     },
+    ...(escolhaSb === 'separado'
+      ? [
+          {
+            id: 'conector-supabase',
+            texto: 'Conector do Supabase ligado no claude.ai',
+            ajuda: 'claude.ai → Configurações → Conectores → Supabase precisa aparecer como conectado.',
+            link: CONECTORES,
+            fora: true,
+            resolvida: false,
+          },
+          {
+            id: 'custo-supabase',
+            texto: 'Ver no Supabase o plano da organização (vaga ou custo de um 3º projeto)',
+            ajuda: 'Supabase → organização "Corpo Feliz Org" → Billing. Se não quiser olhar agora, o Claude confere e te mostra antes de criar.',
+            link: 'https://supabase.com/dashboard/org/rveqkmgggberknagjexp/billing',
+            fora: true,
+            resolvida: false,
+          },
+          {
+            id: 'projeto-criado',
+            texto: 'Projeto criado e dados copiados (marque quando o Claude terminar)',
+            fora: true,
+            depois: true,
+            resolvida: false,
+          },
+        ]
+      : []),
+  ])
+  const supabase: Conexao = {
+    id: 'supabase',
+    nome: 'Supabase',
+    descricao: 'Onde ficam as ideias, o histórico e o Meu trabalho.',
+    status: escolhaSb === 'claude' && temDb ? 'conectado' : status(sbPend, temDb),
+    detalhe:
+      escolhaSb === 'claude'
+        ? 'Ideias no banco do Claude (grátis)'
+        : escolhaSb === 'separado'
+          ? sbPend.every((x) => x.resolvida)
+            ? 'Projeto separado criado'
+            : 'Projeto separado: falta criar'
+          : 'Ideias salvas no Claude · decidir',
+    pendencias: sbPend,
+    pode_sincronizar: false,
+    verificado_em: agora,
+    acao: escolhaSb === 'separado' ? 'conversa' : 'nenhuma',
+    destino: CODE,
+    destino_instrucao: 'Abre o Claude Code: clique em "Novo", escolha o repositório Obsidian e cole o prompt (já copiado).',
+    prompt: `Vamos criar o banco separado do Banco de Ideias no Supabase. ${COMO_TRABALHAR}
+
+1. Use o conector do Supabase. Organização: "Corpo Feliz Org". ANTES de criar, me diga se ela tem vaga no plano grátis ou quanto vai custar por mês, e espere eu dizer "pode criar".
+2. Crie o projeto "Banco de Ideias" na região sa-east-1 (São Paulo).
+3. Aplique o arquivo banco-de-ideias/supabase/schema.sql do repositório Obsidian (branch claude/inspiring-edison-7q8bco).
+4. Copie as ideias (coleção "ideias") e o Meu trabalho (documento perfil/atual) do painel ${PAINEL} para as tabelas hub_ideias e hub_perfil, usando a ferramenta ArtifactData.
+5. Me diga o que fica pendente para a versão fora do Claude (por exemplo, onde cadastrar as chaves), sem colar nenhuma chave no chat.
+Nunca mexa nos projetos "Projeto Corpo Feliz" e "CRM Corpo Feliz".`,
+  }
+
+  // ----- GitHub
+  const ghPend = montar('github', [
+    { id: 'acesso-github', texto: 'Claude Code com acesso aos seus repositórios', ajuda: 'Já funciona: é por ele que este painel foi feito.', resolvida: true },
     {
-      id: 'github',
-      nome: 'GitHub',
-      descricao: 'Repositórios viram ideias (descrição, issues abertas como tarefas, site no ar).',
-      status: 'pendente',
-      detalhe: 'Importação pelo Claude Code',
-      pendencias: [
-        { texto: 'Claude Code com acesso aos seus repositórios', resolvida: true },
-        {
-          texto: 'Pedir a importação na conversa com o Claude Code',
-          resolvida: false,
-          ajuda: 'Escreva: "importe meus repositórios para o Banco de Ideias"',
-        },
-      ],
-      pode_sincronizar: false,
-      verificado_em: agora,
+      id: 'quais-repos',
+      texto: 'Dar uma olhada nos seus repositórios e pensar quais entram',
+      ajuda: 'São 10. Arquivados e cópias (forks) podem ficar de fora. O Claude vai listar e perguntar antes de criar qualquer ideia.',
+      link: 'https://github.com/patrikgonzaga2-tech?tab=repositories',
+      fora: true,
+      resolvida: false,
     },
+    { id: 'repos-importados', texto: 'Repositórios escolhidos importados (marque quando o Claude terminar)', fora: true, depois: true, resolvida: false },
+  ])
+  const github: Conexao = {
+    id: 'github',
+    nome: 'GitHub',
+    descricao: 'Repositórios viram ideias, com descrição, passo a passo, comandos e pré-requisitos.',
+    status: ghPend.every((x) => x.resolvida) ? 'conectado' : 'pendente',
+    detalhe: 'Importação pelo Claude Code',
+    pendencias: ghPend,
+    pode_sincronizar: false,
+    verificado_em: agora,
+    acao: 'conversa',
+    destino: CODE,
+    destino_instrucao: 'Abre o Claude Code: clique em "Novo", escolha o repositório Obsidian e cole o prompt (já copiado).',
+    prompt: `Vamos trazer meus repositórios do GitHub para o Banco de Ideias (painel: ${PAINEL}). ${COMO_TRABALHAR}
+
+1. Liste meus repositórios (nome, última atualização, se está arquivado ou é cópia) e me pergunte quais entram. Não crie nada antes da minha resposta.
+2. Leia as ideias que já existem no painel (ferramenta ArtifactData, coleção "ideias") e não duplique: compare pelo campo repo.
+3. Para cada repositório escolhido, leia o README e o CLAUDE.md e monte a ideia no mesmo formato das que já existem (título, categoria, status, fase, progresso, resumo, passo a passo de uso, comandos, pré-requisitos fora do Claude e o objetivo da conversa). Me mostre antes de gravar.
+4. No fim, ligue cada ideia nova a uma das minhas funções no Meu trabalho (documento perfil/atual).`,
+  }
+
+  // ----- Desktop
+  const caminho = estadoDe('desktop').escolhas['caminho'] // 'github' | 'local'
+  const dkPend = montar('desktop', [
     {
-      id: 'desktop',
-      nome: 'Desktop',
-      descricao: 'Pastas e notas que estão só no seu computador.',
-      status: 'desconectado',
-      detalhe: 'Precisa do seu computador',
-      pendencias: [
-        {
-          texto: 'Opção grátis: publicar as pastas pelo GitHub Desktop',
-          resolvida: false,
-          ajuda: 'GitHub Desktop → Repository → Push (ou "Publish repository").\nDepois elas entram pela conexão GitHub.',
-        },
-        {
-          texto: 'Opção completa: abrir uma sessão do Claude Code no computador',
-          resolvida: false,
-          ajuda: 'App Claude Desktop (aba Code) na pasta do projeto\n— ou no terminal, dentro da pasta: claude remote-control',
-        },
+      id: 'caminho',
+      texto: 'Como trazer as pastas do computador?',
+      ajuda: 'Pelo GitHub Desktop é grátis e rápido: as pastas viram repositórios e eu leio pelo GitHub. O Claude no computador lê qualquer arquivo, mas o computador precisa estar ligado.',
+      opcoes: [
+        { valor: 'github', rotulo: 'Publicar pelo GitHub Desktop', dica: 'Recomendado' },
+        { valor: 'local', rotulo: 'Usar o Claude no computador' },
       ],
-      pode_sincronizar: false,
-      verificado_em: agora,
+      resolvida: false,
     },
+    ...(caminho === 'github'
+      ? [
+          {
+            id: 'push-pastas',
+            texto: 'Publicar as pastas pelo GitHub Desktop',
+            ajuda: 'GitHub Desktop → File → Add local repository (escolha a pasta) → Publish repository (deixe "privado" marcado). Pasta que já é repositório: Repository → Push.',
+            fora: true,
+            resolvida: false,
+          },
+          { id: 'pastas-importadas', texto: 'Pastas importadas como ideias (marque quando o Claude terminar)', fora: true, depois: true, resolvida: false },
+        ]
+      : caminho === 'local'
+        ? [
+            {
+              id: 'claude-local',
+              texto: 'Abrir o Claude Code no computador, dentro da pasta das notas/projetos',
+              ajuda: 'App Claude Desktop → aba Code → escolha a pasta. Ou no terminal, dentro da pasta: claude',
+              fora: true,
+              resolvida: false,
+            },
+            { id: 'pastas-importadas', texto: 'Pastas importadas como ideias (marque quando o Claude terminar)', fora: true, depois: true, resolvida: false },
+          ]
+        : []),
+  ])
+  const desktop: Conexao = {
+    id: 'desktop',
+    nome: 'Desktop',
+    descricao: 'Pastas e notas que estão só no seu computador.',
+    status: !caminho ? 'desconectado' : dkPend.every((x) => x.resolvida) ? 'conectado' : 'pendente',
+    detalhe: caminho === 'github' ? 'Pelo GitHub Desktop' : caminho === 'local' ? 'Pelo Claude no computador' : 'Escolher o caminho',
+    pendencias: dkPend,
+    pode_sincronizar: false,
+    verificado_em: agora,
+    acao: caminho ? 'conversa' : 'nenhuma',
+    destino: caminho === 'local' ? undefined : CODE,
+    destino_instrucao:
+      caminho === 'local'
+        ? 'Cole o prompt (já copiado) no Claude Code aberto no seu computador.'
+        : 'Abre o Claude Code: clique em "Novo", escolha o repositório Obsidian e cole o prompt (já copiado).',
+    prompt:
+      caminho === 'local'
+        ? `Estou no Claude Code no meu computador. Vamos trazer meus projetos locais para o Banco de Ideias (painel: ${PAINEL}). ${COMO_TRABALHAR}
+
+1. Liste as pastas desta pasta que parecem projetos (com README, package.json, .md de anotações) e me pergunte quais entram.
+2. Para cada uma, monte a ideia no mesmo formato das que já existem no painel (ferramenta ArtifactData, coleção "ideias"): título, resumo, passo a passo de uso, comandos e pré-requisitos. Mostre antes de gravar e não duplique.
+3. No fim, ligue cada ideia nova a uma das minhas funções no Meu trabalho (documento perfil/atual).`
+        : `Publiquei pastas do meu computador pelo GitHub Desktop. Vamos trazê-las para o Banco de Ideias (painel: ${PAINEL}). ${COMO_TRABALHAR}
+
+1. Liste os repositórios publicados ou atualizados nos últimos dias e me pergunte quais são projetos.
+2. Para cada um escolhido, leia o README e monte a ideia no mesmo formato das que já existem (ferramenta ArtifactData, coleção "ideias"). Mostre antes de gravar e não duplique (compare pelo campo repo).
+3. Se uma pasta que eu citar não estiver no GitHub, me ensine a publicar pelo GitHub Desktop (File → Add local repository → Publish repository, privado).
+4. No fim, ligue cada ideia nova a uma das minhas funções no Meu trabalho (documento perfil/atual).`,
+  }
+
+  // ----- Chats (o Claude da sua conta dentro do painel)
+  const chPend = montar('chats', [
     {
-      id: 'chats',
-      nome: 'Chats no cloud',
-      descricao: 'Conversa, busca e organização usam o Claude da sua conta, sem chave de API.',
-      status: temIa ? 'conectado' : 'desconectado',
-      detalhe: temIa ? 'Claude da sua conta' : 'Claude não liberado',
-      pendencias: [
-        {
-          texto: 'Permitir que o painel use o Claude (ele pergunta no primeiro uso)',
-          resolvida: temIa,
-          ajuda: temIa ? undefined : 'Recarregue o painel e clique em Permitir quando o Claude perguntar.',
-        },
-      ],
-      pode_sincronizar: false,
-      verificado_em: agora,
+      id: 'permitir-claude',
+      texto: 'Permitir que o painel use o Claude da sua conta',
+      ajuda: temIa ? undefined : 'Recarregue o painel e clique em Permitir quando o Claude perguntar.',
+      resolvida: temIa,
     },
-  ]
+  ])
+  const chats: Conexao = {
+    id: 'chats',
+    nome: 'Chats no cloud',
+    descricao: 'Busca com IA, organização das ideias e a Pergunta rápida usam o Claude da sua conta, sem chave de API.',
+    status: temIa ? 'conectado' : 'desconectado',
+    detalhe: temIa ? 'Claude da sua conta' : 'Claude não liberado',
+    pendencias: chPend,
+    pode_sincronizar: false,
+    verificado_em: agora,
+    acao: 'teste',
+  }
+
+  return [supabase, github, desktop, chats]
 }
 
 async function iniciarConexao(id: ConexaoId) {
@@ -443,13 +615,11 @@ async function iniciarConexao(id: ConexaoId) {
     log.push('Testando o Claude da sua conta…')
     try {
       await sample('Responda apenas: ok', { modelTier: 'quick', cache: false })
-      log.push('✓ Claude respondeu. Busca com IA, organização e conversa liberadas.')
+      log.push('✓ Claude respondeu. Busca com IA, organização e Pergunta rápida liberadas.')
     } catch (e) {
       log.push(`✗ ${erroAmigavel(e)}`)
     }
   }
   const c = conexoes().find((x) => x.id === id)!
-  c.pendencias.forEach((x, n) => log.push(`${x.resolvida ? '✓' : '✗'} ${n + 1}. ${x.texto}`))
-  if (c.pendencias.some((x) => !x.resolvida)) log.push('As pendências marcadas com ✗ dependem de você — veja o passo a passo acima.')
   return { conexao: c, log }
 }
