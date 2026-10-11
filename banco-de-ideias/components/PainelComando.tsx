@@ -11,12 +11,13 @@ import {
   ListChecks,
   MessageSquarePlus,
   PanelRightOpen,
+  Radio,
   Rocket,
   Wrench,
   X,
 } from 'lucide-react'
 import type { Ideia, Prioridade, Tarefa } from '@/lib/tipos'
-import { diasDesde, ritmo } from '@/lib/tipos'
+import { diasDesde, mexendoAgora, ritmo } from '@/lib/tipos'
 import { destinoConversa, promptConversaNova, promptPendencia } from '@/lib/contexto'
 import { BarraProgresso, PillStatus } from './ui'
 
@@ -52,6 +53,12 @@ export default function PainelComando({
 }) {
   const [pedido, setPedido] = useState<Pedido | null>(null)
   const [aberta, setAberta] = useState<string | null>(null)
+  // relógio do "Mexendo agora": recalcula os "há X min" a cada minuto
+  const [agora, setAgora] = useState(() => Date.now())
+  useEffect(() => {
+    const t = setInterval(() => setAgora(Date.now()), 60_000)
+    return () => clearInterval(t)
+  }, [])
 
   const visiveis = useMemo(() => ideias.filter((i) => i.status !== 'arquivado'), [ideias])
   const comPendencia = useMemo(
@@ -81,6 +88,16 @@ export default function PainelComando({
   }, [visiveis])
 
   const primeira = comPendencia[0] ?? null
+  const ativas = useMemo(
+    () =>
+      visiveis
+        .filter((i) => mexendoAgora(i, agora))
+        .sort((a, b) => Date.parse(b.conversa_claude!.ultima_em) - Date.parse(a.conversa_claude!.ultima_em)),
+    [visiveis, agora]
+  )
+  const encerrar = (i: Ideia) => {
+    if (i.conversa_claude) onAtualizar(i.id, { conversa_claude: { ...i.conversa_claude, ativa: false } })
+  }
 
   const marcar = (i: Ideia, t: Tarefa) => {
     const tarefas = i.tarefas.map((x) => (x.id === t.id ? { ...x, feito: !x.feito } : x))
@@ -106,6 +123,9 @@ export default function PainelComando({
           {numeros.ideias} ideias
         </p>
       </div>
+
+      {/* sessões abertas agora no Claude Code */}
+      <MexendoAgora ideias={ativas} agora={agora} onAbrir={onAbrir} onEncerrar={encerrar} />
 
       {/* números */}
       <div className="mt-4 grid grid-cols-2 gap-3 lg:grid-cols-4">
@@ -214,12 +234,12 @@ export default function PainelComando({
 
     </section>
     {/* fora da seção animada: "fixed" dentro de um elemento com transform não cobre a tela */}
-    <ModalChatNovo pedido={pedido} onFechar={() => setPedido(null)} onRegistrar={(i) => onAtualizar(i.id, registroConversa(i))} />
+    <ModalChatNovo pedido={pedido} onFechar={() => setPedido(null)} onRegistrar={(i) => onAtualizar(i.id, registroConversa(i, pedido?.tarefa?.texto))} />
     </>
   )
 }
 
-function registroConversa(i: Ideia): Partial<Ideia> {
+function registroConversa(i: Ideia, foco = ''): Partial<Ideia> {
   const agora = new Date().toISOString()
   const c = i.conversa_claude
   return {
@@ -230,8 +250,84 @@ function registroConversa(i: Ideia): Partial<Ideia> {
       tamanho: 'pequena',
       url: '',
       resumo: c?.resumo ?? '',
+      ativa: true,
+      foco: foco || 'Ajustes gerais',
     },
   }
+}
+
+function haQuanto(iso: string, agora: number) {
+  const min = Math.max(0, Math.round((agora - Date.parse(iso)) / 60_000))
+  if (min < 1) return 'agora'
+  if (min < 60) return `há ${min} min`
+  const h = Math.floor(min / 60)
+  return `há ${h} h${min % 60 ? ` ${min % 60} min` : ''}`
+}
+
+function MexendoAgora({
+  ideias,
+  agora,
+  onAbrir,
+  onEncerrar,
+}: {
+  ideias: Ideia[]
+  agora: number
+  onAbrir: (id: string) => void
+  onEncerrar: (i: Ideia) => void
+}) {
+  return (
+    <div className="mt-4 rounded-3xl bg-white/85 p-4 ring-1 ring-verde-900/8">
+      <div className="flex items-center gap-2 text-xs font-extrabold uppercase tracking-[0.14em] text-verde-700">
+        <span className="relative flex h-2.5 w-2.5">
+          {ideias.length > 0 && <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-verde-400 opacity-75" />}
+          <span className={`relative inline-flex h-2.5 w-2.5 rounded-full ${ideias.length ? 'bg-verde-500' : 'bg-tinta-suave/40'}`} />
+        </span>
+        Mexendo agora · {ideias.length}
+      </div>
+      {ideias.length === 0 ? (
+        <p className="mt-2 text-sm text-tinta-suave">
+          Nenhuma sessão aberta. Ao clicar em <b>Chat novo</b> ou <b>Iniciar conversa no Claude</b>, a ideia aparece aqui.
+        </p>
+      ) : (
+        <ul className="mt-3 grid gap-2 md:grid-cols-2 xl:grid-cols-3">
+          {ideias.map((i) => {
+            const c = i.conversa_claude!
+            return (
+              <li key={i.id} className="flex min-w-0 flex-col gap-2 rounded-2xl bg-verde-50 px-3.5 py-3 ring-1 ring-verde-200">
+                <div className="flex min-w-0 items-start gap-2">
+                  <Radio size={16} className="mt-0.5 shrink-0 text-verde-600" />
+                  <div className="min-w-0">
+                    <p className="truncate text-sm font-extrabold text-tinta" title={i.titulo}>
+                      {i.titulo}
+                    </p>
+                    {c.foco && <p className="line-clamp-2 text-xs text-tinta-suave">{c.foco}</p>}
+                    <p className="mt-0.5 text-[11px] font-medium text-tinta-suave">
+                      Começou {haQuanto(c.iniciada_em, agora)} · último sinal {haQuanto(c.ultima_em, agora)}
+                    </p>
+                  </div>
+                </div>
+                <div className="flex gap-2">
+                  <button
+                    onClick={() => onAbrir(i.id)}
+                    className="rounded-full bg-white px-3 py-1 text-xs font-bold text-tinta ring-1 ring-verde-200 hover:bg-verde-100"
+                  >
+                    Abrir
+                  </button>
+                  <button
+                    onClick={() => onEncerrar(i)}
+                    className="rounded-full px-3 py-1 text-xs font-bold text-tinta-suave hover:bg-white"
+                    title="Tirar do Mexendo agora (a sessão terminou)"
+                  >
+                    Encerrar
+                  </button>
+                </div>
+              </li>
+            )
+          })}
+        </ul>
+      )}
+    </div>
+  )
 }
 
 function Numero({

@@ -91,6 +91,18 @@ export function destinoConversa(i: Ideia): { url: string; nome: string; instruca
   }
 }
 
+/** Instruções para a sessão avisar o painel ("Mexendo agora") pelo Supabase. */
+function painelAoVivo(i: Ideia, foco: string): string {
+  const sql = (campos: string) =>
+    `update public.hub_ideias set conversa_claude = coalesce(conversa_claude, '{}'::jsonb) || jsonb_build_object(${campos}) where id = '${i.id}';`
+  return `PAINEL AO VIVO (Banco de Ideias)
+O painel mostra em "Mexendo agora" as sessões abertas. Grave no ${BANCO_OFICIAL}, sem mudar os outros campos:
+- Antes do passo 1: ${sql(`'ativa', true, 'ultima_em', now(), 'foco', '${foco.replace(/'/g, "''").slice(0, 80)}'`)}
+- A cada item fechado: ${sql(`'ultima_em', now()`)}
+- Ao terminar ou ao entregar o "RESUMO PARA NOVA CONVERSA": ${sql(`'ativa', false, 'ultima_em', now()`)} (e grave o resumo em conversa_claude.resumo).
+`
+}
+
 /** Prompt completo para começar uma conversa nova que configura/ajusta esta ideia, item a item. */
 export function promptConversaNova(i: Ideia): string {
   const objetivo =
@@ -124,12 +136,13 @@ CUSTO DA CONVERSA
 - Comece cada resposta com o número dela entre colchetes, por exemplo [3].
 - Na resposta ${LIMITE_RESPOSTAS} (ou antes, se a conversa ficar pesada), pare e me entregue um bloco "RESUMO PARA NOVA CONVERSA" com: o que já foi decidido, o que mudou, o que falta (numerado) e o próximo passo. Eu colo esse resumo no Banco de Ideias e abro uma conversa nova, que sai mais barata.
 
+${painelAoVivo(i, 'Ajustes gerais')}
 Comece pelo passo 1.`
 }
 
 /** Mensagem curta para retomar a conversa que já existe. */
 export function promptRetomarConversa(i: Ideia): string {
-  return `Continuando o ajuste de "${i.titulo}". Releia o fim desta conversa, diga em 2 linhas onde paramos e siga o próximo item, um por vez. Continue numerando as respostas [n] e, na resposta ${LIMITE_RESPOSTAS}, me entregue o "RESUMO PARA NOVA CONVERSA".`
+  return `Continuando o ajuste de "${i.titulo}". Releia o fim desta conversa, diga em 2 linhas onde paramos e siga o próximo item, um por vez. Continue numerando as respostas [n] e, na resposta ${LIMITE_RESPOSTAS}, me entregue o "RESUMO PARA NOVA CONVERSA". Antes de seguir, avise o painel: no ${BANCO_OFICIAL}, linha id "${i.id}", grave conversa_claude.ativa = true e conversa_claude.ultima_em = agora (mantendo os outros campos); ao terminar, ativa = false.`
 }
 
 /** Recomendação: continuar a conversa atual ou começar outra (com o resumo). */
@@ -174,5 +187,6 @@ CUSTO DA CONVERSA
 - Comece cada resposta com o número dela entre colchetes, por exemplo [3].
 - Na resposta ${LIMITE_RESPOSTAS} (ou antes, se a conversa ficar pesada), pare e me entregue um bloco "RESUMO PARA NOVA CONVERSA" com o que foi decidido, o que mudou, o que falta e o próximo passo.
 
+${painelAoVivo(i, t.texto)}
 Comece pelo passo 1.`
 }

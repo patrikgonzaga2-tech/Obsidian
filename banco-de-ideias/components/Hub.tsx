@@ -80,6 +80,22 @@ export default function Hub({
     if (r.ok) setIdeias(await r.json())
   }, [])
 
+  // As sessões do Claude Code gravam direto no banco: o painel busca de novo a cada minuto
+  // e quando a aba volta a ficar visível. Pula enquanto uma edição sua ainda está salvando.
+  const salvando = useRef(0)
+  useEffect(() => {
+    if (assinar) return // versão artifact: o banco já avisa sozinho
+    const atualizar = () => {
+      if (document.visibilityState === 'visible' && salvando.current === 0) recarregar().catch(() => {})
+    }
+    const t = setInterval(atualizar, 60_000)
+    document.addEventListener('visibilitychange', atualizar)
+    return () => {
+      clearInterval(t)
+      document.removeEventListener('visibilitychange', atualizar)
+    }
+  }, [assinar, recarregar])
+
   // ---------- edição ----------
   const ideiasRef = useRef(ideias)
   ideiasRef.current = ideias
@@ -104,11 +120,12 @@ export default function Hub({
         patch.fase = 'fim'
       }
       setIdeias((lista) => lista.map((i) => (i.id === id ? { ...i, ...patch, atualizado_em: new Date().toISOString() } : i)))
+      salvando.current++
       const r = await fetch(`/api/ideias/${id}`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(patch),
-      })
+      }).finally(() => salvando.current--)
       if (!r.ok) {
         avisar('Não consegui salvar a alteração.')
         recarregar()

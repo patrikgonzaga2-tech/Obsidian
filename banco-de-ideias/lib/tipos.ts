@@ -36,6 +36,18 @@ export interface ConversaClaude {
   url?: string // link da conversa, colado pela pessoa ('' = sem link)
   tamanho?: 'pequena' | 'media' | 'grande' | '' // até 10, 10–20, mais de 20 mensagens ('' = não informado)
   resumo?: string // "RESUMO PARA NOVA CONVERSA" colado da conversa anterior
+  ativa?: boolean // sessão aberta agora (o Claude Code grava ao começar e desliga ao terminar)
+  foco?: string // em poucas palavras, o que a sessão está fazendo
+}
+
+/** Sem sinal por mais que isso, a sessão some do "Mexendo agora" (fechou sem avisar). */
+export const SESSAO_EXPIRA_MS = 6 * 60 * 60 * 1000
+
+export function mexendoAgora(i: Ideia, agora = Date.now()): boolean {
+  const c = i.conversa_claude
+  if (!c?.ativa) return false
+  const t = Date.parse(c.ultima_em)
+  return Number.isFinite(t) && agora - t < SESSAO_EXPIRA_MS
 }
 
 /** Revisão do Claude: como a ideia está, o que sugiro e há quanto tempo não anda. */
