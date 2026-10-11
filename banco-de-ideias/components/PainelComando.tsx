@@ -46,12 +46,20 @@ const dataCurta = (iso?: string) => {
 export default function PainelComando({
   ideias,
   sessoes,
+  alertas,
+  atualizando,
+  atualizadoEm,
+  onAtualizarTudo,
   onAbrir,
   onAtualizar,
   onPararSessao,
 }: {
   ideias: Ideia[]
   sessoes: Sessao[]
+  alertas: AlertasPainel | null
+  atualizando: boolean
+  atualizadoEm: number | null
+  onAtualizarTudo: () => void
   onAbrir: (id: string) => void
   onAtualizar: (id: string, patch: Partial<Ideia>) => void
   onPararSessao: (id: string) => void
@@ -130,9 +138,21 @@ export default function PainelComando({
             {numeros.ideias} ideias
           </p>
           <button
+            onClick={onAtualizarTudo}
+            disabled={atualizando}
+            className="btn-laranja inline-flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-xs font-bold disabled:opacity-70"
+          >
+            <RefreshCw size={13} className={atualizando ? 'animate-spin' : ''} /> {atualizando ? 'Atualizando…' : 'Atualizar tudo'}
+          </button>
+          {atualizadoEm && !atualizando && (
+            <span className="text-[11px] font-medium text-verde-700">
+              Atualizado às {new Date(atualizadoEm).toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })}
+            </span>
+          )}
+          <button
             onClick={() =>
               setPromptAberto({
-                titulo: 'Atualizar tudo',
+                titulo: 'Revisão completa com o Claude',
                 explicacao:
                   'O Claude lê as sessões abertas, o GitHub, a Vercel e o CRM (só leitura) e atualiza todas as ideias, as sessões e o Meu trabalho aqui no painel. Cole numa sessão nova do Claude Code com o conector do Supabase.',
                 prompt: promptAtualizarTudo(),
@@ -140,15 +160,18 @@ export default function PainelComando({
                 destino: 'Claude Code (sessão nova)',
               })
             }
-            className="btn-laranja inline-flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-xs font-bold"
+            className="text-[11px] font-bold text-tinta-suave underline-offset-2 hover:text-tinta hover:underline"
+            title="O Claude lê as conversas por dentro, renomeia, calcula a % e revisa todas as ideias"
           >
-            <RefreshCw size={13} /> Atualizar tudo
+            Revisão completa com o Claude
           </button>
         </div>
       </div>
 
       {/* sessões abertas agora no Claude Code */}
-      <MexendoAgora sessoes={sessoes.filter((s) => s.situacao !== 'encerrada')} todas={visiveis} ideias={ativas} agora={agora} onAbrir={onAbrir} onEncerrar={encerrar} onPararSessao={onPararSessao} onPrompt={setPromptAberto} />
+      <MexendoAgora sessoes={sessoes.filter((s) => s.situacao !== 'encerrada')} todas={visiveis} ideias={ativas} agora={agora} atualizando={atualizando} onAtualizarTudo={onAtualizarTudo} onAbrir={onAbrir} onEncerrar={encerrar} onPararSessao={onPararSessao} onPrompt={setPromptAberto} />
+
+      <AlertasOficiais alertas={alertas} />
 
       {/* números */}
       <div className="mt-4 grid grid-cols-2 gap-3 lg:grid-cols-4">
@@ -282,11 +305,15 @@ function MexendoAgora({
   onEncerrar,
   onPararSessao,
   onPrompt,
+  atualizando,
+  onAtualizarTudo,
 }: {
   sessoes: Sessao[]
   todas: Ideia[]
   ideias: Ideia[]
   agora: number
+  atualizando: boolean
+  onAtualizarTudo: () => void
   onAbrir: (id: string) => void
   onEncerrar: (i: Ideia) => void
   onPararSessao: (id: string) => void
@@ -340,10 +367,22 @@ function MexendoAgora({
                       {s.detalhe}
                     </p>
                   )}
-                  {s.resumo && (
+                  {s.ultimo_pedido && (
+                    <p className="mt-1 line-clamp-2 text-xs text-tinta-suave">
+                      <b>Você pediu:</b> {s.ultimo_pedido}
+                    </p>
+                  )}
+                  {(s.resumo || s.ultima_resposta) && (
                     <details className="mt-1 text-xs text-tinta-suave">
-                      <summary className="cursor-pointer font-bold text-verde-700">Resumo</summary>
-                      <p className="mt-1 whitespace-pre-line leading-relaxed">{s.resumo}</p>
+                      <summary className="cursor-pointer font-bold text-verde-700">Resumo e última resposta</summary>
+                      {s.resumo && <p className="mt-1 whitespace-pre-line leading-relaxed">{s.resumo}</p>}
+                      {s.ultima_resposta && (
+                        <p className="mt-2 max-h-48 overflow-y-auto whitespace-pre-line rounded-xl bg-white/70 p-2 leading-relaxed">
+                          <b className="text-tinta">Última resposta do Claude:</b>
+                          {'\n'}
+                          {s.ultima_resposta}
+                        </p>
+                      )}
                     </details>
                   )}
                   <p className="mt-1 text-[11px] font-medium text-tinta-suave">
@@ -367,9 +406,16 @@ function MexendoAgora({
                 </div>
                 <div className="flex flex-wrap gap-2">
                   <button
+                    onClick={onAtualizarTudo}
+                    disabled={atualizando}
+                    className="inline-flex items-center gap-1 rounded-full bg-verde-600 px-3 py-1 text-xs font-bold text-white hover:bg-verde-700 disabled:opacity-70"
+                  >
+                    <RefreshCw size={12} className={atualizando ? 'animate-spin' : ''} /> Atualizar agora
+                  </button>
+                  <button
                     onClick={() =>
                       onPrompt({
-                        titulo: `Atualizar agora: ${s.titulo}`,
+                        titulo: `Pedir resumo ao Claude: ${s.titulo}`,
                         explicacao:
                           'Cole na própria sessão. Ela grava aqui o resumo, a porcentagem e o que espera de você, atualiza as ideias ligadas e continua de onde parou.',
                         prompt: promptAtualizarSessao(s, ideiasDa),
@@ -377,9 +423,10 @@ function MexendoAgora({
                         destino: 'a sessão',
                       })
                     }
-                    className="inline-flex items-center gap-1 rounded-full bg-verde-600 px-3 py-1 text-xs font-bold text-white hover:bg-verde-700"
+                    className="rounded-full bg-white px-3 py-1 text-xs font-bold text-tinta ring-1 ring-verde-200 hover:bg-verde-100"
+                    title="Cole na própria conversa: ela grava resumo, nome e % aqui"
                   >
-                    <RefreshCw size={12} /> Atualizar agora
+                    Pedir resumo ao Claude
                   </button>
                   <button
                     onClick={() =>
@@ -846,6 +893,55 @@ function ModalPrompt({ pedido, onFechar }: { pedido: PedidoPrompt | null; onFech
           />
         )}
       </div>
+    </div>
+  )
+}
+
+export type AlertasPainel = {
+  ok: boolean
+  link: string
+  motivo?: string
+  atualizado_em?: string | null
+  alertas: { nivel: string; texto: string; link?: string }[]
+}
+
+const COR_ALERTA: Record<string, string> = {
+  bug: 'bg-red-50 text-red-800 ring-red-200',
+  conflito: 'bg-laranja-50 text-laranja-800 ring-laranja-200',
+}
+
+/** Alertas do Painel Oficial (laurarosapersonal.com/paineloficialcorpofeliz#alertas). */
+function AlertasOficiais({ alertas }: { alertas: AlertasPainel | null }) {
+  if (!alertas) return null
+  const lista = alertas.alertas
+  return (
+    <div className="mt-4 rounded-3xl bg-white/85 p-4 ring-1 ring-verde-900/8">
+      <div className="flex flex-wrap items-center justify-between gap-2">
+        <p className="text-xs font-extrabold uppercase tracking-[0.14em] text-laranja-600">
+          Alertas do Painel Oficial{alertas.ok ? ` · ${lista.length}` : ''}
+        </p>
+        <a href={alertas.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-xs font-bold text-verde-700 hover:underline">
+          Abrir o Painel Oficial <ArrowUpRight size={12} />
+        </a>
+      </div>
+      {!alertas.ok ? (
+        <p className="mt-2 text-xs text-tinta-suave">Ainda não ligado ao Painel Oficial ({alertas.motivo}). Os alertas aparecem aqui assim que a ligação estiver pronta.</p>
+      ) : lista.length === 0 ? (
+        <p className="mt-2 text-sm text-tinta-suave">Nenhum alerta: links, anúncios e painéis em dia.</p>
+      ) : (
+        <ul className="mt-2 grid gap-1.5 md:grid-cols-2">
+          {lista.map((a, n) => (
+            <li key={n} className={`rounded-2xl px-3 py-2 text-xs ring-1 ${COR_ALERTA[a.nivel] ?? 'bg-verde-50 text-tinta ring-verde-200'}`}>
+              <b className="uppercase">{a.nivel}</b> · {a.texto}
+              {a.link && (
+                <a href={a.link} target="_blank" rel="noopener noreferrer" className="ml-1 font-bold underline">
+                  abrir
+                </a>
+              )}
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   )
 }

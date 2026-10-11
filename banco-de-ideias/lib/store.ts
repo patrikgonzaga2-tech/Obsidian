@@ -265,3 +265,68 @@ export async function pararDeAcompanhar(id: string): Promise<void> {
     headers: { Prefer: 'return=minimal' },
   })
 }
+
+/** Sinal enviado pelo gancho das conversas do Claude Code a cada pergunta e a cada resposta. */
+export interface Sinal {
+  sessao_id: string
+  evento: 'pergunta' | 'resposta'
+  texto: string
+  ramo?: string
+  repo?: string
+}
+
+const corta = (s: string, n: number) => (s.length > n ? `${s.slice(0, n - 1)}…` : s)
+
+/** "Item 3 de 8", "Passo 7 de 9", "Parte 2 de 4": vira a % da conversa. */
+export function progressoDoTexto(texto: string): number | null {
+  const m = [...texto.matchAll(/\b(?:item|passo|parte|etapa|fase)\s+(\d{1,2})(?:\s+de\s+|\s*\/\s*)(\d{1,2})\b/gi)].pop()
+  if (!m) return null
+  const [feito, total] = [Number(m[1]), Number(m[2])]
+  if (!total || feito > total) return null
+  return Math.round(((feito - 1) / total) * 100) // no item 3 de 8, 2 estão prontos
+}
+
+/** A última pergunta da resposta: é o que a conversa espera de você. */
+function perguntaDoTexto(texto: string): string {
+  const linhas = texto.split('\n').map((l) => l.replace(/[*_#>`]/g, '').trim()).filter(Boolean)
+  const pergunta = [...linhas].reverse().find((l) => l.endsWith('?'))
+  return pergunta ? corta(pergunta, 220) : ''
+}
+
+export async function registrarSinal(s: Sinal): Promise<void> {
+  if (!supabaseConfigurado()) throw new Error('Supabase não configurado')
+  const agora = new Date().toISOString()
+  const texto = s.texto.trim()
+  const patch: Record<string, unknown> = { atividade_em: agora, sincronizado_em: agora, acompanhar: true }
+  if (s.ramo) patch.ramo = corta(s.ramo, 120)
+  if (s.repo) patch.repo = corta(s.repo, 120)
+  if (s.evento === 'pergunta') {
+    patch.situacao = 'trabalhando'
+    patch.ultimo_pedido = corta(texto, 1500)
+  } else {
+    patch.situacao = 'esperando'
+    patch.ultima_resposta = corta(texto, 4000)
+    patch.detalhe = perguntaDoTexto(texto)
+    const p = progressoDoTexto(texto)
+    if (p != null) patch.progresso = p
+  }
+  const id = encodeURIComponent(s.sessao_id)
+  const atualizadas = await sb<unknown[]>('hub_sessoes', `id=eq.${id}`, {
+    method: 'PATCH',
+    body: JSON.stringify(patch),
+    headers: { Prefer: 'return=representation' },
+  })
+  if (atualizadas.length) return
+  // conversa nova: entra no "Mexendo agora" com o começo do pedido como nome, até o Claude trocar pelo nome real
+  await sb('hub_sessoes', 'on_conflict=id', {
+    method: 'POST',
+    body: JSON.stringify({
+      id: s.sessao_id,
+      titulo: corta(texto.split('\n')[0] || 'Conversa nova', 70),
+      url: `https://claude.ai/code/${s.sessao_id}`,
+      ideias: [],
+      ...patch,
+    }),
+    headers: { Prefer: 'resolution=ignore-duplicates,return=minimal' },
+  })
+}
