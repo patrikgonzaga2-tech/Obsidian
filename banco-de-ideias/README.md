@@ -19,6 +19,7 @@ Cada chave liga um pedaço a mais:
 
 | Variável | O que liga |
 |---|---|
+| `PAINEL_SENHA` | Senha pedida pelo navegador ao abrir o painel. Obrigatória na Vercel: sem ela, tudo fica bloqueado |
 | `SUPABASE_URL` + `SUPABASE_SERVICE_ROLE_KEY` | Ideias, conexões e histórico na nuvem (rode `supabase/schema.sql` antes) |
 | `ANTHROPIC_API_KEY` | Busca semântica, organização da ideia ditada e conversa dentro do painel |
 | `WHISPER_URL` (+ `WHISPER_API_KEY`) | Transcrição Whisper no servidor (OpenAI ou servidor local compatível) |
@@ -61,8 +62,8 @@ Crie um projeto apontando para este repositório com **Root Directory = `banco-d
 variáveis acima. Na Vercel não há disco persistente: configure o Supabase para não perder ideias, e a
 conexão Desktop só funciona rodando localmente.
 
-> O painel não tem login. Se publicar, proteja o projeto (Vercel → Settings → Deployment Protection)
-> — as rotas de API usam a chave service_role do Supabase e a da Anthropic.
+> O painel e as rotas `/api/*` pedem a senha de `PAINEL_SENHA` (arquivo `proxy.ts`). Na Vercel, sem essa
+> variável o painel fica bloqueado: as rotas de API usam a chave service_role do Supabase e a da Anthropic.
 
 ## Versão dentro do Claude (artifact)
 
