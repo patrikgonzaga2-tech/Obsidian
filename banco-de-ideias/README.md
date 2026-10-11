@@ -19,7 +19,7 @@ Cada chave liga um pedaço a mais:
 
 | Variável | O que liga |
 |---|---|
-| `PAINEL_SENHA` | Senha pedida pelo navegador ao abrir o painel. Obrigatória na Vercel: sem ela, tudo fica bloqueado |
+| `PAINEL_SENHA` | Senha da tela de login (`/entrar`, lembra por 30 dias). Obrigatória na Vercel: sem ela, tudo fica bloqueado |
 | `SUPABASE_URL` + `SUPABASE_SERVICE_ROLE_KEY` | Ideias, conexões e histórico na nuvem (rode `supabase/schema.sql` antes) |
 | `ANTHROPIC_API_KEY` | Busca semântica, organização da ideia ditada e conversa dentro do painel |
 | `WHISPER_URL` (+ `WHISPER_API_KEY`) | Transcrição Whisper no servidor (OpenAI ou servidor local compatível) |
