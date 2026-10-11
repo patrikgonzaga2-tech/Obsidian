@@ -109,6 +109,19 @@ export default function Hub({
     setAtualizando(false)
   }, [recarregar, carregarSessoes, carregarAlertas])
 
+  const fixarSessao = useCallback(
+    async (id: string, fixada: boolean) => {
+      setSessoes((l) => l.map((s) => (s.id === id ? { ...s, fixada } : s)))
+      const r = await fetch(`/api/sessoes/${encodeURIComponent(id)}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ acao: fixada ? 'fixar' : 'desafixar' }),
+      }).catch(() => null)
+      if (!r?.ok) carregarSessoes()
+    },
+    [carregarSessoes]
+  )
+
   const pararSessao = useCallback(
     async (id: string) => {
       setSessoes((l) => l.filter((s) => s.id !== id))
@@ -395,7 +408,7 @@ export default function Hub({
             </section>
           ) : (
             <>
-              <PainelComando ideias={ideias} sessoes={sessoes} alertas={alertas} atualizando={atualizando} atualizadoEm={atualizadoEm} onAtualizarTudo={atualizarTudo} onAbrir={(id) => abrir(id)} onAtualizar={atualizar} onPararSessao={pararSessao} />
+              <PainelComando ideias={ideias} sessoes={sessoes} alertas={alertas} atualizando={atualizando} atualizadoEm={atualizadoEm} onAtualizarTudo={atualizarTudo} onAbrir={(id) => abrir(id)} onAtualizar={atualizar} onPararSessao={pararSessao} onFixarSessao={fixarSessao} />
 
               <div className="mt-10">
               <MeuTrabalho

@@ -11,6 +11,8 @@ import {
   ListChecks,
   MessageSquarePlus,
   PanelRightOpen,
+  Pin,
+  PinOff,
   Radio,
   RefreshCw,
   Rocket,
@@ -53,6 +55,7 @@ export default function PainelComando({
   onAbrir,
   onAtualizar,
   onPararSessao,
+  onFixarSessao,
 }: {
   ideias: Ideia[]
   sessoes: Sessao[]
@@ -63,6 +66,7 @@ export default function PainelComando({
   onAbrir: (id: string) => void
   onAtualizar: (id: string, patch: Partial<Ideia>) => void
   onPararSessao: (id: string) => void
+  onFixarSessao: (id: string, fixada: boolean) => void
 }) {
   const [pedido, setPedido] = useState<Pedido | null>(null)
   const [promptAberto, setPromptAberto] = useState<PedidoPrompt | null>(null)
@@ -169,7 +173,7 @@ export default function PainelComando({
       </div>
 
       {/* sessões abertas agora no Claude Code */}
-      <MexendoAgora sessoes={sessoes.filter((s) => s.situacao !== 'encerrada')} todas={visiveis} ideias={ativas} agora={agora} atualizando={atualizando} onAtualizarTudo={onAtualizarTudo} onAbrir={onAbrir} onEncerrar={encerrar} onPararSessao={onPararSessao} onPrompt={setPromptAberto} />
+      <MexendoAgora sessoes={ordenarSessoes(sessoes.filter((s) => s.situacao !== 'encerrada'))} todas={visiveis} ideias={ativas} agora={agora} atualizando={atualizando} onAtualizarTudo={onAtualizarTudo} onAbrir={onAbrir} onEncerrar={encerrar} onPararSessao={onPararSessao} onFixarSessao={onFixarSessao} onPrompt={setPromptAberto} />
 
       <AlertasOficiais alertas={alertas} />
 
@@ -307,6 +311,7 @@ function MexendoAgora({
   onPrompt,
   atualizando,
   onAtualizarTudo,
+  onFixarSessao,
 }: {
   sessoes: Sessao[]
   todas: Ideia[]
@@ -314,6 +319,7 @@ function MexendoAgora({
   agora: number
   atualizando: boolean
   onAtualizarTudo: () => void
+  onFixarSessao: (id: string, fixada: boolean) => void
   onAbrir: (id: string) => void
   onEncerrar: (i: Ideia) => void
   onPararSessao: (id: string) => void
@@ -352,8 +358,21 @@ function MexendoAgora({
               >
                 <div className="min-w-0">
                   <div className="flex items-start justify-between gap-2">
-                    <p className="min-w-0 text-sm font-extrabold leading-snug text-tinta">{s.titulo || 'Sessão sem nome'}</p>
-                    <span className={`shrink-0 rounded-full px-2 py-0.5 text-[10px] font-extrabold ${sit.cor}`}>{sit.rotulo}</span>
+                    <p className="min-w-0 text-sm font-extrabold leading-snug text-tinta">
+                      {s.fixada && <Pin size={12} className="mr-1 inline -translate-y-px text-laranja-600" aria-label="Fixada" />}
+                      {s.titulo || 'Sessão sem nome'}
+                    </p>
+                    <div className="flex shrink-0 items-center gap-1">
+                      <span className={`rounded-full px-2 py-0.5 text-[10px] font-extrabold ${sit.cor}`}>{sit.rotulo}</span>
+                      <button
+                        onClick={() => onFixarSessao(s.id, !s.fixada)}
+                        title={s.fixada ? 'Desafixar' : 'Fixar no topo'}
+                        aria-label={s.fixada ? 'Desafixar' : 'Fixar no topo'}
+                        className={`rounded-full p-1 hover:bg-white ${s.fixada ? 'text-laranja-600' : 'text-tinta-suave/60'}`}
+                      >
+                        {s.fixada ? <PinOff size={13} /> : <Pin size={13} />}
+                      </button>
+                    </div>
                   </div>
                   <div className="mt-2 flex items-center gap-2" title="Progresso desta conversa, gravado pela própria sessão">
                     <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-white">
@@ -944,4 +963,10 @@ function AlertasOficiais({ alertas }: { alertas: AlertasPainel | null }) {
       )}
     </div>
   )
+}
+
+/** Fixadas primeiro (como na barra lateral do Claude); depois, a conversa mexida por último. */
+function ordenarSessoes(lista: Sessao[]): Sessao[] {
+  const t = (s: Sessao) => (s.atividade_em ? Date.parse(s.atividade_em) : 0)
+  return [...lista].sort((a, b) => Number(Boolean(b.fixada)) - Number(Boolean(a.fixada)) || t(b) - t(a))
 }
