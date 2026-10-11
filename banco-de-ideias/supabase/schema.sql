@@ -89,3 +89,7 @@ create index if not exists hub_sessoes_atividade_idx on public.hub_sessoes (ativ
 alter table public.hub_sessoes enable row level security;
 alter table public.hub_sessoes add column if not exists resumo text not null default '';
 alter table public.hub_sessoes add column if not exists progresso int check (progresso between 0 and 100);
+alter table public.hub_sessoes add column if not exists ultima_resposta text not null default '';
+alter table public.hub_sessoes add column if not exists ultimo_pedido text not null default '';
+alter table public.hub_sessoes add column if not exists ramo text not null default '';
+alter table public.hub_sessoes add column if not exists repo text not null default '';
