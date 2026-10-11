@@ -44,7 +44,7 @@ export interface ConversaClaude {
 export type SituacaoSessao = 'trabalhando' | 'esperando' | 'parada' | 'encerrada'
 export interface Sessao {
   id: string // session_... do Claude Code
-  titulo: string // nome da sessão no Claude (sincronizado de hora em hora)
+  titulo: string // nome da sessão no Claude (atualizado pela própria sessão ou pelo "Sincronizar agora")
   url: string
   situacao: SituacaoSessao
   detalhe: string // o que a sessão espera de você / o que está fazendo
