@@ -1,7 +1,15 @@
 // Monta o "pacote de contexto" de uma ideia: vai como system prompt da conversa
 // e também é o texto copiado/enviado para o Claude no navegador.
-import type { Ideia, Mensagem } from './tipos'
-import { FASE_LABEL, PRIORIDADE_LABEL, STATUS_LABEL } from './tipos'
+import type { Ideia, Mensagem, Tarefa } from './tipos'
+import { diasDesde, FASE_LABEL, PRIORIDADE_LABEL, STATUS_LABEL } from './tipos'
+
+/** Endereço do painel publicado no Claude (o Claude Code lê e escreve no banco dele). */
+export const LINK_PAINEL = 'https://claude.ai/artifact/TZyEtoYKaRR9qPUe3NWU4U'
+
+const dataCurta = (iso?: string) => {
+  const t = iso ? Date.parse(iso) : NaN
+  return Number.isFinite(t) ? new Date(t).toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit' }) : ''
+}
 
 export function contextoDaIdeia(i: Ideia, historico: Mensagem[] = []): string {
   const feitas = i.tarefas.filter((t) => t.feito)
@@ -17,6 +25,12 @@ export function contextoDaIdeia(i: Ideia, historico: Mensagem[] = []): string {
     i.resumo,
     '',
     i.resumo_detalhado ? `## Detalhes\n${i.resumo_detalhado}\n` : '',
+    i.analise?.situacao
+      ? `## Como está hoje (revisão de ${dataCurta(i.analise.revisado_em)})\n${i.analise.situacao}\nÚltimo avanço: ${dataCurta(i.analise.ultimo_avanco)}${
+          diasDesde(i.analise.ultimo_avanco) != null ? ` (há ${diasDesde(i.analise.ultimo_avanco)} dias)` : ''
+        }${i.analise.fonte ? `, ${i.analise.fonte}` : ''}.\n`
+      : '',
+    i.analise?.sugestao ? `## Sugestão do Claude\n${i.analise.sugestao}\n` : '',
     i.como_usar ? `## Como usar\n${i.como_usar}\n` : '',
     i.passos_uso?.length ? `## Passo a passo de uso\n${i.passos_uso.map((p, n) => `${n + 1}. ${p}`).join('\n')}\n` : '',
     i.links?.length ? `## Links\n${i.links.map((l) => `- ${l.rotulo}: ${l.url}`).join('\n')}\n` : '',
@@ -103,7 +117,7 @@ COMO VAMOS TRABALHAR
 3. Depois trabalhe UM item por vez: explique em 2 ou 3 linhas, faça UMA pergunta ou proponha UMA mudança com antes e depois, e espere a minha resposta antes de seguir.
 4. Se um item depender de algo fora do Claude (conector, chave, permissão, clique em outro site), pare e me diga exatamente onde clicar.
 5. Pagamento, checkout, preço, oferta, anúncios no Meta e mensagens para clientes: só com a minha aprovação explícita. Nada de deploy, merge ou push na main sem eu pedir.
-6. Ao fechar cada item, diga em 1 linha o que mudou e qual tarefa eu marco no Banco de Ideias.
+6. Ao fechar cada item, diga em 1 linha o que mudou e marque a tarefa como feita no Banco de Ideias (${LINK_PAINEL}, coleção "ideias", documento "${i.id}"). Se não conseguir, me diga qual tarefa eu marco.
 
 CUSTO DA CONVERSA
 - Comece cada resposta com o número dela entre colchetes, por exemplo [3].
@@ -135,4 +149,29 @@ export function recomendarConversa(i: Ideia): { acao: 'nova' | 'continuar' | 'pe
         ? `A conversa tem entre 10 e ${LIMITE_RESPOSTAS} mensagens: dá para continuar, mas logo vai valer pedir o resumo e trocar.`
         : 'A conversa ainda é curta: continue nela.',
   }
+}
+
+/** Prompt para resolver UMA pendência numa conversa nova, passo a passo. */
+export function promptPendencia(i: Ideia, t: Tarefa): string {
+  return `Vamos resolver UMA pendência do projeto "${i.titulo}" (Laura Rosa / Comunidade Corpo Feliz). Responda sempre em português do Brasil, com frases curtas e sem jargão.
+
+PENDÊNCIA
+${t.texto}
+
+CONTEXTO (vem do Banco de Ideias)
+${contextoDaIdeia(i)}
+
+COMO VAMOS TRABALHAR
+1. Leia o que precisar${i.repo ? ` no repositório ${i.repo}` : ''} (CLAUDE.md e docs) e confira como essa pendência está hoje. Não altere nada ainda.
+2. Me diga em até 3 linhas como está e o plano em passos numerados.
+3. Faça UM passo por vez, com detalhes: onde clicar, o que escrever, o que eu devo ver na tela. Espere a minha resposta antes do próximo passo.
+4. Se o passo depender de algo fora do Claude (conector, chave, permissão, clique em outro site), pare e me diga exatamente onde clicar.
+5. Pagamento, checkout, preço, oferta, anúncios no Meta e mensagens para clientes: só com a minha aprovação explícita. Nada de deploy, merge ou push na main sem eu pedir.
+6. Quando a pendência estiver resolvida, marque a tarefa como feita no Banco de Ideias (${LINK_PAINEL}, coleção "ideias", documento "${i.id}", tarefa "${t.id}") e atualize "analise.ultimo_avanco" com a data de hoje. Se não conseguir, me diga qual tarefa eu marco.
+
+CUSTO DA CONVERSA
+- Comece cada resposta com o número dela entre colchetes, por exemplo [3].
+- Na resposta ${LIMITE_RESPOSTAS} (ou antes, se a conversa ficar pesada), pare e me entregue um bloco "RESUMO PARA NOVA CONVERSA" com o que foi decidido, o que mudou, o que falta e o próximo passo.
+
+Comece pelo passo 1.`
 }

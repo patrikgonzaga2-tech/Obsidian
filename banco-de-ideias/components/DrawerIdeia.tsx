@@ -192,6 +192,24 @@ export default function DrawerIdeia({
                     </div>
                   </section>
 
+                  {/* revisão do Claude */}
+                  {(i.analise?.situacao || i.analise?.sugestao) && (
+                    <section className="space-y-3 rounded-3xl bg-white p-5 ring-1 ring-verde-900/6">
+                      {i.analise?.situacao && (
+                        <div>
+                          <h4 className="mb-1 text-xs font-extrabold uppercase tracking-[0.12em] text-tinta-suave">Como está</h4>
+                          <p className="whitespace-pre-line text-sm leading-relaxed">{i.analise.situacao}</p>
+                        </div>
+                      )}
+                      {i.analise?.sugestao && (
+                        <div className="rounded-2xl bg-laranja-50/70 px-3.5 py-3 ring-1 ring-laranja-200">
+                          <h4 className="mb-1 text-xs font-extrabold uppercase tracking-[0.12em] text-laranja-700">Sugestão do Claude</h4>
+                          <p className="whitespace-pre-line text-sm leading-relaxed">{i.analise.sugestao}</p>
+                        </div>
+                      )}
+                    </section>
+                  )}
+
                   {/* passo a passo */}
                   <Checklist key={`check-${i.id}`} tarefas={i.tarefas} onMudar={(tarefas) => onAtualizar(i.id, { tarefas })} />
 

@@ -3,6 +3,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Lightbulb, Mic, PanelLeft, Plus, Rocket, Undo2, X } from 'lucide-react'
 import type { Conexao, ConexaoId, Ideia, Perfil, RespostaBusca, Status } from '@/lib/tipos'
 import MeuTrabalho from './MeuTrabalho'
+import PainelComando from './PainelComando'
 import { faseDoProgresso, progressoDasTarefas } from '@/lib/tipos'
 import { buscarLocal } from '@/lib/busca-local'
 import BarraBusca from './BarraBusca'
@@ -337,6 +338,9 @@ export default function Hub({
             </section>
           ) : (
             <>
+              <PainelComando ideias={ideias} onAbrir={(id) => abrir(id)} onAtualizar={atualizar} />
+
+              <div className="mt-10">
               <MeuTrabalho
                 perfil={perfil}
                 ideias={ideias}
@@ -357,6 +361,7 @@ export default function Hub({
                   return true
                 }}
               />
+              </div>
 
               <PrateleiraNoAr ideias={noAr} onDetalhes={(id) => abrir(id, 'descricao')} />
 

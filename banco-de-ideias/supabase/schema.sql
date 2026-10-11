@@ -25,6 +25,7 @@ create table if not exists public.hub_ideias (
   conversa_claude  jsonb,                               -- {iniciada_em, ultima_em, retomadas, url, tamanho, resumo}
   comandos         jsonb not null default '[]'::jsonb, -- [{titulo, texto, onde, dica}]
   links            jsonb not null default '[]'::jsonb, -- [{rotulo, url}]
+  analise          jsonb,                               -- {situacao, sugestao, ordem, ultimo_avanco, fonte, corrigido, revisado_em}
   criado_em        timestamptz not null default now(),
   atualizado_em    timestamptz not null default now()
 );
@@ -66,5 +67,6 @@ alter table public.hub_ideias add column if not exists onde_conversa text not nu
 alter table public.hub_ideias add column if not exists preparos jsonb not null default '[]'::jsonb;
 alter table public.hub_ideias add column if not exists conversa_claude jsonb;
 alter table public.hub_ideias add column if not exists links jsonb not null default '[]'::jsonb;
+alter table public.hub_ideias add column if not exists analise jsonb;
 alter table public.hub_ideias drop constraint if exists hub_ideias_status_check;
 alter table public.hub_ideias add constraint hub_ideias_status_check check (status in ('em_andamento', 'no_ar', 'pausado', 'arquivado'));

@@ -1,12 +1,12 @@
 // Regras de edição aplicadas no servidor e na versão artifact.
-import type { Comando, ConversaClaude, Fase, Ideia, LinkIdeia, Preparo, Prioridade, Status, Tarefa } from './tipos'
+import type { Analise, Comando, ConversaClaude, Fase, Ideia, LinkIdeia, Preparo, Prioridade, Status, Tarefa } from './tipos'
 import { FASES, faseDoProgresso, novoId, progressoDasTarefas, STATUS_LABEL } from './tipos'
 
 export const EDITAVEIS: (keyof Ideia)[] = [
   'titulo', 'categoria', 'status', 'fase', 'progresso', 'prioridade',
   'resumo', 'resumo_detalhado', 'tarefas', 'url_produto', 'repo',
   'como_usar', 'passos_uso', 'comandos', 'links',
-  'objetivo_conversa', 'onde_conversa', 'preparos', 'conversa_claude',
+  'objetivo_conversa', 'onde_conversa', 'preparos', 'conversa_claude', 'analise',
 ]
 
 const STATUS = Object.keys(STATUS_LABEL) as Status[]
@@ -68,6 +68,21 @@ function conversaClaude(v: unknown): ConversaClaude | null {
   }
 }
 
+function analise(v: unknown): Analise | null {
+  if (!v || typeof v !== 'object') return null
+  const a = v as Record<string, unknown>
+  const agora = new Date().toISOString()
+  return {
+    situacao: texto(a.situacao).trim(),
+    sugestao: texto(a.sugestao).trim(),
+    ordem: Math.max(1, Math.round(Number(a.ordem) || 99)),
+    ultimo_avanco: texto(a.ultimo_avanco) || agora,
+    fonte: texto(a.fonte).trim(),
+    corrigido: listaTexto(a.corrigido),
+    revisado_em: texto(a.revisado_em) || agora,
+  }
+}
+
 function comandos(v: unknown): Comando[] {
   if (!Array.isArray(v)) return []
   return v
@@ -105,6 +120,7 @@ export function aplicarRegras(entrada: unknown): Partial<Ideia> {
   if ('preparos' in b) patch.preparos = preparos(b.preparos)
   if ('conversa_claude' in b) patch.conversa_claude = conversaClaude(b.conversa_claude)
   if ('links' in b) patch.links = links(b.links)
+  if ('analise' in b) patch.analise = analise(b.analise)
   if ('url_produto' in b) patch.url_produto = normalizarUrl(b.url_produto)
   if ('repo' in b) patch.repo = texto(b.repo).trim() || null
 
@@ -135,6 +151,7 @@ export function normalizarIdeia(d: Partial<Ideia>): Ideia {
     preparos: preparos(d.preparos),
     conversa_claude: conversaClaude(d.conversa_claude),
     links: links(d.links),
+    analise: analise(d.analise),
     progresso: Number(d.progresso) || 0,
     titulo: texto(d.titulo) || 'Sem título',
     categoria: texto(d.categoria) || 'Outro',

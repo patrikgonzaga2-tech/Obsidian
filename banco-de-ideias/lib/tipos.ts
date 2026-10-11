@@ -38,6 +38,17 @@ export interface ConversaClaude {
   resumo?: string // "RESUMO PARA NOVA CONVERSA" colado da conversa anterior
 }
 
+/** Revisão do Claude: como a ideia está, o que sugiro e há quanto tempo não anda. */
+export interface Analise {
+  situacao: string // como está hoje, em 1–3 frases
+  sugestao: string // o próximo movimento que eu recomendo
+  ordem: number // posição na fila de prioridade (1 = primeiro)
+  ultimo_avanco: string // data ISO do último avanço real (commit, publicação, tarefa marcada)
+  fonte?: string // de onde veio essa data
+  corrigido?: string[] // dados que estavam errados no painel e foram corrigidos nesta revisão
+  revisado_em: string
+}
+
 export interface LinkIdeia {
   rotulo: string
   url: string
@@ -66,6 +77,7 @@ export interface Ideia {
   conversa_claude?: ConversaClaude | null
   comandos?: Comando[]
   links?: LinkIdeia[]
+  analise?: Analise | null
   criado_em: string
   atualizado_em: string
 }
@@ -187,4 +199,22 @@ export interface Perfil {
   funcoes: Funcao[]
   preciso: string[] // o que preciso resolver/decidir
   atualizado_em: string
+}
+
+/** Dias inteiros desde uma data ISO (0 = hoje). */
+export function diasDesde(iso: string | undefined | null, agora = new Date()): number | null {
+  if (!iso) return null
+  const t = Date.parse(iso)
+  if (!Number.isFinite(t)) return null
+  // conta dias de calendário (ontem à noite = 1 dia), não blocos de 24 horas
+  const meiaNoite = (d: Date) => new Date(d.getFullYear(), d.getMonth(), d.getDate()).getTime()
+  return Math.max(0, Math.round((meiaNoite(agora) - meiaNoite(new Date(t))) / 86_400_000))
+}
+
+/** Situação do ritmo: andando (até 2 dias), parando (3 a 6) ou parado (7 ou mais). */
+export function ritmo(dias: number | null): 'andando' | 'parando' | 'parado' | 'sem_data' {
+  if (dias == null) return 'sem_data'
+  if (dias >= 7) return 'parado'
+  if (dias >= 3) return 'parando'
+  return 'andando'
 }
