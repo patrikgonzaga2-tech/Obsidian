@@ -3,8 +3,9 @@
 import type { Ideia, Mensagem, Tarefa } from './tipos'
 import { diasDesde, FASE_LABEL, PRIORIDADE_LABEL, STATUS_LABEL } from './tipos'
 
-/** Endereço do painel publicado no Claude (o Claude Code lê e escreve no banco dele). */
-export const LINK_PAINEL = 'https://claude.ai/artifact/TZyEtoYKaRR9qPUe3NWU4U'
+/** Banco oficial das ideias: o Claude Code grava nele pelo conector do Supabase. */
+export const BANCO_OFICIAL =
+  'Supabase pelo conector (projeto "Corpo Feliz – CRM e Ideias", id ysgsyhmkixvlxpgbyqkl, tabela public.hub_ideias; nunca mexa nas outras tabelas, que são do CRM)'
 
 const dataCurta = (iso?: string) => {
   const t = iso ? Date.parse(iso) : NaN
@@ -117,7 +118,7 @@ COMO VAMOS TRABALHAR
 3. Depois trabalhe UM item por vez: explique em 2 ou 3 linhas, faça UMA pergunta ou proponha UMA mudança com antes e depois, e espere a minha resposta antes de seguir.
 4. Se um item depender de algo fora do Claude (conector, chave, permissão, clique em outro site), pare e me diga exatamente onde clicar.
 5. Pagamento, checkout, preço, oferta, anúncios no Meta e mensagens para clientes: só com a minha aprovação explícita. Nada de deploy, merge ou push na main sem eu pedir.
-6. Ao fechar cada item, diga em 1 linha o que mudou e marque a tarefa como feita no Banco de Ideias (${LINK_PAINEL}, coleção "ideias", documento "${i.id}"). Se não conseguir, me diga qual tarefa eu marco.
+6. Ao fechar cada item, diga em 1 linha o que mudou e marque a tarefa como feita no Banco de Ideias: ${BANCO_OFICIAL}, linha id "${i.id}", campo tarefas (feito = true), e atualize atualizado_em e analise.ultimo_avanco para agora. Se não conseguir, me diga qual tarefa eu marco.
 
 CUSTO DA CONVERSA
 - Comece cada resposta com o número dela entre colchetes, por exemplo [3].
@@ -167,7 +168,7 @@ COMO VAMOS TRABALHAR
 3. Faça UM passo por vez, com detalhes: onde clicar, o que escrever, o que eu devo ver na tela. Espere a minha resposta antes do próximo passo.
 4. Se o passo depender de algo fora do Claude (conector, chave, permissão, clique em outro site), pare e me diga exatamente onde clicar.
 5. Pagamento, checkout, preço, oferta, anúncios no Meta e mensagens para clientes: só com a minha aprovação explícita. Nada de deploy, merge ou push na main sem eu pedir.
-6. Quando a pendência estiver resolvida, marque a tarefa como feita no Banco de Ideias (${LINK_PAINEL}, coleção "ideias", documento "${i.id}", tarefa "${t.id}") e atualize "analise.ultimo_avanco" com a data de hoje. Se não conseguir, me diga qual tarefa eu marco.
+6. Quando a pendência estiver resolvida, marque a tarefa como feita no Banco de Ideias: ${BANCO_OFICIAL}, linha id "${i.id}", no campo tarefas a tarefa id "${t.id}" (feito = true), e atualize atualizado_em e analise.ultimo_avanco para agora. Se não conseguir, me diga qual tarefa eu marco.
 
 CUSTO DA CONVERSA
 - Comece cada resposta com o número dela entre colchetes, por exemplo [3].

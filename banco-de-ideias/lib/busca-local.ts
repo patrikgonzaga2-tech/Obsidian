@@ -59,7 +59,24 @@ function texto(i: Ideia) {
   return {
     titulo: palavras(i.titulo).map(radical),
     categoria: palavras(i.categoria).map(radical),
-    corpo: palavras(`${i.resumo} ${i.resumo_detalhado} ${i.tarefas.map((t) => t.texto).join(' ')} ${i.repo ?? ''}`).map(radical),
+    corpo: palavras(
+      [
+        i.resumo,
+        i.resumo_detalhado,
+        ...i.tarefas.map((t) => t.texto),
+        i.repo ?? '',
+        // o assunto das conversas: análise, objetivo, resumo da conversa anterior, uso, comandos, preparos e links
+        i.analise?.situacao ?? '',
+        i.analise?.sugestao ?? '',
+        i.objetivo_conversa ?? '',
+        i.conversa_claude?.resumo ?? '',
+        i.como_usar ?? '',
+        ...(i.passos_uso ?? []),
+        ...(i.comandos ?? []).map((c) => `${c.titulo} ${c.texto}`),
+        ...(i.preparos ?? []).map((x) => x.texto),
+        ...(i.links ?? []).map((l) => l.rotulo),
+      ].join(' ')
+    ).map(radical),
   }
 }
 
