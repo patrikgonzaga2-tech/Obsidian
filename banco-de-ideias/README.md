@@ -81,3 +81,15 @@ node artifact/build.mjs   # gera artifact/dist/banco-de-ideias.html
 ```
 
 `artifact/backend.ts` atende as mesmas rotas `/api/*` do app, então os componentes são os mesmos.
+
+## Conversas ao vivo ("Mexendo agora")
+
+As conversas do Claude Code no repositório LR_LauraRosaPersonal avisam o painel sozinhas pelo gancho
+`.claude/hooks/banco-de-ideias.mjs` (eventos UserPromptSubmit e Stop): último pedido, fim da última
+resposta, ramo, repositório e o link da conversa vão para `POST /api/sessoes/sinal`.
+
+- Precisa de `BANCO_IDEIAS_TOKEN` com o **mesmo valor** na Vercel deste painel e no ambiente do Claude Code.
+- Depois de cadastrar ou trocar a chave na Vercel, é preciso uma publicação nova (Redeploy) para valer.
+- O gancho só vale nas conversas abertas depois que a chave entrou no ambiente do Claude Code.
+- "Revisão completa com o Claude" e "Pedir resumo ao Claude" continuam servindo para trocar o nome da
+  conversa, calcular a % pelo plano e revisar as ideias ligadas.
