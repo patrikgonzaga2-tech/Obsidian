@@ -93,3 +93,4 @@ alter table public.hub_sessoes add column if not exists ultima_resposta text not
 alter table public.hub_sessoes add column if not exists ultimo_pedido text not null default '';
 alter table public.hub_sessoes add column if not exists ramo text not null default '';
 alter table public.hub_sessoes add column if not exists repo text not null default '';
+alter table public.hub_sessoes add column if not exists fixada boolean not null default false;

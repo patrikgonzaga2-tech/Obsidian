@@ -58,6 +58,7 @@ export interface Sessao {
   ultimo_pedido?: string // a última mensagem do Patrik na conversa
   ramo?: string
   repo?: string
+  fixada?: boolean // fixada no topo do "Mexendo agora" (como na barra lateral do Claude)
 }
 
 /** Sem sinal por mais que isso, a sessão some do "Mexendo agora" (fechou sem avisar). */

@@ -254,14 +254,22 @@ export async function salvarPerfil(perfil: Perfil): Promise<Perfil> {
 // ---------- sessões do Claude Code ("Mexendo agora") ----------
 export async function listarSessoes(): Promise<Sessao[]> {
   if (!supabaseConfigurado()) return [] // só existe com o Supabase: quem grava são as sessões e a rotina
-  return sb<Sessao[]>('hub_sessoes', 'select=*&acompanhar=eq.true&order=atividade_em.desc.nullslast')
+  return sb<Sessao[]>('hub_sessoes', 'select=*&acompanhar=eq.true&order=fixada.desc,atividade_em.desc.nullslast')
 }
 
 export async function pararDeAcompanhar(id: string): Promise<void> {
+  await mudarSessao(id, { acompanhar: false })
+}
+
+export async function fixarSessao(id: string, fixada: boolean): Promise<void> {
+  await mudarSessao(id, { fixada })
+}
+
+async function mudarSessao(id: string, patch: Record<string, unknown>): Promise<void> {
   if (!supabaseConfigurado()) return
   await sb('hub_sessoes', `id=eq.${encodeURIComponent(id)}`, {
     method: 'PATCH',
-    body: JSON.stringify({ acompanhar: false }),
+    body: JSON.stringify(patch),
     headers: { Prefer: 'return=minimal' },
   })
 }
