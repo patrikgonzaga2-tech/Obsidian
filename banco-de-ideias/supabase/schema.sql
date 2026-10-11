@@ -72,7 +72,7 @@ alter table public.hub_ideias drop constraint if exists hub_ideias_status_check;
 alter table public.hub_ideias add constraint hub_ideias_status_check check (status in ('em_andamento', 'no_ar', 'pausado', 'arquivado'));
 
 -- Sessões do Claude Code acompanhadas no "Mexendo agora". Quem grava: as próprias sessões
--- (pelo prompt do painel) e a rotina de hora em hora que sincroniza nome e situação.
+-- (pelo prompt do painel) e o comando "Sincronizar agora", rodado numa sessão do Claude Code.
 create table if not exists public.hub_sessoes (
   id              text primary key,
   titulo          text not null default '',
