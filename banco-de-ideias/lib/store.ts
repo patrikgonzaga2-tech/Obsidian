@@ -4,7 +4,7 @@
 import 'server-only'
 import fs from 'node:fs/promises'
 import path from 'node:path'
-import type { Ideia, Mensagem, Perfil } from './tipos'
+import type { Ideia, Mensagem, Perfil, Sessao } from './tipos'
 import { normalizarPerfil, perfilInicial } from './perfil'
 import { sementes } from './seed'
 import { normalizarIdeia } from './regras'
@@ -249,4 +249,19 @@ export async function salvarPerfil(perfil: Perfil): Promise<Perfil> {
   b.perfil = p
   await gravarLocal()
   return p
+}
+
+// ---------- sessões do Claude Code ("Mexendo agora") ----------
+export async function listarSessoes(): Promise<Sessao[]> {
+  if (!supabaseConfigurado()) return [] // só existe com o Supabase: quem grava são as sessões e a rotina
+  return sb<Sessao[]>('hub_sessoes', 'select=*&acompanhar=eq.true&order=atividade_em.desc.nullslast')
+}
+
+export async function pararDeAcompanhar(id: string): Promise<void> {
+  if (!supabaseConfigurado()) return
+  await sb('hub_sessoes', `id=eq.${encodeURIComponent(id)}`, {
+    method: 'PATCH',
+    body: JSON.stringify({ acompanhar: false }),
+    headers: { Prefer: 'return=minimal' },
+  })
 }

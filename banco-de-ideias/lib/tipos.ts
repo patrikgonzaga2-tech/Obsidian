@@ -40,6 +40,20 @@ export interface ConversaClaude {
   foco?: string // em poucas palavras, o que a sessão está fazendo
 }
 
+/** Sessão do Claude Code acompanhada no "Mexendo agora" (tabela hub_sessoes). */
+export type SituacaoSessao = 'trabalhando' | 'esperando' | 'parada' | 'encerrada'
+export interface Sessao {
+  id: string // session_... do Claude Code
+  titulo: string // nome da sessão no Claude (sincronizado de hora em hora)
+  url: string
+  situacao: SituacaoSessao
+  detalhe: string // o que a sessão espera de você / o que está fazendo
+  ideias: string[] // ids das ideias ligadas
+  acompanhar: boolean
+  atividade_em: string | null
+  sincronizado_em: string
+}
+
 /** Sem sinal por mais que isso, a sessão some do "Mexendo agora" (fechou sem avisar). */
 export const SESSAO_EXPIRA_MS = 6 * 60 * 60 * 1000
 

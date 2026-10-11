@@ -70,3 +70,20 @@ alter table public.hub_ideias add column if not exists links jsonb not null defa
 alter table public.hub_ideias add column if not exists analise jsonb;
 alter table public.hub_ideias drop constraint if exists hub_ideias_status_check;
 alter table public.hub_ideias add constraint hub_ideias_status_check check (status in ('em_andamento', 'no_ar', 'pausado', 'arquivado'));
+
+-- Sessões do Claude Code acompanhadas no "Mexendo agora". Quem grava: as próprias sessões
+-- (pelo prompt do painel) e a rotina de hora em hora que sincroniza nome e situação.
+create table if not exists public.hub_sessoes (
+  id              text primary key,
+  titulo          text not null default '',
+  url             text not null default '',
+  situacao        text not null default 'parada' check (situacao in ('trabalhando', 'esperando', 'parada', 'encerrada')),
+  detalhe         text not null default '',
+  ideias          text[] not null default '{}',
+  acompanhar      boolean not null default true,
+  atividade_em    timestamptz,
+  sincronizado_em timestamptz not null default now(),
+  criado_em       timestamptz not null default now()
+);
+create index if not exists hub_sessoes_atividade_idx on public.hub_sessoes (atividade_em desc);
+alter table public.hub_sessoes enable row level security;
