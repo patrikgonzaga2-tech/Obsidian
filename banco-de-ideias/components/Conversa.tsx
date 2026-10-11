@@ -135,8 +135,8 @@ export default function Conversa({
 
         {!config.ia && (
           <div className="rounded-2xl bg-laranja-50 px-4 py-3 text-sm text-laranja-800 ring-1 ring-laranja-200">
-            A conversa dentro do painel precisa da <b>ANTHROPIC_API_KEY</b> (veja a conexão “Chats no cloud”). Enquanto isso, use
-            <b> Abrir no Claude.ai</b> — o contexto completo vai junto.
+            Para conversar sobre esta ideia, use <b>Iniciar conversa no Claude</b>: o prompt vai pronto para o Claude Code, com a
+            sua assinatura. (A IA dentro do site está desligada.)
           </div>
         )}
 

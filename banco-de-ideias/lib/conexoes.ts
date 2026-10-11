@@ -107,19 +107,22 @@ async function verificarDesktop(): Promise<Conexao> {
 async function verificarChats(): Promise<Conexao> {
   const ia = iaConfigurada()
   const whisper = transcricaoServidor()
+  // A conversa de trabalho é no Claude Code, com a assinatura (botão "Iniciar conversa no Claude").
+  // A IA dentro do site é opcional e fica desligada sem ANTHROPIC_API_KEY.
   const pend = [
-    p('Definir ANTHROPIC_API_KEY (conversa, busca semântica e organização das ideias)', ia,
-      'console.anthropic.com → API Keys → crie uma chave\nANTHROPIC_API_KEY=sk-ant-...'),
-    p('Transcrição Whisper no servidor (opcional — sem isso usa o reconhecimento de voz do navegador)', whisper,
-      'WHISPER_URL=https://api.openai.com/v1/audio/transcriptions\nWHISPER_API_KEY=sk-...\n— ou um servidor local compatível (faster-whisper-server).'),
+    p('Conversas pelo Claude Code com a sua assinatura (botão "Iniciar conversa no Claude")', true),
+    p('Opcional: ANTHROPIC_API_KEY para busca com IA e conversa dentro do site', true,
+      ia ? undefined : 'Desligada de propósito. Para ligar: console.anthropic.com → API Keys → crie uma chave e cadastre ANTHROPIC_API_KEY na Vercel.'),
+    p('Opcional: transcrição Whisper no servidor (sem isso, use o ditado do teclado)', true,
+      whisper ? undefined : 'WHISPER_URL=https://api.openai.com/v1/audio/transcriptions\nWHISPER_API_KEY=sk-...'),
     p('Rodar supabase/schema.sql para guardar o histórico das conversas na nuvem', supabaseConfigurado()),
   ]
   return {
     id: 'chats',
     nome: 'Chats no cloud',
-    descricao: 'Conversa com a IA com o contexto da ideia e guarda o histórico para retomar depois.',
-    status: statusDe(pend, ia),
-    detalhe: ia ? (whisper ? 'IA e transcrição prontas' : 'IA pronta · voz pelo navegador') : 'Sem chave — use "Abrir no Claude"',
+    descricao: 'Gera o prompt com o contexto da ideia para continuar no Claude Code e guarda o histórico para retomar depois.',
+    status: statusDe(pend, true),
+    detalhe: ia ? (whisper ? 'IA e transcrição prontas' : 'IA pronta · voz pelo navegador') : 'Conversas pelo Claude Code · IA do site desligada',
     pendencias: pend,
     pode_sincronizar: false,
     verificado_em: agora(),
