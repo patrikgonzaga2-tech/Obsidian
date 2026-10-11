@@ -4,7 +4,8 @@
   "newFileFolderPath": "06-Aprendizados",
   "userIgnoreFilters": [
     "_sistema/",
-    "99-Templates/"
+    "99-Templates/",
+    "banco-de-ideias/"
   ],
   "showFrontmatter": true,
   "propertiesInDocument": "visible",
