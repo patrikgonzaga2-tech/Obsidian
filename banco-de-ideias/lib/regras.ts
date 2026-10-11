@@ -65,6 +65,8 @@ function conversaClaude(v: unknown): ConversaClaude | null {
     url: normalizarUrl(c.url) ?? '',
     tamanho: tamanhos.includes(c.tamanho as string) ? (c.tamanho as ConversaClaude['tamanho']) : '',
     resumo: texto(c.resumo).trim(),
+    ativa: c.ativa === true,
+    foco: texto(c.foco).trim(),
   }
 }
 

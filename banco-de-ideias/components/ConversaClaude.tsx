@@ -63,11 +63,11 @@ export default function ConversaClaude({
   // começar conversa nova: copia o prompt, registra e abre o Claude (o link abre numa aba nova)
   const iniciarNova = () => {
     copiar(promptNovo, `Prompt copiado. No ${destino.nome}, cole com Ctrl+V (ou toque e segure → Colar) e envie.`)
-    salvarConversa({ iniciada_em: agora(), ultima_em: agora(), retomadas: 0, tamanho: 'pequena', url: '', resumo: '' })
+    salvarConversa({ iniciada_em: agora(), ultima_em: agora(), retomadas: 0, tamanho: 'pequena', url: '', resumo: '', ativa: true, foco: '' })
   }
   const continuar = () => {
     copiar(promptRetomar, 'Mensagem de retomada copiada. Cole na conversa e envie.')
-    salvarConversa({ ultima_em: agora(), retomadas: (conv?.retomadas ?? 0) + 1 })
+    salvarConversa({ ultima_em: agora(), retomadas: (conv?.retomadas ?? 0) + 1, ativa: true })
   }
   const urlNova = destino.url
 
