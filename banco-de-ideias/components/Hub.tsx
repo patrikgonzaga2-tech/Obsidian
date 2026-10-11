@@ -3,7 +3,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Lightbulb, Mic, PanelLeft, Plus, Rocket, Undo2, X } from 'lucide-react'
 import type { Conexao, ConexaoId, Ideia, Perfil, RespostaBusca, Status, Sessao } from '@/lib/tipos'
 import MeuTrabalho from './MeuTrabalho'
-import PainelComando from './PainelComando'
+import PainelComando, { type AlertasPainel } from './PainelComando'
 import { faseDoProgresso, progressoDasTarefas } from '@/lib/tipos'
 import { buscarLocal } from '@/lib/busca-local'
 import BarraBusca from './BarraBusca'
@@ -89,6 +89,26 @@ export default function Hub({
   useEffect(() => {
     carregarSessoes()
   }, [carregarSessoes])
+  // alertas do Painel Oficial (laurarosapersonal.com); sem token ou sem a rota, fica só o link
+  const [alertas, setAlertas] = useState<AlertasPainel | null>(null)
+  const carregarAlertas = useCallback(async () => {
+    const r = await fetch('/api/alertas', { cache: 'no-store' }).catch(() => null)
+    if (r?.ok) setAlertas(await r.json())
+  }, [])
+  useEffect(() => {
+    carregarAlertas()
+  }, [carregarAlertas])
+
+  // "Atualizar tudo": puxa na hora ideias, conversas e alertas
+  const [atualizadoEm, setAtualizadoEm] = useState<number | null>(null)
+  const [atualizando, setAtualizando] = useState(false)
+  const atualizarTudo = useCallback(async () => {
+    setAtualizando(true)
+    await Promise.all([recarregar().catch(() => {}), carregarSessoes(), carregarAlertas()])
+    setAtualizadoEm(Date.now())
+    setAtualizando(false)
+  }, [recarregar, carregarSessoes, carregarAlertas])
+
   const pararSessao = useCallback(
     async (id: string) => {
       setSessoes((l) => l.filter((s) => s.id !== id))
@@ -375,7 +395,7 @@ export default function Hub({
             </section>
           ) : (
             <>
-              <PainelComando ideias={ideias} sessoes={sessoes} onAbrir={(id) => abrir(id)} onAtualizar={atualizar} onPararSessao={pararSessao} />
+              <PainelComando ideias={ideias} sessoes={sessoes} alertas={alertas} atualizando={atualizando} atualizadoEm={atualizadoEm} onAtualizarTudo={atualizarTudo} onAbrir={(id) => abrir(id)} onAtualizar={atualizar} onPararSessao={pararSessao} />
 
               <div className="mt-10">
               <MeuTrabalho

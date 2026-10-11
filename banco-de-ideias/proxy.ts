@@ -6,7 +6,7 @@
 import { NextResponse, type NextRequest } from 'next/server'
 import { COOKIE_SESSAO, senhaPainel, sessaoValida } from './lib/sessao'
 
-const LIVRES = ['/entrar', '/api/entrar']
+const LIVRES = ['/entrar', '/api/entrar', '/api/sessoes/sinal'] // o sinal usa o token BANCO_IDEIAS_TOKEN
 
 export function proxy(req: NextRequest) {
   const senha = senhaPainel()

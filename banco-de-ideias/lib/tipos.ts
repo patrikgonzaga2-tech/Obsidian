@@ -54,6 +54,10 @@ export interface Sessao {
   sincronizado_em: string
   resumo?: string // o que já foi feito e o que falta (gravado pela própria sessão)
   progresso?: number | null // 0–100, pelo plano da conversa
+  ultima_resposta?: string // o fim da última resposta do Claude (chega sozinho pelo gancho)
+  ultimo_pedido?: string // a última mensagem do Patrik na conversa
+  ramo?: string
+  repo?: string
 }
 
 /** Sem sinal por mais que isso, a sessão some do "Mexendo agora" (fechou sem avisar). */

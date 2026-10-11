@@ -216,7 +216,7 @@ export function promptNovaConversaSessao(s: Sessao, ideias: Ideia[]): string {
 
 ONDE PARAMOS${s.progresso != null ? ` (${s.progresso}%)` : ''}
 ${s.resumo?.trim() || s.detalhe || 'Sem resumo gravado: leia a sessão anterior (get_session e list_events) para saber onde paramos.'}
-${s.detalhe ? `\nO que estava esperando de mim: ${s.detalhe}\n` : ''}
+${s.detalhe ? `\nO que estava esperando de mim: ${s.detalhe}\n` : ''}${s.ultimo_pedido ? `\nMeu último pedido: ${s.ultimo_pedido}\n` : ''}${s.ultima_resposta ? `\nÚLTIMA RESPOSTA DA CONVERSA ANTERIOR\n${s.ultima_resposta}\n` : ''}
 ${ideias.map((i) => `CONTEXTO DA IDEIA (Banco de Ideias)\n${contextoDaIdeia(i)}\n`).join('\n')}
 COMO VAMOS TRABALHAR
 1. Confira o estado atual (repositório, CLAUDE.md e docs) antes de mexer. Não altere nada ainda.
