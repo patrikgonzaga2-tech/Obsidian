@@ -100,6 +100,9 @@ O painel mostra em "Mexendo agora" as sessões abertas. Grave no ${BANCO_OFICIAL
 - Antes do passo 1: ${sql(`'ativa', true, 'ultima_em', now(), 'foco', '${foco.replace(/'/g, "''").slice(0, 80)}'`)}
 - A cada item fechado: ${sql(`'ultima_em', now()`)}
 - Ao terminar ou ao entregar o "RESUMO PARA NOVA CONVERSA": ${sql(`'ativa', false, 'ultima_em', now()`)} (e grave o resumo em conversa_claude.resumo).
+- Registre também esta sessão: chame get_session (conector claude-code-remote, sem session_id) e grave em public.hub_sessoes:
+  insert into public.hub_sessoes (id, titulo, url, situacao, detalhe, ideias, atividade_em) values ('<id da sessão>', '<título da sessão>', 'https://claude.ai/code/<id da sessão>', 'trabalhando', '<o que vamos fazer>', array['${i.id}'], now()) on conflict (id) do update set titulo = excluded.titulo, situacao = 'trabalhando', detalhe = excluded.detalhe, acompanhar = true, atividade_em = now(), ideias = array(select distinct unnest(hub_sessoes.ideias || excluded.ideias));
+  A cada item fechado, atualize titulo (releia com get_session), detalhe e atividade_em. Ao terminar, situacao = 'parada'.
 `
 }
 

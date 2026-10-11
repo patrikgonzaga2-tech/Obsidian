@@ -1,7 +1,7 @@
 'use client'
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Lightbulb, Mic, PanelLeft, Plus, Rocket, Undo2, X } from 'lucide-react'
-import type { Conexao, ConexaoId, Ideia, Perfil, RespostaBusca, Status } from '@/lib/tipos'
+import type { Conexao, ConexaoId, Ideia, Perfil, RespostaBusca, Status, Sessao } from '@/lib/tipos'
 import MeuTrabalho from './MeuTrabalho'
 import PainelComando from './PainelComando'
 import { faseDoProgresso, progressoDasTarefas } from '@/lib/tipos'
@@ -80,13 +80,33 @@ export default function Hub({
     if (r.ok) setIdeias(await r.json())
   }, [])
 
+  // sessões do Claude Code acompanhadas ("Mexendo agora"); sem a rota (versão artifact), fica vazio
+  const [sessoes, setSessoes] = useState<Sessao[]>([])
+  const carregarSessoes = useCallback(async () => {
+    const r = await fetch('/api/sessoes', { cache: 'no-store' }).catch(() => null)
+    if (r?.ok) setSessoes(await r.json())
+  }, [])
+  useEffect(() => {
+    carregarSessoes()
+  }, [carregarSessoes])
+  const pararSessao = useCallback(
+    async (id: string) => {
+      setSessoes((l) => l.filter((s) => s.id !== id))
+      const r = await fetch(`/api/sessoes/${encodeURIComponent(id)}`, { method: 'PATCH' }).catch(() => null)
+      if (!r?.ok) carregarSessoes()
+    },
+    [carregarSessoes]
+  )
+
   // As sessões do Claude Code gravam direto no banco: o painel busca de novo a cada minuto
   // e quando a aba volta a ficar visível. Pula enquanto uma edição sua ainda está salvando.
   const salvando = useRef(0)
   useEffect(() => {
     if (assinar) return // versão artifact: o banco já avisa sozinho
     const atualizar = () => {
-      if (document.visibilityState === 'visible' && salvando.current === 0) recarregar().catch(() => {})
+      if (document.visibilityState !== 'visible') return
+      carregarSessoes()
+      if (salvando.current === 0) recarregar().catch(() => {})
     }
     const t = setInterval(atualizar, 60_000)
     document.addEventListener('visibilitychange', atualizar)
@@ -94,7 +114,7 @@ export default function Hub({
       clearInterval(t)
       document.removeEventListener('visibilitychange', atualizar)
     }
-  }, [assinar, recarregar])
+  }, [assinar, recarregar, carregarSessoes])
 
   // ---------- edição ----------
   const ideiasRef = useRef(ideias)
@@ -355,7 +375,7 @@ export default function Hub({
             </section>
           ) : (
             <>
-              <PainelComando ideias={ideias} onAbrir={(id) => abrir(id)} onAtualizar={atualizar} />
+              <PainelComando ideias={ideias} sessoes={sessoes} onAbrir={(id) => abrir(id)} onAtualizar={atualizar} onPararSessao={pararSessao} />
 
               <div className="mt-10">
               <MeuTrabalho
