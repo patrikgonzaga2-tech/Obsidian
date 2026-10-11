@@ -87,3 +87,5 @@ create table if not exists public.hub_sessoes (
 );
 create index if not exists hub_sessoes_atividade_idx on public.hub_sessoes (atividade_em desc);
 alter table public.hub_sessoes enable row level security;
+alter table public.hub_sessoes add column if not exists resumo text not null default '';
+alter table public.hub_sessoes add column if not exists progresso int check (progresso between 0 and 100);
