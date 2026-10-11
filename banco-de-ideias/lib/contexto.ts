@@ -1,6 +1,6 @@
 // Monta o "pacote de contexto" de uma ideia: vai como system prompt da conversa
 // e também é o texto copiado/enviado para o Claude no navegador.
-import type { Ideia, Mensagem, Tarefa } from './tipos'
+import type { Ideia, Mensagem, Sessao, Tarefa } from './tipos'
 import { diasDesde, FASE_LABEL, PRIORIDADE_LABEL, STATUS_LABEL } from './tipos'
 
 /** Banco oficial das ideias: o Claude Code grava nele pelo conector do Supabase. */
@@ -192,4 +192,50 @@ CUSTO DA CONVERSA
 
 ${painelAoVivo(i, t.texto)}
 Comece pelo passo 1.`
+}
+
+// ---------- botões "Atualizar agora" e "Atualizar tudo" ----------
+// O site não roda o Claude sozinho: cada botão copia um prompt pronto para colar no Claude Code.
+
+const listaIdeias = (ideias: Ideia[]) =>
+  ideias.length ? ideias.map((i) => `"${i.titulo}" (id ${i.id})`).join(', ') : 'nenhuma ainda (se for uma ideia nova, crie o card em hub_ideias e ligue aqui)'
+
+/** Colado DENTRO da sessão: ela mesma grava resumo, progresso e situação no painel. */
+export function promptAtualizarSessao(s: Sessao, ideias: Ideia[]): string {
+  return `Atualize o Banco de Ideias com o andamento desta conversa e depois siga de onde paramos. Grave no ${BANCO_OFICIAL.replace('tabela public.hub_ideias', 'tabelas public.hub_sessoes e public.hub_ideias')}:
+
+1. Em public.hub_sessoes, linha id '${s.id}': titulo (releia o nome desta sessão com get_session), resumo (3 a 5 linhas: o que já foi feito e o que falta), progresso (0 a 100, pelo plano desta conversa), situacao ('trabalhando', 'esperando' ou 'parada'), detalhe (o que você espera de mim agora, em 1 frase), atividade_em = now() e sincronizado_em = now().
+2. Nas ideias ligadas, em public.hub_ideias: ${listaIdeias(ideias)}. Marque as tarefas concluídas, acrescente as tarefas novas que surgiram, e atualize resumo, analise.situacao, analise.sugestao, analise.ultimo_avanco e atualizado_em. Se o trabalho ligou outra ideia, acrescente o id dela em hub_sessoes.ideias.
+3. Responda em 1 linha: "Banco de Ideias atualizado: N%" e continue o trabalho.`
+}
+
+/** Para continuar o trabalho de uma sessão numa conversa nova. */
+export function promptNovaConversaSessao(s: Sessao, ideias: Ideia[]): string {
+  const principal = ideias[0]
+  return `Vamos continuar, numa conversa nova, um trabalho que começou na sessão "${s.titulo}" (${s.url}). Responda sempre em português do Brasil, com frases curtas e sem jargão.
+
+ONDE PARAMOS${s.progresso != null ? ` (${s.progresso}%)` : ''}
+${s.resumo?.trim() || s.detalhe || 'Sem resumo gravado: leia a sessão anterior (get_session e list_events) para saber onde paramos.'}
+${s.detalhe ? `\nO que estava esperando de mim: ${s.detalhe}\n` : ''}
+${ideias.map((i) => `CONTEXTO DA IDEIA (Banco de Ideias)\n${contextoDaIdeia(i)}\n`).join('\n')}
+COMO VAMOS TRABALHAR
+1. Confira o estado atual (repositório, CLAUDE.md e docs) antes de mexer. Não altere nada ainda.
+2. Me diga em até 5 linhas onde estamos e uma lista numerada do que falta.
+3. Trabalhe UM item por vez: explique em 2 ou 3 linhas, faça UMA pergunta ou proponha UMA mudança com antes e depois, e espere a minha resposta.
+4. Se depender de algo fora do Claude, me diga exatamente onde clicar.
+5. Pagamento, checkout, preço, oferta, anúncios no Meta e mensagens para clientes: só com a minha aprovação explícita. Nada de deploy, merge ou push na main sem eu pedir.
+6. Ao fechar cada item, atualize o Banco de Ideias (${BANCO_OFICIAL}): tarefas, resumo e analise.ultimo_avanco das ideias ligadas.
+
+${principal ? painelAoVivo(principal, s.titulo) : ''}
+Comece pelo passo 1.`
+}
+
+/** Colado numa sessão nova: varre toda a base e atualiza o painel inteiro. */
+export function promptAtualizarTudo(): string {
+  return `Atualize o Banco de Ideias com tudo o que está acontecendo na nossa base (Laura Rosa / Comunidade Corpo Feliz). Responda em português do Brasil, com frases curtas. Só LEIA as fontes; grave apenas nas tabelas hub_* do Supabase (projeto "Corpo Feliz – CRM e Ideias", id ysgsyhmkixvlxpgbyqkl). Nunca escreva em outras tabelas nem no projeto de vendas fjlbvoephhextnxemygf.
+
+1. Sessões do Claude Code: list_sessions (as minhas, ativas nas últimas 48 horas). Para cada uma que for trabalho real (ignore rotinas e esta sessão), leia o fim da conversa (list_events) e grave em public.hub_sessoes: id, titulo, url 'https://claude.ai/code/<id>', situacao ('trabalhando', 'esperando' ou 'parada'), detalhe (o que espera de mim), resumo (3 a 5 linhas), progresso (0 a 100 pelo plano da conversa), ideias ligadas (ids de hub_ideias), atividade_em, sincronizado_em = now(), acompanhar = true. Sessões encerradas ou sem atividade há mais de 3 dias: acompanhar = false.
+2. Ideias (public.hub_ideias): para cada ideia, confira o que mudou nas fontes que ela cita (commits e PRs recentes no GitHub, deploys na Vercel, tabelas do CRM só leitura, rotinas). Atualize tarefas (feitas e novas), progresso, status, resumo e analise (situacao, sugestao, ultimo_avanco, revisado_em = agora). Ideia nova que apareceu numa sessão e não tem card: crie o card.
+3. "Meu trabalho" (public.hub_perfil, id 'atual'): atualize a lista "preciso" com o que depende de mim agora, do mais urgente para o menos.
+4. No fim, me entregue em até 10 linhas: o que está andando, o que está esperando por mim (com o link da sessão) e o que está parado há mais tempo.`
 }

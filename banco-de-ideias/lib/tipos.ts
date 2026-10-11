@@ -52,6 +52,8 @@ export interface Sessao {
   acompanhar: boolean
   atividade_em: string | null
   sincronizado_em: string
+  resumo?: string // o que já foi feito e o que falta (gravado pela própria sessão)
+  progresso?: number | null // 0–100, pelo plano da conversa
 }
 
 /** Sem sinal por mais que isso, a sessão some do "Mexendo agora" (fechou sem avisar). */

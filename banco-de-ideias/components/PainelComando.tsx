@@ -12,13 +12,14 @@ import {
   MessageSquarePlus,
   PanelRightOpen,
   Radio,
+  RefreshCw,
   Rocket,
   Wrench,
   X,
 } from 'lucide-react'
 import type { Ideia, Prioridade, Sessao, SituacaoSessao, Tarefa } from '@/lib/tipos'
 import { diasDesde, mexendoAgora, ritmo } from '@/lib/tipos'
-import { destinoConversa, promptConversaNova, promptPendencia } from '@/lib/contexto'
+import { destinoConversa, promptAtualizarSessao, promptAtualizarTudo, promptConversaNova, promptNovaConversaSessao, promptPendencia } from '@/lib/contexto'
 import { BarraProgresso, PillStatus } from './ui'
 
 /**
@@ -56,6 +57,7 @@ export default function PainelComando({
   onPararSessao: (id: string) => void
 }) {
   const [pedido, setPedido] = useState<Pedido | null>(null)
+  const [promptAberto, setPromptAberto] = useState<PedidoPrompt | null>(null)
   const [aberta, setAberta] = useState<string | null>(null)
   // relógio do "Mexendo agora": recalcula os "há X min" a cada minuto
   const [agora, setAgora] = useState(() => Date.now())
@@ -91,7 +93,6 @@ export default function PainelComando({
     return datas.sort().pop()
   }, [visiveis])
 
-  const primeira = comPendencia[0] ?? null
   const comSessao = useMemo(() => new Set(sessoes.filter((s) => s.situacao !== 'encerrada').flatMap((s) => s.ideias)), [sessoes])
   const ativas = useMemo(
     () =>
@@ -123,14 +124,31 @@ export default function PainelComando({
             O que resolver agora
           </h2>
         </div>
-        <p className="text-xs font-medium text-tinta-suave">
-          {revisado ? `Revisado pelo Claude em ${dataCurta(revisado)}` : 'Ainda sem revisão do Claude'} · {numeros.pendencias} pendências em{' '}
-          {numeros.ideias} ideias
-        </p>
+        <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
+          <p className="text-xs font-medium text-tinta-suave">
+            {revisado ? `Revisado pelo Claude em ${dataCurta(revisado)}` : 'Ainda sem revisão do Claude'} · {numeros.pendencias} pendências em{' '}
+            {numeros.ideias} ideias
+          </p>
+          <button
+            onClick={() =>
+              setPromptAberto({
+                titulo: 'Atualizar tudo',
+                explicacao:
+                  'O Claude lê as sessões abertas, o GitHub, a Vercel e o CRM (só leitura) e atualiza todas as ideias, as sessões e o Meu trabalho aqui no painel. Cole numa sessão nova do Claude Code com o conector do Supabase.',
+                prompt: promptAtualizarTudo(),
+                url: 'https://claude.ai/code',
+                destino: 'Claude Code (sessão nova)',
+              })
+            }
+            className="btn-laranja inline-flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-xs font-bold"
+          >
+            <RefreshCw size={13} /> Atualizar tudo
+          </button>
+        </div>
       </div>
 
       {/* sessões abertas agora no Claude Code */}
-      <MexendoAgora sessoes={sessoes.filter((s) => s.situacao !== 'encerrada')} todas={visiveis} ideias={ativas} agora={agora} onAbrir={onAbrir} onEncerrar={encerrar} onPararSessao={onPararSessao} />
+      <MexendoAgora sessoes={sessoes.filter((s) => s.situacao !== 'encerrada')} todas={visiveis} ideias={ativas} agora={agora} onAbrir={onAbrir} onEncerrar={encerrar} onPararSessao={onPararSessao} onPrompt={setPromptAberto} />
 
       {/* números */}
       <div className="mt-4 grid grid-cols-2 gap-3 lg:grid-cols-4">
@@ -145,28 +163,6 @@ export default function PainelComando({
         <Numero icone={<Flame size={16} />} valor={numeros.alta} rotulo="Prioridade alta" nota="ideias com pendência" />
         <Numero icone={<Rocket size={16} />} valor={numeros.noAr} rotulo="No ar" nota="produtos funcionando" />
       </div>
-
-      {/* comece por aqui */}
-      {primeira && (
-        <div className="mt-4 rounded-[28px] bg-tinta p-5 text-white shadow-[0_18px_40px_-12px_rgb(19_38_29/.35)] md:p-6">
-          <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-            <div className="min-w-0">
-              <p className="text-[11px] font-extrabold uppercase tracking-[0.14em] text-laranja-300">Comece por aqui</p>
-              <h3 className="mt-1 text-xl font-extrabold leading-snug tracking-tight">{primeira.titulo}</h3>
-              <p className="mt-1 text-sm leading-relaxed text-white/85">
-                Próxima pendência: <b className="text-white">{pendentesDe(primeira)[0].texto}</b>
-              </p>
-              {primeira.analise?.sugestao && <p className="mt-2 max-w-2xl text-xs leading-relaxed text-white/70">{primeira.analise.sugestao}</p>}
-            </div>
-            <button
-              onClick={() => setPedido({ ideia: primeira, tarefa: pendentesDe(primeira)[0] })}
-              className="btn-laranja flex shrink-0 items-center justify-center gap-2 rounded-2xl px-5 py-3 text-sm font-bold"
-            >
-              <MessageSquarePlus size={17} /> Resolver no chat novo
-            </button>
-          </div>
-        </div>
-      )}
 
       {/* como funciona */}
       <ol className="mt-4 grid gap-2 text-xs font-medium text-tinta-suave sm:grid-cols-3">
@@ -239,6 +235,7 @@ export default function PainelComando({
 
     </section>
     {/* fora da seção animada: "fixed" dentro de um elemento com transform não cobre a tela */}
+    <ModalPrompt pedido={promptAberto} onFechar={() => setPromptAberto(null)} />
     <ModalChatNovo pedido={pedido} onFechar={() => setPedido(null)} onRegistrar={(i) => onAtualizar(i.id, registroConversa(i, pedido?.tarefa?.texto))} />
     </>
   )
@@ -284,6 +281,7 @@ function MexendoAgora({
   onAbrir,
   onEncerrar,
   onPararSessao,
+  onPrompt,
 }: {
   sessoes: Sessao[]
   todas: Ideia[]
@@ -292,6 +290,7 @@ function MexendoAgora({
   onAbrir: (id: string) => void
   onEncerrar: (i: Ideia) => void
   onPararSessao: (id: string) => void
+  onPrompt: (p: PedidoPrompt) => void
 }) {
   const total = sessoes.length + ideias.length
   const esperando = sessoes.filter((s) => s.situacao === 'esperando').length
@@ -315,6 +314,8 @@ function MexendoAgora({
           {sessoes.map((s) => {
             const sit = SITUACAO[s.situacao] ?? SITUACAO.parada
             const ligadas = s.ideias.map((id) => [id, nomeDa(id)] as const).filter(([, n]) => n)
+            const ideiasDa = s.ideias.map((id) => todas.find((i) => i.id === id)).filter(Boolean) as Ideia[]
+            const pct = s.progresso ?? null // só o da própria conversa: a % da ideia pode estar em 100 e o trabalho novo não
             return (
               <li
                 key={s.id}
@@ -327,7 +328,24 @@ function MexendoAgora({
                     <p className="min-w-0 text-sm font-extrabold leading-snug text-tinta">{s.titulo || 'Sessão sem nome'}</p>
                     <span className={`shrink-0 rounded-full px-2 py-0.5 text-[10px] font-extrabold ${sit.cor}`}>{sit.rotulo}</span>
                   </div>
-                  {s.detalhe && <p className="mt-1 line-clamp-2 text-xs text-tinta">{s.detalhe}</p>}
+                  <div className="mt-2 flex items-center gap-2" title="Progresso desta conversa, gravado pela própria sessão">
+                    <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-white">
+                      <div className="h-full rounded-full bg-verde-500" style={{ width: `${pct ?? 0}%` }} />
+                    </div>
+                    <span className="text-[11px] font-extrabold tabular-nums text-tinta">{pct != null ? `${pct}%` : 'sem % ainda'}</span>
+                  </div>
+                  {s.detalhe && (
+                    <p className="mt-1.5 line-clamp-2 text-xs text-tinta">
+                      {s.situacao === 'esperando' && <b>Espera você: </b>}
+                      {s.detalhe}
+                    </p>
+                  )}
+                  {s.resumo && (
+                    <details className="mt-1 text-xs text-tinta-suave">
+                      <summary className="cursor-pointer font-bold text-verde-700">Resumo</summary>
+                      <p className="mt-1 whitespace-pre-line leading-relaxed">{s.resumo}</p>
+                    </details>
+                  )}
                   <p className="mt-1 text-[11px] font-medium text-tinta-suave">
                     {ligadas.length ? (
                       <>
@@ -347,7 +365,36 @@ function MexendoAgora({
                     {s.atividade_em && <> · ativa {haQuanto(s.atividade_em, agora)}</>}
                   </p>
                 </div>
-                <div className="flex gap-2">
+                <div className="flex flex-wrap gap-2">
+                  <button
+                    onClick={() =>
+                      onPrompt({
+                        titulo: `Atualizar agora: ${s.titulo}`,
+                        explicacao:
+                          'Cole na própria sessão. Ela grava aqui o resumo, a porcentagem e o que espera de você, atualiza as ideias ligadas e continua de onde parou.',
+                        prompt: promptAtualizarSessao(s, ideiasDa),
+                        url: s.url || 'https://claude.ai/code',
+                        destino: 'a sessão',
+                      })
+                    }
+                    className="inline-flex items-center gap-1 rounded-full bg-verde-600 px-3 py-1 text-xs font-bold text-white hover:bg-verde-700"
+                  >
+                    <RefreshCw size={12} /> Atualizar agora
+                  </button>
+                  <button
+                    onClick={() =>
+                      onPrompt({
+                        titulo: `Nova conversa: ${s.titulo}`,
+                        explicacao: 'Para continuar este trabalho numa conversa nova (mais barata), com o resumo e o contexto das ideias.',
+                        prompt: promptNovaConversaSessao(s, ideiasDa),
+                        url: 'https://claude.ai/code',
+                        destino: 'Claude Code (sessão nova)',
+                      })
+                    }
+                    className="rounded-full bg-white px-3 py-1 text-xs font-bold text-tinta ring-1 ring-verde-200 hover:bg-verde-100"
+                  >
+                    Prompt p/ nova conversa
+                  </button>
                   {s.url && (
                     <a
                       href={s.url}
@@ -713,5 +760,92 @@ function Passo({ n, feito = false, children }: { n: number; feito?: boolean; chi
       </span>
       <div className="min-w-0 flex-1">{children}</div>
     </li>
+  )
+}
+
+type PedidoPrompt = { titulo: string; explicacao: string; prompt: string; url: string; destino: string }
+
+/** Janela genérica: copia o prompt e abre o Claude (o site não roda o Claude sozinho). */
+function ModalPrompt({ pedido, onFechar }: { pedido: PedidoPrompt | null; onFechar: () => void }) {
+  const [copiado, setCopiado] = useState(false)
+  const [ver, setVer] = useState(false)
+  const areaRef = useRef<HTMLTextAreaElement>(null)
+
+  useEffect(() => {
+    setCopiado(false)
+    setVer(false)
+  }, [pedido])
+
+  useEffect(() => {
+    if (!pedido) return
+    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && onFechar()
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [pedido, onFechar])
+
+  if (!pedido) return null
+
+  const copiar = async () => {
+    try {
+      await navigator.clipboard.writeText(pedido.prompt)
+      setCopiado(true)
+    } catch {
+      setVer(true)
+      setTimeout(() => areaRef.current?.select(), 50)
+    }
+  }
+
+  return (
+    <div className="fixed inset-0 z-[60] flex items-end justify-center bg-tinta/40 p-4 backdrop-blur-[2px] sm:items-center" onClick={onFechar}>
+      <div
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="titulo-modal-prompt"
+        onClick={(e) => e.stopPropagation()}
+        className="w-full max-w-lg rounded-[28px] bg-white p-5 shadow-2xl md:p-6"
+      >
+        <div className="flex items-start justify-between gap-3">
+          <h3 id="titulo-modal-prompt" className="text-lg font-extrabold leading-snug text-tinta">
+            {pedido.titulo}
+          </h3>
+          <button onClick={onFechar} aria-label="Fechar" className="rounded-full p-1 text-tinta-suave hover:bg-verde-50">
+            <X size={18} />
+          </button>
+        </div>
+        <p className="mt-1 text-sm leading-relaxed text-tinta-suave">{pedido.explicacao}</p>
+        <ol className="mt-4 space-y-2 text-sm text-tinta">
+          <li>
+            <b>1.</b> Copie o prompt.
+          </li>
+          <li>
+            <b>2.</b> Abra {pedido.destino}, cole (Ctrl+V) e envie.
+          </li>
+        </ol>
+        <div className="mt-4 grid gap-2 sm:grid-cols-2">
+          <button onClick={copiar} className="btn-laranja flex items-center justify-center gap-2 rounded-2xl px-4 py-3 text-sm font-bold">
+            {copiado ? <Check size={16} /> : <Copy size={16} />} {copiado ? 'Copiado!' : 'Copiar o prompt'}
+          </button>
+          <a
+            href={pedido.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center gap-2 rounded-2xl bg-tinta px-4 py-3 text-sm font-bold text-white hover:bg-tinta/90"
+          >
+            Abrir {pedido.destino} <ArrowUpRight size={16} />
+          </a>
+        </div>
+        <button onClick={() => setVer((v) => !v)} className="mt-3 text-xs font-bold text-verde-700 hover:underline">
+          {ver ? 'Esconder o prompt' : 'Ver o prompt'}
+        </button>
+        {ver && (
+          <textarea
+            ref={areaRef}
+            readOnly
+            value={pedido.prompt}
+            className="mt-2 h-48 w-full resize-y rounded-2xl border border-verde-200 bg-verde-50/50 p-3 font-mono text-[11px] leading-relaxed text-tinta"
+          />
+        )}
+      </div>
+    </div>
   )
 }
