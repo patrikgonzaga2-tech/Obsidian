@@ -7,6 +7,10 @@ tags: [tipo/indice, tipo/projeto]
 
 [[Índice Geral]]
 
+## [[Comunidade - anúncios do Movimento]]
+Anúncios ativos do Movimento Emagreça (página Paramamaes 111432198719016), vistos na Biblioteca de Anúncios em 08/11/2026.
+
+
 ## [[Comunidade - concorrentes]]
 Biblioteca de Anúncios e funis de concorrentes (08/11/2026).
 
@@ -33,6 +37,10 @@ Resumo dos relatórios anteriores do Efeito Lipo e números citados.
 
 ## [[Comunidade - roteiro da VSL da Laura]]
 Roteiro v2 (6 a 7 min) para a Laüra gravar o áudio da VSL da Comunidade.
+
+
+## [[Comunidade - roteiro da VSL v3]]
+Roteiro v3 (vale este): segue a VSL do Movimento trecho por trecho, 23 partes, ~12-13 min, palavras e produto nossos.
 
 
 ## [[Comunidade - voz da cliente]]
