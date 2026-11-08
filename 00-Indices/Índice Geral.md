@@ -7,7 +7,7 @@ tags: [tipo/indice]
 
 > Gerado automaticamente. Não edite à mão: rode `node _sistema/brain.mjs reindex` ou apenas trabalhe — os hooks mantêm tudo atualizado.
 
-- [[Projetos]] (11)
+- [[Projetos]] (12)
 - [[Padrões]] (1)
 - [[Decisões]] (2)
 - [[Preferências]] (1)
@@ -15,6 +15,7 @@ tags: [tipo/indice]
 - [[Aprendizados]] (0)
 
 ## Atividade recente
+- 2026-11-08 · [[Comunidade - VSL cena a cena]] — Como a VSL da Comunidade espelha a do Movimento cena por cena, com quadros nossos.
 - 2026-11-08 · [[Comunidade - VSL mapa de cenas]] — Mapa de cenas da VSL da Comunidade no formato do Movimento, com imagens nossas do Gravyx e o áudio da Laüra; custo e montagem.
 - 2026-11-08 · [[Comunidade - concorrentes]] — Biblioteca de Anúncios e funis de concorrentes (08/11/2026).
 - 2026-11-08 · [[Comunidade - fatos do quiz]] — Números conferidos do quiz atual.
@@ -29,7 +30,6 @@ tags: [tipo/indice]
 - 2026-11-08 · [[Comunidade - promessa parar de recomeçar]] · _Corpo Feliz - Comunidade_ — Patrik aprovou em 08/11/2026 a promessa 'Você não precisa de mais um treino. Precisa parar de recomeçar.' para vender a assinatura da Comunidade.
 - 2026-11-08 · [[Preferências Gerais]] · _Segundo Cérebro_ — Como o usuário gosta de trabalhar com IA: idioma, estilo, automação total.
 - 2026-10-07 · [[Segundo Cérebro]] — Projeto Segundo Cérebro (detectado automaticamente).
-- 2026-10-07 · [[Arquitetura do Segundo Cérebro]] · _Segundo Cérebro_ — Cofre Obsidian + hooks globais (Claude Code) + AGENTS.md/notify (Codex) para recall e registro automáticos.
 
 ## Sessões
 - Logs diários em `07-Sessoes/` (registro bruto automático).

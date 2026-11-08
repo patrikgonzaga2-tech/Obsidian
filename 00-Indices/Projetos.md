@@ -39,6 +39,10 @@ Roteiro v2 (6 a 7 min) para a Laüra gravar o áudio da VSL da Comunidade.
 Dores, objeções e frases de leads e alunas (CRM, Telegram, WhatsApp), anonimizado.
 
 
+## [[Comunidade - VSL cena a cena]]
+Como a VSL da Comunidade espelha a do Movimento cena por cena, com quadros nossos.
+
+
 ## [[Comunidade - VSL mapa de cenas]]
 Mapa de cenas da VSL da Comunidade no formato do Movimento, com imagens nossas do Gravyx e o áudio da Laüra; custo e montagem.
 
