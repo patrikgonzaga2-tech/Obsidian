@@ -73,6 +73,7 @@ Aprovada pelo Patrik: [[Comunidade - promessa parar de recomeçar]].
 - [[Comunidade - inventário do Drive]]
 - [[Comunidade - relatórios anteriores]]
 - [[Comunidade - fatos do quiz]]
+- [[Comunidade - app sem deixar a aluna perdida (08-11)]] — revisão do app com o objetivo "no máximo 3 opções".
 - [[Prompts para conversas paralelas - Comunidade]] — prompts prontos para dividir o trabalho em várias conversas.
 
 ## Identidade (Patrik, 08/11)
@@ -82,6 +83,7 @@ Aprovada pelo Patrik: [[Comunidade - promessa parar de recomeçar]].
 - Bônus da Comunidade no formato da VSL dele: 1 Plano Alimentar Flexível, 2 Módulo LPF e Ativação Abdominal, 3 Aulas de Mobilidade, 4 Desafio Novo Todo Mês, 5 Grupo das Musas. Os bônus do Efeito Lipo (Guia do Ciclo, Anti-Pelanquinha, Áudios Quebra de Sabotagem) só entram se o Patrik confirmar.
 
 ## Registro
+- 2026-11-08 · App × objetivo "a aluna nunca fica perdida": hoje não entrega (repete 3 treinos, listas de até 262 aulas, botão para a home da Greenn). Proposta das 3 opções (Treino de hoje · Sem tempo hoje · Mais leve hoje) e trilhas pela regra da Greenn em [[Comunidade - app sem deixar a aluna perdida (08-11)]]; aguarda OK.
 - 2026-11-08 · Página /comunidade v2 (padrão Movimento, rosa, logo, 5 bônus com capas do Gravyx) no PR patrikgonzaga2-tech/LR_LauraRosaPersonal#370, aguardando OK. Roteiro v3.1 com 7 mil alunas e bônus.
 - 2026-11-08 · Patrik não gostou da VSL, da capa e do resultado do quiz e pediu a VSL "igual" à do Movimento. Feito o roteiro v3, que segue a dele trecho por trecho ([[Comunidade - roteiro da VSL v3]]): **a Laüra deve gravar o v3**. Levantados os anúncios dele ([[Comunidade - anúncios do Movimento]]).
 - 2026-11-08 · Quiz publicado (#368). Patrik pediu a VSL "igual" à do Movimento: decidido refazer cena por cena (mesma ordem, ritmo e tipos de cena) só com quadros nossos, sem usar vídeo/texto dele. Mapa em [[Comunidade - VSL cena a cena]]; animação de imagem testada no Gravyx (Omni 4 s 720p = 660 tokens; Seedance bloqueou por filtro).
