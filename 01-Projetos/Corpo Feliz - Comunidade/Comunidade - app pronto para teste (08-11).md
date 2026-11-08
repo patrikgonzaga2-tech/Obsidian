@@ -38,7 +38,7 @@ pôr o link certo da área de membros e passar o Supabase para o Pro (o plano gr
 2. **Laura IA estourou 60 s** uma vez (07/11): o código espera até 40 s e tenta de novo (até ~80 s), mas a rota corta em 60 s. Ajustar os tempos.
 3. **Plano B**: qualquer Plano B (até "uma refeição") força treino de 5 min; o botão diz 10 min; sem aula curta, aparece aula de 28 min como "treino curto". Patrik decide 5 ou 10.
 4. **Treino do dia não respeita o tempo dela**: quem disse "3 a 5 min" ou "10 min" recebe aula de 28 min (só há aulas longas). Some com o catálogo da Greenn com treinos curtos.
-5. ~~Link da área de membros genérico~~ (corrigido: app.greenn.club/home): `AREA_MEMBROS_URL = 'https://greenn.club'` (`lib/app-cf/config.ts`). Precisa do link certo da área da Comunidade.
+5. ~~Link da área de membros genérico~~ (corrigido: comunidadecorpofeliz.greenn.club): `AREA_MEMBROS_URL = 'https://greenn.club'` (`lib/app-cf/config.ts`). Precisa do link certo da área da Comunidade.
 6. **Abrir aula da Greenn no iPhone** (risco, não conferido): o app abre o link depois de consultar o servidor; o Safari pode bloquear essa janela. Testar no iPhone antes; se bloquear, abrir o link direto no toque.
 
 ## Banco, fotos e custos
@@ -77,8 +77,8 @@ minutos, casa/academia, aparelhos, nível, foco, cuidados e o **link da Greenn**
 
 ## Atualização 08/11 (tarde): corrigido no PR #367 (aguarda OK para mesclar)
 - Laura IA: sem corte (limite 2000 + esforço baixo), cabe nos 60 s, manda cancelamento/reembolso para o suporte (o app não tem cancelar),
-  explica o acesso: https://app.greenn.club/home, mesmo e-mail da compra, "esqueci a senha".
-- Link da área de membros: https://app.greenn.club/home (Patrik: abre direto o acesso que ela tem).
+  explica o acesso: https://comunidadecorpofeliz.greenn.club/ (antes app.greenn.club/home, corrigido pelo Patrik), mesmo e-mail da compra, "esqueci a senha".
+- Link da área de membros: https://comunidadecorpofeliz.greenn.club/ (antes app.greenn.club/home, corrigido pelo Patrik) (Patrik: abre direto o acesso que ela tem).
 - Plano B de comida não troca mais o treino; minutos do treino curto (5 ou 10) saem do mapa da área de membros.
 - Aula da Greenn abre no iPhone (janela aberta no toque). Testado no Chromium; falta o iPhone de verdade.
 
