@@ -35,7 +35,7 @@ Aprovada pelo Patrik: [[Comunidade - promessa parar de recomeçar]].
 |---|---|---|---|
 | 1 | Roteiro da VSL (áudio da Laüra) | pronto, enviado ao Patrik | [[Comunidade - roteiro da VSL da Laura]] |
 | 2 | Página de VSL `/comunidade` (modelo da página do Movimento, copy nossa) | **no ar** desde 08/11 (Patrik: "publica a página pra gente testar"); botão e vídeo ainda vazios | https://www.laurarosapersonal.com/comunidade · PR patrikgonzaga2-tech/LR_LauraRosaPersonal#366 (o #365 foi fechado e reaberto como #366) |
-| 3 | Quiz numa rota nova (`/comunidade-quiz`) | em construção (branch `claude/comunidade-quiz`) | [[Comunidade - quiz tela a tela]] |
+| 3 | Quiz numa rota nova (`/comunidade-quiz`) | pronto no PR, **aguarda OK do Patrik**; antes de anunciar, separar no /painel (hoje `quizDe()` em `app/painel/_lib/funil.ts` conta intro_ab desconhecido como quiz do Efeito Lipo) | PR patrikgonzaga2-tech/LR_LauraRosaPersonal#368 · rastreio: `variante=comunidade-quiz`, `intro_ab=CQ-p1/2/3`, `checkout_ab=CQ-anual/mensal/teste-30`, sessão `cq_quiz_sid` |
 | 4 | Ajustes no app (acesso, Plano B, nomes das aulas) | a fazer, precisa da lista de vídeos | ver "App" abaixo |
 | 5 | Anúncios (3 imagens + 3 vídeos) via Gravyx | a fazer, avisar custo antes | [[Comunidade - concorrentes]] |
 | 5b | Vídeo nosso no estilo do Movimento com o áudio da Laüra | mapa de cenas pronto + amostra de 14 s; falta recarregar tokens do Gravyx (saldo 375) e o áudio | [[Comunidade - VSL mapa de cenas]] |
@@ -76,5 +76,6 @@ Aprovada pelo Patrik: [[Comunidade - promessa parar de recomeçar]].
 - [[Prompts para conversas paralelas - Comunidade]] — prompts prontos para dividir o trabalho em várias conversas.
 
 ## Registro
+- 2026-11-08 · Quiz /comunidade-quiz pronto no PR #368 (não mesclado). Ofertas vazias; medo "nao-usar" mostra só a garantia até o Patrik definir pausa/cancelamento.
 - 2026-11-08 · Página /comunidade publicada (#366). VSL: mapa de cenas e amostra; Gravyx: 1 workspace ("Meu workspace"), plano Starter; Nano Banana 2 1K (100 tokens) e Seedream 5 Lite 2K (50 tokens) aprovados no teste de qualidade.
 - 2026-11-08 · Promessa aprovada; roteiro da VSL pronto; página `/comunidade` em PR rascunho (#365); conhecimento da sessão levado para o Obsidian.
