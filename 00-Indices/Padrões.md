@@ -7,4 +7,4 @@ tags: [tipo/indice, tipo/padrao]
 
 [[Índice Geral]]
 
-_(vazio por enquanto)_
+- [[Prompts para conversas paralelas - Comunidade]] · _Corpo Feliz - Comunidade_ — Prompts prontos para abrir várias conversas do Claude Code ao mesmo tempo, cada uma com uma etapa da Comunidade, sem bater uma na outra.
