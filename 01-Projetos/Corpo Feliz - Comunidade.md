@@ -36,7 +36,7 @@ Aprovada pelo Patrik: [[Comunidade - promessa parar de recomeçar]].
 | 1 | Roteiro da VSL (áudio da Laüra) | pronto, enviado ao Patrik | [[Comunidade - roteiro da VSL da Laura]] |
 | 2 | Página de VSL `/comunidade` (modelo da página do Movimento, copy nossa) | PR rascunho aberto, aguarda OK | PR patrikgonzaga2-tech/LR_LauraRosaPersonal#365, branch `claude/comunidade-vsl-quiz` |
 | 3 | Quiz numa rota nova | a fazer | [[Comunidade - quiz tela a tela]] |
-| 4 | Ajustes no app (acesso, Plano B, nomes das aulas) | levantado; PR rascunho só com doc e prints; aguarda código do produto, escolha do Plano B e lista de vídeos | PR patrikgonzaga2-tech/LR_LauraRosaPersonal#367, branch `claude/comunidade-app` |
+| 4 | App: teste com 100 alunas (treino do dia apontando para a Greenn) | revisado 08/11; falta: mapa da área de membros (Claude Desktop), cadastrar treinos, corrigir Laura IA e Plano B, Supabase Pro | [[Comunidade - app pronto para teste (08-11)]] · PR patrikgonzaga2-tech/LR_LauraRosaPersonal#367 |
 | 5 | Anúncios (3 imagens + 3 vídeos) via Gravyx | a fazer, avisar custo antes | [[Comunidade - concorrentes]] |
 | 5b | Vídeo nosso no estilo do Movimento com o áudio da Laüra | a fazer, depende do áudio | skill `video-laura`, agente `editor-video` |
 | 6 | Campanha pausada no padrão 3.2 | a fazer, ativar só com OK | `docs/ANALISE_CAMPANHAS_QUIZ.md` §3.2 |
@@ -69,7 +69,9 @@ Decisões de 08/11 (mensal WOqOSI, acesso só assinatura nova em dia, e-mail + v
 - Ofertas, preços, renovação/cancelamento e links da Greenn (OK explícito).
 - Rodar antes ou depois da Black (vagas abrem 12/11).
 - Laüra gravar o áudio da VSL hoje.
-- Lista dos vídeos da área de membros (nome, duração, onde treina) para as aulas do app.
+- Rodar no Claude Desktop o [[Prompt - Claude Desktop - área de membros da Comunidade]] (mapa da área de membros para o app).
+- Supabase Pro (US$ 25/mês) antes de liberar as 100 alunas.
+- Link certo da área de membros da Comunidade.
 - Código do produto novo da Greenn e a regra de acesso do app (só compra aprovada ou também assinatura em dia).
 - Plano B: código para 10 min ou botão para "Só 5 minutos".
 - Workspace do Gravyx a usar e OK do custo em tokens.
@@ -91,3 +93,4 @@ Decisões de 08/11 (mensal WOqOSI, acesso só assinatura nova em dia, e-mail + v
 - 2026-11-08 · Promessa aprovada; roteiro da VSL pronto; página `/comunidade` em PR rascunho (#365); conhecimento da sessão levado para o Obsidian.
 - 2026-11-08 · App: levantamento de acesso, Plano B e aulas; PR rascunho #367 (doc + prints, sem mudança de código); aguarda o Patrik.
 - 2026-11-08 · Patrik decidiu: vender o mensal (WOqOSI), app só para assinatura nova em dia, testes à mão, e-mail + vídeo na área de membros. Antes/depois enviado; aguarda OK.
+- 2026-11-08 · App revisado para 100 alunas de teste: funciona; achados (IA corta resposta, Plano B, Supabase grátis com risco para o projeto inteiro). Plano: app indica treino da Greenn. Relatório: [[Comunidade - app pronto para teste (08-11)]].
