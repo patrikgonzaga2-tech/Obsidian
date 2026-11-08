@@ -73,19 +73,59 @@ Regras: NUNCA INVENTE NADA. Sem quilos, prazo, antes e depois, balança, caneta,
 Ao terminar, salve os textos aprovados numa nota nova em "01-Projetos/Corpo Feliz - Comunidade/" e atualize o Status e o Registro da nota principal.
 ```
 
-## D · Vídeo da VSL com o áudio da Laüra (etapa 5b) — só depois que o áudio existir
+## D · Vídeo da VSL com o áudio da Laüra (etapa 5b) · atualizado em 08/11/2026
 ```
-Tarefa: montar o vídeo da VSL da Comunidade com o áudio que a Laüra gravou, no estilo de VSL de app (cortes rápidos, texto na tela, telas do app), com imagens NOSSAS.
+VAMOS MONTAR A VSL DA COMUNIDADE.
+Repositórios desta conversa: patrikgonzaga2-tech/LR_LauraRosaPersonal e patrikgonzaga2-tech/obsidian. Trabalhe numa branch própria.
 
-Leia primeiro, no repositório obsidian, "01-Projetos/Corpo Feliz - Comunidade.md" e "Comunidade - roteiro da VSL da Laura.md". No LR_LauraRosaPersonal, use a skill video-laura e o agente editor-video (prévia grátis com --simular antes de gastar crédito).
+Leia primeiro, no obsidian: "01-Projetos/Corpo Feliz - Comunidade.md" (só Status, Identidade, Pendências e Registro) e estas três notas da pasta "01-Projetos/Corpo Feliz - Comunidade/":
+- "Comunidade - roteiro da VSL v3.md" (roteiro v3.1 que a Laüra gravou: 23 partes, uma por arquivo de áudio; a parte 19, preço, vem num arquivo separado)
+- "Comunidade - VSL cena a cena.md" (ordem, ritmo e tipos de cena modelados na VSL do Movimento)
+- "Comunidade - VSL mapa de cenas.md" (as 33 imagens já geradas no Gravyx, com os links)
+Siga o CLAUDE.md do LR_LauraRosaPersonal.
 
-O que fazer:
-1. Me peça o arquivo do áudio da Laüra e a lista de imagens/vídeos que posso usar (Laüra, telas do app, alunas autorizadas).
-2. Transcrever o áudio, alinhar com o roteiro e montar a prévia 9:16 com legenda. Me mostrar antes de qualquer gasto.
-3. Não usar nenhum trecho do vídeo do concorrente.
+Tarefa: montar a VSL vertical 9:16 (1080x1920, MP4) com o áudio da Laüra por cima, no mesmo ritmo da VSL do Movimento (troca de imagem a cada 3 a 5 s, palavra branca em tela preta por ~0,8 s, comparação em duas telas, cartões de argumento, legenda de 2 a 4 palavras no terço de baixo, zoom lento em cada imagem, música baixa por baixo da voz).
 
-Regras: NUNCA INVENTE NADA. Sem antes e depois, quilos, prazo, nome de remédio. Produtor-video gasta crédito: só com o meu OK.
-Ao terminar, coloque o link do vídeo na nota principal da Comunidade (Status e Registro).
+Passo a passo:
+1. Me peça os áudios da Laüra (vou subir na pasta "VSL" do Drive: https://drive.google.com/drive/folders/1bGc7_kwv0MmpTpH6-e0hvQJcO6atNveZ) e as fotos/vídeos dela e as gravações de tela do app que eu tiver.
+2. Transcreva com marcação de tempo e alinhe cada parte do roteiro ao áudio. A duração final segue o áudio.
+3. Monte a lista de cenas por trecho (as 33 imagens do Gravyx + cartões feitos em HTML + Laüra + telas do app). Se faltar imagem, reaproveite com outro enquadramento; gerar imagem nova no Gravyx só com o meu OK do custo em tokens.
+4. Cartões nas cores da identidade de 08/11: vinho #1E0D17, rosa #FF6FA3 e #E8457F, creme #FFF5F8; logo em public/images/comunidade/logo-corpo-feliz-branco.png.
+5. No LR_LauraRosaPersonal use o agente editor-video (ffmpeg). Primeiro uma prévia curta (as 3 primeiras partes) para eu aprovar o estilo; depois o vídeo inteiro.
+6. Me mande a prévia e o vídeo final para eu ver antes de subir. Só depois do meu OK coloque o player em VSL_SRC (app/comunidade-quiz/_dados.ts e app/comunidade/page.tsx), no PR com o painel oficial de links atualizado.
+
+Regras: NUNCA INVENTE NADA. Não use nenhum quadro, trecho, texto ou áudio do vídeo do Movimento (só a referência de ritmo). Sem balança, fita métrica, antes e depois, quilos, prazo ou nome de remédio. A parte do preço (parte 19) só entra com o texto de oferta aprovado por mim. Gasto de crédito (Gravyx, ElevenLabs, HeyGen) só com o meu OK.
+Ao terminar, atualize Status e Registro da nota "Corpo Feliz - Comunidade" no Obsidian e me mande o link.
+```
+
+---
+
+## Q · Continuar o QUIZ da Comunidade (atualizado em 08/11/2026, depois do #374)
+```
+VAMOS CONTINUAR O QUIZ DA COMUNIDADE.
+Anexe os repositórios patrikgonzaga2-tech/LR_LauraRosaPersonal e patrikgonzaga2-tech/obsidian e trabalhe numa branch própria.
+Leia SÓ: no obsidian, "01-Projetos/Corpo Feliz - Comunidade.md" (Status, Identidade, Pendências e Registro) e "01-Projetos/Corpo Feliz - Comunidade/Comunidade - quiz v2 (08-11).md" (tela a tela com a fonte de cada uma). Siga o CLAUDE.md do LR_LauraRosaPersonal.
+
+O que está NO AR (https://www.laurarosapersonal.com/comunidade-quiz), PRs #371 a #374:
+- Objetivo: vender a assinatura da Comunidade pelo quiz. Promessa: "Você não precisa de mais um treino. Precisa parar de recomeçar."
+- Link único do teste: sem ?p sorteia 1/3 para cada capa (cookie cq_capa, 30 dias); ?p=1 recomeçar, ?p=2 fase da mulher, ?p=3 joelho/lombar/diástase fixam a capa. A capa só tem logo, título, subtítulo e botão (Patrik não quer "Profe Laüra", cartão de 7 mil nem WhatsApp na capa).
+- Ordem: desejo → idade → recomeços → o que tentou → empatia → onde larga → o que faz parar → tela do ciclo → tempo → onde → cuidados → fase → sozinha → medo → prova (Laüra, +7 mil alunas, 4 depoimentos autorizados) → carregando → resultado.
+- Resultado: "Você não para por preguiça. Você para [momento]" → Agora × Com a Comunidade → o que mais faz parar → Seu plano → VSL (espaço reservado; só a prévia da Vercel mostra a de referência) → checklist → "Sozinha ou com a gente?" → "De R$ 97 por R$ 39,90 por mês, só R$ 1,33 por dia" + garantia de 15 dias + sem fidelidade → seu medo → botão → WhatsApp 0948.
+- Checkout: https://payfast.greenn.com.br/148344/offer/yaG6FL (mensal R$ 39,90), com utm_source=comunidade-quiz, utm_medium=cq-p1|2|3, utm_term=anúncio, utm_content=xcod.
+- Rastreio: /api/quiz com variante=comunidade-quiz e intro_ab=CQ-p1|2|3 (answers._sorteio=1 quando veio do sorteio). O /painel (Efeito Lipo) já deixa essas sessões de fora.
+- Arquivos: app/comunidade-quiz/ (_dados.ts = textos, ofertas e ordem; _quiz.tsx = telas; _ui.tsx = cores rosa; _track.ts = rastreio e link do checkout; page.tsx = sorteio da capa; _beacon.ts = visita).
+
+Pendências conhecidas:
+- Conferir na Greenn se a oferta yaG6FL está com garantia de 15 dias (o checkout não mostra).
+- App: não liberado para quem compra (o campo produto é "Comunidade Corpo Feliz" em todos os planos; liberar = toda assinante; decisão do Patrik).
+- Não existe ainda uma aba no /painel com os números do quiz da Comunidade por capa (visitas, passaram da capa, terminaram, clicaram comprar, compraram).
+- VSL: entra no resultado quando os áudios da Laüra ficarem prontos (prompt D, em outra conversa).
+- Página /comunidade v2 continua no PR #370, sem OK.
+
+O que eu quero mexer agora: [escreva aqui].
+
+Regras: NUNCA INVENTE NADA (todo número e texto com fonte); pagamento, preço, oferta, garantia e checkout só com o meu OK explícito (mostre antes/depois e espere); depois do meu "pode subir" você mescla e confere no ar; painel oficial de links no mesmo PR; tudo que for decidido entra no Obsidian (nota do projeto + "Comunidade - quiz v2 (08-11)").
+Economia: não abra imagens sem precisar; um print só no fim; leia só a seção do doc que a tarefa pede.
 ```
 
 ---

@@ -35,7 +35,7 @@ Aprovada pelo Patrik: [[Comunidade - promessa parar de recomeçar]].
 |---|---|---|---|
 | 1 | Roteiro da VSL (áudio da Laüra) | pronto, enviado ao Patrik | [[Comunidade - roteiro da VSL da Laura]] |
 | 2 | Página de VSL `/comunidade` (modelo da página do Movimento, copy nossa) | **no ar** desde 08/11 (Patrik: "publica a página pra gente testar"); botão e vídeo ainda vazios | https://www.laurarosapersonal.com/comunidade · PR patrikgonzaga2-tech/LR_LauraRosaPersonal#366 (o #365 foi fechado e reaberto como #366) |
-| 3 | Quiz `/comunidade-quiz` | **no ar** desde 08/11 (Patrik: "pode subir o quiz"); antes de anunciar, separar no /painel (`quizDe()` em `app/painel/_lib/funil.ts`) | https://www.laurarosapersonal.com/comunidade-quiz?p=1 · PR patrikgonzaga2-tech/LR_LauraRosaPersonal#368 |
+| 3 | Quiz `/comunidade-quiz` | **v2 no ar** desde 08/11 (Patrik: "pode subir"; PR patrikgonzaga2-tech/LR_LauraRosaPersonal#371; [[Comunidade - quiz v2 (08-11)]]); oferta vazia até o OK do texto de R$ 39,90 (Patrik: "pode subir o quiz"); antes de anunciar, separar no /painel (`quizDe()` em `app/painel/_lib/funil.ts`) | https://www.laurarosapersonal.com/comunidade-quiz?p=1 · PR patrikgonzaga2-tech/LR_LauraRosaPersonal#368 |
 | 4 | Ajustes no app (acesso, Plano B, nomes das aulas) | a fazer, precisa da lista de vídeos | ver "App" abaixo |
 | 5 | Anúncios (3 imagens + 3 vídeos) via Gravyx | a fazer, avisar custo antes | [[Comunidade - concorrentes]] |
 | 5b | Vídeo da VSL no estilo do Movimento com o áudio da Laüra | 33 cenas geradas no Gravyx (links em [[Comunidade - VSL mapa de cenas]]) + 3 cartões; falta o áudio da Laüra, gravação de tela do app e fotos dela | [[Comunidade - VSL mapa de cenas]] |
@@ -56,13 +56,14 @@ Aprovada pelo Patrik: [[Comunidade - promessa parar de recomeçar]].
 `hostinger/black-comunidade/dados/conteudo.json` (página da Black, 31/10): app com treinos em casa ou academia com vídeo de cada exercício, treinos hormonais, treinos de 3 e 5 minutos "pros dias impossíveis"; plano alimentar flexível; a Profe Laüra e o time no WhatsApp; Grupo das Musas; módulo de LPF/diástase com professora especializada; mobilidade; desafio todo mês; garantia de 7 dias. WhatsApp oficial (37) 6000-0948.
 
 ## Pendências do Patrik
-- Ofertas, preços, renovação/cancelamento e links da Greenn (OK explícito).
+- Oferta: R$ 39,90/mês + garantia de 15 dias decididos ([[Comunidade - oferta mensal 39,90 (08-11)]]); texto com comparação e ancoragem NO AR (#373, "pode aplicar"); Patrik ajustou a Greenn em 08/11; botão LIGADO no checkout https://payfast.greenn.com.br/148344/offer/yaG6FL (#374).
+- Onde vai a VSL: no resultado (recomendado) ou também um corte no meio do quiz, como a Aline.
 - Rodar antes ou depois da Black (vagas abrem 12/11).
-- Laüra gravar o áudio da VSL hoje.
+- Áudios da VSL quase prontos (08/11): montar em outra conversa com o prompt D de [[Prompts para conversas paralelas - Comunidade]].
 - Lista dos vídeos da área de membros (para nomear as aulas do app).
 - Workspace do Gravyx a usar e OK do custo em tokens.
-- Liberar o app novo para toda assinante?
-- Autorização por escrito da aluna para usar a frase "Foi o que me fez ter constância pela primeira vez na vida".
+- Liberar o app novo para toda assinante? (o campo produto é "Comunidade Corpo Feliz" em todos os planos: liberar o mensal novo = liberar todas; hoje quem compra pelo quiz recebe a área de membros da Greenn, não o app)
+- Decidir o miolo da página /comunidade ([[Comunidade - revisão quiz e página x promessa (08-11)]]).
 
 ## Notas de referência
 - [[Comunidade - relatório da promessa (08-11)]] — o relatório inteiro que embasou a decisão.
@@ -70,10 +71,12 @@ Aprovada pelo Patrik: [[Comunidade - promessa parar de recomeçar]].
 - [[Comunidade - roteiro da VSL da Laura]]
 - [[Comunidade - voz da cliente]] — dores, objeções e frases (anonimizado).
 - [[Comunidade - concorrentes]] — Biblioteca de Anúncios e funis.
+- [[Comunidade - quiz v2 (08-11)]] — quiz novo, tela a tela com a fonte de cada uma.
+- [[Comunidade - revisão quiz e página x promessa (08-11)]] — o que bate e o que não bate com a promessa, e a proposta.
 - [[Comunidade - inventário do Drive]]
 - [[Comunidade - relatórios anteriores]]
 - [[Comunidade - fatos do quiz]]
-- [[Prompts para conversas paralelas - Comunidade]] — prompts prontos para dividir o trabalho em várias conversas.
+- [[Prompts para conversas paralelas - Comunidade]] — prompts prontos para dividir o trabalho em várias conversas. Para continuar o quiz: prompt **Q**; para a VSL: prompt **D**.
 
 ## Identidade (Patrik, 08/11)
 - Cores: rosa da Laüra (página usa vinho #1E0D17, rosa #FF6FA3 e #E8457F; verde só em detalhes). Se a Laüra tiver o código oficial da cor, trocar.
@@ -82,6 +85,13 @@ Aprovada pelo Patrik: [[Comunidade - promessa parar de recomeçar]].
 - Bônus da Comunidade no formato da VSL dele: 1 Plano Alimentar Flexível, 2 Módulo LPF e Ativação Abdominal, 3 Aulas de Mobilidade, 4 Desafio Novo Todo Mês, 5 Grupo das Musas. Os bônus do Efeito Lipo (Guia do Ciclo, Anti-Pelanquinha, Áudios Quebra de Sabotagem) só entram se o Patrik confirmar.
 
 ## Registro
+- 2026-11-08 · Patrik: continuar o quiz em outra conversa. Prompt Q salvo em [[Prompts para conversas paralelas - Comunidade]].
+- 2026-11-08 · #374: botão do quiz no mensal R$ 39,90 (oferta yaG6FL, "CORPO FELIZ - ASSINATURA R$39,90"), UTM com capa (cq-p1/2/3), anúncio e xcod; /painel deixa de fora as sessões variante=comunidade-quiz (21 EL + 3 CQ desde 01/11). App não liberado (decisão do Patrik). Garantia de 15 dias não aparece no texto do checkout: conferir na Greenn.
+- 2026-11-08 · Oferta no resultado do quiz (#373): "Sozinha ou com a gente?" + "De R$ 97 por R$ 39,90 por mês, só R$ 1,33 por dia" + garantia de 15 dias + sem fidelidade; link sem ?o abre o mensal. Botão desligado até o link da Greenn.
+- 2026-11-08 · PR #372 no ar: link único https://www.laurarosapersonal.com/comunidade-quiz sorteia 1/3 para cada capa (cookie 30 dias; ?p= fixa); capa sem "Profe Laüra Rosa", sem cartão de 7 mil e sem WhatsApp (Patrik: "nenhuma página de quiz tem esses dados"); garantia passa a 15 dias. VSL fica para depois dos áudios (foco no quiz).
+- 2026-11-08 · Quiz v2 publicado (#371) em https://www.laurarosapersonal.com/comunidade-quiz, só o quiz (a página v2 segue no #370). Tela de prova com 4 depoimentos do Efeito Lipo (Patrik: alunas autorizaram, "tudo pode usar"). Preço decidido: mensal R$ 39,90, testa 7 dias, cancela quando quiser ([[Comunidade - oferta mensal 39,90 (08-11)]]); texto da oferta aguardando OK. Prompt D da VSL atualizado.
+- 2026-11-08 · Patrik: "para de inventar… montar o quiz perfeito batendo na dor que o mercado está escalando". Feito o quiz v2 só com dados nossos e padrões do mercado ([[Comunidade - quiz v2 (08-11)]]): abre pelo desejo, vira para o comportamento, telas de empatia, prova e carregando (modelo Aline), resultado "Agora × Com a Comunidade" só com entregas da página da Black, identidade rosa. Na prévia, não publicado.
+- 2026-11-08 · Revisão do quiz e da página contra a promessa ([[Comunidade - revisão quiz e página x promessa (08-11)]]): topo e começo do quiz batem; sobras do Efeito Lipo no quiz (inclusive "dia 21"); o resultado promete aula curta e "versão segura" que o app não tem (5 aulas de 28–37 min, nenhuma marcada). VSL do Movimento colocada só na prévia (branch `claude/sharp-cray-ibhr4l`, aparece só com VERCEL_ENV=preview), a pedido do Patrik, para ver o encaixe.
 - 2026-11-08 · Página /comunidade v2 (padrão Movimento, rosa, logo, 5 bônus com capas do Gravyx) no PR patrikgonzaga2-tech/LR_LauraRosaPersonal#370, aguardando OK. Roteiro v3.1 com 7 mil alunas e bônus.
 - 2026-11-08 · Patrik não gostou da VSL, da capa e do resultado do quiz e pediu a VSL "igual" à do Movimento. Feito o roteiro v3, que segue a dele trecho por trecho ([[Comunidade - roteiro da VSL v3]]): **a Laüra deve gravar o v3**. Levantados os anúncios dele ([[Comunidade - anúncios do Movimento]]).
 - 2026-11-08 · Quiz publicado (#368). Patrik pediu a VSL "igual" à do Movimento: decidido refazer cena por cena (mesma ordem, ritmo e tipos de cena) só com quadros nossos, sem usar vídeo/texto dele. Mapa em [[Comunidade - VSL cena a cena]]; animação de imagem testada no Gravyx (Omni 4 s 720p = 660 tokens; Seedance bloqueou por filtro).
