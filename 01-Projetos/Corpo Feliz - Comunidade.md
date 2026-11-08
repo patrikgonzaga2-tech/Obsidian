@@ -54,6 +54,13 @@ Aprovada pelo Patrik: [[Comunidade - promessa parar de recomeçar]].
 - Achado (08/11): `compras_aprovadas.produto` é o nome do catálogo, não o código da Greenn. Os 6 nomes da Comunidade viram "Comunidade Corpo Feliz": pôr esse nome em `PRODUTOS_LIBERADOS` liberaria os 660 e-mails que já compraram, inclusive quem cancelou. O código fica em `vendas.product_id` e `assinaturas.product_id` (`assinaturas` tem status e `current_period_end`).
 - Hoje, com Plano B, o app mostra "PLANO B: TREINO CURTO" com aula de 28 min (não há aula curta).
 
+## O que falta para vender (app, 08/11)
+1. Produto/oferta na Greenn (Patrik, OK explícito).
+2. Botão de compra: `CHECKOUT_URL` e vídeo `VSL_SRC` vazios em `/comunidade` na `main`.
+3. Entrada automática no app: `PRODUTOS_LIBERADOS` vazio; regra a decidir (código do produto; só compra ou assinatura em dia).
+4. Aviso pós-compra com o link do app: nada manda hoje (conferido no código).
+Entrega dos vídeos no app: decidir depois (Patrik, 08/11).
+
 ## O que a Comunidade entrega (fonte oficial)
 `hostinger/black-comunidade/dados/conteudo.json` (página da Black, 31/10): app com treinos em casa ou academia com vídeo de cada exercício, treinos hormonais, treinos de 3 e 5 minutos "pros dias impossíveis"; plano alimentar flexível; a Profe Laüra e o time no WhatsApp; Grupo das Musas; módulo de LPF/diástase com professora especializada; mobilidade; desafio todo mês; garantia de 7 dias. WhatsApp oficial (37) 6000-0948.
 
