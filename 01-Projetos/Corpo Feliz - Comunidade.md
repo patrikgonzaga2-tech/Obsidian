@@ -36,7 +36,7 @@ Aprovada pelo Patrik: [[Comunidade - promessa parar de recomeçar]].
 | 1 | Roteiro da VSL (áudio da Laüra) | pronto, enviado ao Patrik | [[Comunidade - roteiro da VSL da Laura]] |
 | 2 | Página de VSL `/comunidade` (modelo da página do Movimento, copy nossa) | PR rascunho aberto, aguarda OK | PR patrikgonzaga2-tech/LR_LauraRosaPersonal#365, branch `claude/comunidade-vsl-quiz` |
 | 3 | Quiz numa rota nova | a fazer | [[Comunidade - quiz tela a tela]] |
-| 4 | Ajustes no app (acesso, Plano B, nomes das aulas) | a fazer, precisa da lista de vídeos | ver "App" abaixo |
+| 4 | Ajustes no app (acesso, Plano B, nomes das aulas) | levantado; PR rascunho só com doc e prints; aguarda código do produto, escolha do Plano B e lista de vídeos | PR patrikgonzaga2-tech/LR_LauraRosaPersonal#367, branch `claude/comunidade-app` |
 | 5 | Anúncios (3 imagens + 3 vídeos) via Gravyx | a fazer, avisar custo antes | [[Comunidade - concorrentes]] |
 | 5b | Vídeo nosso no estilo do Movimento com o áudio da Laüra | a fazer, depende do áudio | skill `video-laura`, agente `editor-video` |
 | 6 | Campanha pausada no padrão 3.2 | a fazer, ativar só com OK | `docs/ANALISE_CAMPANHAS_QUIZ.md` §3.2 |
@@ -50,7 +50,9 @@ Aprovada pelo Patrik: [[Comunidade - promessa parar de recomeçar]].
 - `lib/app-cf/servidor.ts`: `PRODUTOS_LIBERADOS` está vazio → quem paga não entra no app sozinho. Preencher com os produtos novos da Greenn (depois do OK).
 - Plano B: 5 min no código, "Só 10 minutos de movimento" no botão (`lib/app-cf/config.ts`). Alinhar.
 - Só 5 aulas carregadas ("Treinos de Novembro", 28 a 37 min). Faltam as curtas (3, 5, 10, 15 min). Ideia do Patrik: nomear as aulas com o nome do vídeo da área de membros para ela achar lá. **Precisa da lista de vídeos.**
-- Doc do app no repositório: `docs/APP_CORPO_FELIZ.md`.
+- Doc do app no repositório: `docs/APP_CORPO_FELIZ.md`. Seção "Assinantes novas da Comunidade (08/11)" com prints no celular.
+- Achado (08/11): `compras_aprovadas.produto` é o nome do catálogo, não o código da Greenn. Os 6 nomes da Comunidade viram "Comunidade Corpo Feliz": pôr esse nome em `PRODUTOS_LIBERADOS` liberaria os 660 e-mails que já compraram, inclusive quem cancelou. O código fica em `vendas.product_id` e `assinaturas.product_id` (`assinaturas` tem status e `current_period_end`).
+- Hoje, com Plano B, o app mostra "PLANO B: TREINO CURTO" com aula de 28 min (não há aula curta).
 
 ## O que a Comunidade entrega (fonte oficial)
 `hostinger/black-comunidade/dados/conteudo.json` (página da Black, 31/10): app com treinos em casa ou academia com vídeo de cada exercício, treinos hormonais, treinos de 3 e 5 minutos "pros dias impossíveis"; plano alimentar flexível; a Profe Laüra e o time no WhatsApp; Grupo das Musas; módulo de LPF/diástase com professora especializada; mobilidade; desafio todo mês; garantia de 7 dias. WhatsApp oficial (37) 6000-0948.
@@ -59,7 +61,9 @@ Aprovada pelo Patrik: [[Comunidade - promessa parar de recomeçar]].
 - Ofertas, preços, renovação/cancelamento e links da Greenn (OK explícito).
 - Rodar antes ou depois da Black (vagas abrem 12/11).
 - Laüra gravar o áudio da VSL hoje.
-- Lista dos vídeos da área de membros (para nomear as aulas do app).
+- Lista dos vídeos da área de membros (nome, duração, onde treina) para as aulas do app.
+- Código do produto novo da Greenn e a regra de acesso do app (só compra aprovada ou também assinatura em dia).
+- Plano B: código para 10 min ou botão para "Só 5 minutos".
 - Workspace do Gravyx a usar e OK do custo em tokens.
 - Liberar o app novo para toda assinante?
 - Autorização por escrito da aluna para usar a frase "Foi o que me fez ter constância pela primeira vez na vida".
@@ -77,3 +81,4 @@ Aprovada pelo Patrik: [[Comunidade - promessa parar de recomeçar]].
 
 ## Registro
 - 2026-11-08 · Promessa aprovada; roteiro da VSL pronto; página `/comunidade` em PR rascunho (#365); conhecimento da sessão levado para o Obsidian.
+- 2026-11-08 · App: levantamento de acesso, Plano B e aulas; PR rascunho #367 (doc + prints, sem mudança de código); aguarda o Patrik.
