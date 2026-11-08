@@ -181,3 +181,28 @@ Tarefa:
 Regras: NUNCA INVENTE NADA (todo número e texto com fonte). O texto do preço (parte 19) é o já aprovado: "De R$ 97 por R$ 39,90 por mês, só R$ 1,33 por dia, garantia de 15 dias, sem fidelidade"; qualquer mudança de preço, garantia, oferta ou link só com OK explícito do Patrik (mostre antes e depois). Quem compra o mensal recebe tudo (treinos, treinos de 3, 5 e 15 minutos, plano alimentar, Grupo das Musas, mobilidade, diástase e acompanhamento); a VSL fala da Comunidade, não do app. Gasto de crédito (Gravyx, Kairogem, ElevenLabs, HeyGen) só com o OK do Patrik. Avise o Patrik, uma vez e sem travar o trabalho, que o material do Movimento é de terceiros e pode gerar denúncia ou reprovação do anúncio.
 Ao terminar, atualize Status e Registro da nota "Corpo Feliz - Comunidade" no Obsidian e me mande o link da página.
 ```
+
+
+---
+
+## F · Funil completo da Comunidade: funil + upsell, desenho, criativos modelados e painel · 08/11/2026
+Conversa nova que organiza o resto (a VSL é o prompt E, em conversa própria). Decisão do Patrik: sem campanha por enquanto.
+```
+VAMOS REVER O FUNIL DA COMUNIDADE E PREPARAR TUDO ANTES DAS CAMPANHAS.
+Repositórios desta conversa: patrikgonzaga2-tech/LR_LauraRosaPersonal e patrikgonzaga2-tech/obsidian. Trabalhe numa branch própria.
+
+Leia primeiro, no obsidian: "01-Projetos/Corpo Feliz - Comunidade/Comunidade - resumo e plano do funil (08-11).md" (inteiro: é o resumo de tudo) e "01-Projetos/Corpo Feliz - Comunidade.md" (só Status, Pendências e Registro). Depois, só o que a tarefa pedir: "Comunidade - concorrentes.md", "Comunidade - anúncios do Movimento.md" e "Comunidade - página de vendas, Elah e mercado (08-11).md". Siga o CLAUDE.md do LR_LauraRosaPersonal (leia docs/CONTEXTO_COMERCIAL.md antes de mexer em Greenn ou relatórios).
+
+REGRAS DO PATRIK: NUNCA INVENTE NADA (número e texto com fonte). MODELE O QUE JÁ VENDE E ESCALA; não crie do zero. Pagamento, preço, oferta, garantia, upsell, order bump, checkout e links da Greenn só com o OK explícito do Patrik: mostre antes e depois e espere. Não faça campanha nem mexa na Meta agora. Mescle PR só depois do "pode subir" e confira no ar. Painel oficial de links no mesmo PR. Tudo decidido entra no Obsidian.
+
+TAREFAS, nesta ordem (me mostre cada etapa antes de seguir):
+1. MAPA DO FUNIL ATUAL. De ponta a ponta: anúncio → quiz (/comunidade-quiz) ou página com VSL (/comunidade) → checkout mensal yaG6FL → o que acontece depois da compra (agradecimento, e-mail, acesso, upsell). Use o que está no código, na Greenn (via banco, só leitura) e no painel. Mostre onde cada etapa é medida e onde não é.
+2. O QUE ESCALA NO FUNIL. Do que já está levantado e do que você puder confirmar de novo (Biblioteca de Anúncios BR e as páginas abertas): bumps e ladder da Líbia (4 bumps de R$ 7,90 a R$ 19,90), o anual que é o que mais vende na Comunidade, o upsell do Efeito Lipo (/acompanhamento-up, Cinturinha EXPRESS e Receitas que Secam a R$ 19,90), Movimento, Aline, Elah. Diga o que cada um faz depois do "comprar" e o que se repete.
+3. PROPOSTA DE UPSELL E ORDER BUMP PARA A COMUNIDADE, modelada no que escala e no que já vendemos (nada inventado). Para cada item: o que é, de onde vem (qual produto/bônus que já existe), texto, preço e onde aparece. Preço, texto de oferta e links só como proposta com antes e depois, esperando o OK.
+4. DESENHAR TUDO no Miro (conector Miro): o funil atual e o proposto, com as medições do painel em cada etapa. Me mande o link do quadro.
+5. PAINEL. Liste o que falta medir para ver o funil inteiro (visitas, avanço, cliques, pedidos, compras, bumps, upsell, por promessa) e implemente nas abas "Comunidade · Quiz" e "Comunidade · Página VSL" (app/painel/comunidade-quiz e app/painel/comunidade-pagina). Confirme o rastreio quando o Patrik fizer a compra de teste.
+6. CRIATIVOS (vídeo e imagem), MODELADOS no que escala: com ads_library_search, pegue os anúncios que mais tempo estão no ar (Movimento, Aline, Líbia, Elah) e descreva formato, gancho, estrutura e texto; monte a lista de criativos nossos modelados neles, com os ativos da Laüra e as provas autorizadas. Anúncio: texto em pergunta, sem antes e depois, sem quilos, prazo ou balança (regra do Meta); aviso: o estilo "Jornal da Mulher" do Movimento imita portal de notícia e é risco de política. Só produza imagem ou vídeo depois do OK do Patrik sobre a lista e o custo (Gravyx, ElevenLabs, HeyGen). Nada vai para a Meta.
+7. Antes de terminar, atualize "Corpo Feliz - Comunidade" (Status e Registro) e o resumo "Comunidade - resumo e plano do funil (08-11)" no Obsidian.
+
+Me peça o que faltar. Não suba campanha.
+```
