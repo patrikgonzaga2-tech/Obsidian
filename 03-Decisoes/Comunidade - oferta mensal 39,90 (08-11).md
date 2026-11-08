@@ -19,7 +19,7 @@ Projeto: [[Corpo Feliz - Comunidade]]
 
 ## Ainda falta (regra de pagamento do CLAUDE.md)
 - Texto da oferta e da ancoragem: **aprovado** ("pode aplicar", 08/11) e no ar no quiz (#373).
-- Greenn: Patrik ajustou em 08/11 ("já ajustei na Greenn"); falta o link do checkout.
+- Greenn: oferta https://payfast.greenn.com.br/148344/offer/yaG6FL ("CORPO FELIZ - ASSINATURA R$39,90"), ligada no quiz em 08/11 (#374).
 - Link do checkout da Greenn do produto mensal (e liberar o app para esse produto em PRODUTOS_LIBERADOS).
 
 ## O que o mercado faz (fontes: [[Comunidade - concorrentes]], relatório da promessa §4b, 08/11)
