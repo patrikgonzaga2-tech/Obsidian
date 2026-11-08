@@ -66,3 +66,6 @@ Datas vêm de `ad_delivery_start_time`. A ferramenta devolve no máximo 50 anún
 
 ## Depoimento novo (Patrik, 08/11: "adiciona esse depoimento nos dados")
 Mensagem de aluna no Instagram, mãe de 2: começou em maio, agradece pelo programa, "me senti muito feliz com o resultado que tenho hoje… hoje fiquei mais confiante com meu corpo após 2 gestações", com foto da família na praia. Entrou como primeiro depoimento da página de vendas (`DEPOIMENTOS` em `app/comunidade/_dados.ts`), recortado sem nome e sem @. Imagem no site; aqui só o resumo, anonimizado. A confirmar: autorização da aluna (nome e foto da família, com crianças).
+
+## Promessa do Movimento no quiz e na página (Patrik, 08/11: "quero testar essa promessa do Movimento, ela bate no que fazemos")
+Entrou como 4ª opção, sem tirar as outras (PR patrikgonzaga2-tech/LR_LauraRosaPersonal#381, em rascunho): "Você está pronta. Só faltava o plano certo pra sua rotina." (a do topo da página do Movimento, com as nossas palavras). Quiz: capa 4 (`?p=4`, intro_ab CQ-p4, utm_medium cq-p4). Página: `?p=4`, cookie `cv_capa`. Sem `?p`, o sorteio dos dois passa a 1/4 (conferido: 12 visitas novas caíram nas 4 capas). Quem já tinha capa no cookie mantém a dela. Medição ainda não existe no /painel.
