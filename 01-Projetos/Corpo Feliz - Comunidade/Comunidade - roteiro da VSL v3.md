@@ -11,7 +11,9 @@ summary: "Roteiro v3 (vale este): segue a VSL do Movimento trecho por trecho, 23
 
 Projeto: [[Corpo Feliz - Comunidade]]
 
-# VSL Comunidade Corpo Feliz · roteiro v3 para a Laüra gravar (08/11/2026)
+# VSL Comunidade Corpo Feliz · roteiro v3.1 para a Laüra gravar (08/11/2026)
+
+v3.1: entrou "mais de 7 mil alunas" (Patrik, 08/11) e a parte 16 virou os 5 bônus, no formato da VSL dele.
 
 Este roteiro segue a VSL do Movimento Emagreça **trecho por trecho**: as mesmas 23 partes, na mesma ordem, com o mesmo argumento em cada uma e quase o mesmo tamanho (dele: 14 min; este: ~12 a 13 min).
 Muda só o produto (a Comunidade e a Laüra) e as palavras. Ao lado de cada parte vai o momento equivalente no vídeo dele, para a edição seguir o mesmo ritmo de cenas.
@@ -67,7 +69,7 @@ Não é fórmula mágica. É tirar de você o peso de decidir tudo sozinha, todo
 Porque quando o próximo passo já está pronto e pequeno, fica muito mais fácil continuar.
 
 **9. Quem sou eu e o que é** (dele 3:50)
-Eu sou a Laüra Rosa, educadora física, especialista em emagrecimento feminino. E foi pra essa segunda mulher que eu criei a Comunidade Corpo Feliz.
+Eu sou a Laüra Rosa, educadora física, especialista em emagrecimento feminino. E foi pra essa segunda mulher que eu criei a Comunidade Corpo Feliz, onde já passaram mais de sete mil alunas.
 Mas afinal, o que é a Comunidade?
 É pra mulher que quer resultado e não tem a vida inteira pra passar na academia. Funciona em três partes: você treina com o treino pronto, é acompanhada por mim, pelo meu time e pelas Musas, e não zera, mesmo quando a semana aperta.
 
@@ -106,13 +108,14 @@ E se você sair da rotina? Você volta no dia seguinte, sem esperar outra segund
 E se não souber por onde começar? O seu treino de hoje já está pronto.
 Eu não vou te prometer que nunca mais vai ter dia difícil. Vou te ajudar a passar por eles sem zerar.
 
-**16. E tem mais** (dele 8:00)
-Agora pensa comigo: de que adianta ter o treino se a comida te derruba? Ou se a dor nas costas te faz parar?
-Por isso, junto com a Comunidade vem:
-o plano alimentar flexível, pra você não travar na comida;
-pra quem tem diástase, o módulo de LPF e ativação abdominal, com professora especializada;
-as aulas de mobilidade, pra soltar o corpo e cuidar das costas;
-e todo mês, um desafio novo, com treino novo, pra você não enjoar e não parar.
+**16. Os bônus** (dele 8:00)
+Agora pensa comigo: de que adianta ter o treino pronto se a comida te derruba? Se a barriga não volta depois da gestação? Se as costas travam? Ou se no meio do mês você enjoa e para?
+Foi pensando nisso que, junto com a Comunidade, você recebe cinco bônus.
+Bônus um: o Plano Alimentar Flexível. Comida de verdade, sem passar fome, pra você não travar na alimentação.
+Bônus dois: o Módulo de LPF e Ativação Abdominal, com professora especializada, pra quem tem diástase.
+Bônus três: as Aulas de Mobilidade, pra soltar o corpo e cuidar das costas.
+Bônus quatro: um Desafio Novo Todo Mês, com treino novo, pra você não enjoar e não parar.
+Bônus cinco: o Grupo das Musas, pra você treinar acompanhada de mulheres que estão no mesmo caminho que você, todos os dias.
 
 **17. Quantas vezes você já tentou** (dele 9:15)
 Agora deixa eu te fazer uma pergunta. Quantas segundas-feiras você já recomeçou?
@@ -124,7 +127,7 @@ Quanto dinheiro você já gastou tentando? Quanto tempo? E quantas vezes termino
 **18. O que faltou** (dele 10:15)
 E sabe o que é mais interessante? Talvez não tenha faltado esforço.
 Talvez tenha faltado um jeito mais simples de continuar. E alguém do seu lado.
-Imagina ter, num lugar só, o treino pronto do tamanho do seu dia, o plano alimentar, eu e o meu time no WhatsApp e as Musas com você.
+Imagina ter, num lugar só, o treino pronto do tamanho do seu dia, eu e o meu time no WhatsApp, e ainda os cinco bônus pra te ajudar a colocar tudo em prática.
 
 **19. O preço** (dele 10:40) — **GRAVAR EM ARQUIVO SEPARADO**
 [TEXTO DE OFERTA: SÓ COM O OK EXPLÍCITO DO PATRIK. Formato, sem valor: "Quanto você imaginaria investir pra ter tudo isso? … A Comunidade sai por X por mês, menos de Y por dia." + regra de renovação e cancelamento, dita de forma clara. Se o checkout for só no cartão, dizer aqui.]
@@ -148,7 +151,7 @@ Imagina olhar pra trás e pensar: "dessa vez eu não fiquei só na promessa."
 **23. Os dois futuros e o fecho** (dele 13:10)
 Agora me responde: o que separa esses dois futuros?
 Não é querer. Isso você já quer há muito tempo. A diferença está no que você decide fazer daqui pra frente.
-Você pode continuar tentando sozinha, ou pode vir pra Comunidade Corpo Feliz.
+Você pode continuar tentando sozinha, ou pode fazer como as mais de sete mil alunas que vieram pra Comunidade Corpo Feliz.
 Eu não posso te prometer como o seu corpo vai estar daqui a alguns meses. Cada mulher tem o seu ritmo. Mas você pode começar hoje.
 Porque os próximos meses vão passar de qualquer jeito. E quando eles passarem, qual dessas histórias você quer estar vivendo?
 Você não precisa de mais um treino. Precisa parar de recomeçar.
@@ -173,10 +176,12 @@ Bora, Musa?
 - Quilos, medidas e prazo.
 - Antes e depois.
 - Remédio.
-- Número de alunas: 3.500 ou 5 mil, ainda não decidido.
-- "Bônus": as entregas da Comunidade são parte do que ela vende, então entram como "junto com a Comunidade vem".
+
+### Pendente
+- Os bônus do Efeito Lipo (Guia do Ciclo Menstrual, Protocolo Anti-Pelanquinha, Áudios "Quebra de Sabotagem") só entram se o Patrik confirmar que vêm na Comunidade.
 
 ### Fontes
+- "Mais de 7 mil alunas": Patrik, 08/11/2026.
 - Entregas da Comunidade: página da Black (`hostinger/black-comunidade/dados/conteudo.json`, 31/10).
 - Funções do app: `docs/APP_CORPO_FELIZ.md`.
 - Garantia de 7 dias: FAQ da Black.
