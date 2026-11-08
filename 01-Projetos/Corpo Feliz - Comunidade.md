@@ -56,7 +56,7 @@ Aprovada pelo Patrik: [[Comunidade - promessa parar de recomeçar]].
 `hostinger/black-comunidade/dados/conteudo.json` (página da Black, 31/10): app com treinos em casa ou academia com vídeo de cada exercício, treinos hormonais, treinos de 3 e 5 minutos "pros dias impossíveis"; plano alimentar flexível; a Profe Laüra e o time no WhatsApp; Grupo das Musas; módulo de LPF/diástase com professora especializada; mobilidade; desafio todo mês; garantia de 7 dias. WhatsApp oficial (37) 6000-0948.
 
 ## Pendências do Patrik
-- Oferta: R$ 39,90/mês + garantia de 15 dias decididos ([[Comunidade - oferta mensal 39,90 (08-11)]]); falta OK do texto/ancoragem e o link da Greenn (com garantia de 15 dias configurada).
+- Oferta: R$ 39,90/mês + garantia de 15 dias decididos ([[Comunidade - oferta mensal 39,90 (08-11)]]); texto com comparação e ancoragem NO AR (#373, "pode aplicar"); Patrik ajustou a Greenn em 08/11; **falta ele mandar o link do checkout** para ligar o botão e liberar o app (PRODUTOS_LIBERADOS).
 - Onde vai a VSL: no resultado (recomendado) ou também um corte no meio do quiz, como a Aline.
 - Rodar antes ou depois da Black (vagas abrem 12/11).
 - Áudios da VSL quase prontos (08/11): montar em outra conversa com o prompt D de [[Prompts para conversas paralelas - Comunidade]].
@@ -85,6 +85,7 @@ Aprovada pelo Patrik: [[Comunidade - promessa parar de recomeçar]].
 - Bônus da Comunidade no formato da VSL dele: 1 Plano Alimentar Flexível, 2 Módulo LPF e Ativação Abdominal, 3 Aulas de Mobilidade, 4 Desafio Novo Todo Mês, 5 Grupo das Musas. Os bônus do Efeito Lipo (Guia do Ciclo, Anti-Pelanquinha, Áudios Quebra de Sabotagem) só entram se o Patrik confirmar.
 
 ## Registro
+- 2026-11-08 · Oferta no resultado do quiz (#373): "Sozinha ou com a gente?" + "De R$ 97 por R$ 39,90 por mês, só R$ 1,33 por dia" + garantia de 15 dias + sem fidelidade; link sem ?o abre o mensal. Botão desligado até o link da Greenn.
 - 2026-11-08 · PR #372 no ar: link único https://www.laurarosapersonal.com/comunidade-quiz sorteia 1/3 para cada capa (cookie 30 dias; ?p= fixa); capa sem "Profe Laüra Rosa", sem cartão de 7 mil e sem WhatsApp (Patrik: "nenhuma página de quiz tem esses dados"); garantia passa a 15 dias. VSL fica para depois dos áudios (foco no quiz).
 - 2026-11-08 · Quiz v2 publicado (#371) em https://www.laurarosapersonal.com/comunidade-quiz, só o quiz (a página v2 segue no #370). Tela de prova com 4 depoimentos do Efeito Lipo (Patrik: alunas autorizaram, "tudo pode usar"). Preço decidido: mensal R$ 39,90, testa 7 dias, cancela quando quiser ([[Comunidade - oferta mensal 39,90 (08-11)]]); texto da oferta aguardando OK. Prompt D da VSL atualizado.
 - 2026-11-08 · Patrik: "para de inventar… montar o quiz perfeito batendo na dor que o mercado está escalando". Feito o quiz v2 só com dados nossos e padrões do mercado ([[Comunidade - quiz v2 (08-11)]]): abre pelo desejo, vira para o comportamento, telas de empatia, prova e carregando (modelo Aline), resultado "Agora × Com a Comunidade" só com entregas da página da Black, identidade rosa. Na prévia, não publicado.
