@@ -36,7 +36,7 @@ Aprovada pelo Patrik: [[Comunidade - promessa parar de recomeçar]].
 | 1 | Roteiro da VSL (áudio da Laüra) | pronto, enviado ao Patrik | [[Comunidade - roteiro da VSL da Laura]] |
 | 2 | Página de VSL `/comunidade` (modelo da página do Movimento, copy nossa) | PR rascunho aberto, aguarda OK | PR patrikgonzaga2-tech/LR_LauraRosaPersonal#365, branch `claude/comunidade-vsl-quiz` |
 | 3 | Quiz numa rota nova | a fazer | [[Comunidade - quiz tela a tela]] |
-| 4 | App: teste com 100 alunas (treino do dia apontando para a Greenn) | correções no PR #367 (Laura IA, link app.greenn.club/home, Plano B, iPhone), aguarda OK para mesclar; falta: mapa da área de membros (Claude Desktop), cadastrar treinos, minutos do Plano B, Supabase Pro | [[Comunidade - app pronto para teste (08-11)]] · PR patrikgonzaga2-tech/LR_LauraRosaPersonal#367 |
+| 4 | App: teste com 100 alunas (treino do dia apontando para a Greenn) | correções no ar (PR #367 mesclado 08/11); próximas conversas: treinos da área de membros e projeto Supabase só do app | [[Prompt - App - treinos da área de membros]] · [[Prompt - App - projeto Supabase só do app]] · [[Comunidade - app pronto para teste (08-11)]] |
 | 5 | Anúncios (3 imagens + 3 vídeos) via Gravyx | a fazer, avisar custo antes | [[Comunidade - concorrentes]] |
 | 5b | Vídeo nosso no estilo do Movimento com o áudio da Laüra | a fazer, depende do áudio | skill `video-laura`, agente `editor-video` |
 | 6 | Campanha pausada no padrão 3.2 | a fazer, ativar só com OK | `docs/ANALISE_CAMPANHAS_QUIZ.md` §3.2 |
@@ -70,7 +70,7 @@ Decisões de 08/11 (mensal WOqOSI, acesso só assinatura nova em dia, e-mail + v
 - Rodar antes ou depois da Black (vagas abrem 12/11).
 - Laüra gravar o áudio da VSL hoje.
 - Rodar no Claude Desktop o [[Prompt - Claude Desktop - área de membros da Comunidade]] (mapa da área de membros para o app).
-- Supabase Pro (US$ 25/mês) antes de liberar as 100 alunas.
+- Supabase Pro na "Corpo Feliz Org" antes de liberar as 100 alunas (com o projeto só do app: estimativa ~US$ 35/mês).
 - Código do produto novo da Greenn e a regra de acesso do app (só compra aprovada ou também assinatura em dia).
 - Plano B: código para 10 min ou botão para "Só 5 minutos".
 - Workspace do Gravyx a usar e OK do custo em tokens.
@@ -94,3 +94,4 @@ Decisões de 08/11 (mensal WOqOSI, acesso só assinatura nova em dia, e-mail + v
 - 2026-11-08 · Patrik decidiu: vender o mensal (WOqOSI), app só para assinatura nova em dia, testes à mão, e-mail + vídeo na área de membros. Antes/depois enviado; aguarda OK.
 - 2026-11-08 · App revisado para 100 alunas de teste: funciona; achados (IA corta resposta, Plano B, Supabase grátis com risco para o projeto inteiro). Plano: app indica treino da Greenn. Relatório: [[Comunidade - app pronto para teste (08-11)]].
 - 2026-11-08 · Patrik: link da área de membros é https://app.greenn.club/home (abre o acesso dela; sem sessão pede login; "esqueci a senha"); minutos do Plano B saem do mapa da área de membros; "ok pode corrigir". Correções no PR #367.
+- 2026-11-08 · PR #367 mesclado e conferido no ar (link https://comunidadecorpofeliz.greenn.club/, Laura IA sem corte, Plano B, iPhone). Decisão do Patrik: o app terá um projeto Supabase só dele, com as alunas. Prompts das próximas conversas em 02-Padroes.
