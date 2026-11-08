@@ -51,7 +51,19 @@ Ao terminar uma trilha, abre a próxima. Todas essas trilhas têm minuto escrito
 - Nome: grande e curto ("Treino 04 · glúteo e posterior de coxa"); embaixo, o caminho exato na Greenn.
 - Treinos de Novembro do YouTube = TREINO A, B, D, E, F de novembro da Greenn (mesmos minutos): usar o do YouTube (toca no app).
 
+## Feito (08/11, PR patrikgonzaga2-tech/LR_LauraRosaPersonal#379, rascunho)
+Patrik: "pode fazer, segue sua recomendação em tudo". Tudo da proposta acima entrou, mais:
+- **Regras da Laura** (respondeu ao alerta): gestante pode seguir todos os treinos e manda mensagem no suporte (botão do WhatsApp no app);
+  diástase pode fazer todos, inclusive abdômen (ela passa a adaptação na aula); joelho: "Mais leve hoje" e a aula de fisioterapia
+  de joelho do Prof Thalisson (bônus). Pós-parto ainda sem resposta: abdômen fora das opções.
+- Alerta enviado ao suporte da Laura, (82) 8142-3528, pelo WhatsApp do Patrik conectado no Metrifiquei (mesma rotina do painel).
+- **Elah App** (elah-app.com, só a página de vendas; o app é só para assinante): a promessa é a mesma ("você saberá exatamente o que
+  fazer em cada treino", progressão). Trazido o "ponto de partida": até o 1º treino, o app mostra a autoavaliação física da área de membros.
+  O que eles têm e nós ainda não: trilha de academia separada ("Academia descomplicada") e mobilidade/diástase como programas;
+  aqui depende da duração dos treinos de academia (Bônus Fases 1 a 11) e de mobilidade, que a Greenn não tem escrita.
+- Banco: estrutura e carga aplicadas; os 370 treinos da Greenn ficam escondidos até o merge (o app no ar quebraria com campo vazio).
+
 ## Pendências do Patrik
-- OK nos 3 nomes e na regra das trilhas.
-- Regra de cuidados (diástase, gestante, pós-parto, joelho) com a Laura.
-- Os 7 pontos da carga (campos vazios, títulos longos, aparelhos, cuidados, foco, CF FAST, Novembro).
+- OK no PR #379; depois do merge, reaplicar `supabase/app-cf-aulas-greenn.sql` (publica os treinos).
+- Laura: regra do pós-parto.
+- Se quiser academia e mobilidade nas trilhas: alguém anotar a duração desses vídeos.

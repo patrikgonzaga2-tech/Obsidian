@@ -36,7 +36,7 @@ Aprovada pelo Patrik: [[Comunidade - promessa parar de recomeçar]].
 | 1 | Roteiro da VSL (áudio da Laüra) | pronto, enviado ao Patrik | [[Comunidade - roteiro da VSL da Laura]] |
 | 2 | Página de VSL `/comunidade` (modelo da página do Movimento, copy nossa) | **no ar** desde 08/11 (Patrik: "publica a página pra gente testar"); botão e vídeo ainda vazios | https://www.laurarosapersonal.com/comunidade · PR patrikgonzaga2-tech/LR_LauraRosaPersonal#366 (o #365 foi fechado e reaberto como #366) |
 | 3 | Quiz `/comunidade-quiz` | **no ar** desde 08/11 (Patrik: "pode subir o quiz"); antes de anunciar, separar no /painel (`quizDe()` em `app/painel/_lib/funil.ts`) | https://www.laurarosapersonal.com/comunidade-quiz?p=1 · PR patrikgonzaga2-tech/LR_LauraRosaPersonal#368 |
-| 4 | Ajustes no app (acesso, Plano B, nomes das aulas) | a fazer, precisa da lista de vídeos | ver "App" abaixo |
+| 4 | App: treinos da Greenn e no máximo 3 opções por dia (trilhas, Plano B 5 min, cuidados da Laura) | **PR em rascunho** (#379), aguarda OK; banco com os 370 treinos gravados e escondidos até o merge (depois, reaplicar o .sql) | patrikgonzaga2-tech/LR_LauraRosaPersonal#379 · [[Comunidade - app sem deixar a aluna perdida (08-11)]] |
 | 5 | Anúncios (3 imagens + 3 vídeos) via Gravyx | a fazer, avisar custo antes | [[Comunidade - concorrentes]] |
 | 5b | Vídeo da VSL no estilo do Movimento com o áudio da Laüra | 33 cenas geradas no Gravyx (links em [[Comunidade - VSL mapa de cenas]]) + 3 cartões; falta o áudio da Laüra, gravação de tela do app e fotos dela | [[Comunidade - VSL mapa de cenas]] |
 | 6 | Campanha pausada no padrão 3.2 | a fazer, ativar só com OK | `docs/ANALISE_CAMPANHAS_QUIZ.md` §3.2 |
@@ -48,8 +48,11 @@ Aprovada pelo Patrik: [[Comunidade - promessa parar de recomeçar]].
 
 ## App (etapa 4)
 - `lib/app-cf/servidor.ts`: `PRODUTOS_LIBERADOS` está vazio → quem paga não entra no app sozinho. Preencher com os produtos novos da Greenn (depois do OK).
-- Plano B: 5 min no código, "Só 10 minutos de movimento" no botão (`lib/app-cf/config.ts`). Alinhar.
-- Só 5 aulas carregadas ("Treinos de Novembro", 28 a 37 min). Faltam as curtas (3, 5, 10, 15 min). Ideia do Patrik: nomear as aulas com o nome do vídeo da área de membros para ela achar lá. **Precisa da lista de vídeos.**
+- PR #379 (rascunho): 3 opções por dia (Treino de hoje · Sem tempo hoje · Mais leve hoje), trilhas Iniciante I → II → Intermediária → Avançada
+  (treino do mês pelo dia da semana), Plano B = 5 min, passo zero com a autoavaliação física, aula da Greenn com 3 passos e "Terminou?".
+  Carga `supabase/app-cf-aulas-greenn.sql`: 370 treinos com minuto escrito (269 sem duração ficam fora).
+- Cuidados (Laura, 08/11): gestante segue todos e fala com o suporte; diástase faz todos com a adaptação da aula; joelho: "Mais leve" + fisioterapia do Prof Thalisson; **pós-parto: falta a Laura responder**.
+- Ainda fora por falta de duração escrita: treinos de academia (Bônus Fases 1 a 11) e mobilidade.
 - Doc do app no repositório: `docs/APP_CORPO_FELIZ.md`.
 
 ## O que a Comunidade entrega (fonte oficial)
@@ -59,7 +62,8 @@ Aprovada pelo Patrik: [[Comunidade - promessa parar de recomeçar]].
 - Ofertas, preços, renovação/cancelamento e links da Greenn (OK explícito).
 - Rodar antes ou depois da Black (vagas abrem 12/11).
 - Laüra gravar o áudio da VSL hoje.
-- Lista dos vídeos da área de membros (para nomear as aulas do app).
+- OK no PR #379 (app com os treinos da Greenn); depois do merge, reaplicar `supabase/app-cf-aulas-greenn.sql`.
+- Laura: regra do pós-parto no app.
 - Workspace do Gravyx a usar e OK do custo em tokens.
 - Liberar o app novo para toda assinante?
 - Autorização por escrito da aluna para usar a frase "Foi o que me fez ter constância pela primeira vez na vida".
@@ -83,6 +87,7 @@ Aprovada pelo Patrik: [[Comunidade - promessa parar de recomeçar]].
 - Bônus da Comunidade no formato da VSL dele: 1 Plano Alimentar Flexível, 2 Módulo LPF e Ativação Abdominal, 3 Aulas de Mobilidade, 4 Desafio Novo Todo Mês, 5 Grupo das Musas. Os bônus do Efeito Lipo (Guia do Ciclo, Anti-Pelanquinha, Áudios Quebra de Sabotagem) só entram se o Patrik confirmar.
 
 ## Registro
+- 2026-11-08 · App: PR #379 em rascunho com os treinos da Greenn e as 3 opções por dia (recomendação aprovada: "segue sua recomendação em tudo"). Banco com a carga aplicada e os treinos da Greenn escondidos até o merge. Alerta dos cuidados enviado ao suporte da Laura, (82) 8142-3528, pelo WhatsApp do Patrik no Metrifiquei; a Laura respondeu (gestante, diástase, joelho). Olhado o Elah App (página de vendas): trazido o "ponto de partida" (autoavaliação antes do 1º treino).
 - 2026-11-08 · App × objetivo "a aluna nunca fica perdida": hoje não entrega (repete 3 treinos, listas de até 262 aulas, botão para a home da Greenn). Proposta das 3 opções (Treino de hoje · Sem tempo hoje · Mais leve hoje) e trilhas pela regra da Greenn em [[Comunidade - app sem deixar a aluna perdida (08-11)]]; aguarda OK.
 - 2026-11-08 · Página /comunidade v2 (padrão Movimento, rosa, logo, 5 bônus com capas do Gravyx) no PR patrikgonzaga2-tech/LR_LauraRosaPersonal#370, aguardando OK. Roteiro v3.1 com 7 mil alunas e bônus.
 - 2026-11-08 · Patrik não gostou da VSL, da capa e do resultado do quiz e pediu a VSL "igual" à do Movimento. Feito o roteiro v3, que segue a dele trecho por trecho ([[Comunidade - roteiro da VSL v3]]): **a Laüra deve gravar o v3**. Levantados os anúncios dele ([[Comunidade - anúncios do Movimento]]).
