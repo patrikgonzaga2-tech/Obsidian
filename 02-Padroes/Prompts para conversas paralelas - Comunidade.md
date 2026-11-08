@@ -149,32 +149,35 @@ Regras: NUNCA INVENTE NADA; pagamento e checkout só com o meu OK explícito; tu
 
 ---
 
-## E · VSL da Comunidade na VTurb (atualiza o D) · 08/11/2026
-Decisão do Patrik (08/11): a VSL vai para a **VTurb** e entra na página /comunidade (já no ar, 4 promessas). A dúvida dele vai dentro do prompt: Gravyx, Kairogem ou modelar exatamente a do Movimento com os áudios que a Laüra já criou.
+## E · VSL da Comunidade na VTurb (atualiza o D) · 08/11/2026, ajustado
+Decisão do Patrik (08/11): **modelar a VSL do Movimento**: usar as imagens e os vídeos dela, modelar o texto, tirar o áudio dele e montar tudo na linha dos áudios da Laüra, com as nossas provas. A VSL vai para a **VTurb** e entra na página /comunidade (já no ar, 4 promessas). Ele deixou de lado a dúvida Gravyx × Kairogem: as ferramentas só entram para tapar buraco.
 ```
 VAMOS MONTAR A VSL DA COMUNIDADE E COLOCAR NA VTURB.
 Repositórios desta conversa: patrikgonzaga2-tech/LR_LauraRosaPersonal e patrikgonzaga2-tech/obsidian. Trabalhe numa branch própria.
 
 Leia primeiro, no obsidian: "01-Projetos/Corpo Feliz - Comunidade.md" (só Status, Identidade, Pendências e Registro) e, da pasta "01-Projetos/Corpo Feliz - Comunidade/":
-- "Comunidade - roteiro da VSL v3.md" (roteiro v3.1 que a Laüra gravou: 23 partes, uma por arquivo de áudio; a parte 19, preço, vem num arquivo separado)
-- "Comunidade - VSL cena a cena.md" e "Comunidade - VSL mapa de cenas.md" (ordem, ritmo e tipos de cena; 33 imagens já geradas no Gravyx)
+- "Comunidade - roteiro da VSL v3.md" (roteiro v3.1 que a Laüra gravou: 23 partes, uma por arquivo de áudio; a parte 19, preço, vem num arquivo separado; já segue a ordem da VSL do Movimento)
+- "Comunidade - VSL cena a cena.md" (ordem, ritmo e tipos de cena da VSL do Movimento) e "Comunidade - VSL mapa de cenas.md" (33 imagens nossas já geradas no Gravyx, para tapar buraco)
+- "Comunidade - relatório da promessa (08-11).md" (só a seção "Movimento Emagreça: um app sem treinadora vendendo parar de recomeçar", com a estrutura do VSL dele)
 - "Comunidade - página de vendas, Elah e mercado (08-11).md" (só a seção "Quando o resto da página abre")
 Siga o CLAUDE.md do LR_LauraRosaPersonal.
 
+DECISÃO DO PATRIK (vale acima do que estiver escrito nas notas antigas): a nossa VSL é a VSL do Movimento refeita. Pode pegar as IMAGENS e os VÍDEOS dela, modelar o TEXTO dele (adaptado ao nosso), e o ÁUDIO dele não entra: o áudio é o da Laüra. Monte o vídeo seguindo a linha dos áudios da Laüra, e coloque as nossas provas (alunas, depoimentos, a Laüra). A VSL do Movimento vende; o objetivo é uma que venda igual.
+Vídeo de referência (Drive do Patrik): https://drive.google.com/file/d/1uppUB5LvPJs25cCZnJ5-dS7c142N7Zwb/preview (também é o player da VTurb da página movimentoapp.netlify.app, arquivo main.m3u8). Baixe pelo conector do Google Drive ou, se não der, com yt-dlp/ffmpeg (skill watch).
+
 Contexto (08/11): a página /comunidade está no ar com 4 promessas sorteadas (?p=1 a 4), topo só com título e vídeo; o resto da página abre quando o vídeo chega no momento da oferta. Os 3 valores a preencher ficam em app/comunidade/_dados.ts: VTURB_ID (id do <vturb-smartplayer>), VTURB_SRC (player.js da VTurb) e REVEAL_SECONDS (segundo da VSL em que a oferta começa). O quiz (/comunidade-quiz) também tem um espaço de VSL no resultado (VSL_SRC em app/comunidade-quiz/_dados.ts, hoje um iframe): só mexa nele se o Patrik pedir, e então use o mesmo embed da VTurb.
 
-DÚVIDA DO PATRIK (responda primeiro, antes de gastar qualquer crédito): "é melhor o Gravyx ou o Kairogem para criar essa VSL, ou melhor modelar exatamente a do Movimento, com os áudios da Laüra que ela já criou?"
-- Sobre o Kairogem: não há nada nas notas nem conector conhecido. Pergunte ao Patrik o que é, quanto custa e como acessar. Se ele não tiver acesso, siga com o Gravyx.
-- Recomendação inicial (confirme com um teste curto): usar os áudios da Laüra como espinha da VSL, fotos e vídeos reais dela e das alunas autorizadas, e o Gravyx (ou o Kairogem, se ele provar ser melhor) só para as cenas de rotina. Modelar do Movimento a ESTRUTURA (ordem, ritmo, tipos de cena), nunca o texto, o vídeo ou o áudio dele; a nossa tem a Laüra de verdade, que é a vantagem.
-- Para decidir com dados: gere a MESMA cena de teste nas ferramentas que o Patrik tiver e compare custo por cena, consistência do rosto e da roupa, tempo de geração e se passa sem cara de IA. Mostre lado a lado e deixe o Patrik escolher. Gasto de crédito (Gravyx, Kairogem, ElevenLabs, HeyGen) só com o OK dele.
-
 Tarefa:
-1. Me peça os áudios (pasta "VSL" do Drive: https://drive.google.com/drive/folders/1bGc7_kwv0MmpTpH6-e0hvQJcO6atNveZ), as fotos e vídeos reais da Laüra e as gravações de tela do app (se houver).
-2. Transcreva com tempo, alinhe cada parte do roteiro ao áudio e monte a lista de cenas (as 33 do Gravyx, cartões em HTML nas cores da identidade, Laüra, telas do app). Gere imagem nova só com o OK do custo.
-3. Primeiro uma prévia curta (3 primeiras partes) para o Patrik aprovar o estilo; depois o vídeo inteiro, vertical 9:16, 1080x1920, MP4 (agente editor-video, ffmpeg).
-4. Descubra o segundo em que a Laüra começa a apresentar a oferta (parte 19, preço) e proponha REVEAL_SECONDS: o segundo em que a oferta começa, menos uns 3 s. Referência: o Movimento libera o resto da página aos 654 s de 866 s (75,5%); a Aline, aos ~300 s de 390 s (77%).
-5. Guie o Patrik na VTurb: subir o MP4, tela cheia e vertical, e me passar o código do player (<vturb-smartplayer id="...">) e o endereço do player.js. Com isso, preencha VTURB_ID, VTURB_SRC e REVEAL_SECONDS num PR, com o painel oficial de links atualizado, e só mescle depois do OK do Patrik. Confira no ar (a página abre inteira se VTURB_ID estiver vazio e libera o resto no segundo definido quando estiver preenchido; teste com ?p=1 a ?p=4).
+1. Baixe o vídeo do Movimento. Extraia o áudio só para transcrever e entender a estrutura (ele nunca entra no vídeo final), os quadros e os trechos de vídeo, cena por cena, com o tempo de cada cena e o texto que aparece na tela. Guarde tudo numa pasta de trabalho fora do repositório (vídeo de terceiros não vai para o git).
+2. Me peça os áudios da Laüra (pasta "VSL" do Drive: https://drive.google.com/drive/folders/1bGc7_kwv0MmpTpH6-e0hvQJcO6atNveZ), as fotos e vídeos reais dela, as provas autorizadas (alunas, depoimentos; as mesmas da página: public/images/comunidade/ e public/images/) e as gravações de tela do app, se houver. Não use a voz dele em nenhuma parte.
+3. Transcreva os áudios da Laüra com tempo e alinhe cada parte do roteiro v3.1 (e o texto do Movimento, adaptado) ao áudio. A duração do vídeo final segue o áudio da Laüra.
+4. Monte a lista de cenas: para cada trecho do áudio da Laüra, escolha a cena do Movimento que fazia o mesmo papel e reaproveite a imagem ou o vídeo dela (corte e ritmo parecidos); troque o texto na tela pelo nosso (modelado no dele, adaptado à Comunidade); onde couber, entre uma prova nossa (aluna, depoimento, a Laüra). O que não der para aproveitar, tape com os 33 quadros do Gravyx ou foto/vídeo da Laüra; gerar imagem nova (Gravyx ou Kairogem) só com o OK do Patrik sobre o custo.
+5. Tire ou cubra, em qualquer cena aproveitada: o nome, a logo e as telas do app Movimento, o preço e a oferta dele, e o que for específico do produto dele. Troque por cartões nossos (cores da identidade: vinho #1E0D17, rosa #FF6FA3 e #E8457F, creme #FFF5F8; logo em public/images/comunidade/logo-corpo-feliz-branco.png) e pela nossa oferta.
+6. Regra da marca que continua: sem balança, fita métrica, quilos, prazo ou nome de remédio, dito pela Laüra ou escrito na tela. Se uma cena do Movimento tiver isso, troque por outra.
+7. Primeiro uma prévia curta (as 3 primeiras partes) para o Patrik aprovar o estilo e a fidelidade ao do Movimento; depois o vídeo inteiro, vertical 9:16, 1080x1920, MP4 (agente editor-video, ffmpeg), legenda curta no terço de baixo, música baixa por baixo da voz.
+8. Descubra o segundo em que a Laüra começa a apresentar a oferta (parte 19, preço) e proponha REVEAL_SECONDS: o segundo em que a oferta começa, menos uns 3 s. Referência: o Movimento libera o resto da página aos 654 s de 866 s (75,5%); a Aline, aos ~300 s de 390 s (77%).
+9. Guie o Patrik na VTurb: subir o MP4, vertical, e me passar o código do player (<vturb-smartplayer id="...">) e o endereço do player.js. Com isso, preencha VTURB_ID, VTURB_SRC e REVEAL_SECONDS num PR, com o painel oficial de links atualizado, e só mescle depois do OK do Patrik. Confira no ar (a página abre inteira se VTURB_ID estiver vazio e libera o resto no segundo definido quando estiver preenchido; teste com ?p=1 a ?p=4).
 
-Regras: NUNCA INVENTE NADA. Sem balança, fita métrica, quilos, prazo ou nome de remédio no vídeo. O texto do preço (parte 19) é o já aprovado: "De R$ 97 por R$ 39,90 por mês, só R$ 1,33 por dia, garantia de 15 dias, sem fidelidade"; qualquer mudança de preço, garantia, oferta ou link só com OK explícito do Patrik (mostre antes e depois). Quem compra o mensal recebe tudo (treinos, treinos de 3, 5 e 15 minutos, plano alimentar, Grupo das Musas, mobilidade, diástase e acompanhamento); a VSL fala da Comunidade, não do app.
+Regras: NUNCA INVENTE NADA (todo número e texto com fonte). O texto do preço (parte 19) é o já aprovado: "De R$ 97 por R$ 39,90 por mês, só R$ 1,33 por dia, garantia de 15 dias, sem fidelidade"; qualquer mudança de preço, garantia, oferta ou link só com OK explícito do Patrik (mostre antes e depois). Quem compra o mensal recebe tudo (treinos, treinos de 3, 5 e 15 minutos, plano alimentar, Grupo das Musas, mobilidade, diástase e acompanhamento); a VSL fala da Comunidade, não do app. Gasto de crédito (Gravyx, Kairogem, ElevenLabs, HeyGen) só com o OK do Patrik. Avise o Patrik, uma vez e sem travar o trabalho, que o material do Movimento é de terceiros e pode gerar denúncia ou reprovação do anúncio.
 Ao terminar, atualize Status e Registro da nota "Corpo Feliz - Comunidade" no Obsidian e me mande o link da página.
 ```
