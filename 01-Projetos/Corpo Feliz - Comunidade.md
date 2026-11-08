@@ -38,7 +38,7 @@ Aprovada pelo Patrik: [[Comunidade - promessa parar de recomeçar]].
 | 3 | Quiz numa rota nova (`/comunidade-quiz`) | pronto no PR, **aguarda OK do Patrik**; antes de anunciar, separar no /painel (hoje `quizDe()` em `app/painel/_lib/funil.ts` conta intro_ab desconhecido como quiz do Efeito Lipo) | PR patrikgonzaga2-tech/LR_LauraRosaPersonal#368 · rastreio: `variante=comunidade-quiz`, `intro_ab=CQ-p1/2/3`, `checkout_ab=CQ-anual/mensal/teste-30`, sessão `cq_quiz_sid` |
 | 4 | Ajustes no app (acesso, Plano B, nomes das aulas) | a fazer, precisa da lista de vídeos | ver "App" abaixo |
 | 5 | Anúncios (3 imagens + 3 vídeos) via Gravyx | a fazer, avisar custo antes | [[Comunidade - concorrentes]] |
-| 5b | Vídeo nosso no estilo do Movimento com o áudio da Laüra | mapa de cenas pronto + amostra de 14 s; falta recarregar tokens do Gravyx (saldo 375) e o áudio | [[Comunidade - VSL mapa de cenas]] |
+| 5b | Vídeo da VSL no estilo do Movimento com o áudio da Laüra | 33 cenas geradas no Gravyx (links em [[Comunidade - VSL mapa de cenas]]) + 3 cartões; falta o áudio da Laüra, gravação de tela do app e fotos dela | [[Comunidade - VSL mapa de cenas]] |
 | 6 | Campanha pausada no padrão 3.2 | a fazer, ativar só com OK | `docs/ANALISE_CAMPANHAS_QUIZ.md` §3.2 |
 
 ## Página `/comunidade` (etapa 2)
@@ -76,6 +76,7 @@ Aprovada pelo Patrik: [[Comunidade - promessa parar de recomeçar]].
 - [[Prompts para conversas paralelas - Comunidade]] — prompts prontos para dividir o trabalho em várias conversas.
 
 ## Registro
+- 2026-11-08 · Patrik recarregou o Gravyx (31.575 tokens). Geradas as 33 cenas da VSL (Nano Banana 2, 2K, 150 tokens cada; 1 refeita porque saiu de lado).
 - 2026-11-08 · Quiz /comunidade-quiz pronto no PR #368 (não mesclado). Ofertas vazias; medo "nao-usar" mostra só a garantia até o Patrik definir pausa/cancelamento.
 - 2026-11-08 · Página /comunidade publicada (#366). VSL: mapa de cenas e amostra; Gravyx: 1 workspace ("Meu workspace"), plano Starter; Nano Banana 2 1K (100 tokens) e Seedream 5 Lite 2K (50 tokens) aprovados no teste de qualidade.
 - 2026-11-08 · Promessa aprovada; roteiro da VSL pronto; página `/comunidade` em PR rascunho (#365); conhecimento da sessão levado para o Obsidian.
