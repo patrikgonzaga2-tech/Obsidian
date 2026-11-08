@@ -63,6 +63,7 @@ Aprovada pelo Patrik: [[Comunidade - promessa parar de recomeçar]].
 - Workspace do Gravyx a usar e OK do custo em tokens.
 - Liberar o app novo para toda assinante?
 - Autorização por escrito da aluna para usar a frase "Foi o que me fez ter constância pela primeira vez na vida".
+- Desligar a automação do 3606 na UMCLIQUE depois que os avisos completos pelo número pessoal subirem ([[Avisos do grupo Vendas só pelo número pessoal]]).
 
 ## Notas de referência
 - [[Comunidade - relatório da promessa (08-11)]] — o relatório inteiro que embasou a decisão.
@@ -76,6 +77,7 @@ Aprovada pelo Patrik: [[Comunidade - promessa parar de recomeçar]].
 - [[Prompts para conversas paralelas - Comunidade]] — prompts prontos para dividir o trabalho em várias conversas.
 
 ## Registro
+- 2026-11-08 · Avisos do grupo Vendas: o 3606 voltou a disparar na UMCLIQUE (grupo em dobro). O aviso pelo número pessoal passa a cobrir renovação, Pix gerado, recusa, reembolso, atraso e cancelamento; aguardando OK. Ver [[Avisos do grupo Vendas só pelo número pessoal]].
 - 2026-11-08 · Quiz publicado (#368). Patrik pediu a VSL "igual" à do Movimento: decidido refazer cena por cena (mesma ordem, ritmo e tipos de cena) só com quadros nossos, sem usar vídeo/texto dele. Mapa em [[Comunidade - VSL cena a cena]]; animação de imagem testada no Gravyx (Omni 4 s 720p = 660 tokens; Seedance bloqueou por filtro).
 - 2026-11-08 · Patrik recarregou o Gravyx (31.575 tokens). Geradas as 33 cenas da VSL (Nano Banana 2, 2K, 150 tokens cada; 1 refeita porque saiu de lado).
 - 2026-11-08 · Quiz /comunidade-quiz pronto no PR #368 (não mesclado). Ofertas vazias; medo "nao-usar" mostra só a garantia até o Patrik definir pausa/cancelamento.
