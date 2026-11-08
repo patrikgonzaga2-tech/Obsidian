@@ -34,17 +34,17 @@ Aprovada pelo Patrik: [[Comunidade - promessa parar de recomeçar]].
 | # | Etapa | Status | Onde |
 |---|---|---|---|
 | 1 | Roteiro da VSL (áudio da Laüra) | pronto, enviado ao Patrik | [[Comunidade - roteiro da VSL da Laura]] |
-| 2 | Página de VSL `/comunidade` (modelo da página do Movimento, copy nossa) | PR rascunho aberto, aguarda OK | PR patrikgonzaga2-tech/LR_LauraRosaPersonal#365, branch `claude/comunidade-vsl-quiz` |
-| 3 | Quiz numa rota nova | a fazer | [[Comunidade - quiz tela a tela]] |
+| 2 | Página de VSL `/comunidade` (modelo da página do Movimento, copy nossa) | **no ar** desde 08/11 (Patrik: "publica a página pra gente testar"); botão e vídeo ainda vazios | https://www.laurarosapersonal.com/comunidade · PR patrikgonzaga2-tech/LR_LauraRosaPersonal#366 (o #365 foi fechado e reaberto como #366) |
+| 3 | Quiz numa rota nova (`/comunidade-quiz`) | em construção (branch `claude/comunidade-quiz`) | [[Comunidade - quiz tela a tela]] |
 | 4 | Ajustes no app (acesso, Plano B, nomes das aulas) | a fazer, precisa da lista de vídeos | ver "App" abaixo |
 | 5 | Anúncios (3 imagens + 3 vídeos) via Gravyx | a fazer, avisar custo antes | [[Comunidade - concorrentes]] |
-| 5b | Vídeo nosso no estilo do Movimento com o áudio da Laüra | a fazer, depende do áudio | skill `video-laura`, agente `editor-video` |
+| 5b | Vídeo nosso no estilo do Movimento com o áudio da Laüra | mapa de cenas pronto + amostra de 14 s; falta recarregar tokens do Gravyx (saldo 375) e o áudio | [[Comunidade - VSL mapa de cenas]] |
 | 6 | Campanha pausada no padrão 3.2 | a fazer, ativar só com OK | `docs/ANALISE_CAMPANHAS_QUIZ.md` §3.2 |
 
 ## Página `/comunidade` (etapa 2)
 - Arquivo `app/comunidade/page.tsx`. `CHECKOUT_URL = ''` (botão desligado) e `VSL_SRC = ''` (espaço "Vídeo da Laüra (em gravação)") até o Patrik mandar.
 - Visita conta como slug `comunidade-vsl` (upsell_views). Fora do Google (noindex).
-- Prévia da Vercel (pede login na Vercel): https://efeito-lipo-21-git-claude-0b9eda-patrikgonzaga2-2372s-projects.vercel.app/comunidade
+- No ar: https://www.laurarosapersonal.com/comunidade
 
 ## App (etapa 4)
 - `lib/app-cf/servidor.ts`: `PRODUTOS_LIBERADOS` está vazio → quem paga não entra no app sozinho. Preencher com os produtos novos da Greenn (depois do OK).
@@ -76,4 +76,5 @@ Aprovada pelo Patrik: [[Comunidade - promessa parar de recomeçar]].
 - [[Prompts para conversas paralelas - Comunidade]] — prompts prontos para dividir o trabalho em várias conversas.
 
 ## Registro
+- 2026-11-08 · Página /comunidade publicada (#366). VSL: mapa de cenas e amostra; Gravyx: 1 workspace ("Meu workspace"), plano Starter; Nano Banana 2 1K (100 tokens) e Seedream 5 Lite 2K (50 tokens) aprovados no teste de qualidade.
 - 2026-11-08 · Promessa aprovada; roteiro da VSL pronto; página `/comunidade` em PR rascunho (#365); conhecimento da sessão levado para o Obsidian.

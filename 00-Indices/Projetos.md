@@ -39,6 +39,10 @@ Roteiro v2 (6 a 7 min) para a Laüra gravar o áudio da VSL da Comunidade.
 Dores, objeções e frases de leads e alunas (CRM, Telegram, WhatsApp), anonimizado.
 
 
+## [[Comunidade - VSL mapa de cenas]]
+Mapa de cenas da VSL da Comunidade no formato do Movimento, com imagens nossas do Gravyx e o áudio da Laüra; custo e montagem.
+
+
 ## [[Corpo Feliz - Comunidade]]
 Venda da assinatura da Comunidade Corpo Feliz (Laüra Rosa) com a promessa 'parar de recomeçar': quiz, página de VSL, app e anúncios.
 

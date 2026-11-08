@@ -7,7 +7,7 @@ tags: [tipo/indice]
 
 > Gerado automaticamente. Não edite à mão: rode `node _sistema/brain.mjs reindex` ou apenas trabalhe — os hooks mantêm tudo atualizado.
 
-- [[Projetos]] (10)
+- [[Projetos]] (11)
 - [[Padrões]] (1)
 - [[Decisões]] (2)
 - [[Preferências]] (1)
@@ -15,6 +15,7 @@ tags: [tipo/indice]
 - [[Aprendizados]] (0)
 
 ## Atividade recente
+- 2026-11-08 · [[Comunidade - VSL mapa de cenas]] — Mapa de cenas da VSL da Comunidade no formato do Movimento, com imagens nossas do Gravyx e o áudio da Laüra; custo e montagem.
 - 2026-11-08 · [[Comunidade - concorrentes]] — Biblioteca de Anúncios e funis de concorrentes (08/11/2026).
 - 2026-11-08 · [[Comunidade - fatos do quiz]] — Números conferidos do quiz atual.
 - 2026-11-08 · [[Comunidade - inventário do Drive]] — O que existe no Google Drive e no painel_gestor (08/11/2026), anonimizado.
