@@ -6,7 +6,7 @@ tags: [tipo/decisao, projeto/corpo-feliz-comunidade, oferta, preco]
 keywords: [preço, 39,90, mensal, assinatura, garantia, cancelar, ancoragem]
 created: 2026-11-08
 updated: 2026-11-08
-summary: "Patrik definiu em 08/11: assinatura mensal R$ 39,90, 'testa 7 dias', cancela quando quiser, com comparação e ancoragem. Texto da oferta na tela aguarda o OK dele."
+summary: "Patrik definiu em 08/11: assinatura mensal R$ 39,90, garantia de 15 dias, cancela quando quiser, com comparação e ancoragem. Texto da oferta na tela aguarda o OK dele."
 ---
 
 Projeto: [[Corpo Feliz - Comunidade]]
@@ -15,9 +15,11 @@ Projeto: [[Corpo Feliz - Comunidade]]
 
 **Decisão (Patrik, 08/11/2026):** "39,90 assinatura mensal, testa 7 dias, pode cancelar quando quiser. Comparação e ancoragem precisa ter também."
 
+**Atualização (Patrik, 08/11):** "vamos colocar 15 dias de garantia" (no lugar de "testa 7 dias"). Já aplicado nos textos do quiz (PR #372).
+
 ## Ainda falta (regra de pagamento do CLAUDE.md)
 - Texto da oferta e da ancoragem na tela: proposta enviada em 08/11, aguardando OK explícito.
-- "Testa 7 dias": confirmar se é **garantia de 7 dias** (paga e pode pedir o dinheiro de volta) ou **7 dias grátis** (primeira cobrança no 8º dia).
+- Configurar a garantia de 15 dias no produto da Greenn (a da Comunidade era 7 dias, FAQ da Black).
 - Link do checkout da Greenn do produto mensal (e liberar o app para esse produto em PRODUTOS_LIBERADOS).
 
 ## O que o mercado faz (fontes: [[Comunidade - concorrentes]], relatório da promessa §4b, 08/11)
