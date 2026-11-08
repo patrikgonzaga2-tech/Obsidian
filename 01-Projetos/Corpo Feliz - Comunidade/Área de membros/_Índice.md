@@ -33,7 +33,8 @@ Outras coleções no Club: VITALÍCIA e COLEÇÃO EFEITO LIPO 21D (cursos não c
 ## Link fixo por aula?
 **Sim.** Cada aula tem endereço próprio: `/curso/<id do curso>/modulo/<id do módulo>/aula/<id da aula>` (conferido no painel logado).
 - Os links das tabelas usam o endereço da aluna (https://comunidadecorpofeliz.greenn.club/curso/...).
-- Sem login, esse link leva para a tela de entrar. **Se depois do login ela volta direto para a aula: não conferido** (não entrei com conta de aluna).
+- **Logada, o link abre direto na aula** (conferido em 08/11 na área da aluna, já logada pelo Patrik: aula "APRENDA A RESPIRAR CORRETAMENTE NOS EXERCÍCIOS" e "Posterior e Interno de Coxa ✩ treino D - 32 minutos").
+- Sem login, o link leva para a tela de entrar e o endereço volta para a página inicial (perde a aula). Ou seja: se ela não estiver logada, depois de entrar precisa tocar no link de novo.
 - Os IDs não mudam se a aula for renomeada, mas mudam se ela for apagada e criada de novo.
 
 ## O que é cada coluna
