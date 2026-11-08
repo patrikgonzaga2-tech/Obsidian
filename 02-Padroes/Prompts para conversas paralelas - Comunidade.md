@@ -105,3 +105,25 @@ Próximo passo: [escreva aqui: publicar #370 / montar o vídeo com o áudio / aj
 Economia: não abra imagens nem prints sem precisar; um print só no fim; leia só a seção do doc que a tarefa pede.
 Regras: NUNCA INVENTE NADA; pagamento e checkout só com o meu OK explícito; tudo que for decidido entra no Obsidian.
 ```
+
+## S · App: fechar o PR #379 e deixar pronto para as alunas (08/11/2026, depois da conversa dos treinos da Greenn)
+```
+Vamos fechar o App Corpo Feliz (/app) da Comunidade. Anexe os repositórios LR_LauraRosaPersonal e obsidian.
+Leia SÓ: no Obsidian, "01-Projetos/Corpo Feliz - Comunidade.md" (Status, App, Pendências, Registro) e "01-Projetos/Corpo Feliz - Comunidade/Comunidade - app sem deixar a aluna perdida (08-11).md"; no LR_LauraRosaPersonal, o CLAUDE.md e docs/APP_CORPO_FELIZ.md (seções "Treinos da Greenn e as 3 opções do dia" e "A Laura não deixa a aluna na mão"). Responda em português.
+
+Onde paramos (08/11):
+- PR patrikgonzaga2-tech/LR_LauraRosaPersonal#379, em RASCUNHO, branch claude/app-treinos-greenn: treinos da Greenn, 3 opções por dia (Treino de hoje, Sem tempo hoje, Mais leve hoje), trilhas Iniciante I/II/Intermediária/Avançada, regras da Laura para gestante, diástase e joelho, alerta da Laura IA ao suporte (82 8142-3528), aviso à aluna e "Mensagem só para uma aluna".
+- Banco fjlbvoephhextnxemygf: estrutura e carga já aplicadas, com os 370 treinos da Greenn ESCONDIDOS (publicada=false). Depois do merge, reaplicar supabase/app-cf-aulas-greenn.sql para publicar.
+- REGRA: o canal 3606 da UMCLIQUE está em stand-by e NÃO envia nada (nem teste). Todo WhatsApp sai pelo Metrifiquei. Só lance em grupo pelo 3606 se eu pedir na hora.
+
+O que fazer, nesta ordem:
+1. Me mostre o estado do PR #379 (checks, conflitos) e espere o meu "pode mesclar". Com o OK: mescle (squash), confira o deploy da Vercel, reaplique o .sql no banco e confirme no ar (https://www.laurarosapersonal.com/app) que as 3 opções aparecem.
+2. Confira na Vercel (projeto efeito-lipo-21) só os NOMES das variáveis METRIFIQUEI_API_KEY e APP_VAPID_PRIVATE_KEY (nunca os valores). Faltando alguma, me diga qual e como cadastrar.
+3. Teste ao vivo, com UMA conta de teste minha (sem dado de saúde real): (a) pergunta de risco na Laura IA → deve chegar 1 WhatsApp no suporte (82 8142-3528); (b) a Laura responder pelo /app-admin → notificação no celular e o cartão "A Laura mandou uma mensagem" no Hoje; (c) abrir uma aula da Greenn no iPhone (o Safari pode bloquear a janela). Me avise ANTES de disparar o teste do item (a), porque ele manda mensagem de verdade.
+4. Acesso das assinantes: lib/app-cf/servidor.ts tem PRODUTOS_LIBERADOS vazio, então quem paga não entra sozinha. Os produtos estão no mapa da área de membros: Mensal 148344, Anual 78187, Trimestral 148339 (os outros não conferidos). Me mostre o antes/depois e espere o meu OK antes de preencher.
+5. Pendências para me lembrar de cobrar: (a) a Laura responder o pós-parto (hoje sem treino de abdômen nas opções); (b) duração dos treinos de academia (Bônus Fases 1 a 11) e de mobilidade, que a Greenn não tem escrita (hoje ficam fora das trilhas); (c) Supabase Pro e o projeto Supabase só do app (outra conversa, prompt "Prompt - App - projeto Supabase só do app": os .sql reaplicáveis são app-corpo-feliz-v2.sql, v3 e app-cf-aulas-greenn.sql); (d) liberar o app em levas (o e-mail de entrada limita 100 por hora).
+
+Regras: NUNCA INVENTE NADA (nome, duração ou link que não está na pasta da Greenn do Obsidian). Pagamento, checkout, ofertas e preços: não mexa sem o meu OK explícito. Não mesclar sem o meu OK. Sem nome, telefone ou dado de saúde de aluna em nota ou mensagem.
+Ao terminar, atualize o Status e o Registro em "01-Projetos/Corpo Feliz - Comunidade.md" e me diga em 5 linhas: o que está no ar, o que falta e o que depende de mim.
+Economia: não abra prints sem precisar; leia só a seção do doc que a tarefa pede.
+```
