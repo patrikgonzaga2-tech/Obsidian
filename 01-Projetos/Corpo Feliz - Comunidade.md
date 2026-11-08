@@ -60,6 +60,7 @@ Aprovada pelo Patrik: [[Comunidade - promessa parar de recomeçar]].
 3. Entrada automática no app: `PRODUTOS_LIBERADOS` vazio; regra a decidir (código do produto; só compra ou assinatura em dia).
 4. Aviso pós-compra com o link do app: nada manda hoje (conferido no código).
 Entrega dos vídeos no app: decidir depois (Patrik, 08/11).
+Decisões de 08/11 (mensal WOqOSI, acesso só assinatura nova em dia, e-mail + vídeo): [[Comunidade - venda do mensal e acesso ao app]]. Antes/depois mostrado ao Patrik; aguarda OK.
 
 ## O que a Comunidade entrega (fonte oficial)
 `hostinger/black-comunidade/dados/conteudo.json` (página da Black, 31/10): app com treinos em casa ou academia com vídeo de cada exercício, treinos hormonais, treinos de 3 e 5 minutos "pros dias impossíveis"; plano alimentar flexível; a Profe Laüra e o time no WhatsApp; Grupo das Musas; módulo de LPF/diástase com professora especializada; mobilidade; desafio todo mês; garantia de 7 dias. WhatsApp oficial (37) 6000-0948.
@@ -89,3 +90,4 @@ Entrega dos vídeos no app: decidir depois (Patrik, 08/11).
 ## Registro
 - 2026-11-08 · Promessa aprovada; roteiro da VSL pronto; página `/comunidade` em PR rascunho (#365); conhecimento da sessão levado para o Obsidian.
 - 2026-11-08 · App: levantamento de acesso, Plano B e aulas; PR rascunho #367 (doc + prints, sem mudança de código); aguarda o Patrik.
+- 2026-11-08 · Patrik decidiu: vender o mensal (WOqOSI), app só para assinatura nova em dia, testes à mão, e-mail + vídeo na área de membros. Antes/depois enviado; aguarda OK.
