@@ -62,6 +62,7 @@ Aprovada pelo Patrik: [[Comunidade - promessa parar de recomeçar]].
 - Lista dos vídeos da área de membros (para nomear as aulas do app).
 - Workspace do Gravyx a usar e OK do custo em tokens.
 - Liberar o app novo para toda assinante?
+- OK na proposta da revisão de 08/11 (quiz 17→14 telas, resultado sem prometer aula curta/segura, quiz rosa, miolo da página): [[Comunidade - revisão quiz e página x promessa (08-11)]].
 - Autorização por escrito da aluna para usar a frase "Foi o que me fez ter constância pela primeira vez na vida".
 
 ## Notas de referência
@@ -70,6 +71,7 @@ Aprovada pelo Patrik: [[Comunidade - promessa parar de recomeçar]].
 - [[Comunidade - roteiro da VSL da Laura]]
 - [[Comunidade - voz da cliente]] — dores, objeções e frases (anonimizado).
 - [[Comunidade - concorrentes]] — Biblioteca de Anúncios e funis.
+- [[Comunidade - revisão quiz e página x promessa (08-11)]] — o que bate e o que não bate com a promessa, e a proposta.
 - [[Comunidade - inventário do Drive]]
 - [[Comunidade - relatórios anteriores]]
 - [[Comunidade - fatos do quiz]]
@@ -82,6 +84,7 @@ Aprovada pelo Patrik: [[Comunidade - promessa parar de recomeçar]].
 - Bônus da Comunidade no formato da VSL dele: 1 Plano Alimentar Flexível, 2 Módulo LPF e Ativação Abdominal, 3 Aulas de Mobilidade, 4 Desafio Novo Todo Mês, 5 Grupo das Musas. Os bônus do Efeito Lipo (Guia do Ciclo, Anti-Pelanquinha, Áudios Quebra de Sabotagem) só entram se o Patrik confirmar.
 
 ## Registro
+- 2026-11-08 · Revisão do quiz e da página contra a promessa ([[Comunidade - revisão quiz e página x promessa (08-11)]]): topo e começo do quiz batem; sobras do Efeito Lipo no quiz (inclusive "dia 21"); o resultado promete aula curta e "versão segura" que o app não tem (5 aulas de 28–37 min, nenhuma marcada). VSL do Movimento colocada só na prévia (branch `claude/sharp-cray-ibhr4l`, aparece só com VERCEL_ENV=preview), a pedido do Patrik, para ver o encaixe.
 - 2026-11-08 · Página /comunidade v2 (padrão Movimento, rosa, logo, 5 bônus com capas do Gravyx) no PR patrikgonzaga2-tech/LR_LauraRosaPersonal#370, aguardando OK. Roteiro v3.1 com 7 mil alunas e bônus.
 - 2026-11-08 · Patrik não gostou da VSL, da capa e do resultado do quiz e pediu a VSL "igual" à do Movimento. Feito o roteiro v3, que segue a dele trecho por trecho ([[Comunidade - roteiro da VSL v3]]): **a Laüra deve gravar o v3**. Levantados os anúncios dele ([[Comunidade - anúncios do Movimento]]).
 - 2026-11-08 · Quiz publicado (#368). Patrik pediu a VSL "igual" à do Movimento: decidido refazer cena por cena (mesma ordem, ritmo e tipos de cena) só com quadros nossos, sem usar vídeo/texto dele. Mapa em [[Comunidade - VSL cena a cena]]; animação de imagem testada no Gravyx (Omni 4 s 720p = 660 tokens; Seedance bloqueou por filtro).
