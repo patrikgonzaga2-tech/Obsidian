@@ -100,6 +100,36 @@ Ao terminar, atualize Status e Registro da nota "Corpo Feliz - Comunidade" no Ob
 
 ---
 
+## Q · Continuar o QUIZ da Comunidade (atualizado em 08/11/2026, depois do #374)
+```
+VAMOS CONTINUAR O QUIZ DA COMUNIDADE.
+Anexe os repositórios patrikgonzaga2-tech/LR_LauraRosaPersonal e patrikgonzaga2-tech/obsidian e trabalhe numa branch própria.
+Leia SÓ: no obsidian, "01-Projetos/Corpo Feliz - Comunidade.md" (Status, Identidade, Pendências e Registro) e "01-Projetos/Corpo Feliz - Comunidade/Comunidade - quiz v2 (08-11).md" (tela a tela com a fonte de cada uma). Siga o CLAUDE.md do LR_LauraRosaPersonal.
+
+O que está NO AR (https://www.laurarosapersonal.com/comunidade-quiz), PRs #371 a #374:
+- Objetivo: vender a assinatura da Comunidade pelo quiz. Promessa: "Você não precisa de mais um treino. Precisa parar de recomeçar."
+- Link único do teste: sem ?p sorteia 1/3 para cada capa (cookie cq_capa, 30 dias); ?p=1 recomeçar, ?p=2 fase da mulher, ?p=3 joelho/lombar/diástase fixam a capa. A capa só tem logo, título, subtítulo e botão (Patrik não quer "Profe Laüra", cartão de 7 mil nem WhatsApp na capa).
+- Ordem: desejo → idade → recomeços → o que tentou → empatia → onde larga → o que faz parar → tela do ciclo → tempo → onde → cuidados → fase → sozinha → medo → prova (Laüra, +7 mil alunas, 4 depoimentos autorizados) → carregando → resultado.
+- Resultado: "Você não para por preguiça. Você para [momento]" → Agora × Com a Comunidade → o que mais faz parar → Seu plano → VSL (espaço reservado; só a prévia da Vercel mostra a de referência) → checklist → "Sozinha ou com a gente?" → "De R$ 97 por R$ 39,90 por mês, só R$ 1,33 por dia" + garantia de 15 dias + sem fidelidade → seu medo → botão → WhatsApp 0948.
+- Checkout: https://payfast.greenn.com.br/148344/offer/yaG6FL (mensal R$ 39,90), com utm_source=comunidade-quiz, utm_medium=cq-p1|2|3, utm_term=anúncio, utm_content=xcod.
+- Rastreio: /api/quiz com variante=comunidade-quiz e intro_ab=CQ-p1|2|3 (answers._sorteio=1 quando veio do sorteio). O /painel (Efeito Lipo) já deixa essas sessões de fora.
+- Arquivos: app/comunidade-quiz/ (_dados.ts = textos, ofertas e ordem; _quiz.tsx = telas; _ui.tsx = cores rosa; _track.ts = rastreio e link do checkout; page.tsx = sorteio da capa; _beacon.ts = visita).
+
+Pendências conhecidas:
+- Conferir na Greenn se a oferta yaG6FL está com garantia de 15 dias (o checkout não mostra).
+- App: não liberado para quem compra (o campo produto é "Comunidade Corpo Feliz" em todos os planos; liberar = toda assinante; decisão do Patrik).
+- Não existe ainda uma aba no /painel com os números do quiz da Comunidade por capa (visitas, passaram da capa, terminaram, clicaram comprar, compraram).
+- VSL: entra no resultado quando os áudios da Laüra ficarem prontos (prompt D, em outra conversa).
+- Página /comunidade v2 continua no PR #370, sem OK.
+
+O que eu quero mexer agora: [escreva aqui].
+
+Regras: NUNCA INVENTE NADA (todo número e texto com fonte); pagamento, preço, oferta, garantia e checkout só com o meu OK explícito (mostre antes/depois e espere); depois do meu "pode subir" você mescla e confere no ar; painel oficial de links no mesmo PR; tudo que for decidido entra no Obsidian (nota do projeto + "Comunidade - quiz v2 (08-11)").
+Economia: não abra imagens sem precisar; um print só no fim; leia só a seção do doc que a tarefa pede.
+```
+
+---
+
 ## R · Retomar a Comunidade numa conversa nova (08/11/2026)
 ```
 Vamos continuar o projeto Comunidade Corpo Feliz. Anexe os repositórios LR_LauraRosaPersonal e obsidian.

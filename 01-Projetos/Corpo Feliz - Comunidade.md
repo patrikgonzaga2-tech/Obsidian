@@ -76,7 +76,7 @@ Aprovada pelo Patrik: [[Comunidade - promessa parar de recomeçar]].
 - [[Comunidade - inventário do Drive]]
 - [[Comunidade - relatórios anteriores]]
 - [[Comunidade - fatos do quiz]]
-- [[Prompts para conversas paralelas - Comunidade]] — prompts prontos para dividir o trabalho em várias conversas.
+- [[Prompts para conversas paralelas - Comunidade]] — prompts prontos para dividir o trabalho em várias conversas. Para continuar o quiz: prompt **Q**; para a VSL: prompt **D**.
 
 ## Identidade (Patrik, 08/11)
 - Cores: rosa da Laüra (página usa vinho #1E0D17, rosa #FF6FA3 e #E8457F; verde só em detalhes). Se a Laüra tiver o código oficial da cor, trocar.
@@ -85,6 +85,7 @@ Aprovada pelo Patrik: [[Comunidade - promessa parar de recomeçar]].
 - Bônus da Comunidade no formato da VSL dele: 1 Plano Alimentar Flexível, 2 Módulo LPF e Ativação Abdominal, 3 Aulas de Mobilidade, 4 Desafio Novo Todo Mês, 5 Grupo das Musas. Os bônus do Efeito Lipo (Guia do Ciclo, Anti-Pelanquinha, Áudios Quebra de Sabotagem) só entram se o Patrik confirmar.
 
 ## Registro
+- 2026-11-08 · Patrik: continuar o quiz em outra conversa. Prompt Q salvo em [[Prompts para conversas paralelas - Comunidade]].
 - 2026-11-08 · #374: botão do quiz no mensal R$ 39,90 (oferta yaG6FL, "CORPO FELIZ - ASSINATURA R$39,90"), UTM com capa (cq-p1/2/3), anúncio e xcod; /painel deixa de fora as sessões variante=comunidade-quiz (21 EL + 3 CQ desde 01/11). App não liberado (decisão do Patrik). Garantia de 15 dias não aparece no texto do checkout: conferir na Greenn.
 - 2026-11-08 · Oferta no resultado do quiz (#373): "Sozinha ou com a gente?" + "De R$ 97 por R$ 39,90 por mês, só R$ 1,33 por dia" + garantia de 15 dias + sem fidelidade; link sem ?o abre o mensal. Botão desligado até o link da Greenn.
 - 2026-11-08 · PR #372 no ar: link único https://www.laurarosapersonal.com/comunidade-quiz sorteia 1/3 para cada capa (cookie 30 dias; ?p= fixa); capa sem "Profe Laüra Rosa", sem cartão de 7 mil e sem WhatsApp (Patrik: "nenhuma página de quiz tem esses dados"); garantia passa a 15 dias. VSL fica para depois dos áudios (foco no quiz).
