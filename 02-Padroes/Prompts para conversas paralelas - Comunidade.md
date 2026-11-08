@@ -87,3 +87,21 @@ O que fazer:
 Regras: NUNCA INVENTE NADA. Sem antes e depois, quilos, prazo, nome de remédio. Produtor-video gasta crédito: só com o meu OK.
 Ao terminar, coloque o link do vídeo na nota principal da Comunidade (Status e Registro).
 ```
+
+---
+
+## R · Retomar a Comunidade numa conversa nova (08/11/2026)
+```
+Vamos continuar o projeto Comunidade Corpo Feliz. Anexe os repositórios LR_LauraRosaPersonal e obsidian.
+Leia SÓ a nota "01-Projetos/Corpo Feliz - Comunidade.md" do Obsidian (tabela Status, Identidade, Pendências e Registro) e, se a tarefa pedir, a nota específica que ela aponta. Siga o CLAUDE.md do LR_LauraRosaPersonal.
+
+Onde paramos:
+- /comunidade-quiz no ar. A página /comunidade v2 (padrão Movimento, rosa, logo, 5 bônus) está no PR #370, esperando o "pode subir".
+- O roteiro v3.1 da VSL está pronto e falta o áudio da Laüra.
+- O vídeo vai seguir a VSL do Movimento cena por cena, com quadros nossos (33 cenas no Gravyx, links em "Comunidade - VSL mapa de cenas").
+
+Próximo passo: [escreva aqui: publicar #370 / montar o vídeo com o áudio / ajustar o quiz / anúncios].
+
+Economia: não abra imagens nem prints sem precisar; um print só no fim; leia só a seção do doc que a tarefa pede.
+Regras: NUNCA INVENTE NADA; pagamento e checkout só com o meu OK explícito; tudo que for decidido entra no Obsidian.
+```
