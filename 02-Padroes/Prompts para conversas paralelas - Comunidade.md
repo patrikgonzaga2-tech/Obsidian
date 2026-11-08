@@ -145,3 +145,36 @@ Próximo passo: [escreva aqui: publicar #370 / montar o vídeo com o áudio / aj
 Economia: não abra imagens nem prints sem precisar; um print só no fim; leia só a seção do doc que a tarefa pede.
 Regras: NUNCA INVENTE NADA; pagamento e checkout só com o meu OK explícito; tudo que for decidido entra no Obsidian.
 ```
+
+
+---
+
+## E · VSL da Comunidade na VTurb (atualiza o D) · 08/11/2026
+Decisão do Patrik (08/11): a VSL vai para a **VTurb** e entra na página /comunidade (já no ar, 4 promessas). A dúvida dele vai dentro do prompt: Gravyx, Kairogem ou modelar exatamente a do Movimento com os áudios que a Laüra já criou.
+```
+VAMOS MONTAR A VSL DA COMUNIDADE E COLOCAR NA VTURB.
+Repositórios desta conversa: patrikgonzaga2-tech/LR_LauraRosaPersonal e patrikgonzaga2-tech/obsidian. Trabalhe numa branch própria.
+
+Leia primeiro, no obsidian: "01-Projetos/Corpo Feliz - Comunidade.md" (só Status, Identidade, Pendências e Registro) e, da pasta "01-Projetos/Corpo Feliz - Comunidade/":
+- "Comunidade - roteiro da VSL v3.md" (roteiro v3.1 que a Laüra gravou: 23 partes, uma por arquivo de áudio; a parte 19, preço, vem num arquivo separado)
+- "Comunidade - VSL cena a cena.md" e "Comunidade - VSL mapa de cenas.md" (ordem, ritmo e tipos de cena; 33 imagens já geradas no Gravyx)
+- "Comunidade - página de vendas, Elah e mercado (08-11).md" (só a seção "Quando o resto da página abre")
+Siga o CLAUDE.md do LR_LauraRosaPersonal.
+
+Contexto (08/11): a página /comunidade está no ar com 4 promessas sorteadas (?p=1 a 4), topo só com título e vídeo; o resto da página abre quando o vídeo chega no momento da oferta. Os 3 valores a preencher ficam em app/comunidade/_dados.ts: VTURB_ID (id do <vturb-smartplayer>), VTURB_SRC (player.js da VTurb) e REVEAL_SECONDS (segundo da VSL em que a oferta começa). O quiz (/comunidade-quiz) também tem um espaço de VSL no resultado (VSL_SRC em app/comunidade-quiz/_dados.ts, hoje um iframe): só mexa nele se o Patrik pedir, e então use o mesmo embed da VTurb.
+
+DÚVIDA DO PATRIK (responda primeiro, antes de gastar qualquer crédito): "é melhor o Gravyx ou o Kairogem para criar essa VSL, ou melhor modelar exatamente a do Movimento, com os áudios da Laüra que ela já criou?"
+- Sobre o Kairogem: não há nada nas notas nem conector conhecido. Pergunte ao Patrik o que é, quanto custa e como acessar. Se ele não tiver acesso, siga com o Gravyx.
+- Recomendação inicial (confirme com um teste curto): usar os áudios da Laüra como espinha da VSL, fotos e vídeos reais dela e das alunas autorizadas, e o Gravyx (ou o Kairogem, se ele provar ser melhor) só para as cenas de rotina. Modelar do Movimento a ESTRUTURA (ordem, ritmo, tipos de cena), nunca o texto, o vídeo ou o áudio dele; a nossa tem a Laüra de verdade, que é a vantagem.
+- Para decidir com dados: gere a MESMA cena de teste nas ferramentas que o Patrik tiver e compare custo por cena, consistência do rosto e da roupa, tempo de geração e se passa sem cara de IA. Mostre lado a lado e deixe o Patrik escolher. Gasto de crédito (Gravyx, Kairogem, ElevenLabs, HeyGen) só com o OK dele.
+
+Tarefa:
+1. Me peça os áudios (pasta "VSL" do Drive: https://drive.google.com/drive/folders/1bGc7_kwv0MmpTpH6-e0hvQJcO6atNveZ), as fotos e vídeos reais da Laüra e as gravações de tela do app (se houver).
+2. Transcreva com tempo, alinhe cada parte do roteiro ao áudio e monte a lista de cenas (as 33 do Gravyx, cartões em HTML nas cores da identidade, Laüra, telas do app). Gere imagem nova só com o OK do custo.
+3. Primeiro uma prévia curta (3 primeiras partes) para o Patrik aprovar o estilo; depois o vídeo inteiro, vertical 9:16, 1080x1920, MP4 (agente editor-video, ffmpeg).
+4. Descubra o segundo em que a Laüra começa a apresentar a oferta (parte 19, preço) e proponha REVEAL_SECONDS: o segundo em que a oferta começa, menos uns 3 s. Referência: o Movimento libera o resto da página aos 654 s de 866 s (75,5%); a Aline, aos ~300 s de 390 s (77%).
+5. Guie o Patrik na VTurb: subir o MP4, tela cheia e vertical, e me passar o código do player (<vturb-smartplayer id="...">) e o endereço do player.js. Com isso, preencha VTURB_ID, VTURB_SRC e REVEAL_SECONDS num PR, com o painel oficial de links atualizado, e só mescle depois do OK do Patrik. Confira no ar (a página abre inteira se VTURB_ID estiver vazio e libera o resto no segundo definido quando estiver preenchido; teste com ?p=1 a ?p=4).
+
+Regras: NUNCA INVENTE NADA. Sem balança, fita métrica, quilos, prazo ou nome de remédio no vídeo. O texto do preço (parte 19) é o já aprovado: "De R$ 97 por R$ 39,90 por mês, só R$ 1,33 por dia, garantia de 15 dias, sem fidelidade"; qualquer mudança de preço, garantia, oferta ou link só com OK explícito do Patrik (mostre antes e depois). Quem compra o mensal recebe tudo (treinos, treinos de 3, 5 e 15 minutos, plano alimentar, Grupo das Musas, mobilidade, diástase e acompanhamento); a VSL fala da Comunidade, não do app.
+Ao terminar, atualize Status e Registro da nota "Corpo Feliz - Comunidade" no Obsidian e me mande o link da página.
+```
