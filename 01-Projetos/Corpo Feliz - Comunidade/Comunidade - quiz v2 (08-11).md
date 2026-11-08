@@ -13,7 +13,7 @@ Projeto: [[Corpo Feliz - Comunidade]] · Promessa: [[Comunidade - promessa parar
 
 # Quiz v2 da Comunidade (08/11/2026)
 Pedido do Patrik: "montar o quiz perfeito batendo na dor que o mercado tá batendo e escalando… vender a assinatura da Comunidade através do quiz, com promessa vencedora".
-Status: **na prévia** (branch `claude/sharp-cray-ibhr4l` do site), **não publicado**. Oferta e checkout vazios até o OK do Patrik.
+Status: **no ar** desde 08/11 (#371–#374): mensal R$ 39,90, garantia de 15 dias, checkout yaG6FL. Visual novo no PR #376 (aguardando OK).
 
 ## A lógica (com fonte)
 - **Dor que o mercado escala:** "parar de recomeçar / decidir tudo sozinha" (Movimento: 27 anúncios desde 12/08, fecho do VSL); "teste rápido → plano personalizado" (Aline Pamplona 61 ativos, Kslim, pilates); "poucos minutos em casa" (Líbia, campanhas 15 min com ROAS 2,2–2,4); "seguro para as dores" (pilates). Ver [[Comunidade - concorrentes]] e [[Comunidade - anúncios do Movimento]].
@@ -49,7 +49,16 @@ Status: **na prévia** (branch `claude/sharp-cray-ibhr4l` do site), **não publi
 3. "O que mais te faz parar: X" → como a Comunidade responde (só entregas da página da Black, 31/10).
 4. "Seu plano Corpo Feliz": tempo, onde, cuidado, fase.
 5. VSL (hoje: espaço reservado; na prévia, a do Movimento só para ver o encaixe).
-6. Checklist da Comunidade, oferta (vazia), "seu medo", botão (desligado), garantia de 7 dias, WhatsApp 0948.
+6. Checklist da Comunidade, "Sozinha ou com a gente?", oferta "De R$ 97 por R$ 39,90 por mês" + garantia de 15 dias + sem fidelidade, "seu medo", botão (yaG6FL), WhatsApp 0948.
+
+## Visual novo (08/11, PR #376, aguardando OK)
+Pedido do Patrik: "o quiz tá feio, fotos cortadas, lento… a página final não vende… a logo nem aparece, antes e depois nem tem".
+- Logo no topo de todas as telas (PNG branco usado como máscara, sai rosa no fundo claro); capa com logo maior.
+- Prova: foto da Laüra inteira (2:3) com "+ de 7 mil" por cima; depoimentos inteiros, lado a lado (rolagem).
+- Resultado: topo vinho com logo → Agora × Com a Comunidade → o que te faz parar → seu plano → VSL só se houver vídeo → "Quem é Laüra Rosa?" com o antes e depois dela (foto de /efeito-lipo e da Firme) → depoimentos → checklist → comparação → oferta (sem mudança).
+- Velocidade: avanço 420→240 ms, carregando 850→650 ms por passo, animações 0,5→0,32 s, depoimentos otimizados (~790 KB sem compressão antes) e baixados antes da prova. Robô do começo ao resultado: 19,5 s → 13,1 s.
+- Proposta aguardando OK (texto de oferta): "5 bônus pra você colocar tudo em prática" com as 5 capas da página v2 (#370).
+- Conflito para o Patrik decidir: BRAND.md diz "sem antes e depois"; o depoimento da Camila (já no ar) tem "30 dias -9kg off" (quilos e prazo).
 
 ## O que saiu da v1 e por quê
 Telas de beliscar e de sono/inchaço (Efeito Lipo, não entravam no resultado); "medo em relação a emagrecer" e "não para no dia 21" (Efeito Lipo 21D); "canetinha" (regra do Meta); minutos e "versão segura" do app no resultado (o app tem 5 aulas de 28–37 min e nenhuma marcada, conferido 08/11).
