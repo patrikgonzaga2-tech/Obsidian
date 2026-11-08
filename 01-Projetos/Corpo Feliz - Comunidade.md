@@ -35,7 +35,7 @@ Aprovada pelo Patrik: [[Comunidade - promessa parar de recomeçar]].
 |---|---|---|---|
 | 1 | Roteiro da VSL (áudio da Laüra) | pronto, enviado ao Patrik | [[Comunidade - roteiro da VSL da Laura]] |
 | 2 | Página de VSL `/comunidade` (modelo da página do Movimento, copy nossa) | **no ar** desde 08/11 (Patrik: "publica a página pra gente testar"); botão e vídeo ainda vazios | https://www.laurarosapersonal.com/comunidade · PR patrikgonzaga2-tech/LR_LauraRosaPersonal#366 (o #365 foi fechado e reaberto como #366) |
-| 3 | Quiz `/comunidade-quiz` | **no ar** desde 08/11 (Patrik: "pode subir o quiz"); antes de anunciar, separar no /painel (`quizDe()` em `app/painel/_lib/funil.ts`) | https://www.laurarosapersonal.com/comunidade-quiz?p=1 · PR patrikgonzaga2-tech/LR_LauraRosaPersonal#368 |
+| 3 | Quiz `/comunidade-quiz` | **v2 na prévia** (08/11, aguardando OK: [[Comunidade - quiz v2 (08-11)]]); v1 **no ar** desde 08/11 (Patrik: "pode subir o quiz"); antes de anunciar, separar no /painel (`quizDe()` em `app/painel/_lib/funil.ts`) | https://www.laurarosapersonal.com/comunidade-quiz?p=1 · PR patrikgonzaga2-tech/LR_LauraRosaPersonal#368 |
 | 4 | Ajustes no app (acesso, Plano B, nomes das aulas) | a fazer, precisa da lista de vídeos | ver "App" abaixo |
 | 5 | Anúncios (3 imagens + 3 vídeos) via Gravyx | a fazer, avisar custo antes | [[Comunidade - concorrentes]] |
 | 5b | Vídeo da VSL no estilo do Movimento com o áudio da Laüra | 33 cenas geradas no Gravyx (links em [[Comunidade - VSL mapa de cenas]]) + 3 cartões; falta o áudio da Laüra, gravação de tela do app e fotos dela | [[Comunidade - VSL mapa de cenas]] |
@@ -62,7 +62,7 @@ Aprovada pelo Patrik: [[Comunidade - promessa parar de recomeçar]].
 - Lista dos vídeos da área de membros (para nomear as aulas do app).
 - Workspace do Gravyx a usar e OK do custo em tokens.
 - Liberar o app novo para toda assinante?
-- OK na proposta da revisão de 08/11 (quiz 17→14 telas, resultado sem prometer aula curta/segura, quiz rosa, miolo da página): [[Comunidade - revisão quiz e página x promessa (08-11)]].
+- OK para publicar o quiz v2 ([[Comunidade - quiz v2 (08-11)]]) e decidir o miolo da página ([[Comunidade - revisão quiz e página x promessa (08-11)]]).
 - Autorização por escrito da aluna para usar a frase "Foi o que me fez ter constância pela primeira vez na vida".
 
 ## Notas de referência
@@ -71,6 +71,7 @@ Aprovada pelo Patrik: [[Comunidade - promessa parar de recomeçar]].
 - [[Comunidade - roteiro da VSL da Laura]]
 - [[Comunidade - voz da cliente]] — dores, objeções e frases (anonimizado).
 - [[Comunidade - concorrentes]] — Biblioteca de Anúncios e funis.
+- [[Comunidade - quiz v2 (08-11)]] — quiz novo, tela a tela com a fonte de cada uma.
 - [[Comunidade - revisão quiz e página x promessa (08-11)]] — o que bate e o que não bate com a promessa, e a proposta.
 - [[Comunidade - inventário do Drive]]
 - [[Comunidade - relatórios anteriores]]
@@ -84,6 +85,7 @@ Aprovada pelo Patrik: [[Comunidade - promessa parar de recomeçar]].
 - Bônus da Comunidade no formato da VSL dele: 1 Plano Alimentar Flexível, 2 Módulo LPF e Ativação Abdominal, 3 Aulas de Mobilidade, 4 Desafio Novo Todo Mês, 5 Grupo das Musas. Os bônus do Efeito Lipo (Guia do Ciclo, Anti-Pelanquinha, Áudios Quebra de Sabotagem) só entram se o Patrik confirmar.
 
 ## Registro
+- 2026-11-08 · Patrik: "para de inventar… montar o quiz perfeito batendo na dor que o mercado está escalando". Feito o quiz v2 só com dados nossos e padrões do mercado ([[Comunidade - quiz v2 (08-11)]]): abre pelo desejo, vira para o comportamento, telas de empatia, prova e carregando (modelo Aline), resultado "Agora × Com a Comunidade" só com entregas da página da Black, identidade rosa. Na prévia, não publicado.
 - 2026-11-08 · Revisão do quiz e da página contra a promessa ([[Comunidade - revisão quiz e página x promessa (08-11)]]): topo e começo do quiz batem; sobras do Efeito Lipo no quiz (inclusive "dia 21"); o resultado promete aula curta e "versão segura" que o app não tem (5 aulas de 28–37 min, nenhuma marcada). VSL do Movimento colocada só na prévia (branch `claude/sharp-cray-ibhr4l`, aparece só com VERCEL_ENV=preview), a pedido do Patrik, para ver o encaixe.
 - 2026-11-08 · Página /comunidade v2 (padrão Movimento, rosa, logo, 5 bônus com capas do Gravyx) no PR patrikgonzaga2-tech/LR_LauraRosaPersonal#370, aguardando OK. Roteiro v3.1 com 7 mil alunas e bônus.
 - 2026-11-08 · Patrik não gostou da VSL, da capa e do resultado do quiz e pediu a VSL "igual" à do Movimento. Feito o roteiro v3, que segue a dele trecho por trecho ([[Comunidade - roteiro da VSL v3]]): **a Laüra deve gravar o v3**. Levantados os anúncios dele ([[Comunidade - anúncios do Movimento]]).
