@@ -44,3 +44,15 @@ Datas vêm de `ad_delivery_start_time`. A ferramenta devolve no máximo 50 anún
 1. "Entrar com teste": a página disputa tráfego com o quiz na mesma campanha (50/50) ou é uma campanha à parte?
 2. VSL: gravar o roteiro v3 ([[Comunidade - roteiro da VSL v3]]) ou usar os áudios do prompt D? Hoje não há vídeo.
 3. A página usa o mesmo checkout do mensal (yaG6FL)?
+
+## Decisões do Patrik (08/11, depois da análise)
+- Campanha à parte para a página, teste igual ao do quiz, por promessa. O que se testa é o **formato de venda: quiz × página**, qual converte melhor. A página entrega **a Comunidade**, igual ao quiz (não vende o app).
+- Checkout: o mesmo mensal do quiz (yaG6FL). A VSL é gravada em outra conversa e entra na VTurb.
+- 3 promessas = as 3 capas do quiz (1 recomeçar, 2 fase da mulher, 3 joelho/lombar/diástase). Antes e depois "pode passar" (Patrik gostou do modelo do Elah); usa as 6 alunas da página da Black e o antes e depois da Laüra. Risco: o Meta também avalia a página de destino e os prints têm kg e prazo escritos.
+- Elah: Patrik diz que escala (mais de 20 anúncios, mais de 30 dias). O que a Biblioteca mostra: mais de 50 anúncios nas duas páginas, o mais antigo visível de 15–16/10 (cerca de 23 dias).
+
+## Quando o resto da página abre (VSL do Movimento, lido no código da página, 08/11)
+- Movimento: `OFFER_SECONDS = 654` (10:54) de um vídeo de 14:26 (866 s) = 75,5%. Antes disso só aparecem título, subtítulo, vídeo e selos; botão do topo, faixa, todas as seções, preço, botão final e barra fixa ficam escondidos. Gatilho: evento `timeupdate` do smartplayer da VTurb. Salva `movOfferRevealed` no navegador (quem volta vê tudo) e abre sozinho se o player não responder em 25 s.
+- Aline (já medido): VSL 1 libera "Continuar" aos ~100 s de 359 s; VSL 2 libera o botão aos ~300 s de 390 s (77%), com cronômetro.
+- Líbia: não esconde nada (página aberta desde o início).
+- Nossa página: mesmo gatilho (`REVEAL_SECONDS` em `app/comunidade/_dados.ts`), a definir quando a VSL estiver gravada, no segundo em que a Laüra apresenta a oferta. Sem VTurb configurada, a página abre inteira (prévia).
