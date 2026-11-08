@@ -29,5 +29,5 @@ número pessoal… ela funciona tanto pra renovação quanto pra pix criado e ag
 - Ficaram de fora (a UMCLIQUE também não mandava): cancelamento de assinatura da Hotmart, protesto, Pix expirado.
 
 ## Status
-- Mudança pronta na branch `claude/sweet-volta-fm90rk`, esperando o OK do Patrik para subir.
+- No ar desde 08/11 (PR #369, OK do Patrik: "pode subir").
 - Depois de subir: Patrik desliga a automação do 3606 na UMCLIQUE.
