@@ -34,6 +34,9 @@ Pergunta do Patrik: quem comprou o mensal, por que compraria depois o anual ou o
 ## 3. Mercado (notas de 09/11)
 Aline: upsell em vídeo, 1 clique, R$ 220 em até 12x de R$ 22,75, com "parcelar no cartão" para quem pagou no Pix, depois downsell. Elah: anual em 12x (R$ 29,70 a R$ 59,70) e upsell de 1 clique. Movimento: 1 bump de R$ 9,99 e sem upsell visível. Os dois que escalam vendem pela **parcela**.
 
+## 3b. Mercado escalado, rodada de 09/11 (funis novos)
+Funis novos lidos e a nova variante D do upsell: [[Comunidade - funis do mercado escalado: Floripa, Polly, Paula, Zanon, Queima (09-11)]] (relatório: https://claude.ai/artifact/JVmwSYfNeXsM3GCX1cgMXX).
+
 ## 4. Checagem independente (agente que não viu a conclusão)
 Veredito: parcela/preço é o argumento com mais base; garantia tem sinal pequeno e alta conversão; continuidade só tem base indireta. **Confiança baixa** (amostras de 2 a 35). Recomenda tratar a ordem como hipótese e testar. Não conferido: taxa de aceite, retenção do mensal de R$ 39,90, parcelamento e reembolso por produto, semestral.
 
