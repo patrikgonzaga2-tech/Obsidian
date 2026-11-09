@@ -5,7 +5,7 @@ project: "Corpo Feliz - Comunidade"
 tags: [tipo/projeto, projeto/corpo-feliz-comunidade, laura-rosa]
 keywords: [comunidade, assinatura, laura, corpo feliz, quiz, vsl, recomeçar, movimento, app, gravyx]
 created: 2026-11-08
-updated: 2026-11-08
+updated: 2026-11-09
 summary: "Venda da assinatura da Comunidade Corpo Feliz (Laüra Rosa) com a promessa 'parar de recomeçar': quiz, página de VSL, app e anúncios."
 ---
 
@@ -56,6 +56,7 @@ Aprovada pelo Patrik: [[Comunidade - promessa parar de recomeçar]].
 `hostinger/black-comunidade/dados/conteudo.json` (página da Black, 31/10): app com treinos em casa ou academia com vídeo de cada exercício, treinos hormonais, treinos de 3 e 5 minutos "pros dias impossíveis"; plano alimentar flexível; a Profe Laüra e o time no WhatsApp; Grupo das Musas; módulo de LPF/diástase com professora especializada; mobilidade; desafio todo mês; garantia de 7 dias. WhatsApp oficial (37) 6000-0948.
 
 ## Pendências do Patrik
+- Segurança (09/11): passos do Supabase feitos; falta OK nos itens de pagamento e ligar a CSP em 1-2 semanas. Ver [[Site - check de segurança pré-lançamento (09-11)]].
 - Oferta: R$ 39,90/mês + garantia de 15 dias decididos ([[Comunidade - oferta mensal 39,90 (08-11)]]); texto com comparação e ancoragem NO AR (#373, "pode aplicar"); Patrik ajustou a Greenn em 08/11; botão LIGADO no checkout https://payfast.greenn.com.br/148344/offer/yaG6FL (#374).
 - Onde vai a VSL: no resultado (recomendado) ou também um corte no meio do quiz, como a Aline.
 - Rodar antes ou depois da Black (vagas abrem 12/11).
@@ -85,6 +86,7 @@ Aprovada pelo Patrik: [[Comunidade - promessa parar de recomeçar]].
 - Bônus da Comunidade no formato da VSL dele: 1 Plano Alimentar Flexível, 2 Módulo LPF e Ativação Abdominal, 3 Aulas de Mobilidade, 4 Desafio Novo Todo Mês, 5 Grupo das Musas. Os bônus do Efeito Lipo (Guia do Ciclo, Anti-Pelanquinha, Áudios Quebra de Sabotagem) só entram se o Patrik confirmar.
 
 ## Registro
+- 2026-11-09 · Check de segurança do site (20 checagens): 68 → 93/100, PR patrikgonzaga2-tech/LR_LauraRosaPersonal#389 mesclado e no ar (Patrik: "pode aplicar", "pode mesclar"). Todo mundo entra no painel de novo uma vez; link da Laura mudou. Passos manuais no Supabase e itens de pagamento em [[Site - check de segurança pré-lançamento (09-11)]].
 - 2026-11-08 · Patrik: sem campanha por enquanto ("vamos criar a VSL antes, colocar em tudo, resolver o funil que tem upsell, criar vídeos e imagens de criativos modelando o que já escala; depois as campanhas, quando tiver tudo no painel"). Resumo de tudo em [[Comunidade - resumo e plano do funil (08-11)]]; prompt F (funil, upsell, desenho no Miro, criativos modelados, painel) em [[Prompts para conversas paralelas - Comunidade]]; a VSL segue no prompt E. A proposta de campanha e os 8 criativos de imagem foram descartados por ora.
 - 2026-11-08 · Patrik ajusta a VSL: modelar exatamente a do Movimento (pode usar as imagens e os vídeos dela, modelar o texto, sem o áudio dele), montada na linha dos áudios da Laüra e com as nossas provas; "a dele vende, vamos seguir". Gravyx e Kairogem só para tapar buraco. Prompt E atualizado em [[Prompts para conversas paralelas - Comunidade]]. Mantido: sem balança, fita métrica, quilos, prazo ou remédio no vídeo; material de terceiros pode gerar denúncia ou reprovação do anúncio (avisado).
 - 2026-11-08 · #381 mesclado e no ar (Patrik: "1 ok"): página de vendas com VSL em /comunidade (4 promessas sorteadas, a 4ª é a do Movimento) e 4ª capa no quiz (?p=4). Respostas do Patrik no mesmo dia: quem compra o mensal recebe tudo (inclui os treinos de 3, 5 e 15 min); depoimento da aluna autorizado (também na prova do quiz); garantia de 15 dias conferida na Greenn; campanha à parte, teste de formato (quiz × página) por promessa; o app é outra oferta e fica para o fim, em outra conversa. Visita de teste do Claude apagada do banco.
