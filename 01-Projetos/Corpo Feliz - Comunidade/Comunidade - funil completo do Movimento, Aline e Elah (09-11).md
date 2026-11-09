@@ -103,6 +103,15 @@ Projeto: [[Corpo Feliz - Comunidade]] · Plano: [[Comunidade - resumo e plano do
 - **Teste de preço** do upsell (Aline e Elah testam).
 **Regra:** preço, texto de oferta, bump, upsell e links da Greenn só com OK explícito do Patrik (antes e depois). Nada disso foi alterado.
 
+## Etapa 3 aprovada pelo Patrik (10/11): upsell e order bump da Comunidade
+Proposta desenhada no artefato [Funil da Comunidade — proposta](https://claude.ai/artifact/X8iiq12nxtT4Qn3d5P6YXy) (claude.ai), modelada em Movimento/Aline/Elah/Líbia, só com produtos que já existem. **Preços aprovados pelo Patrik em 10/11:**
+- **Order bump no checkout do mensal (yaG6FL):** os dois juntos, Cinturinha EXPRESS (R$ 19,90, produto 180269) e Receitas que Secam (R$ 19,90, produto 123059) — preço já praticado no Efeito Lipo, não é novo. Falta o Patrik configurar os bumps na oferta dentro da Greenn.
+- **Upsell pós-compra (1 clique), tela nova a criar (ex.: `/comunidade-upsell`):** Comunidade · Anual por **R$ 297** — **preço novo, decidido pelo Patrik em 10/11** (ele preferiu R$ 297 a R$ 253; as ofertas de hoje do anual são M3DUOL R$253/38 vendas e ij3kFo R$387/24 vendas; precisa criar oferta nova na Greenn). Bate com a âncora que o Elah usa no degrau de entrada dele.
+- **Downsell, só se recusar o upsell, tela nova a criar (ex.: `/comunidade-downsell`):** Comunidade · Trimestral por **R$ 97** (oferta O8j7nc, já ativa, 17 vendas desde 19/10).
+- **Mecânica de 1 clique:** já existe em `/acompanhamento-up` (upsells 6152 e 7395 da Greenn); as duas telas novas são cópia dela com produto e vídeo trocados.
+- **Ordem (regra tirada da Aline):** upsell grande primeiro, downsell só se recusar — nunca o contrário.
+- **Pendente:** criar as 2 páginas novas no código; o Patrik criar a oferta de R$ 297 e configurar os bumps na Greenn; medir cada etapa no painel (etapa 5 do plano); e a etapa 4 (desenhar no Miro) segue bloqueada — conector ainda desconectado em 10/11.
+
 ## Limites desta verificação
 - Não comprei nem preenchi nada: o que fica atrás do pagamento (e-mails, área de membros, upsells que só aparecem para quem comprou) não foi visto.
 - Sem gasto, vendas ou conversão de nenhum concorrente. As notas são leitura qualitativa.

@@ -1,0 +1,282 @@
+<title>Funil da Comunidade — proposta</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<style>
+/* Layout: duas pistas verticais (ATUAL cinza / PROPOSTO rosa) ligadas por setas, cards por etapa com preço e fonte do produto */
+:root{
+  --bg:#FBF8F6; --fg:#241A20; --sub:#6B5C63; --line:#E3D9DC;
+  --card:#FFFFFF; --atual:#8D8188; --atual-bg:#F1EDEE;
+  --rosa:#E8457F; --rosa-bg:#FDEAF1; --rosa-line:#F6C2DA;
+  --vinho:#1E0D17; --verde:#1C873C; --verde-bg:#E8F6EC;
+  --amarelo:#B8860B; --amarelo-bg:#FBF3DF;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#151012; --fg:#F2E9EC; --sub:#B6A6AD; --line:#352A2F;
+    --card:#1E1619; --atual:#9A8E94; --atual-bg:#241D20;
+    --rosa:#FF7FAB; --rosa-bg:#2B1621; --rosa-line:#4A2535;
+    --vinho:#2A1420; --verde:#59D97E; --verde-bg:#17271C;
+    --amarelo:#E3B23C; --amarelo-bg:#2B2416;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#151012; --fg:#F2E9EC; --sub:#B6A6AD; --line:#352A2F;
+  --card:#1E1619; --atual:#9A8E94; --atual-bg:#241D20;
+  --rosa:#FF7FAB; --rosa-bg:#2B1621; --rosa-line:#4A2535;
+  --vinho:#2A1420; --verde:#59D97E; --verde-bg:#17271C;
+  --amarelo:#E3B23C; --amarelo-bg:#2B2416;
+  color-scheme: dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:'Manrope',system-ui,sans-serif;margin:0;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));}
+h1,h2,h3{font-family:'Fraunces',Georgia,serif;margin:0;text-wrap:balance}
+.wrap{max-width:980px;margin:0 auto;padding-block:28px 60px}
+header{margin-bottom:6px}
+header .eyebrow{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--rosa);font-weight:700}
+header h1{font-size:clamp(22px,5vw,32px);margin-top:6px;line-height:1.15}
+header p{color:var(--sub);font-size:14.5px;line-height:1.6;max-width:640px;margin-top:10px}
+.badge{display:inline-flex;align-items:center;gap:6px;font-size:11.5px;font-weight:700;letter-spacing:.03em;
+  padding:5px 11px;border-radius:999px;background:var(--amarelo-bg);color:var(--amarelo);border:1px solid var(--amarelo);margin-top:14px}
+
+.legenda{display:flex;gap:16px;flex-wrap:wrap;margin:22px 0 8px;font-size:12.5px;color:var(--sub)}
+.legenda span{display:inline-flex;align-items:center;gap:6px}
+.dot{width:9px;height:9px;border-radius:999px;display:inline-block}
+
+.track{display:grid;grid-template-columns:1fr;gap:10px;margin-top:10px}
+.track-label{font-family:'Fraunces',serif;font-weight:700;font-size:14px;letter-spacing:.02em;
+  padding:6px 0 2px;position:sticky;top:0;background:var(--bg);z-index:2}
+.track-label.atual{color:var(--atual)}
+.track-label.proposto{color:var(--rosa)}
+
+.row{display:flex;flex-direction:column;gap:8px}
+.step{border:1px solid var(--line);border-radius:14px;padding:14px 16px;background:var(--card);min-width:0}
+.step.atual{border-color:var(--line)}
+.step.novo{border-color:var(--rosa-line);background:var(--rosa-bg)}
+.step .k{font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--sub);font-weight:700}
+.step h3{font-size:15.5px;margin-top:4px}
+.step p{font-size:13px;color:var(--sub);margin:6px 0 0;line-height:1.5}
+.step .meta{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.pill{font-size:11px;font-weight:700;padding:3px 9px;border-radius:999px;white-space:nowrap}
+.pill.preco{background:var(--verde-bg);color:var(--verde)}
+.pill.existe{background:var(--atual-bg);color:var(--atual);border:1px solid var(--line)}
+.pill.novo{background:var(--rosa);color:#fff}
+.pill.fonte{background:transparent;color:var(--sub);border:1px solid var(--line)}
+.arrow{align-self:center;color:var(--sub);font-size:18px;line-height:1}
+
+.grid2{display:grid;grid-template-columns:1fr;gap:28px;margin-top:8px}
+@media(min-width:760px){.grid2{grid-template-columns:1fr 1fr}}
+.col{display:flex;flex-direction:column;gap:10px;min-width:0}
+
+.branch{border-left:3px dashed var(--rosa-line);margin-left:10px;padding-left:16px;display:flex;flex-direction:column;gap:8px}
+
+.spot{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;margin-top:34px}
+.spot h2{font-size:17px}
+.spot .sub{color:var(--sub);font-size:12.5px;margin-top:2px}
+table{width:100%;border-collapse:collapse;margin-top:14px;font-size:13px}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--sub);font-weight:700;font-size:11px;letter-spacing:.04em;text-transform:uppercase}
+td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+.tag-mkt{display:inline-block;font-size:10.5px;font-weight:700;padding:2px 7px;border-radius:6px;background:var(--rosa-bg);color:var(--rosa);margin-right:4px}
+
+.foot{margin-top:40px;border-top:1px solid var(--line);padding-top:18px;color:var(--sub);font-size:12.5px;line-height:1.7}
+.foot b{color:var(--fg)}
+@media(min-width:620px){
+  .row{flex-direction:row;align-items:stretch}
+  .row .step{flex:1}
+}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Corpo Feliz · Comunidade</div>
+    <h1>Funil atual × funil proposto</h1>
+    <p>Modelado no que confirmei que escala (Aline, Movimento, Elah, Líbia) e só com produtos e preços que já existem no nosso banco. Nada foi implementado — isto é um desenho para você aprovar etapa por etapa.</p>
+    <div class="badge">⏸ Proposta — preço, bump, upsell e links da Greenn esperando o seu OK</div>
+  </header>
+
+  <div class="legenda">
+    <span><span class="dot" style="background:var(--atual)"></span>Já existe e está no ar</span>
+    <span><span class="dot" style="background:var(--rosa)"></span>Proposto, nada criado ainda</span>
+    <span><span class="dot" style="background:var(--verde)"></span>Preço real, conferido no banco</span>
+  </div>
+
+  <!-- ===================== FUNIL ATUAL ===================== -->
+  <div class="track-label atual">Funil atual (tudo conferido em 09/11)</div>
+  <div class="row">
+    <div class="step atual">
+      <div class="k">Entrada</div>
+      <h3>Anúncio</h3>
+      <p>Nenhum no ar. Campanha anterior descartada por ora.</p>
+      <div class="meta"><span class="pill existe">parado</span></div>
+    </div>
+    <div class="arrow">→</div>
+    <div class="step atual">
+      <div class="k">Topo</div>
+      <h3>Quiz ou Página VSL</h3>
+      <p>4 promessas sorteadas cada um. VSL da página está vazia.</p>
+      <div class="meta"><span class="pill existe">medido por promessa</span></div>
+    </div>
+    <div class="arrow">→</div>
+    <div class="step atual">
+      <div class="k">Checkout</div>
+      <h3>Mensal R$ 39,90</h3>
+      <p>Oferta yaG6FL · garantia 15 dias · sem fidelidade</p>
+      <div class="meta"><span class="pill preco">R$ 39,90/mês</span><span class="pill existe">0 vendas até 09/11</span></div>
+    </div>
+    <div class="arrow">→</div>
+    <div class="step atual">
+      <div class="k">Pós-compra</div>
+      <h3>Nada</h3>
+      <p>Sem bump, sem upsell, sem página de obrigado própria. Só e-mail de acesso.</p>
+      <div class="meta"><span class="pill existe">o maior furo</span></div>
+    </div>
+  </div>
+
+  <!-- ===================== FUNIL PROPOSTO ===================== -->
+  <div class="track-label proposto" style="margin-top:30px">Funil proposto — mesmos produtos, escada nova</div>
+
+  <div class="row">
+    <div class="step atual">
+      <div class="k">Entrada</div>
+      <h3>Anúncio</h3>
+      <p>Só depois do painel estar medindo tudo (etapa 5) e com o seu OK (etapa 6). Nada sobe para a Meta agora.</p>
+    </div>
+    <div class="arrow">→</div>
+    <div class="step atual">
+      <div class="k">Topo</div>
+      <h3>Quiz ou Página VSL</h3>
+      <p>Igual a hoje, com a VSL gravada e <b>oferta travada até o momento certo do vídeo</b>, como o Movimento (75% do vídeo) e a Aline (77%).</p>
+      <div class="meta"><span class="tag-mkt">Movimento</span><span class="tag-mkt">Aline</span></div>
+    </div>
+    <div class="arrow">→</div>
+    <div class="step atual">
+      <div class="k">Checkout</div>
+      <h3>Mensal R$ 39,90</h3>
+      <p>Mesma oferta yaG6FL. Preço intocado.</p>
+      <div class="meta"><span class="pill preco">R$ 39,90/mês</span></div>
+    </div>
+  </div>
+
+  <div class="branch" style="margin-top:14px">
+    <div class="step novo">
+      <div class="k">① Order bump · no checkout, os dois juntos</div>
+      <h3>Cinturinha EXPRESS <span style="color:var(--sub);font-weight:400">+</span> Receitas que Secam</h3>
+      <p>Não é "ou": os dois bumps <b>empilhados</b>, como os 4 bumps simultâneos da Líbia. Já vendem no Efeito Lipo (26 e 16 vendas em 45 dias) — preço real, não novo. Depende de você configurar os bumps na oferta yaG6FL dentro da Greenn.</p>
+      <div class="meta">
+        <span class="pill preco">R$ 19,90 cada</span>
+        <span class="pill existe">produtos 180269 e 123059, já vendem</span>
+        <span class="tag-mkt">Líbia</span>
+      </div>
+    </div>
+
+    <div class="step novo">
+      <div class="k">② Upsell em 1 clique · pós-compra (a oferta grande primeiro)</div>
+      <h3>Comunidade · Anual, R$ 297 (decisão do Patrik, 10/11)</h3>
+      <p><b>Preço novo, ainda não existe como oferta no banco</b> — precisa ser criado na Greenn quando você decidir ir pra frente (as ofertas de hoje do anual são M3DUOL a R$ 253, 38 vendas, e ij3kFo a R$ 387, 24 vendas). Bate com a âncora que o Elah usa no degrau de entrada dele (R$ 297 à vista). Pulo de 7,4× sobre o mensal — ainda menor que o salto da Aline (R$ 7 → R$ 220, 31×). Mecânica de 1 clique <b>já existe</b> em <code>/acompanhamento-up</code> (upsells 6152 e 7395 da Greenn); só muda o produto e o valor.</p>
+      <div class="meta">
+        <span class="pill preco">R$ 297</span>
+        <span class="pill novo">oferta nova, a criar na Greenn</span>
+        <span class="tag-mkt">Aline</span><span class="tag-mkt">Elah</span>
+      </div>
+    </div>
+
+    <div class="step novo">
+      <div class="k">③ Downsell · só se recusar o upsell</div>
+      <h3>Comunidade · Trimestral, oferta O8j7nc</h3>
+      <p>Sequência da Aline: upsell grande primeiro, <b>downsell menor só se recusar</b> — nunca o contrário. É a oferta trimestral já ativa hoje em <code>/acompanhamento-up</code> (17 vendas aprovadas desde 19/10). Fecha a escada: mensal → trimestral → anual, sem pular nenhum degrau.</p>
+      <div class="meta">
+        <span class="pill preco">R$ 97 (oferta O8j7nc)</span>
+        <span class="pill existe">produto 148339, já ativa e vendendo</span>
+        <span class="tag-mkt">Aline</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="spot" style="margin-top:20px;background:var(--rosa-bg);border-color:var(--rosa-line)">
+    <h2>Por que essa ordem, não outra</h2>
+    <p style="color:var(--sub);font-size:13.5px;line-height:1.7;margin-top:8px">
+      No funil completo do Movimento/Aline/Elah (09/11) dei nota nas 4 etapas de cada um. A nossa, hoje, fica em <b>Atrair 0 · Capturar 17 · Converter 12 · Subir ticket 4</b> — de longe o ponto mais fraco é não ter nada depois do "comprar". Este desenho ataca só essa etapa, e só com o que já temos:
+      bump primeiro (zero fricção, mesma tela de pagamento, igual à Líbia), upsell grande em seguida (modelo Aline/Elah: pedir o compromisso maior enquanto o cartão ainda está "quente", 1 clique, sem formulário novo), downsell só para quem disse não ao upsell (nunca oferecer o degrau menor primeiro — isso é o erro mais comum, e a Aline evita exatamente assim).
+      O anual entra como upsell, não como produto separado, porque é ele que puxa o ticket médio: hoje o mensal sozinho não chega a 10% do que o anual fatura.
+    </p>
+  </div>
+
+  <div class="row" style="margin-top:14px">
+    <div class="step atual" style="flex:1">
+      <div class="k">Fim do funil</div>
+      <h3>Acesso liberado</h3>
+      <p>E-mail de acesso + entrada na área de membros/app (a confirmar com você: etapa 1, pendência nº 2).</p>
+    </div>
+  </div>
+
+  <!-- ===================== SEQUÊNCIA DE TELAS PÓS-COMPRA ===================== -->
+  <div class="spot">
+    <h2>Depois que ela compra: tela por tela, sem quiz e sem VSL de venda</h2>
+    <div class="sub">Cada uma destas é 1 oferta só, vídeo curto, 1 botão — igual às telas "NÃO FECHE ESTA PÁGINA" que a Aline já usa hoje.</div>
+    <div class="row" style="margin-top:16px;flex-direction:column;gap:10px">
+      <div class="step atual">
+        <div class="k">Tela 1 · já existe</div>
+        <h3>Checkout da Greenn (yaG6FL)</h3>
+        <p>Mesma tela de pagamento de hoje + 2 caixinhas de bump embaixo do preço.</p>
+      </div>
+      <div class="arrow" style="align-self:flex-start;margin-left:6px">↓ paga</div>
+      <div class="step novo">
+        <div class="k">Tela 2 · nova (ex.: /comunidade-upsell)</div>
+        <h3>1 vídeo curto (1–2 min) · 1 oferta: Anual R$ 297 · 1 botão</h3>
+        <p>Cobra em 1 clique, sem pedir cartão de novo (usa o token do redirect da Greenn). Mesma mecânica do <code>/acompanhamento-up</code> de hoje, só copiada.</p>
+      </div>
+      <div class="arrow" style="align-self:flex-start;margin-left:6px">↓ "sim" → confirmação e vai pra tela 4 &nbsp;·&nbsp; "não, obrigada" ↓</div>
+      <div class="step novo">
+        <div class="k">Tela 3 · nova (ex.: /comunidade-downsell) · só se recusou a tela 2</div>
+        <h3>1 vídeo curto · 1 oferta: Trimestral R$ 97 · 1 botão</h3>
+        <p>Mesma mecânica. Aceitando ou recusando, segue pra tela 4.</p>
+      </div>
+      <div class="arrow" style="align-self:flex-start;margin-left:6px">↓</div>
+      <div class="step atual">
+        <div class="k">Tela 4 · já existe</div>
+        <h3>/acesso-liberado</h3>
+        <p>"Seu acesso chegou no seu e-mail." Fim do funil.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== TABELA DE PRODUTOS ===================== -->
+  <div class="spot">
+    <h2>Os produtos que entram na escada (nenhum é novo)</h2>
+    <div class="sub">Preços médios de vendas aprovadas, 45 dias até 09/11 — banco de vendas, só leitura.</div>
+    <table>
+      <thead><tr><th>Degrau</th><th>Produto</th><th>Preço</th><th>Onde já vende</th><th>Papel proposto</th></tr></thead>
+      <tbody>
+        <tr><td>Entrada</td><td>Comunidade · Mensal</td><td class="num">R$ 39,90</td><td>Quiz / Página VSL</td><td>Continua igual, preço intocado</td></tr>
+        <tr><td>Bump 1</td><td>Cinturinha EXPRESS</td><td class="num">R$ 19,90</td><td>Upsell do Efeito Lipo, 26 vendas</td><td>Order bump no checkout, junto com o bump 2</td></tr>
+        <tr><td>Bump 2</td><td>Receitas que Secam</td><td class="num">R$ 19,90</td><td>Upsell do Efeito Lipo, 16 vendas</td><td>Order bump no checkout, junto com o bump 1</td></tr>
+        <tr><td>Upsell</td><td>Comunidade · Anual</td><td class="num">R$ 297</td><td>preço novo (decisão do Patrik); ofertas de hoje: R$253 e R$387</td><td>1º upsell pós-compra, 1 clique — oferta a criar na Greenn</td></tr>
+        <tr><td>Downsell</td><td>Comunidade · Trimestral (O8j7nc)</td><td class="num">R$ 97</td><td>17 vendas desde 19/10, já ativa</td><td>Só se recusar o upsell do Anual</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ===================== O QUE CADA UM ENSINA ===================== -->
+  <div class="spot">
+    <h2>De onde veio cada peça</h2>
+    <table>
+      <thead><tr><th>Concorrente</th><th>O que fazem</th><th>O que copiamos</th></tr></thead>
+      <tbody>
+        <tr><td><span class="tag-mkt">Movimento</span></td><td>Trava a oferta até 75% da VSL; 1 bump de R$ 9,99</td><td>Travar a oferta no momento certo do vídeo</td></tr>
+        <tr><td><span class="tag-mkt">Aline</span></td><td>Entrada R$ 7 → upsell R$ 220/197 em vídeo (1 clique) → <b>downsell só se recusar</b> → app</td><td>A ordem certa: upsell grande primeiro, downsell depois — nunca ao contrário</td></tr>
+        <tr><td><span class="tag-mkt">Elah</span></td><td>Testa 4 preços (R$ 297 a 597); upsell de 1 clique do produto básico pro completo</td><td>Upsell como ponte pro produto maior — pra nós, o anual, não um produto novo</td></tr>
+        <tr><td><span class="tag-mkt">Líbia</span></td><td>4 order bumps simultâneos de R$ 7,90 a R$ 19,90 no checkout</td><td>Os dois bumps empilhados, não escolha "ou"</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="foot">
+    <p><b>O que falta para isto sair do papel:</b> seu OK em cada preço e texto mostrado aqui (regra do CLAUDE.md); confirmar o que o checkout yaG6FL já faz hoje na Greenn; medir cada etapa no painel (etapa 5); e, só depois, decidir o downsell (③) junto com você.</p>
+    <p>Nada aqui foi criado, mudado ou publicado. Isto é a etapa 3 do plano — a proposta de upsell e bump — desenhada para sua aprovação.</p>
+  </div>
+</div>
