@@ -48,6 +48,7 @@ Veredito: parcela/preço é o argumento com mais base; garantia tem sinal pequen
 - Lição do histórico: upsell de R$ 147 em pagamento único (22 a 31/10) teve nenhuma venda em ~70 visitas; trimestral R$ 97 vendeu 17 vezes desde 19/10.
 
 ## 6. O que falta para ir ao ar
+> Atualização (verificação ao vivo, 09/11): conferir também garantia (site 15 x Greenn 7) e preço (39,90 x 39,92) da yaG6FL, e definir a página de obrigado (hoje não existe). Ver [[Comunidade - verificação do funil com funnel-spy (09-11)]].
 1. **Mensal e anual ao mesmo tempo:** quem aceita o upsell fica com o mensal de R$ 39,90 ativo. Decidir como cancelar o mensal. **Bloqueia.**
 2. Criar a oferta Anual R$ 297 (12x de R$ 24,75) e o upsell 1 clique na Greenn; confirmar garantia de 15 dias e se renova sozinho. **Bloqueia.**
 3. Confirmar se o 1 clique cobra em 12x e como fica quem pagou no Pix.
