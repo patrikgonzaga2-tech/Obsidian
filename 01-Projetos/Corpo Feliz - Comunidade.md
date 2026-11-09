@@ -56,7 +56,7 @@ Aprovada pelo Patrik: [[Comunidade - promessa parar de recomeçar]].
 `hostinger/black-comunidade/dados/conteudo.json` (página da Black, 31/10): app com treinos em casa ou academia com vídeo de cada exercício, treinos hormonais, treinos de 3 e 5 minutos "pros dias impossíveis"; plano alimentar flexível; a Profe Laüra e o time no WhatsApp; Grupo das Musas; módulo de LPF/diástase com professora especializada; mobilidade; desafio todo mês; garantia de 7 dias. WhatsApp oficial (37) 6000-0948.
 
 ## Pendências do Patrik
-- Segurança (09/11): criar META_CRON_SECRET e rodar 2 SQLs no Supabase ANTES de publicar as funções da Meta; mandar o link novo para a Laura; OK nos itens de pagamento. Ver [[Site - check de segurança pré-lançamento (09-11)]].
+- Segurança (09/11): passos do Supabase feitos; falta OK nos itens de pagamento e ligar a CSP em 1-2 semanas. Ver [[Site - check de segurança pré-lançamento (09-11)]].
 - Oferta: R$ 39,90/mês + garantia de 15 dias decididos ([[Comunidade - oferta mensal 39,90 (08-11)]]); texto com comparação e ancoragem NO AR (#373, "pode aplicar"); Patrik ajustou a Greenn em 08/11; botão LIGADO no checkout https://payfast.greenn.com.br/148344/offer/yaG6FL (#374).
 - Onde vai a VSL: no resultado (recomendado) ou também um corte no meio do quiz, como a Aline.
 - Rodar antes ou depois da Black (vagas abrem 12/11).

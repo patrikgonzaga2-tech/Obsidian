@@ -6,7 +6,7 @@ tags: [tipo/decisao, projeto/corpo-feliz-comunidade, seguranca, site, painel, ap
 keywords: [segurança, check pré-lançamento, senha do painel, rate limit, rls, supabase, meta-insights, cabeçalhos, csp, next.js]
 created: 2026-11-09
 updated: 2026-11-09
-summary: "Auditoria de 20 checagens no laurarosapersonal.com: nota 68 → 93/100. PR #389 mesclado e no ar em 09/11. Faltam passos manuais no Supabase (segredo da Meta e 2 SQLs) e os itens de pagamento, que esperam OK do Patrik."
+summary: "Auditoria de 20 checagens no laurarosapersonal.com: nota 68 → 93/100. PR #389 no ar e passos do Supabase feitos em 09/11. Faltam a CSP para valer e os itens de pagamento, que esperam OK do Patrik."
 ---
 
 # Site: check de segurança pré-lançamento (09/11)
@@ -44,23 +44,17 @@ O que pedia ação:
 - **Link da Laura:** não deriva mais só da senha. O link mudou: mandar o novo para ela.
 - **Site:** cabeçalhos de segurança (CSP ainda em modo de aviso); `/api/quiz` validado; erros internos só no log.
 
+## Feito no Supabase (09/11, à noite)
+- Segredo `META_CRON_SECRET` no Vault e nas Edge Functions; os 3 crons do Meta mandam `x-cron-secret`.
+- `meta-insights` (v27) e `meta-insights-site` (v5) publicadas: a chave pública leva 403, o cron passa (200). O cron das 21h23 UTC gravou normal.
+- Tabela `limites` e a faxina diária ligadas.
+- Segredo dos crons de WhatsApp tirado do texto do cron e guardado no Vault.
+- `meta-debug` apagada (Patrik).
+
 ## Pendências (com o Patrik)
-1. Criar o `META_CRON_SECRET` (Vault + Secrets das Edge Functions).
-2. Rodar `supabase/meta-cron-segredo.sql`.
-3. Rodar `supabase/limites.sql`.
-4. Publicar as funções `meta-insights` e `meta-insights-site`.
-
-Nesta ordem: publicar as funções antes do segredo para os números do Meta.
-
-Também:
-- Apagar a função `meta-debug`.
-- Mover o segredo dos crons de WhatsApp para o Vault (hoje está em texto puro no comando do cron).
-- Supabase Auth: confirmar "Confirm email" e ligar "Leaked password protection".
 - Depois de 1-2 semanas, ligar a CSP para valer.
-- **Esperam OK (pagamento):**
-  - limite e validação em `/api/upsell` e `/api/checkout-clique`;
-  - anti-iframe nas páginas pós-compra;
-  - CPF e `raw` nos webhooks.
+- Esperam OK (pagamento): limite e validação em `/api/upsell` e `/api/checkout-clique`, anti-iframe nas páginas pós-compra, CPF e `raw` nos webhooks.
+- A conta 21D (1871186300120064) está sem gasto desde a madrugada de 09/11: por isso os números dela não mudam (não é efeito do check).
 
 ## Alternativas descartadas
 - **Sessão em tabela no banco:** trocada por cookie assinado (HMAC), para não travar o painel se o SQL não estivesse aplicado no deploy.
