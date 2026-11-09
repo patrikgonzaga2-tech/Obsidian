@@ -206,3 +206,32 @@ TAREFAS, nesta ordem (me mostre cada etapa antes de seguir):
 
 Me peça o que faltar. Não suba campanha.
 ```
+
+---
+
+## G · Desenhar o funil no Miro + conferir quiz, páginas da VSL e promessas · 10/11/2026
+Conversa nova (o conector Miro caiu na sessão anterior e só volta em conversa nova). Já veio do prompt F: funil atual mapeado, concorrentes dissecados e a proposta de upsell/bump **aprovada pelo Patrik**.
+```
+VAMOS DESENHAR O FUNIL DA COMUNIDADE NO MIRO E CONFERIR OS MODELOS DO QUIZ E DAS PÁGINAS DA VSL.
+Repositórios desta conversa: patrikgonzaga2-tech/LR_LauraRosaPersonal e patrikgonzaga2-tech/obsidian. Trabalhe numa branch própria.
+
+Leia primeiro, no obsidian, estas duas notas INTEIRAS (são o estado de tudo):
+- "01-Projetos/Corpo Feliz - Comunidade/Comunidade - funil completo do Movimento, Aline e Elah (09-11).md" (dissecação dos concorrentes + a etapa 3 já aprovada pelo Patrik)
+- "01-Projetos/Corpo Feliz - Comunidade/Comunidade - resumo e plano do funil (08-11).md"
+E só Status, Pendências e Registro de "01-Projetos/Corpo Feliz - Comunidade.md". Para a conferência das promessas, leia também "Comunidade - voz da cliente.md" e "Comunidade - revisão quiz e página x promessa (08-11).md". Siga o CLAUDE.md do LR_LauraRosaPersonal.
+
+O QUE JÁ ESTÁ DECIDIDO (não reabra sem o Patrik pedir):
+- Funil: anúncio → quiz (/comunidade-quiz, 4 capas) OU página com VSL (/comunidade, 4 promessas) → checkout mensal R$ 39,90 (oferta yaG6FL) → pós-compra.
+- Etapa 3 APROVADA pelo Patrik em 10/11 (preços): ORDER BUMP no checkout = Cinturinha EXPRESS + Receitas que Secam, R$ 19,90 cada (já vendem no Efeito Lipo); UPSELL pós-compra em 1 clique = Comunidade Anual por R$ 297 (PREÇO NOVO, decidido pelo Patrik; precisa criar a oferta na Greenn; as de hoje são M3DUOL R$253 e ij3kFo R$387); DOWNSELL se recusar = Comunidade Trimestral R$ 97 (oferta O8j7nc, já ativa). Ordem: upsell grande primeiro, downsell só se recusar (modelo Aline). A mecânica de 1 clique já existe em app/acompanhamento-up (upsells 6152 e 7395 da Greenn); as 2 telas novas (ex.: /comunidade-upsell e /comunidade-downsell) são cópia dela.
+- Desenho já feito num artefato do Claude (referência de conteúdo): https://claude.ai/artifact/X8iiq12nxtT4Qn3d5P6YXy
+- O que escala, confirmado em 09/11: Aline (R$7 → upsell R$220/197 em vídeo 1 clique → downsell → app; quiz na Inlead; 71 anúncios, criativo renovado todo dia; reveal da 2ª VSL aos ~77%). Movimento (R$47,90/mês, 1 bump R$9,99, oferta travada aos 75% da VSL; 0 anúncios na Biblioteca em 09/11 — reconferir). Elah (R$297 a 597 anual, 6 páginas escondidas testando 4 preços, upsell 1 clique; reveal dentro do player). Líbia (4 bumps R$7,90–19,90). Nota do funil da Comunidade hoje: Atrair 0 · Capturar 17 · Converter 12 · Subir ticket 4.
+
+TAREFAS (me mostre cada etapa antes de seguir):
+1. MIRO (conector Miro): desenhe o funil ATUAL e o PROPOSTO de ponta a ponta, com as medições do painel em cada etapa (onde mede e onde não mede). Coloque no mesmo quadro TODOS os modelos que vão rodar a VSL: as 4 capas do quiz (/comunidade-quiz ?p=1..4) e as 4 promessas da página (/comunidade ?p=1..4), cada uma com a sua promessa escrita. Me mande o link do quadro.
+2. CONFERIR SE AS PROMESSAS VENDEM: leia no código os textos atuais — quiz em app/comunidade-quiz/_dados.ts (CAPAS) e página em app/comunidade/_dados.ts (HEROIS). Cruze cada promessa (quiz p1..p4 e página p1..p4) com (a) a voz da cliente/CRM (o que converte mais por menção × o que é mais citado) e (b) o que o mercado que escala usa. Diga quais promessas têm base para vender e quais são fracas. ATENÇÃO: confira se as promessas do quiz batem com as da página (hoje podem NÃO ser as mesmas em p1, p2 e p3 — só a p4, do Movimento, é igual nos dois). Aponte a divergência; mudança de texto só com o OK do Patrik.
+3. CONFERIR O REVEAL DA PÁGINA: no código (app/comunidade/_dados.ts: REVEAL_SECONDS, VTURB_ID, VTURB_SRC; e a lógica do gatilho na página), confirme se a página abre o resto do conteúdo no momento da oferta do vídeo, no modelo do Movimento (75%) e da Aline (77%). Hoje a VSL ainda não está gravada (VTURB vazio, REVEAL_SECONDS=0), então a página abre inteira — confirme isso e diga qual segundo entra quando a VSL existir (vem do prompt E).
+4. CONFERIR SE A PÁGINA CONDIZ COM O QUE O VÍDEO PROMETE: compare o que cada promessa (capa/topo) diz com o que a página entrega depois do reveal (entregáveis, prova, oferta). Aponte onde o topo promete uma coisa e o miolo entrega outra. Sem VSL gravada ainda, faça a conferência contra o roteiro v3 ("Comunidade - roteiro da VSL v3.md").
+
+REGRAS DO PATRIK: NUNCA INVENTE NADA (número e texto com fonte). MODELE O QUE JÁ VENDE; não crie do zero. Pagamento, preço, oferta, garantia, upsell, order bump, checkout e links da Greenn só com o OK explícito do Patrik (mostre antes e depois e espere). Não mexa na Meta. Mescle PR só depois do "pode subir" e confira no ar. Painel oficial de links no mesmo PR. Banco fjlbvoephhextnxemygf só leitura. Sem nome, telefone ou saúde de aluna no Obsidian.
+Ao terminar, atualize Status e Registro de "Corpo Feliz - Comunidade" e o "Comunidade - funil completo do Movimento, Aline e Elah (09-11)" no Obsidian, e me mande o link do quadro do Miro.
+```
