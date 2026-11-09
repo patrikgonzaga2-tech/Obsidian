@@ -49,4 +49,6 @@ O miolo é o mesmo nas 4 promessas.
 - **Roteiro v3, parte 20, diz "sete dias de garantia"; página e Greenn dizem 15 dias.** Corrigir antes de gravar (texto de garantia: só com OK do Patrik).
 
 ## 5. Pendências (nada aplicado)
+Upsell, downsell, base do banco, mercado e checagem independente: [[Comunidade - upsell e downsell: base, mercado e checagem (09-11)]] (telas desenhadas em https://claude.ai/artifact/AVDo6styE5oF2erjoiY3Hg).
+
 Patrik: criar a oferta anual R$ 297; configurar os 2 bumps na yaG6FL; compra de teste; decidir os ajustes de texto (alinhar quiz e página, fecho por promessa, "15 minutos" no miolo da p3, garantia no v3, frase "diástase" da capa 3). Código, depois do OK: páginas de upsell e downsell, entrada no painel oficial de links, medição no /painel. Reconferir: anúncios do Movimento; moeda do R$ 7 e downsell da Aline; preço do upsell do Elah.

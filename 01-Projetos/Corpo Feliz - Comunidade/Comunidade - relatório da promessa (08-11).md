@@ -225,7 +225,7 @@ Referência: R$ 297 (12x de R$ 24,75), o plano que mais vende (458 clientes no a
     ?o=2 · mensalMensal recorrente
 Referências: o nosso mensal de R$ 97 (40 clientes) e o Movimento Emagreça a R$ 47,90/mês. Responde “12 meses é um compromisso longo”.
     ?o=3 · entradaTeste por 30 dias
-Já existe: “R$27 por mês, cancele quando quiser” (página Teste por 30 dias, pouco tráfego até hoje). No CRM, “quer plano menor” (31 leads) comprou 19%, e “quer garantia ou teste” (8) comprou 62,5%.
+Já existe: “R$27 por mês, cancele quando quiser” (página Teste por 30 dias, pouco tráfego até hoje). No CRM, “quer plano menor” (31 leads) comprou 19%, e “quer garantia ou teste” (8) comprou 62,5% (correção 09/11: 5 de 8, 1 cancelou no dia seguinte; indício, não prova; ver [[Comunidade - upsell e downsell: base, mercado e checagem (09-11)]]).
     Quanto dá para pagar por assinante conta nossa
       Se a 1ª cobrança forCusto máximo por assinante para ROI 2 só na 1ª cobrança
         R$ 297 (anual)R$ 148

@@ -237,7 +237,7 @@ Campo `menor_30_anos`: true 10 (2 compraram) · false 311 (40 compraram) · vazi
 | não gosta de academia | 18 | 2 | 11,1% |
 | só pix ou boleto | 15 | 4 | 26,7% |
 | já treina | 15 | 2 | 13,3% |
-| quer garantia ou teste | 8 | 5 | **62,5%** |
+| quer garantia ou teste | 8 | 5 | **62,5%** (†) |
 | empresa não atende perfil | 7 | 0 | 0% |
 | consultar marido/família | 4 | 0 | 0% |
 | desconfiança/golpe | 4 | 2 | 50% |
@@ -245,6 +245,8 @@ Campo `menor_30_anos`: true 10 (2 compraram) · false 311 (40 compraram) · vazi
 | só curiosidade | 3 | 1 | 33% |
 
 Objeção principal (`objecao`, 1 por lead): nenhuma 910 · sumiu antes do preço 56 · vai pensar 56 · sem dinheiro/cartão 26 · sem dinheiro agora 24 · outro 24 · outra 18 · preço alto 12 · dúvida plataforma/app 12 · sumiu sem resposta 12 · falta de tempo 11 · esperar data pagamento 11 · saúde/médico 9 · já treina 8 · não gosta de academia 8 · achou caro 7 · quer plano menor 5 · cartão sem limite 4 · consultar marido 3 · desconfiança 3 · só pix/boleto 3 · garantia/teste 2 · outros 1 cada.
+
+> (†) Correção de 09/11: 8 leads, 5 compraram, 2 em andamento, 1 não comprou; 1 dos 5 pediu cancelamento no dia seguinte. Amostra pequena e sem prova de causa; "teste" aqui é experimentar antes de se comprometer, não necessariamente aula. Em "esperar data de pagamento" (10 de 36, 27,8%) vale a mesma cautela. Detalhe em [[Comunidade - upsell e downsell: base, mercado e checagem (09-11)]].
 
 **Agrupando dinheiro** (sem dinheiro agora + esperar data + preço alto + quer plano menor + cartão sem limite + só pix/boleto + parcelamento não serve): 188 menções em `objecoes_detalhe` (pode haver lead repetida entre categorias).
 
