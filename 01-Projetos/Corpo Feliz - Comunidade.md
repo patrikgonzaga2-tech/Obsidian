@@ -120,3 +120,7 @@ Aprovada pelo Patrik: [[Comunidade - promessa parar de recomeçar]].
 - Conferido antes: página e quiz nas 4 capas, pixels (LP e oficial) na página/quiz e pixel da LP + API no checkout.
 - Greenn acertada em 10/11: oferta yaG6FL cobra R$ 39,90 com 15 dias de garantia (conferido pela API do checkout). Nome do produto corrigido para "Comunidade Corpo Feliz - Assinatura mensal".
 - Painel: /painel/comunidade-quiz e /painel/comunidade-pagina.
+
+### 10/11 · Painel da VSL (VTurb)
+- No ar: item "Comunidade · VSL (VTurb)" na lateral do /painel (grupo Comunidade · teste), PR #404. Lê a API da VTurb (VTURB_API_TOKEN): carregaram, play, tempo médio, chegaram no preço (8:35), fim, curva de retenção, dia a dia e por anúncio/campanha/promessa/posicionamento/aparelho, com vendas do mensal e custo por play.
+- Pendente na VTurb (Patrik): marcar o pitch em 8:35 no player; opcional: player separado para o quiz e integração Greenn na VTurb.
