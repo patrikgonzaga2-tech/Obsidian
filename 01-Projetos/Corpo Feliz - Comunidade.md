@@ -118,5 +118,5 @@ Aprovada pelo Patrik: [[Comunidade - promessa parar de recomeçar]].
 - 2 campanhas de Vendas (ABO), ativadas em 10/11 com o OK do Patrik: `PTK - 10/11 - CONV - COMUNIDADE QUIZ - ABO TESTE V1-V3` e `... COMUNIDADE PAGINA VSL - ABO TESTE V1-V3`.
 - 3 conjuntos de R$ 15/dia em cada (V1 segunda-quarta, V2 mais um treino, V3 5 minutos), cópia do conjunto "ABERTO - DATA 13/10" (mulheres BR 18-65, Advantage+, pixel da LP, "Compra Realizada"). Cada conjunto: vídeo + imagem (R1, R2, R4). Link sem ?p (sorteio das capas).
 - Conferido antes: página e quiz nas 4 capas, pixels (LP e oficial) na página/quiz e pixel da LP + API no checkout.
-- Greenn acertada em 10/11: oferta yaG6FL cobra R$ 39,90 com 15 dias de garantia (conferido pela API do checkout). Falta só o nome do produto, que ainda diz "R$39,92".
+- Greenn acertada em 10/11: oferta yaG6FL cobra R$ 39,90 com 15 dias de garantia (conferido pela API do checkout). Nome do produto corrigido para "Comunidade Corpo Feliz - Assinatura mensal".
 - Painel: /painel/comunidade-quiz e /painel/comunidade-pagina.
