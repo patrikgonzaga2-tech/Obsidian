@@ -6,7 +6,7 @@ tags: [tipo/decisao, projeto/corpo-feliz-comunidade, comercial, relatorio, crm]
 keywords: [relatório, vendedora, funil, follow-up, taxa de conversão, porcentagem, grupo Vendas, v5]
 created: 2026-11-10
 updated: 2026-11-10
-summary: "Patrik aprovou em 10/11 o novo formato do relatório das 8h no grupo da vendedora: sem barras, porcentagem em tudo, vendas separadas do funil, follow 1 a 4 e taxa de conversão do mês. Instrução v5 no banco do CRM."
+summary: "Patrik aprovou em 10/11 o novo formato do relatório das 8h no grupo da vendedora: sem barras, porcentagem em tudo, vendas separadas do funil, follow 1 a 4 e taxa de conversão do comercial dela no mês. Instrução v5 no banco do CRM."
 ---
 
 Projeto: [[Corpo Feliz - Comunidade]]
@@ -15,14 +15,14 @@ Projeto: [[Corpo Feliz - Comunidade]]
 
 **Motivo:** a vendedora perguntou se o relatório só contava os links mandados no dia como venda. O texto antigo misturava três critérios sem avisar.
 
-**Decisão (Patrik, 10/11/2026):** sem barras de funil ("não quero barra, só ajusta pra ver tudo e coloca as porcentagem"); mostrar vendas de follow 1, 2, 3 e 4 com porcentagem; incluir o total de vendas do mês até o dia do envio e a taxa de conversão.
+**Decisão (Patrik, 10/11/2026):** sem barras de funil ("não quero barra, só ajusta pra ver tudo e coloca as porcentagem"); mostrar vendas de follow 1, 2, 3 e 4 com porcentagem; incluir o total de vendas do mês até o dia do envio e a taxa de conversão. A vendedora só precisa da taxa do comercial dela: a taxa com todas as vendas da Greenn não entra no relatório.
 
 ## O que o relatório mostra agora
 - **Vendas (Greenn, pela data do pagamento):** ontem e total do mês até o dia.
 - **Planilha da vendedora:** vendas de ontem ainda não lançadas (ou "todas lançadas ✅").
 - **Funil de ontem (por dia de chegada do lead):** leads, atendidos, oferta, link, compras e follow no dia, todos com %.
 - **Follow-up:** sem follow, follow 1, 2, 3 e 4, ontem e mês, com leads (%), vendas e % das vendas vindas de follow.
-- **Taxa de conversão do mês:** compras dos leads do CRM ÷ leads do mês, e taxa geral (todas as vendas da Greenn ÷ leads).
+- **Taxa de conversão do mês (só a do comercial dela):** compras dos leads do CRM ÷ leads do mês.
 - Origem, dores e objeções com %; sugestões do dia. Singular e plural corretos.
 
 ## Por que os números parecem diferentes
