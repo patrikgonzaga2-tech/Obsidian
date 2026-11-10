@@ -52,6 +52,13 @@ Veredito: parcela/preço é o argumento com mais base; garantia tem sinal pequen
 - **Acesso liberado:** `/acesso-liberado` já existe, texto genérico; os 3 vídeos de boas-vindas da Comunidade já estão publicados.
 - Lição do histórico: upsell de R$ 147 em pagamento único (22 a 31/10) teve nenhuma venda em ~70 visitas; trimestral R$ 97 vendeu 17 vezes desde 19/10.
 
+
+## 5b. Correção de 10/11: as telas precisam de promessa e vontade de comprar (crítica do Patrik)
+A 1ª versão das telas era um cartão de preço (título, conta e botão). **Não é o que o mercado faz** (Floripa, Paula, Zanon e Aline abrem com promessa ou gancho, vídeo, projeção de futuro, lista do que se leva, garantia e razão para decidir) **nem o que a nossa `/acompanhamento-up` faz** (página longa com ruminação, causa, a Laüra, "tudo o que você recebe", depoimentos, garantia, "essa condição é de quem está começando agora" e perguntas; em 31/10 o Patrik pediu tirar o vídeo e deixar a página "batendo mais nas ruminações").
+Nova estrutura da **tela de upsell** (D): confirmação + promessa ("Você já deu o primeiro passo. Agora é não recomeçar.") → vídeo curto opcional da Laüra (4 a 6 min, roteiro baseado nas partes 2, 6, 21 e 22 do v3) → ruminação ("Quantas segundas você já começou animada…") → o que muda com mais tempo → dois futuros → a Laüra → o que leva (os 5 bônus) → depoimentos sem quilos nem prazo → preço D (crédito) com "R$ 0,70 por dia" (R$ 257,10 ÷ 365) → garantia → razão real para agora (só se a oferta ficar oculta na Greenn) → perguntas ("vou pagar duas vezes?", "um ano é muito tempo", "renova sozinho?") → botão e recusa.
+**Tela de downsell:** "E se você começasse com 3 meses?" → medo do compromisso ("12 meses é um compromisso longo") → dois futuros → o que leva → depoimento → preço D do trimestral (R$ 57,10, renova a R$ 97) → garantia → botão e recusa.
+Desenho: https://claude.ai/artifact/AVDo6styE5oF2erjoiY3Hg. Texto final, vídeo e depoimentos aguardam o OK do Patrik. Nota: as 17 vendas do trimestral O8j7nc (desde 19/10) cobrem todos os canais e antes e depois de tirar o vídeo, então não provam qual formato vende mais.
+
 ## 6. O que falta para ir ao ar
 > Atualização (verificação ao vivo, 09/11): conferir também garantia (site 15 x Greenn 7) e preço (39,90 x 39,92) da yaG6FL, e definir a página de obrigado (hoje não existe). Ver [[Comunidade - verificação do funil com funnel-spy (09-11)]].
 1. **Mensal e anual ao mesmo tempo:** quem aceita o upsell fica com o mensal de R$ 39,90 ativo. Decidir como cancelar o mensal. **Bloqueia.**
