@@ -41,7 +41,7 @@ Renuva 3.553 (suplemento físico, fora do modelo) · Ryu Nakamura 1.607 · Ana K
 ## Não usar (regras da marca)
 Quilos e prazo ("-2 kg em 7 dias", "perca 12 kg em 28 dias"), antes e depois com quilos em anúncio, hormônios e doenças, escassez falsa (lote que esgota, "sai do ar hoje", relógio que reinicia), selos sem prova, renovação pouco clara (queixas públicas de cobrança indevida em Queima Diária e Mulher em Forma, informado).
 
-## O que muda na proposta das telas (aguarda o OK do Patrik)
+## O que muda na proposta das telas (D aprovada pelo Patrik em 10/11; ver a nota de upsell e downsell)
 - Upsell: além de A parcela, B garantia e aula, C continuidade, **D "o seu mensal vira desconto"** (R$ 297 − R$ 39,90 = R$ 257,10, 12x R$ 21,43), se a Greenn permitir oferta com esse valor; resolveria também o "pago duas vezes". Começar por A e testar C.
 - Downsell: testar **prazo maior** (semestral, que já existe na Greenn) contra o trimestral; sem preço sugerido.
 - Vídeo do upsell, se houver, curto e com o preço liberado depois de parte dele.

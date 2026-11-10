@@ -40,9 +40,14 @@ Funis novos lidos e a nova variante D do upsell: [[Comunidade - funis do mercado
 ## 4. Checagem independente (agente que não viu a conclusão)
 Veredito: parcela/preço é o argumento com mais base; garantia tem sinal pequeno e alta conversão; continuidade só tem base indireta. **Confiança baixa** (amostras de 2 a 35). Recomenda tratar a ordem como hipótese e testar. Não conferido: taxa de aceite, retenção do mensal de R$ 39,90, parcelamento e reembolso por produto, semestral.
 
-## 5. Promessa e argumentos propostos (aguardam o OK do Patrik)
-- **Upsell, anual R$ 297:** "Fique o ano todo pagando menos por mês." Versões a testar: **A parcela** (12x de R$ 24,75 contra R$ 39,90; 12 meses de mensal = R$ 478,80; economia R$ 181,80, 38%), **B garantia e aula de amostra**, **C continuidade** ("um ano com a Laüra, o time e as Musas"). Começar por A, com garantia como apoio.
-- **Downsell, trimestral R$ 97 (O8j7nc):** "Sem compromisso de um ano? Fique 3 meses." R$ 32,33 por mês; 3 mensais = R$ 119,70, economia R$ 22,70. Regra de renovação do Patrik (31/10): renova a cada 3 meses; se não quiser, avisar o suporte.
+## 5. Decisão do Patrik em 10/11: versão D como principal
+- **Versão D** ("o que você já pagou vira desconto") é a principal do upsell. Precedente: a Floripa Calistenia diz "esse valor será seu desconto". A, B (garantia e aula) e C (continuidade) ficam para testar depois.
+- **Anual parcelado em 12x no cartão**; o crédito de **R$ 39,90 (o mensal já pago) vale no anual e no trimestral**.
+- **Upsell, anual com crédito:** R$ 297 − R$ 39,90 = **R$ 257,10 em 12x de R$ 21,43**. Economia de R$ 221,70 (46%) sobre 12 mensais (R$ 478,80). R$ 262,40 já foi praticado (plano no banco). Desenho na Greenn: oferta própria de R$ 257,10 (mais simples no 1 clique) ou cupom de R$ 39,90 (só se a Greenn aplicar cupom no upsell de 1 clique: não conferido).
+- **Downsell, trimestral com crédito (O8j7nc):** R$ 97 − R$ 39,90 = **R$ 57,10 em 3x de R$ 19,03**; economia de R$ 62,60 (52%) sobre 3 mensais. O crédito vale só na primeira cobrança; **renova a cada 3 meses por R$ 97** e a tela diz isso (regra de 31/10; "não sabia que era renovação automática" foi motivo de cancelamento). Desenho na Greenn: cupom de R$ 39,90 na primeira cobrança ou oferta separada; não conferido se a Greenn aceita primeira cobrança diferente da renovação.
+- **Atenção:** o trimestral com crédito fica mais barato por mês (R$ 19,03) que o anual (R$ 21,43); quem vê o downsell já recusou o anual, então o risco é pequeno. Se incomodar, manter o trimestral em R$ 97 e dar o crédito só no anual.
+- **Primeira parcela de R$ 1 (ideia do Patrik):** a 1ª parcela do anual é R$ 24,75, então o cupom só consegue tirar R$ 23,75 dela (total R$ 273,25); para usar os R$ 39,90 inteiros seria preciso mexer em outras parcelas, e não se sabe se a Greenn deixa. Preferido: desconto no total.
+- **Textos (proposta; texto final ainda aguarda OK):** upsell "O que você já pagou vira desconto. O seu mensal de R$ 39,90 entra como crédito no anual." (botão "Quero o anual em 12x de R$ 21,43"); downsell "Sem compromisso de um ano? Fique 3 meses." (botão "Quero o trimestral por R$ 57,10", com "Renova a cada 3 meses por R$ 97. Cancele quando quiser"). Telas desenhadas em https://claude.ai/artifact/AVDo6styE5oF2erjoiY3Hg.
 - **Order bumps (no checkout yaG6FL):** Cinturinha EXPRESS e Receitas que Secam, R$ 19,90 cada (adesão no Efeito Lipo, jun–ago: 7,4% e 4,4%).
 - **Acesso liberado:** `/acesso-liberado` já existe, texto genérico; os 3 vídeos de boas-vindas da Comunidade já estão publicados.
 - Lição do histórico: upsell de R$ 147 em pagamento único (22 a 31/10) teve nenhuma venda em ~70 visitas; trimestral R$ 97 vendeu 17 vezes desde 19/10.
@@ -50,9 +55,9 @@ Veredito: parcela/preço é o argumento com mais base; garantia tem sinal pequen
 ## 6. O que falta para ir ao ar
 > Atualização (verificação ao vivo, 09/11): conferir também garantia (site 15 x Greenn 7) e preço (39,90 x 39,92) da yaG6FL, e definir a página de obrigado (hoje não existe). Ver [[Comunidade - verificação do funil com funnel-spy (09-11)]].
 1. **Mensal e anual ao mesmo tempo:** quem aceita o upsell fica com o mensal de R$ 39,90 ativo. Decidir como cancelar o mensal. **Bloqueia.**
-2. Criar a oferta Anual R$ 297 (12x de R$ 24,75) e o upsell 1 clique na Greenn; confirmar garantia de 15 dias e se renova sozinho. **Bloqueia.**
+2. Criar a oferta Anual com crédito, **R$ 257,10 em 12x de R$ 21,43 no cartão**, e o upsell 1 clique na Greenn; confirmar garantia de 15 dias e se renova sozinho. **Bloqueia.**
 3. Confirmar se o 1 clique cobra em 12x e como fica quem pagou no Pix.
-4. Upsell 1 clique do trimestral O8j7nc nesta compra (o 6152 tem outro destino hoje).
+4. Trimestral com crédito (R$ 57,10 na 1ª cobrança, depois R$ 97): cupom de R$ 39,90 na O8j7nc ou oferta separada, e o upsell 1 clique dele (o 6152 tem outro destino hoje); conferir se a Greenn aceita 1ª cobrança diferente da renovação.
 5. Ligar os 2 bumps na yaG6FL (produtos 180269 e 123059).
 6. Apontar a página de obrigado da yaG6FL para `/comunidade-upsell` (hoje não conferido).
 7. OK do texto das telas, escolha da versão A, B ou C, e se leva vídeo.
