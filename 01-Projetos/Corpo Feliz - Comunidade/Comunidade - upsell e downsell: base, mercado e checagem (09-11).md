@@ -59,6 +59,12 @@ Nova estrutura da **tela de upsell** (D): confirmação + promessa ("Você já d
 **Tela de downsell:** "E se você começasse com 3 meses?" → medo do compromisso ("12 meses é um compromisso longo") → dois futuros → o que leva → depoimento → preço D do trimestral (R$ 57,10, renova a R$ 97) → garantia → botão e recusa.
 Desenho: https://claude.ai/artifact/AVDo6styE5oF2erjoiY3Hg. Texto final, vídeo e depoimentos aguardam o OK do Patrik. Nota: as 17 vendas do trimestral O8j7nc (desde 19/10) cobrem todos os canais e antes e depois de tirar o vídeo, então não provam qual formato vende mais.
 
+
+## 5c. Fase 1 no ar na branch e texto do vídeo do upsell (10/11)
+- **Fase 1 (código, branch `claude/wizardly-mccarthy-l4wa0l` do LR_LauraRosaPersonal, sem PR ainda):** página `/comunidade-obrigado` (3 vídeos de boas-vindas), prévia de compartilhamento própria em `/comunidade`, `/comunidade-quiz` e no obrigado (imagem 1200x630 da Laüra; antes herdava o texto do Efeito Lipo), botão Voltar de 44 px, links do rodapé maiores, preço sem quebra de linha, painel oficial de links atualizado. Testado em servidor local (200, tags certas, sem erro, sem rolagem horizontal). O vídeo falso já tinha sido resolvido na `main` pela VSL v4 (#401, oferta aos 515 s, REVEAL_SECONDS 512). Nada de preço, oferta, checkout ou link da Greenn foi alterado.
+- **Falta o Patrik na Greenn:** apontar a página de obrigado da yaG6FL para `/comunidade-obrigado`; ligar os 2 bumps; garantia (7 ou 15) e preço (39,90 ou 39,92).
+- **Texto para a Laüra** (vídeo curto do upsell, 4 a 6 min): https://claude.ai/artifact/F6PM5URnx85gvpfb4wz2DH. Partes 1, 2, 3 e 7 usam trechos do roteiro v3 já gravado; partes 4 (crédito), 5 (garantia) e 6 (cancelamento do mensal) em arquivos separados, só depois que o Patrik fechar as ofertas. Recado opcional de 40 s para o downsell.
+
 ## 6. O que falta para ir ao ar
 > Atualização (verificação ao vivo, 09/11): conferir também garantia (site 15 x Greenn 7) e preço (39,90 x 39,92) da yaG6FL, e definir a página de obrigado (hoje não existe). Ver [[Comunidade - verificação do funil com funnel-spy (09-11)]].
 1. **Mensal e anual ao mesmo tempo:** quem aceita o upsell fica com o mensal de R$ 39,90 ativo. Decidir como cancelar o mensal. **Bloqueia.**
