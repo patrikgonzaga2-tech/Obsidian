@@ -132,3 +132,9 @@ Aprovada pelo Patrik: [[Comunidade - promessa parar de recomeçar]].
 - O que mais compra por menção (poucas menções): falta de tempo 28% (25), dor/lesão 25% (28), dificuldade com academia 25% (28), constância 23% (56), menopausa 20% (51). Diástase 6% (65), braços 6%, glúteos 7%.
 - Por que compraram: preço acessível/parcelamento 16, vídeo explicativo 7, confiança na Laura 6, acompanhamento 4. Onde param: 356 receberam preço/link e não compraram; objeções "vai pensar" 62, "sumiu antes do preço" 56, sem dinheiro 54.
 - Conclusão: desejo (barriga/secar) no título + comportamento (tempo/constância) como mecanismo. Capa do quiz "joelho, lombar ou diástase" tem base fraca (diástase 6%) e falta uma capa de tempo (a dor que mais compra). Ligar cada anúncio à capa da mesma promessa.
+
+### 10/11 (noite) · Quiz e anúncios ajustados pela análise do ano (Patrik: "coloca o melhor pra vender")
+- PR #409: capa do quiz no padrão do Efeito Lipo (promessa em negrito com destaque rosa, foto da Laüra, 3 garantias) e resultado com a VSL em foco, inteira na 1ª tela, carregando só quando aparece.
+- PR #410: capas do quiz = p1 constância, p2 40+ e menopausa, p3 falta de tempo (saiu diástase). Sorteio do quiz só 1–3; a página segue com as 4.
+- Anúncios: 14 novos com o link na capa da mesma promessa (recomeçar → ?p=1; "5 minutos"/"sem tempo" → ?p=3), no quiz e na página; os 14 antigos pausados. Nomes terminam em "· P1"/"· P3".
+- Próxima leitura: 12/11 à noite, por anúncio e por capa (painel Comunidade · Quiz, Página VSL e VSL VTurb).
