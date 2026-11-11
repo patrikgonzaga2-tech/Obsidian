@@ -5,7 +5,7 @@ project: "Corpo Feliz - Comunidade"
 tags: [tipo/projeto, projeto/corpo-feliz-comunidade, laura-rosa]
 keywords: [comunidade, assinatura, laura, corpo feliz, quiz, vsl, recomeçar, movimento, app, gravyx]
 created: 2026-11-08
-updated: 2026-11-09
+updated: 2026-11-11
 summary: "Venda da assinatura da Comunidade Corpo Feliz (Laüra Rosa) com a promessa 'parar de recomeçar': quiz, página de VSL, app e anúncios."
 ---
 
@@ -39,6 +39,7 @@ Aprovada pelo Patrik: [[Comunidade - promessa parar de recomeçar]].
 | 4 | Ajustes no app (acesso, Plano B, nomes das aulas) | a fazer, precisa da lista de vídeos | ver "App" abaixo |
 | 5 | Anúncios (3 imagens + 3 vídeos) via Gravyx | a fazer, avisar custo antes | [[Comunidade - concorrentes]] |
 | 5b | Vídeo da VSL no estilo do Movimento com o áudio da Laüra | 33 cenas geradas no Gravyx (links em [[Comunidade - VSL mapa de cenas]]) + 3 cartões; falta o áudio da Laüra, gravação de tela do app e fotos dela | [[Comunidade - VSL mapa de cenas]] |
+| 2b | Teste de vídeos A × B na `/comunidade` (11/11) | **no ar** (PR #418): sorteio 50/50 de v5A e v5B; lê retenção e cliques; falta pitch 07:46 e tráfego | [[Comunidade - teste de vídeos A x B na página (11-11)]] |
 | 6 | Campanha pausada no padrão 3.2 | a fazer, ativar só com OK | `docs/ANALISE_CAMPANHAS_QUIZ.md` §3.2 |
 
 ## Página `/comunidade` (etapa 2)
