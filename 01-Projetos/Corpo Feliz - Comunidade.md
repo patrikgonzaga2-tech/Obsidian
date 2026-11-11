@@ -5,7 +5,7 @@ project: "Corpo Feliz - Comunidade"
 tags: [tipo/projeto, projeto/corpo-feliz-comunidade, laura-rosa]
 keywords: [comunidade, assinatura, laura, corpo feliz, quiz, vsl, recomeçar, movimento, app, gravyx]
 created: 2026-11-08
-updated: 2026-11-09
+updated: 2026-11-11
 summary: "Venda da assinatura da Comunidade Corpo Feliz (Laüra Rosa) com a promessa 'parar de recomeçar': quiz, página de VSL, app e anúncios."
 ---
 
@@ -86,6 +86,8 @@ Aprovada pelo Patrik: [[Comunidade - promessa parar de recomeçar]].
 - Bônus da Comunidade no formato da VSL dele: 1 Plano Alimentar Flexível, 2 Módulo LPF e Ativação Abdominal, 3 Aulas de Mobilidade, 4 Desafio Novo Todo Mês, 5 Grupo das Musas. Os bônus do Efeito Lipo (Guia do Ciclo, Anti-Pelanquinha, Áudios Quebra de Sabotagem) só entram se o Patrik confirmar.
 
 ## Registro
+- 2026-11-11 · Rastreio do comercial da Aline: 15 links curtos com UTM (`/c/<nome>`, site #419), 13 respostas rápidas do UMCLIQUE trocadas com o OK do Patrik e `/blacklink` criada; 7 fluxos de boas-vindas criados e ligados para o número novo (21) 96000-1652, que estava fora do CRM (108 de 110 leads sem etiqueta). Detalhes, achados e pendências em [[Comercial - rastreio da Aline, links curtos e fluxos do número novo (11-11)]].
+- 2026-11-11 · Relatório diário refeito e gasto das campanhas COMUNIDADE incluído no lucro e no ROI (relatório #416, Cockpit e Comparar meses #417). Em [[Relatório diário e lucro com gasto da Comunidade (11-11)]].
 - 2026-11-09 · Check de segurança do site (20 checagens): 68 → 93/100, PR patrikgonzaga2-tech/LR_LauraRosaPersonal#389 mesclado e no ar (Patrik: "pode aplicar", "pode mesclar"). Todo mundo entra no painel de novo uma vez; link da Laura mudou. Passos manuais no Supabase e itens de pagamento em [[Site - check de segurança pré-lançamento (09-11)]].
 - 2026-11-08 · Patrik: sem campanha por enquanto ("vamos criar a VSL antes, colocar em tudo, resolver o funil que tem upsell, criar vídeos e imagens de criativos modelando o que já escala; depois as campanhas, quando tiver tudo no painel"). Resumo de tudo em [[Comunidade - resumo e plano do funil (08-11)]]; prompt F (funil, upsell, desenho no Miro, criativos modelados, painel) em [[Prompts para conversas paralelas - Comunidade]]; a VSL segue no prompt E. A proposta de campanha e os 8 criativos de imagem foram descartados por ora.
 - 2026-11-08 · Patrik ajusta a VSL: modelar exatamente a do Movimento (pode usar as imagens e os vídeos dela, modelar o texto, sem o áudio dele), montada na linha dos áudios da Laüra e com as nossas provas; "a dele vende, vamos seguir". Gravyx e Kairogem só para tapar buraco. Prompt E atualizado em [[Prompts para conversas paralelas - Comunidade]]. Mantido: sem balança, fita métrica, quilos, prazo ou remédio no vídeo; material de terceiros pode gerar denúncia ou reprovação do anúncio (avisado).
