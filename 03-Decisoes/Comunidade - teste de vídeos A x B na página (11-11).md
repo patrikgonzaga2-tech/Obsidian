@@ -30,6 +30,10 @@ Patrik: "vamos testar A × B". Sem gravação nova e sem áudio novo da Laüra: 
 ## Como está no ar
 PR #418 (squash, 11/11): a `/comunidade` sorteia 50/50, cookie `cv_video` por 30 dias, `?v=A` ou `?v=B` fixa. Medidor `p1-vA`/`p1-vB`. Preço, garantia, bônus, checkout, anúncios e quiz não mudaram. O v4 saiu do sorteio (segue no quiz).
 
+## Conferido
+- 11/11: o Patrik testou e o botão e o resto da página abrem no segundo certo (463 s).
+- 11/11: `?v=A` e `?v=B` carregam o player certo no ar; sem `?v` sorteia 50/50 (8 visitas de teste: 5 A, 3 B).
+
 ## Em aberto
 - Pitch 07:46 nos dois players (a VTurb ainda mostrava 0 na conferência).
 - Tráfego: ~8 plays por dia hoje; para ler em 7 dias precisa de ~50 a 110 plays por dia (2 vídeos). Anúncios e orçamento ficam com o Patrik (o quiz é tratado em outra conversa).
