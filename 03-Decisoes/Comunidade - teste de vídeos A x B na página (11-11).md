@@ -36,8 +36,8 @@ PR #418 (squash, 11/11): a `/comunidade` sorteia 50/50, cookie `cv_video` por 30
 
 ## Em aberto
 - Pitch 07:46 nos dois players (a VTurb ainda mostrava 0 na conferência).
-- Tráfego: ~8 plays por dia hoje; para ler em 7 dias precisa de ~50 a 110 plays por dia (2 vídeos). Anúncios e orçamento ficam com o Patrik (o quiz é tratado em outra conversa).
+- Tráfego: ~8 plays por dia hoje (~15 visitantes reais por dia, quase todos do anúncio da página); para ler em 7 dias precisa de ~50 a 110 plays por dia (2 vídeos), ou seja ~100 a 220 visitantes por dia (~R$ 400 a R$ 900 por dia, estimativa grosseira a ~R$ 4 por clique). Anúncios e orçamento ficam com o Patrik (o quiz é tratado em outra conversa).
 - Ligar a venda ao vídeo no link do checkout (utm_campaign cv-vA/cv-vB): só com OK explícito do Patrik.
-- Botão e resto da página só abrem na oferta (~97% das visitas não chegam a ver o botão, número de 1 dia): decisão futura.
+- Botão e resto da página só abrem na oferta: das ~34 pessoas medidas em 09–11/11, só 2 (6%) chegaram ao resto e 1 tocou em comprar. Decisão futura. (Correção de 11/11: a contagem `upsell_views` de ~120 visitas por dia está inflada pelo pré-carregamento do Meta e por testes; o número real são as pessoas medidas, ~15 por dia.)
 - Antes e depois no bloco "Resultados" e na foto da Laüra, contra a regra da marca: decisão do Patrik.
 - Regra de decisão: o vídeo vence se a retenção de 1 min for ≥5 pontos maior e as vendas por visita iguais ou melhores; senão fica o v4.
