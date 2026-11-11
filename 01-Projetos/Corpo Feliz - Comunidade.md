@@ -138,3 +138,9 @@ Aprovada pelo Patrik: [[Comunidade - promessa parar de recomeçar]].
 - PR #410: capas do quiz = p1 constância, p2 40+ e menopausa, p3 falta de tempo (saiu diástase). Sorteio do quiz só 1–3; a página segue com as 4.
 - Anúncios: 14 novos com o link na capa da mesma promessa (recomeçar → ?p=1; "5 minutos"/"sem tempo" → ?p=3), no quiz e na página; os 14 antigos pausados. Nomes terminam em "· P1"/"· P3".
 - Próxima leitura: 12/11 à noite, por anúncio e por capa (painel Comunidade · Quiz, Página VSL e VSL VTurb).
+
+### 11/11 · Correção dos gargalos e concentração da verba
+- Erros da análise de gargalos de 11/11 (corrigidos): 7 dos 19 plays da VSL eram testes do Claude; as "saídas em 1 s" da página eram o pré-carregamento do Meta (página aberta antes do clique, 0 s visível). Só com gente real: 12 plays, ~20% do vídeo em média, 1 no preço.
+- Gargalo real (alta confiança): tráfego caro (CPM R$ 47–51 × R$ 15–25 dos campeões; CPC quiz R$ 3,31, página R$ 7,46) e pouco volume para julgar capa, VSL ou checkout. Esperar 100 visitas no quiz e 50 plays reais.
+- Verba concentrada em 4 conjuntos (total R$ 160/dia): QUIZ V3 tempo R$ 45 (V3, R4, Sem tempo), QUIZ V2 recomeçar R$ 40 (V2, V1, R1), PÁGINA V1 recomeçar R$ 40 (V1, R1, Recomeçar), PÁGINA V3 tempo R$ 35. Pausados: QUIZ V1, QUIZ criativo, PÁGINA V2, PÁGINA criativo e o R2 do quiz.
+- PR #413: painel da Comunidade sem testes e sem pré-carregamento (quiz, página e VSL).
