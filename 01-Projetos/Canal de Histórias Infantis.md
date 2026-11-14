@@ -6,16 +6,116 @@ tags: [tipo/projeto, youtube, livros-de-colorir]
 keywords: [youtube kids, historias infantis, livro de colorir, kdp, shorts, made for kids]
 created: 2026-11-14
 updated: 2026-11-14
-summary: "Plano v1.1 (rascunho revisado em 14/11 para aprovar com o Patrik): canal de YouTube de histórias infantis que leva à venda de livros de colorir com os mesmos personagens. Pesquisa 1, dúvidas abertas e passo a passo da conta ao 1º vídeo, revisão e automação."
+summary: "Plano v2 (14/11): canal em português com o universo Rex e o Vale dos Amigos, YouTube + Instagram + Facebook + TikTok, voz de IA, verba R$ 1.000. Antes: plano v1.1 (rascunho revisado em 14/11 para aprovar com o Patrik): canal de YouTube de histórias infantis que leva à venda de livros de colorir com os mesmos personagens. Pesquisa 1, dúvidas abertas e passo a passo da conta ao 1º vídeo, revisão e automação."
 ---
 
 # Canal de Histórias Infantis + Livros de Colorir
 
-> **Status:** RASCUNHO v1.1 (14/11, revisado: ver seção 2.6). Nada foi criado ainda. Cada fase só começa com o OK do Patrik.
+> **Status:** RASCUNHO v2 (14/11). As decisões do Patrik estão na seção 0. Nada foi criado ainda. Nada foi criado ainda. Cada fase só começa com o OK do Patrik.
 > Modelo de referência: COLORFUL CREATIVE KIDS (6,34 mi de inscritos, vende livro de colorir na Amazon).
 
 ---
 
+
+## 0. Decisões do Patrik e plano v2 (14/11) · LEIA ESTA SEÇÃO PRIMEIRO
+
+### 0.1 Decidido
+| Item | Decisão |
+|---|---|
+| Idioma | **Português** (o livro vende em PDF e/ou gráfica brasileira, não no KDP impresso) |
+| Universo | **Rex e o Vale dos Amigos** (livro feito no Color Koala e finalizado no Canva) |
+| Narração | **Voz de IA** (a mesma voz em todos os vídeos) |
+| Verba | **R$ 1.000** (confirmar se é por mês) |
+| Redes | **YouTube + TikTok + Instagram + página do Facebook** |
+
+### 0.2 Como as 4 redes se dividem
+| Rede | Quem assiste | Tem link? | Papel |
+|---|---|---|---|
+| **YouTube** | a criança (o canal tem que ser marcado "feito para crianças") | não (sem comentários; link provavelmente não clica) | alcance, views, tempo de exibição |
+| **Instagram + Facebook** | **os pais** (as redes exigem 13+ anos) | **sim** (bio, stories, botão do anúncio) | **venda do livro** e anúncios da Meta depois |
+| **TikTok** | os pais (13+) | sim, na bio (a liberação depende do tipo e do tamanho da conta, a confirmar) | alcance + venda |
+
+**Regra de conteúdo:** no Instagram, no Facebook e no TikTok o vídeo fala com os pais ("atividade para fazer com seu
+filho hoje", "história para a hora de dormir"). Nunca chamar criança para seguir ou comprar.
+**O mesmo vídeo vertical serve nas 4 redes**: um arquivo só, com legenda própria para cada rede.
+
+### 0.3 Os formatos de vídeo
+| # | Formato | Duração | Redes | Custo |
+|---|---|---|---|---|
+| F1 | **"Colorindo o Rex"**: uma página do livro sendo pintada sozinha + a frase narrada | 15 a 30 s | Shorts, Reels, TikTok, FB | **grátis** (protótipo pronto, ver 0.5) |
+| F2 | **História narrada**: o livro inteiro com as páginas coloridas, movimento leve, voz e música | 3 a 5 min | YouTube (longo), cortes para Reels | voz de IA |
+| F3 | **Coletânea para dormir**: várias histórias juntas | 20 a 30 min | YouTube | grátis (reaproveita F2) |
+| F4 | **Cartoon animado** (skill nova `cartoon-audio-short`) | 20 a 60 s | todas | grátis, mas lento |
+
+**Sobre a skill de cartoon (F4):** ela faz personagens 2D "cabeça de feijão" num mundo 3D, com uma voz gravada.
+Funciona, mas tem 3 limites: o estilo **não é o do Rex** (seria preciso desenhar o Rex e os amigos de novo nesse
+estilo), foi feita para histórias curiosas em inglês, e a renderização no computador da nuvem leva de 3 a 10 s por quadro
+(de 1 a 2,5 h para um vídeo de 30 s). **Recomendação:** começar com F1 e F2 (estilo igual ao do livro, que é o que
+vendemos) e testar a F4 no mês 2 como formato extra.
+
+### 0.4 Revisão do livro "Rex e o Vale dos Amigos" (26 págs., 8,5×11" com sangria, feito no Canva)
+O que está bom: traço grosso e fácil de colorir, frente e verso (o desenho não vaza), uma frase por página (vira
+roteiro pronto), 3 a 8 anos, história de amizade e cuidado, capa colorida bonita.
+
+**A corrigir antes de virar vídeo e produto** (no vídeo colorido, a criança vai ver as diferenças):
+1. **A Pluma muda de bicho:** na capa é um **passarinho azul com penas**; por dentro é um **pterossauro**.
+2. **A Dona Casco muda:** na capa é amarela, com espinhos de dinossauro; por dentro é uma **tartaruga**, que na pág. 21
+   tem **pescoço comprido**.
+3. **O Rex muda:** na pág. 4 tem **estrelas no rabo** (que são da Estelinha); nas outras, não.
+4. **O texto não bate com o desenho:** pág. 4, "um ovo enorme, **maior que ele**", mas o ovo desenhado é menor que o
+   Rex; pág. 21, "ficou **presa atrás do tronco**", mas ela está em cima do tronco e todos sorriem.
+5. **Pág. 10 (o ninho):** aparecem um passarinho, um dino sem espinhos e formigas que não são da turma, e a Dona Casco não aparece.
+6. **"casca dourada"** (pág. 14): o ovo nunca foi descrito como dourado antes ("algo brilhando").
+7. **Contracapa:** "Leia, **colore** e se encante" mistura pessoas do verbo; trocar por "Leia, **pinte** e se encante".
+8. **Ficha técnica** (pág. 3) sem nome do autor ou da editora.
+9. **Só 10 desenhos.** Para vender sozinho é pouco; os concorrentes têm de 30 a 50. Duas saídas:
+   (a) volume 1 como **isca grátis ou de entrada**; (b) juntar 3 histórias num livro de ~30 desenhos.
+
+**Bíblia dos personagens (a aprovar):** Rex (T-rex bebê verde, espinhos nas costas, sem estrelas) · Pluma
+(pterossauro azul, crista) · Dona Casco (tartaruga amarela, casco com bolinhas) · Estelinha (estegossauro roxo
+bebê com placas de estrela). Toda página e todo vídeo segue isso.
+
+### 0.5 Protótipo grátis do formato F1 (feito em 14/11)
+Script `colorir.py`: separa as áreas do desenho e pinta uma por uma, de cima para baixo, em vídeo vertical 1080×1920.
+Funcionou nas págs. 4 e 16 (11 s cada, custo zero).
+**Falta:** as cores ainda são sorteadas (o Rex sai azul numa página e verde na outra). **Próxima versão:** um mapa de
+cores fixo por personagem, tirado da capa colorida, para que o Rex seja sempre verde.
+
+### 0.6 Contas a criar (👤 você clica, 🤖 eu guio e confiro pelo print)
+1. **YouTube:** ver Fase 3 abaixo.
+2. **Página do Facebook:** facebook.com (no seu perfil) → menu → **Páginas** → **"Criar nova Página"** → nome
+   (o mesmo do canal) → categoria "Livro" ou "Educação" → foto e capa (eu faço) → Criar.
+3. **Instagram profissional:** app do Instagram → criar conta nova com o nome do canal → **Configurações → Tipo de
+   conta e ferramentas → Mudar para conta profissional → Criador de conteúdo ou Empresa** → conectar à página do
+   Facebook do item 2.
+4. **Meta Business Suite** (business.facebook.com): conferir se a página e o Instagram aparecem juntos. Ali dá para
+   postar o Reels nos dois de uma vez, e é onde os anúncios rodam depois.
+5. **TikTok:** app → criar conta (e-mail novo do canal) → **Perfil → ☰ → Configurações → Conta → Mudar para
+   Conta Comercial** → categoria "Educação". Conferir se o link na bio já é liberado.
+6. **Metricool** (já conectado aqui): ligar as 4 redes para eu agendar tudo de um lugar só (confirmar o limite do plano grátis).
+
+### 0.7 Verba de R$ 1.000 (proposta, a aprovar)
+| Item | Valor | Quando |
+|---|---|---|
+| Voz de IA (Gravyx, que você já usa, ou ElevenLabs) | a orçar (preço a confirmar) | mês 1 |
+| Domínio .com.br para a página do livro e a isca | ~R$ 40/ano (registro.br, a confirmar) | mês 1 |
+| Ferramentas pagas | R$ 0 até o primeiro dinheiro entrar | — |
+| **Reserva para teste de anúncio da Meta** (Reels de F1 para os pais, levando para o livro) | o restante | **só quando o produto e o checkout estiverem no ar e aprovados** |
+
+### 0.8 Esteira completa (o objetivo da automação)
+Livro novo (Color Koala/Canva) → PDF → **eu extraio as páginas** → **coloro** (F1) → **narro** (voz de IA) →
+**monto** F1, F2 e F3 → **você aprova pelo celular** → **Metricool agenda** no YouTube, Instagram, Facebook e TikTok →
+**rotina 1x por dia** lê os números → **auditoria semanal** com 1 correção → próximo livro.
+
+### 0.9 Próximos passos (esta semana)
+1. 👤 Aprovar a bíblia dos personagens e as correções do livro (0.4), e corrigir no Color Koala/Canva.
+2. 🤖 Propor 5 nomes de canal/@ e conferir se estão livres nas 4 redes. 👤 Você escolhe.
+3. 👤 Criar as contas (0.6), comigo guiando.
+4. 🤖 Colorizador v2 (cores fixas por personagem) + o vídeo F2 da história completa + 5 Shorts F1. 👤 Você aprova.
+5. 🤖 Pesquisa de preço e formato de livro de colorir em PDF no Brasil, e de gráfica sob demanda. Depois proponho o
+   produto (preço e checkout **só com o seu OK**).
+
+---
 ## 1. A ideia em uma frase
 
 Um personagem nosso vive histórias curtas no YouTube. Os pais conhecem o personagem pelo vídeo e compram o
@@ -250,5 +350,6 @@ Primeiro fazemos à mão para aprender o que funciona; depois automatizamos.
 
 ## Registro
 - 14/11: pesquisa 1 e plano v1 (rascunho). Aguardando respostas da seção 3.
+- 14/11: v2: decisões do Patrik (PT, Rex, voz de IA, R$ 1.000, 4 redes), revisão do livro, protótipo F1 grátis, avaliação da skill de cartoon.
 - 14/11: revisão v1.1. KDP impresso fora da Amazon.com.br; link clicável em vídeo infantil provavelmente não funciona;
   desenho animado dispensa o aviso de IA; medidas do banner ajustadas.
