@@ -6,12 +6,12 @@ tags: [tipo/projeto, youtube, livros-de-colorir]
 keywords: [youtube kids, historias infantis, livro de colorir, kdp, shorts, made for kids]
 created: 2026-11-14
 updated: 2026-11-14
-summary: "Plano v1 (rascunho para aprovar com o Patrik): canal de YouTube de histórias infantis que leva à venda de livros de colorir com os mesmos personagens. Pesquisa 1, dúvidas abertas e passo a passo da conta ao 1º vídeo, revisão e automação."
+summary: "Plano v1.1 (rascunho revisado em 14/11 para aprovar com o Patrik): canal de YouTube de histórias infantis que leva à venda de livros de colorir com os mesmos personagens. Pesquisa 1, dúvidas abertas e passo a passo da conta ao 1º vídeo, revisão e automação."
 ---
 
 # Canal de Histórias Infantis + Livros de Colorir
 
-> **Status:** RASCUNHO v1 (14/11). Nada foi criado ainda. Cada fase só começa com o OK do Patrik.
+> **Status:** RASCUNHO v1.1 (14/11, revisado: ver seção 2.6). Nada foi criado ainda. Cada fase só começa com o OK do Patrik.
 > Modelo de referência: COLORFUL CREATIVE KIDS (6,34 mi de inscritos, vende livro de colorir na Amazon).
 
 ---
@@ -54,20 +54,25 @@ tempo de exibição. Os personagens fixos (ChaCha, Cussly) se repetem em toda a 
 - **Conclusão:** o canal é a vitrine; o livro paga as contas. É exatamente o que o Colorful faz.
 
 ### 2.4 Regras que mudam o plano
-1. **"Feito para crianças" (obrigatório para nós, lei COPPA):** sem comentários, sem cards e telas finais, sem sininho,
-   sem playlist salva e sem miniplayer. **Não achei confirmação se o link na descrição funciona.** Vou testar no 1º vídeo.
+1. **"Feito para crianças"** (o YouTube obriga todo canal a declarar o público, por causa da lei americana COPPA; conteúdo
+   infantil tem que ser marcado): sem comentários, sem cards e telas finais, sem sininho e sem miniplayer.
+   **Link na descrição: um guia diz que NÃO fica clicável em vídeo infantil** (não confirmado na página oficial; vamos
+   testar no 1º vídeo). **Em Shorts, link na descrição nunca é clicável.**
    Por isso a venda **não pode depender de clique**. O plano usa:
    - endereço curto falado e mostrado na tela ("baixe o desenho grátis em ______.com.br");
    - links do canal (cabeçalho) e banner com o livro;
    - um perfil para **os pais**, no Instagram e num site, que não é infantil e permite link e conversa.
 2. **Conteúdo "inautêntico" ou produzido em massa (IA):** em jan/2026 o YouTube removeu 16 canais (35 mi de inscritos)
    de vídeo repetitivo feito em massa. Usar IA **pode**; o que é punido é molde repetido. Como evitamos isso:
-   personagem próprio e fixo, roteiro original com começo, meio e fim, a mesma voz de narrador sempre, variedade
-   de histórias e marcar "conteúdo alterado/sintético" quando o YouTube pedir.
+   personagem próprio e fixo, roteiro original com começo, meio e fim, a mesma voz de narrador sempre e variedade
+   de histórias. **Desenho animado não precisa do aviso de "conteúdo alterado/sintético"** (a regra vale só para o que
+   parece real).
 3. **Amazon KDP:** livro de colorir **não** é "low-content" (ganha ISBN grátis e "Look Inside"). Imagem feita por IA
    **precisa ser declarada** no cadastro (é um campo privado, o leitor não vê). Royalty de 50% abaixo de US$ 9,99, menos
    a impressão. Fica entre US$ 1,50 e 3,50 por livro, segundo blogs, a confirmar no KDP. Mandala e flor genéricas
    estão saturadas; tema de nicho vende mais. O pico de vendas é no Natal, no Ano-Novo e na volta às aulas.
+   ⚠️ **O livro impresso do KDP NÃO é vendido na Amazon.com.br** (a ajuda do KDP diz que .com.br não tem impresso, só
+   Kindle). Quem está no Brasil só compra o impresso pela Amazon.com, com frete internacional.
 4. **Monetização do YouTube (YPP):** 1.000 inscritos + 4.000 h de exibição em 12 meses **ou** 10 mi de views em Shorts
    em 90 dias. A confirmar na página oficial no dia de pedir.
 
@@ -75,6 +80,17 @@ tempo de exibição. Os personagens fixos (ChaCha, Cussly) se repetem em toda a 
 - **CloneCut:** achei o **CloneCut AI**, que refaz vídeos curtos de até ~15 s trocando personagem ou objeto e mantém o
   movimento. Tem plano grátis com limite e planos de US$ 29 a 119 por mês (preço a confirmar). É útil para Shorts.
 - **"Colos Koala":** **não encontrei.** Ver dúvida 1.
+
+### 2.6 Revisão de 14/11 (o que mudou na v1.1)
+- **Corrigido:** o KDP impresso não chega à Amazon.com.br. Com isso, o **idioma decide o canal de venda**:
+  - **Inglês:** livro impresso no KDP (Amazon.com), igual ao Colorful.
+  - **Português:** PDF para imprimir em casa (Greenn/Hotmart) e/ou uma gráfica sob demanda brasileira, a pesquisar.
+- **Mais forte:** link na descrição de vídeo infantil provavelmente não é clicável, e em Shorts nunca é. A venda depende do
+  endereço curto falado e mostrado na tela, e do perfil para os pais.
+- **Confirmado por várias fontes:** remoção dos 16 canais de IA em jan/2026; livro de colorir não é "low-content";
+  desenho animado não precisa do aviso de IA.
+- **Não consegui abrir as páginas oficiais** (support.google.com e kdp.amazon.com estão bloqueados na rede desta sessão).
+  Regras do YPP, recursos de vídeo infantil e royalties devem ser conferidos nelas antes de cada passo.
 
 ---
 
@@ -84,7 +100,7 @@ tempo de exibição. Os personagens fixos (ChaCha, Cussly) se repetem em toda a 
 2. **O livro que está sendo criado:** qual o tema, a idade, o idioma, quantas páginas, em que formato (impresso pela Amazon,
    PDF para imprimir ou os dois) e quando fica pronto? Tem personagem próprio?
 3. **CloneCut:** é o CloneCut AI (clonecut.ai)? Já pagou algum plano?
-4. **Idioma do canal:** português, inglês ou os dois?
+4. **Idioma do canal:** português, inglês ou os dois? **É a decisão mais importante**, porque define onde o livro é vendido (2.6).
 5. **Quem narra?** A voz de alguém da equipe (mais seguro contra a regra de IA) ou a voz de IA do Gravyx?
 6. **Conta Google:** criar uma conta nova só para o canal? Eu recomendo que sim, separada da Corpo Feliz.
 7. **Verba até o dinheiro entrar:** quanto pode sair por mês (tokens do Gravyx, CloneCut)? Pode ser R$ 0.
@@ -115,7 +131,8 @@ Legenda: 🤖 = eu faço · 👤 = você faz (clicar/aprovar) · ✅ = ponto de 
 - 🤖 **Bíblia do personagem:** nome, idade, jeito, amigos, cores, frases. É ela que mantém o personagem igual em
   todo vídeo e livro.
 - 🤖 Gerar o personagem em 3 estilos (Gravyx `gerar_imagem`, que custa tokens, ou opções grátis). ✅ Você escolhe.
-- 🤖 Logo, foto de perfil (800×800) e banner (2560×1440, área segura de 1546×423 no centro) no **Canva grátis**.
+- 🤖 Logo, foto de perfil (800×800) e banner (2560×1440, mínimo 2048×1152, até 6 MB; texto e logo na faixa central
+  de ~1546×423) no **Canva grátis**.
 - 🤖 Definir a voz do narrador (amostras). ✅ Você escolhe.
 
 ### Fase 3 · Criar a conta e o canal (1 h, 👤 com eu guiando ao vivo)
@@ -154,8 +171,8 @@ Legenda: 🤖 = eu faço · 👤 = você faz (clicar/aprovar) · ✅ = ponto de 
 1. Studio → botão **"Criar"** (canto superior direito) → **"Enviar vídeos"** → arrastar o MP4.
 2. **Detalhes:** colar título e descrição → enviar a miniatura → **Playlist** (criar "Histórias para dormir") →
    **Público: "Sim, é conteúdo para crianças"**.
-3. **Mostrar mais** → "Conteúdo alterado ou sintético": marcar **Sim** se tiver voz ou imagem realista de IA
-   (decidimos juntos caso a caso) → idioma → categoria.
+3. **Mostrar mais** → "Conteúdo alterado ou sintético": **Não** para desenho animado (a regra é só para o que parece
+   real) → idioma → categoria.
 4. **Elementos do vídeo:** pular (cards e telas finais não funcionam em vídeo infantil).
 5. **Verificações:** esperar dar "Nenhum problema encontrado".
 6. **Visibilidade:** "Programar" para o horário que escolhermos → Programar.
@@ -172,7 +189,7 @@ Legenda: 🤖 = eu faço · 👤 = você faz (clicar/aprovar) · ✅ = ponto de 
 1. 🤖 **Isca grátis:** 1 desenho para colorir de cada vídeo, numa página simples (Vercel grátis), em troca de e-mail ou
    WhatsApp dos pais.
 2. 🤖 **Livro 1:** de 30 a 50 páginas com o personagem e as histórias do canal, montado em PDF (tamanho KDP 8,5×11").
-3. 👤 **KDP:** `kdp.amazon.com` → entrar com a conta Amazon → preencher os dados fiscais → "+ Criar" → **Paperback** →
+3. 👤 **KDP (só se o canal for em inglês, ver 2.6):** `kdp.amazon.com` → entrar com a conta Amazon → preencher os dados fiscais → "+ Criar" → **Paperback** →
    título, descrição, **declaração de IA**, categorias → enviar o PDF do miolo e a capa → preço → Publicar.
    🤖 Eu preparo todos os textos e arquivos.
 4. 👤 **PDF para imprimir em casa** na Greenn ou na Hotmart. Preço e checkout **só com o seu OK** na proposta mostrada.
@@ -224,9 +241,14 @@ Primeiro fazemos à mão para aprender o que funciona; depois automatizamos.
 - IA e conteúdo inautêntico: [Tubefilter, jul/2026](https://www.tubefilter.com/2026/07/13/youtube-inauthentic-content-monetization-policy-update/) ·
   [The Next Web](https://thenextweb.com/news/youtube-ai-slop-crackdown-faceless-creators-collateral-damage) ·
   [Metricool](https://metricool.com/youtube-ai-content-rules-monetization/)
+- KDP impresso fora do .com.br: [KDP Help, direitos e marketplaces](https://kdp.amazon.com/en_US/help/topic/GVEG4YA9G2T7N6DR)
+- Link em vídeo infantil: [link.boo](https://link.boo/guides/youtube-description-link-clickable) · Aviso de IA e animação: [AIR](https://air.io/en/youtube-hacks/youtube-ai-disclosure-in-2026-label-it-yourself-or-youtube-will)
+- 16 canais removidos: [Tribune](https://tribune.com.pk/story/2589917/youtube-deletes-47-billion-views-worth-of-ai-spam-videos-in-major-platform-crackdown) · [Windows Report](https://windowsreport.com/youtube-finally-cracks-down-on-ai-slop-channels-with-millions-of-subscribers/)
 - KDP: [Authors Guild](https://authorsguild.org/news/amazon-adds-to-kdp-generative-ai-policy-caps-daily-self-publishing-uploads/) ·
   [Inkfluence, livro de colorir](https://www.inkfluenceai.com/how-to-sell-coloring-books)
 - CloneCut: [creati.ai](https://creati.ai/ai-tools/clonecut/) · [topai.tools](https://topai.tools/t/clonecut-ai)
 
 ## Registro
 - 14/11: pesquisa 1 e plano v1 (rascunho). Aguardando respostas da seção 3.
+- 14/11: revisão v1.1. KDP impresso fora da Amazon.com.br; link clicável em vídeo infantil provavelmente não funciona;
+  desenho animado dispensa o aviso de IA; medidas do banner ajustadas.
