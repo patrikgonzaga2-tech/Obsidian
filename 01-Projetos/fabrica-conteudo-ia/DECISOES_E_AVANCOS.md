@@ -7,9 +7,9 @@
 
 | Passo | O que é | Status | Resultado |
 |---|---|---|---|
-| Dia 1 · Passo 1 | Confirmar o formato | ⏳ aguardando o Patrik | — |
-| Dia 1 · Passo 2 | Nome e personagem | ⏳ aguardando o Patrik (3 opções enviadas) | — |
-| Dia 1 · Passo 3 | Gmail do canal | ⬜ não começou | — |
+| Dia 1 · Passo 1 | Confirmar o formato | ✅ decidido 15/11 | infantil 2 a 5 anos, desenhar e colorir, 8 a 12 min + 3 Shorts |
+| Dia 1 · Passo 2 | Nome e personagem | 🟡 nome e personagem decididos; falta o @ único | **Pingo Pinta** · personagem Pingo (gotinha de tinta) · @pingopinta ocupado no Instagram → testar @pingopintakids |
+| Dia 1 · Passo 3 | Gmail do canal | ⏳ enviado, aguardando | sugestão: pingopintakids@gmail.com |
 | Dia 1 · Passo 4 | Canal no YouTube | ⬜ não começou | — |
 
 ---
@@ -44,3 +44,24 @@ Gotinha Kids, Lulu Pinta. "Gotinha Colorida" estava livre, mas foi descartado po
 Recomendação: **opção 2, Zuca Zebrinha.**
 
 Pendente: nome e personagem escolhidos + resultado do Instagram.
+
+---
+
+## 15/11/2026 · Respostas do Patrik aos Passos 1 e 2
+
+- ✅ **Formato aprovado** ("formato ok"): infantil 2 a 5 anos, desenhar e colorir, vídeo de 8 a 12 min
+  + 3 Shorts.
+- ✅ **Nome escolhido: Pingo Pinta.** Personagem: **Pingo, a gotinha de tinta que muda de cor a cada
+  vídeo.** (Não foi a recomendação, a Zuca Zebrinha; decisão do dono.)
+- ❌ **@pingopinta ocupado no Instagram** (conferido pelo Patrik).
+
+### Decisão de @ (proposta)
+Usar **o mesmo @ em tudo** (YouTube, Instagram, TikTok, Gmail), para a criança/pai achar fácil e para
+vender o canal um dia como um pacote só. Por isso o YouTube também deixa de usar `@pingopinta`.
+
+Variações conferidas no YouTube em 15/11 (todas livres, 404): `@pingopintakids` ⭐, `@pingopintaoficial`,
+`@canalpingopinta`, `@pingopintatv`, `@pingopintabr`, `@pingopinta_kids`.
+Ordem de preferência enviada ao Patrik para testar no Instagram: 1) pingopintakids,
+2) canalpingopinta, 3) pingopintatv.
+
+Passo 3 (Gmail) enviado junto, com o mesmo nome do @ escolhido.
