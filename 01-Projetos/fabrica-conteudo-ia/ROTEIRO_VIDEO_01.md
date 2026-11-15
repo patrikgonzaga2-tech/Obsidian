@@ -1,6 +1,6 @@
 # Pingo Pinta · Vídeo 01 · Roteiro v2 "desenhe e pinte junto" (✋ Aprovação 1)
 
-> Status: **aguardando "roteiro ok" do Patrik** (15/11/2026). Nada de imagem é gerado antes do OK.
+> Status: ✅ **aprovado pelo Patrik em 15/11/2026** ("roteiro ok"). Voz do Pingo: Liam original.
 > Formato aprovado: infantil 2 a 5 anos, desenhar e colorir, 8 a 12 min + 3 Shorts.
 > **v2** reescrita depois do Patrik assistir o AKN Kids House (v1 era só "assistir o desenho aparecer";
 > v2 é "fazer junto", como o AKN). Histórico da v1 no fim do arquivo.
@@ -30,7 +30,7 @@ bom, mudamos o caminho gastando pouco.
 | Duração | ~10 min (6 frutas × ~90 s + abertura + final) |
 | Personagem | **Pingo**, gotinha de tinta que **vira a cor do momento** e conduz a aula |
 | Estilo | papel branco, traço preto grosso e liso (vira página do livro), cores vivas |
-| Voz | **A (voz curta)**, do Pingo, falando **com** a criança. Voz em escolha (amostras do Liam mais jovem) |
+| Voz | **A (voz curta)**, do Pingo, falando **com** a criança. **Liam original** (ElevenLabs v3) |
 | Som | **sem música**, só efeitos: lápis riscando, "plim" quando o Pingo muda de cor, pincel, brilho do glitter, "pop" no fim de cada fruta |
 | Narração estimada | ~3.300 caracteres ≈ **2.000 tokens** do Gravyx (custo mostrado e confirmado antes de gerar) |
 

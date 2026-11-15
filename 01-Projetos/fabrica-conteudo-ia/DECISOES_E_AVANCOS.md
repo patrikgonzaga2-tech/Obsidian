@@ -11,6 +11,12 @@
 | YouTube | [youtube.com/@pingopinta](https://www.youtube.com/@pingopinta) |
 | Instagram | [instagram.com/pingo_pinta](https://www.instagram.com/pingo_pinta/) |
 
+## Personagens e vozes (ficha)
+| Personagem | Voz | Status |
+|---|---|---|
+| **Pingo** (gotinha, vira a cor do momento) | **Liam original** · ElevenLabs v3 · id `TX3LPaxmHKxFdv7VOQHJ` (Gravyx) | ✅ voz aprovada 15/11; visual em escolha |
+| **2ª gotinha** (nome a definir) | **Bella** · ElevenLabs v3 · id `hpp4J3VqNfWAUOO0d1Us` (Gravyx) | 🔜 "mais pra frente"; voz guardada |
+
 ## Status do Sprint 1
 
 | Passo | O que é | Status | Resultado |
@@ -20,8 +26,10 @@
 | Dia 1 · Passo 3 | Gmail do canal | ✅ criado 15/11 | **pingopintacolor@gmail.com**, duas etapas ativa |
 | Dia 1 · Passo 4 | Canal no YouTube | ✅ criado 15/11, "para crianças" marcado | [youtube.com/@pingopinta](https://www.youtube.com/@pingopinta), telefone verificado |
 | Dia 1 · Extra | Instagram | ✅ criado 15/11 | [instagram.com/pingo_pinta](https://www.instagram.com/pingo_pinta/) |
-| Dia 2 · Aprovação 1 | Roteiro do vídeo 01 | ⏳ v2 enviada, aguardando "roteiro ok" | `ROTEIRO_VIDEO_01.md` v2 "desenhe e pinte junto" · voz A |
-| Dia 2 · Voz | Escolher a voz do Pingo | ⏳ Liam escolhido; 3 versões mais jovens enviadas | `amostras_voz/` |
+| Dia 2 · Aprovação 1 | Roteiro do vídeo 01 | ✅ "roteiro ok" 15/11 | `ROTEIRO_VIDEO_01.md` v2 "desenhe e pinte junto" |
+| Dia 2 · Voz | Escolher a voz do Pingo | ✅ Liam **original** 15/11 | Bella guardada para a 2ª gotinha |
+| Dia 2 · Visual do Pingo | Escolher 1 de 3 | ⏳ enviado, aguardando | `arte/pingo/` |
+| Dia 2 · Teste da maçã | Desenho + pintura simulados | ⏳ enviado, aguardando avaliação | `arte/testes/teste_maca_v1.mp4` |
 | Dia 2 · Música | ~~1 faixa da Biblioteca de Áudio~~ | ❌ cancelado 15/11 | sem música (como o AKN); só efeitos sonoros, feitos por mim |
 
 ---
@@ -136,7 +144,9 @@ Passo 3 (Gmail) enviado junto, com o mesmo nome do @ escolhido.
 |---|---|
 | 3 amostras de voz | 303 |
 | 2 amostras novas (Liam e Will, texto "desenhar junto") | 248 |
-| **Total até agora** | **551** |
+| 3 opções do Pingo (Nano Banana Pro 1K) | 525 |
+| Troca de cor do Pingo e teste da maçã (programa próprio) | 0 |
+| **Total até agora** | **1.076** |
 
 ---
 
@@ -162,3 +172,27 @@ Passo 3 (Gmail) enviado junto, com o mesmo nome do @ escolhido.
 - 🛠️ **Ambiente próprio do projeto criado** no Claude Code: "Fábrica de Conteúdo IA" (pessoal), com
   acesso a `img.gravyx.com.br` (baixar áudios e desenhos gerados no Gravyx) e aos endereços do YouTube.
   Esta sessão já usa a rede dele.
+
+---
+
+## 15/11/2026 · Voz aprovada, 2 gotinhas, roteiro ok e 1º teste de imagem
+
+- ✅ **Voz do Pingo: Liam original** (sem mudar o tom). As versões mais agudas foram descartadas.
+- ✅ **Decisão: o canal terá 2 gotinhas.** Pingo (voz do Liam) e uma 2ª gotinha com a **voz da Bella**,
+  "mais pra frente". Nome e visual da 2ª gotinha: a definir quando ela entrar.
+- ✅ **Roteiro v2 aprovado** ("roteiro ok").
+- 🎨 **3 opções de visual do Pingo** geradas (Gravyx, Nano Banana Pro 1K, 3 × 175 = 525 tokens), em
+  `arte/pingo/pingo_opcao_1..3.jpg`. A troca para as 6 cores do arco-íris é feita aqui por programa
+  (grátis): `arte/pingo/pingo_3_opcoes_6_cores.jpg`. Funciona bem nas 3.
+  - Atenção registrada: gota vermelha lembra o símbolo de doação de sangue. Como o Pingo muda de cor,
+    a miniatura/foto do canal deve mostrar ele colorido (não só vermelho).
+- 🍎 **Teste da maçã (o maior risco)** feito por programa próprio (grátis): `arte/testes/teste_maca_v1.mp4`
+  (27 s, sem voz, com som de lápis). Contorno em 3 passos (bolinha, cabinho, folhinha) com um lápis
+  desenhado fazendo o traço, depois pintura com textura de lápis de cor, cabo marrom, folha verde e
+  brilho. Código em `codigo/teste_maca.py`.
+  - Decisão técnica: **as frutas são desenhadas por código (vetor), não por IA.** Motivo: o traço
+    passo a passo precisa saber a ordem de cada linha, o desenho fica idêntico no livro e custa zero.
+    A IA fica para o Pingo, capas e miniaturas.
+  - Corrigido na 2ª versão: papel estava azulado e o lápis saía de dentro da maçã ao pintar.
+  - A fazer antes do vídeo inteiro: deixar o programa mais rápido (hoje ~6 min para 27 s; o vídeo de
+    10 min levaria ~2 h).
