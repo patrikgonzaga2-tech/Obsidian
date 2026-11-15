@@ -20,6 +20,7 @@ não da página oficial. Conferir antes de assinar.
 | 5 | **Organização no Supabase** | banco de dados | Free grátis (pausa se ficar parado, a confirmar) | Pro ~US$ 25/mês (a confirmar) |
 | 6 | Gravyx: conta separada ou workspace só do projeto | imagens, thumbs, narração | já assinado (Starter, 10.000 tokens); conta nova: preço a confirmar | substituir por API direta |
 | 7 | Metricool: marca nova (ou conta nova) | agendar nas redes | a confirmar se o plano atual aceita 2ª marca | API de publicação própria |
+| 7b | **Chave de API da IA de texto** (Anthropic e/ou Gemini) | o "cérebro" da fábrica, pago por uso e contado no Caixa | crédito inicial ~US$ 5 (por uso) | por uso, repassado no preço |
 | 8 | Notificações | aviso da reunião e alertas 🔴 pelo próprio escritório instalado no celular (sem conta extra) | grátis | grátis |
 | 9 | Gerenciador de senhas (cofre do projeto) | guardar logins | grátis | grátis |
 | 10 | *(depois)* Domínio | endereço do SaaS | .com.br ~R$ 40/ano (a confirmar) | idem |

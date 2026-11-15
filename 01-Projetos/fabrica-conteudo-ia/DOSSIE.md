@@ -75,7 +75,7 @@ lógica entra no Radar como código nosso.
 ### 3.3 Níveis de alerta
 | Nível | Regra (exemplo) | O que acontece |
 |---|---|---|
-| 🔴 **ALERTA VIRAL (fura a fila)** | canal com ≤ 5 vídeos **e** vídeo ≥ 1 milhão de views **e** ≥ 1.000 inscritos **e** provavelmente elegível à monetização | vai direto para Análise, aviso imediato ao dono, entra no topo da pauta |
+| 🔴 **ALERTA VIRAL (fura a fila)** | canal com ≤ 5 vídeos **e** vídeo ≥ 1 milhão de views **e** ≥ 1.000 inscritos ("provavelmente monetizado" = etiqueta e pontos extras, **não** exigência, porque o 3º sinal não dá para checar do servidor) | vai direto para Análise, aviso imediato ao dono, entra no topo da pauta |
 | 🟠 Oportunidade forte | ≥ 3x a mediana **e** ≥ 100 mil em 24 h | entra na Análise no próximo ciclo |
 | 🟡 Observar | só um sinal forte | fica na lista; reavalia em 24 h |
 
@@ -120,6 +120,12 @@ lógica entra no Radar como código nosso.
   subir o teto; **nunca sobe sozinho**.
 
 ---
+
+## 5b. Ordem de prioridade das regras (a de cima sempre vence)
+1. Trava de segurança e direitos autorais
+2. Teto de gasto (com reserva antes de cada tarefa)
+3. Regra dos 7 dias sem reunião
+4. Nível de autonomia
 
 ## 6. Autonomia que cresce
 

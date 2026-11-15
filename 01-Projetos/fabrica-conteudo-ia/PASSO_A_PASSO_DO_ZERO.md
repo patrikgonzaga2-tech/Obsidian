@@ -28,9 +28,23 @@
 
 Tempos são estimativas, não promessa.
 
+## Caminho rápido: cada conta só quando a fase precisar
+Para rodar e testar logo, não precisa criar tudo de uma vez:
+
+| Antes de… | Crie só isto |
+|---|---|
+| **D1 (começar o escritório)** | Passo 6 GitHub + Passo 7 app do Claude + Passo 8 Vercel + Passo 9 Supabase (com os seus logins de sempre) |
+| **D4 (Radar)** | Passo 3 Gmail do projeto (2 etapas por SMS) + Passo 5 chave YouTube + Passo 11 ambiente e segredos |
+| **D5 (Análise)** | Passo 4 chave Gemini + Passo 10b chave da IA de texto |
+| **D7 (Produção)** | Passo 10 gerador de imagens (o escolhido no teste, com API) |
+| **D9 (Publicação)** | canal de TESTE privado no Gmail do projeto |
+| **Parte E (canal de verdade) e qualquer dinheiro** | **obrigatório:** Passo 1 cofre + Passo 2 autenticador |
+
+Falhas encontradas na revisão e as correções: `REVISAO_FALHAS.md`.
+
 ---
 
-# PARTE A · Preparar (🧑, 15 min)
+# PARTE A · Preparar (🧑, 15 min) · pode ficar para depois, obrigatório antes da Parte E
 
 ## Passo 1 · Cofre de senhas
 - **O que é:** um app que guarda todas as senhas do projeto com uma senha-mestra.
@@ -118,9 +132,17 @@ Tempos são estimativas, não promessa.
 - **Cuidado:** pelo que sei, no Free o projeto pausa após 1 semana parado (dá para religar). Confirmar.
 - ✅ **Me mande:** o nome da organização (a senha fica só no cofre).
 
+## Passo 10b · Chave da IA de texto (o "cérebro" da fábrica)
+- **Por que:** roteiro, análise e revisão rodam com uma chave PRÓPRIA do projeto, paga por uso e
+  contada no Caixa. Assim não divide o limite da sua assinatura do Claude com nada.
+- **Como fazer:** `console.anthropic.com` → criar conta com o Gmail do projeto → **Billing** →
+  colocar crédito (ex.: US$ 5 para testar) → **API Keys → Create Key** → salvar no cofre/navegador.
+- **Cuidado:** a chave vai só nos segredos do ambiente/banco, nunca no chat.
+- ✅ **Me mande:** "chave IA criada".
+
 ## Passo 10 · Gerador de imagens: espaço só do projeto
-- No Gravyx, crie um **workspace** com o nome do projeto (ou uma conta nova, se quiser gastos 100%
-  separados; preço a confirmar no site).
+- A fábrica precisa de um gerador **com API** (para rodar sozinha). Antes da D7 fazemos o teste lado
+  a lado (Gravyx, Dreamina, Pollo…) e escolhemos. Enquanto isso, nada a criar.
 - ✅ **Me mande:** o nome do workspace.
 
 > Metricool, YouTube e redes sociais: **ainda não.** Ficam para a Parte E.
@@ -170,7 +192,8 @@ Tempos são estimativas, não promessa.
 - **Pronto quando:** cria, edita e apaga um canal de teste sem ajuda.
 
 ## D3 · Caixa (gasto, teto e horário)
-- **Eu construo:** "Gasto do dia" por sala e por fornecedor; teto diário; cartão de teto batido
+- **Eu construo:** **reserva do custo estimado antes de cada tarefa** (sem saldo no teto, não
+  começa); "Gasto do dia" por sala e por fornecedor; teto diário; cartão de teto batido
   **[+ US$ 2] [+ US$ 5] [+ US$ 10] [+ US$ ____]** valendo só no dia; horário de trabalho; registro
   de cada aprovação.
 - **Você testa:** coloca um teto baixo, força o teto e aprova um extra.
@@ -181,6 +204,10 @@ Tempos são estimativas, não promessa.
   canal novo, poucos vídeos, views ÷ inscritos, nota de "feito com IA" e "provavelmente monetizado"
   (sempre marcados como estimados); alertas 🔴 🟠 🟡; "foto" dos números de hora em hora dentro do
   horário; tudo guardado na Biblioteca.
+- **Como roda:** as fotos de hora em hora rodam no agendador do próprio banco (Supabase), não na
+  Vercel. Funil de 3 peneiras: números (grátis) → metadados → só os 10 melhores do dia vão para o
+  Gemini. Cota do YouTube: ~6 mil/dia para o Radar, ~4 mil reservadas para publicar (a confirmar).
+  Fotos por hora guardadas 7 dias, depois 1 por dia.
 - **Você testa:** ajusta uma regra e vê os alertas mudarem.
 - **Pronto quando:** em 2 a 3 dias a Biblioteca tem oportunidades reais, com alertas que fazem sentido.
 
@@ -214,8 +241,10 @@ Tempos são estimativas, não promessa.
 - **Eu construo:** conexão segura com o YouTube (login oficial do Google); antes de publicar, mostra o
   canal de destino; **Publicar agora / Agendar / Privado**; só marca publicado com o link do YouTube;
   chave única contra duplicata; mensagens de erro claras.
-- **Antes desta fase:** confirmar as regras da API do YouTube (cota, auditoria, campo de conteúdo
-  sintético).
+- **Antes desta fase:** criar um **canal de TESTE privado** no Gmail do projeto; confirmar as regras
+  da API do YouTube (cota, auditoria, autorização que expira em 7 dias no modo teste, campo de
+  conteúdo sintético). Até a auditoria do Google sair, o vídeo sobe **privado** e você libera no
+  YouTube Studio com 1 clique.
 - **Pronto quando:** publica um vídeo de teste como **privado** sem duplicar.
 
 ## D10 · Visual final e autonomia
