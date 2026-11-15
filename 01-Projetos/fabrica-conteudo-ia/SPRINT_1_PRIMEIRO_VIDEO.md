@@ -4,6 +4,15 @@
 > a gerar dinheiro o quanto antes. **O escritório só é construído se o Sprint 1 passar.**
 > Atualizado em 15/11/2026.
 
+## REGRA FIXA DE COMUNICAÇÃO (pedido do Patrik, 15/11)
+Todo pedido ao Patrik vem SEMPRE neste formato, sem exceção:
+1. **Qual passo é** (ex.: "Sprint 1 · Dia 1 · Passo 3 de 4").
+2. **Passo a passo** clique a clique, com **links clicáveis**.
+3. **Motivo:** por que precisa disso agora.
+4. **O que resolve:** o que destrava ou que problema evita.
+5. **O que me mandar** quando terminar.
+Nunca pedir algo "solto", sem esses 5 itens. Esta regra entra no CLAUDE.md do repositório do projeto.
+
 ## Por que nessa ordem
 - Se o vídeo não ficar bom, ou demorar demais para fazer, descobrimos isso gastando **dias**, não
   semanas de construção.

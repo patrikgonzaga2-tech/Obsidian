@@ -5,6 +5,15 @@
 > Ponto de partida: não existe nada (sem canal, nicho, personagem ou contas).
 > Atualizado em 15/11/2026.
 
+## REGRA FIXA DE COMUNICAÇÃO (pedido do Patrik, 15/11)
+Todo pedido ao Patrik vem SEMPRE neste formato, sem exceção:
+1. **Qual passo é** (ex.: "Sprint 1 · Dia 1 · Passo 3 de 4").
+2. **Passo a passo** clique a clique, com **links clicáveis**.
+3. **Motivo:** por que precisa disso agora.
+4. **O que resolve:** o que destrava ou que problema evita.
+5. **O que me mandar** quando terminar.
+Nunca pedir algo "solto", sem esses 5 itens. Esta regra entra no CLAUDE.md do repositório do projeto.
+
 ## Como ler
 - Cada passo diz: **o que é · por que · como fazer (clique a clique) · cuidado · ✅ o que me mandar**.
 - 🧑 você faz · 🤖 eu faço · 🤝 juntos.
