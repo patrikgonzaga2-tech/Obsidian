@@ -64,8 +64,13 @@ função de "100 variações" do Hypit.
 | **Canal novo** | data de criação do canal | ≤ 30 dias | sim (dado público) |
 | **Poucos vídeos** | total de vídeos do canal | ≤ 5 a 10 | sim |
 | **Alcance fora da base** | views do vídeo ÷ inscritos | ≥ 10x | sim |
-| **Feito com IA** | declaração de conteúdo sintético (se a API expuser) + leitura visual do Gemini | — | **estimado**, marcar como estimado |
-| **Monetizado** | **não é dado público.** Só "provavelmente elegível" (inscritos e horas/views acima do mínimo) | — | **estimado** |
+| **Feito com IA** | nota de 0 a 100 somando: (1) selo do YouTube "conteúdo alterado ou sintético" quando o criador declarou (o sinal mais forte, mas desenho animado não é obrigado a declarar); (2) ritmo de postagem (muitos vídeos por dia); (3) canal novo com volume alto; (4) títulos e descrições com cara de modelo repetido; (5) quadros do vídeo passados por um detector de imagem de IA e pela leitura do Gemini | ≥ 70 = "provável IA" | **estimado**, sempre marcado como estimado |
+| **Monetizado** | o YouTube **tirou** do código da página o campo `is_monetization_enabled` em 17/11/2023. Hoje as ferramentas estimam por 3 sinais: botão "Seja membro" no canal, ≥ 1.000 inscritos e anúncios em 3 vídeos com mais de 4 min (a extensão que faz isso diz ~90% de acerto; não verificado). Da nuvem só dá para checar os 2 primeiros; o 3º precisa de navegador | 3 de 3 = "provavelmente monetizado" | **estimado** |
+
+Ferramentas de referência (ideias, não instalar: todas com 0 a 31 ★): extensão
+`is-youtube-channel-monetized-extension` (método dos 3 sinais), `AI-Slop-Detector-Browser-Extension`
+(sinais de metadados para IA no YouTube), `ai-slop-detector` (detector local de imagem de IA). A
+lógica entra no Radar como código nosso.
 | Para crianças | marcação "made for kids" do vídeo (conferir se a API devolve) | — | a confirmar |
 
 ### 3.3 Níveis de alerta
