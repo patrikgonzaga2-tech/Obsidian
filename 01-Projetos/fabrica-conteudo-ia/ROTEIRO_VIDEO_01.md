@@ -16,6 +16,16 @@
 | Shorts com "assista o vídeo completo" | **visto** nos Shorts do AKN |
 | O Pingo virando a cor, 6 frutas do arco-íris, o ritmo de ~90 s por fruta, a cesta no final | **criado por nós**, não medido |
 
+## ⭐ Mecanismo Pingo (o que é só nosso, decidido em 15/11)
+1. **O Pingo é a tinta:** a mão desenha o contorno junto com a criança; o Pingo pula dentro do desenho
+   e escorrega pintando com a cor dele.
+2. **"De que cor é?":** pergunta, espera a resposta (balão "?") e diz **"Pinga, pinga, Pingo… <cor>!"**,
+   virando a cor com som de gota e respingos.
+3. **Completar o arco-íris:** cada fruta pronta voa para a sua vaguinha e acende a sua faixa; no fim do
+   vídeo o arco-íris fica completo.
+Isto substitui materiais variados, glitter, potes de tinta e final com nuvens (eram da referência).
+O texto das falas da maçã está em `hyperframes_kit/tempos.json`.
+
 ## ⚠️ O maior risco deste vídeo
 O AKN usa **mão de verdade em papel de verdade**. Nós vamos **simular**: um lápis/pincel desenhado
 percorrendo o traço, com textura de lápis, giz, tinta e brilho de glitter. Não sabemos se fica bom o

@@ -299,7 +299,7 @@ for f in range(NF):
     mao_on = False
     if dentro_de("mao_entra", tt): ponta_mao = FORA + suave(p("mao_entra", tt)) * (PASSOS[0][0][0] - FORA); mao_on = True
     for i, k in enumerate(("c0", "c1", "c2")):
-        if tt >= ev[k][0] and feito[i][-1] < CONT[i][1][-1][-1]:
+        if ev[k][0] <= tt < ev[k][1] + 0.4 and feito[i][-1] < CONT[i][1][-1][-1] - 0.5:
             ponta_mao = avanca_contorno(i, p(k, tt)); mao_on = True
     if ev["mao_entra"][1] <= tt < ev["mao_sai"][0]: mao_on = True
     if dentro_de("mao_sai", tt): ponta_mao = ponta_mao + suave(p("mao_sai", tt)) * (FORA - ponta_mao) * 0.35; mao_on = True

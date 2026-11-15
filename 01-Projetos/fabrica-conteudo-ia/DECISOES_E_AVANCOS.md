@@ -29,7 +29,10 @@
 | Dia 2 · Aprovação 1 | Roteiro do vídeo 01 | ✅ "roteiro ok" 15/11 | `ROTEIRO_VIDEO_01.md` v2 "desenhe e pinte junto" |
 | Dia 2 · Voz | Escolher a voz do Pingo | ✅ Liam **original** 15/11 | Bella guardada para a 2ª gotinha |
 | Dia 2 · Visual do Pingo | Escolher 1 de 3 | ✅ opção 2 (15/11) | `arte/pingo/pingo_opcao_2.jpg` |
-| Dia 2 · Teste da maçã | Desenho + pintura simulados | ❌ v1 reprovada · ⏳ v2 enviada | `arte/testes/teste_maca_v2.mp4` |
+| Dia 2 · Teste da maçã | Desenho + pintura simulados | ✅ v2 "ficou bom", mas imitava demais | `arte/testes/teste_maca_v2.mp4` |
+| Dia 2 · Mecanismo próprio | O que é só nosso | ✅ criado 15/11 (ver abaixo) | `ROTEIRO_VIDEO_01.md` |
+| Dia 2 · Abertura + maçã com voz | 1º trecho real do vídeo 01 | ⏳ enviado, aguardando | `videos/video01_parte1_abertura_maca_v1.mp4` |
+| Extra · HyperFrames | Testar o mesmo trecho no terminal do Patrik | ⏳ kit enviado | `hyperframes_kit/` |
 | Dia 2 · Música | ~~1 faixa da Biblioteca de Áudio~~ | ❌ cancelado 15/11 | sem música (como o AKN); só efeitos sonoros, feitos por mim |
 
 ---
@@ -148,7 +151,8 @@ Passo 3 (Gmail) enviado junto, com o mesmo nome do @ escolhido.
 | Troca de cor do Pingo e teste da maçã (programa próprio) | 0 |
 | 2 fotos de mão (caneta e pincel, Nano Banana Pro 1K) | 350 |
 | 2 recortes de fundo do Gravyx (ficaram ruins, refeitos aqui de graça) | 200 |
-| **Total até agora** | **1.626** |
+| 15 falas do Pingo (abertura + maçã, ElevenLabs v3) | 425 |
+| **Total até agora** | **2.051** |
 
 ---
 
@@ -226,3 +230,25 @@ Passo 3 (Gmail) enviado junto, com o mesmo nome do @ escolhido.
     nome "Maçã".
   - Código: `codigo/teste_maca_v2.py`. Agora ~4,5 min para 33 s (vídeo de 10 min ≈ 1 h 20 min de
     computador, sem custo).
+
+---
+
+## 15/11/2026 · "Está imitando muito": o mecanismo Pingo e a abertura com voz
+
+- Patrik: a maçã v2 "ficou boa, mas está imitando muito, não tem o nosso mecanismo único e precisa
+  ter". Pediu para gerar o original, com voz, do início.
+- ✅ **Mecanismo Pingo (o que é só nosso)**, no lugar do que era copiado da referência:
+  1. **O Pingo é a tinta.** A mão só desenha o contorno (a criança desenha junto). Quem pinta é o
+     Pingo: pula dentro do desenho e escorrega deixando o rastro da cor dele. (Sai: pincel e glitter.)
+  2. **"De que cor é?"** O Pingo pergunta, espera a criança responder (balão "?", 2,4 s) e diz a
+     frase mágica **"Pinga, pinga, Pingo... vermelho!"**, com o som-assinatura de gota. (Sai: potes.)
+  3. **Completar o arco-íris.** Um arco-íris vazio no canto; cada fruta pronta voa para a vaguinha
+     dela e acende a sua faixa. Motivo de ficar até o fim do vídeo. (Sai: final com nuvens.)
+  - Mantido da referência só o que é do gênero: desenhar junto com mão real e contorno grosso.
+- 🎙️ 15 falas geradas (Liam, ElevenLabs v3, 425 tokens), em `audio/video01/fala_01..15.mp3`. O tempo
+  do vídeo é montado pela duração real de cada fala.
+- 🎬 **Abertura + maçã (63,6 s)**: `videos/video01_parte1_abertura_maca_v1.mp4`. Programa:
+  `codigo/video01_maca.py` (renderiza em ~1,5 min). Corrigido um erro em que a mão não saía da tela.
+- 🧪 **HyperFrames:** o Patrik instalou no terminal dele e quer testar. Kit pronto em
+  `hyperframes_kit/` (prompt, tempos.json, maçã em SVG, Pingo em 8 cores com fundo transparente, mão,
+  15 falas). Serve para comparar os 2 caminhos (programa próprio × HyperFrames) no mesmo trecho.

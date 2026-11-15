@@ -4,9 +4,9 @@
 > a gerar dinheiro o quanto antes. **O escritório só é construído se o Sprint 1 passar.**
 > Atualizado em 15/11/2026.
 >
-> **Onde estamos:** Dia 1 ✅ · Dia 2: roteiro v2 ✅, voz do Pingo ✅ (Liam), visual do Pingo ✅ (opção 2) ·
-> maçã v1 ❌ · **maçã v2 no estilo da referência Chiki Art (mão real, glitter) em avaliação**.
-> Decisões e avanços em `DECISOES_E_AVANCOS.md`.
+> **Onde estamos:** Dia 1 ✅ · Dia 2: roteiro ✅, voz ✅, Pingo ✅, **mecanismo próprio criado** (o Pingo é a
+> tinta, "de que cor é?", completar o arco-íris) · abertura + maçã com voz em avaliação · teste do
+> HyperFrames no terminal do Patrik. Decisões e avanços em `DECISOES_E_AVANCOS.md`.
 
 ## REGRA FIXA DE COMUNICAÇÃO (pedido do Patrik, 15/11)
 Todo pedido ao Patrik vem SEMPRE neste formato, sem exceção:
