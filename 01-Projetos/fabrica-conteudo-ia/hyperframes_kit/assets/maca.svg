@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+  <!-- Pingo Pinta · maçã do vídeo 01. Coordenadas em 1920x1080. -->
+  <!-- PINTURA (o Pingo pinta estas áreas): -->
+  <g id="tinta" stroke="none">
+    <path id="tinta-corpo" d="M900,405 C980,340 1190,340 1205,570 C1220,790 1050,910 950,870 C925,860 875,860 850,870 C750,910 580,790 595,570 C610,340 820,340 900,405 Z" fill="#E82430"/>
+    <path id="tinta-folha" d="M918,328 C950,260 1030,242 1075,262 C1045,320 970,346 918,328 Z" fill="#46C346"/>
+    <path id="tinta-cabo" d="M900,410 C895,360 905,310 930,272" fill="none" stroke="#8C5528" stroke-width="22" stroke-linecap="round"/>
+    <circle cx="825" cy="585" r="38" fill="#FFFFFF"/><circle cx="975" cy="585" r="38" fill="#FFFFFF"/>
+  </g>
+  <!-- CONTORNO em 3 passos (desenhado traço a traço pela mão com canetão): -->
+  <g id="contorno" fill="none" stroke="#1C1C1C" stroke-width="17" stroke-linecap="round" stroke-linejoin="round">
+    <path id="passo1-bolinha" d="M900,405 C980,340 1190,340 1205,570 C1220,790 1050,910 950,870 C925,860 875,860 850,870 C750,910 580,790 595,570 C610,340 820,340 900,405 Z"/>
+    <path id="passo2-cabinho" d="M900,410 C895,360 905,310 930,272"/>
+    <path id="passo2-folhinha" d="M918,328 C950,260 1030,242 1075,262 C1045,320 970,346 918,328 Z"/>
+    <path id="passo3-olho-esq" d="M825,547 a38,38 0 1,1 -0.1,0"/>
+    <path id="passo3-olho-dir" d="M975,547 a38,38 0 1,1 -0.1,0"/>
+    <path id="passo3-sorriso" d="M956.2,676.2 A62,62 0 0 1 843.8,676.2"/>
+  </g>
+  <g id="pupilas" fill="#1C1C1C"><circle cx="831" cy="591" r="17"/><circle cx="981" cy="591" r="17"/></g>
+</svg>

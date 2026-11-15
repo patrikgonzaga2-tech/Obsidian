@@ -1,0 +1,162 @@
+{
+ "duracao_total_s": 63.97,
+ "falas": [
+  {
+   "arquivo": "assets/fala_01.mp3",
+   "inicio_s": 0.4,
+   "duracao_s": 2.27,
+   "texto": "Oi, amiguinho! Eu sou o Pingo!"
+  },
+  {
+   "arquivo": "assets/fala_02.mp3",
+   "inicio_s": 3.02,
+   "duracao_s": 4.91,
+   "texto": "Eu sou uma gotinha de tinta... e eu fico de todas as cores!"
+  },
+  {
+   "arquivo": "assets/fala_03.mp3",
+   "inicio_s": 8.28,
+   "duracao_s": 4.83,
+   "texto": "Hoje a gente vai desenhar frutas e completar o nosso arco-íris! Pega o seu lápis!"
+  },
+  {
+   "arquivo": "assets/fala_04.mp3",
+   "inicio_s": 13.97,
+   "duracao_s": 3.16,
+   "texto": "Primeiro, uma bolinha grande... assim."
+  },
+  {
+   "arquivo": "assets/fala_05.mp3",
+   "inicio_s": 18.67,
+   "duracao_s": 2.12,
+   "texto": "Já fez? Muito bem!"
+  },
+  {
+   "arquivo": "assets/fala_06.mp3",
+   "inicio_s": 21.28,
+   "duracao_s": 4.28,
+   "texto": "Agora, um cabinho em cima... e uma folhinha."
+  },
+  {
+   "arquivo": "assets/fala_07.mp3",
+   "inicio_s": 25.38,
+   "duracao_s": 2.19,
+   "texto": "Já fez? Vamos avançar!"
+  },
+  {
+   "arquivo": "assets/fala_08.mp3",
+   "inicio_s": 28.08,
+   "duracao_s": 3.32,
+   "texto": "Agora, dois olhinhos... e um sorriso!"
+  },
+  {
+   "arquivo": "assets/fala_09.mp3",
+   "inicio_s": 32.18,
+   "duracao_s": 2.27,
+   "texto": "O que é? ... É uma maçã!"
+  },
+  {
+   "arquivo": "assets/fala_10.mp3",
+   "inicio_s": 34.85,
+   "duracao_s": 1.41,
+   "texto": "E de que cor é a maçã?"
+  },
+  {
+   "arquivo": "assets/fala_11.mp3",
+   "inicio_s": 38.66,
+   "duracao_s": 3.08,
+   "texto": "Pinga, pinga, Pingo... vermelho!"
+  },
+  {
+   "arquivo": "assets/fala_12.mp3",
+   "inicio_s": 42.04,
+   "duracao_s": 3.16,
+   "texto": "Agora eu vou pintar! Uhuuu!"
+  },
+  {
+   "arquivo": "assets/fala_13.mp3",
+   "inicio_s": 52.3,
+   "duracao_s": 3.4,
+   "texto": "A folhinha, de verde... e o cabinho, marrom!"
+  },
+  {
+   "arquivo": "assets/fala_14.mp3",
+   "inicio_s": 56.4,
+   "duracao_s": 3.08,
+   "texto": "Uau! Maçã vermelha! Vai pro nosso arco-íris!"
+  },
+  {
+   "arquivo": "assets/fala_15.mp3",
+   "inicio_s": 60.5,
+   "duracao_s": 1.57,
+   "texto": "Qual será a próxima cor?"
+  }
+ ],
+ "eventos_s": {
+  "pingo_entra": [
+   0.0,
+   0.6
+  ],
+  "cores": [
+   4.62,
+   8.13
+  ],
+  "arco_aparece": [
+   9.08,
+   10.28
+  ],
+  "mao_entra": [
+   13.27,
+   13.97
+  ],
+  "c0": [
+   14.17,
+   18.17
+  ],
+  "c1": [
+   21.58,
+   24.88
+  ],
+  "c2": [
+   28.38,
+   31.48
+  ],
+  "mao_sai": [
+   31.78,
+   32.48
+  ],
+  "espera": [
+   36.26,
+   38.66
+  ],
+  "vira_verm": 40.88,
+  "pula_dentro": [
+   44.3,
+   45.1
+  ],
+  "pinta0": [
+   45.1,
+   52.1
+  ],
+  "vira_verde": 52.55,
+  "pinta1": [
+   52.75,
+   54.3
+  ],
+  "vira_marrom": 54.35,
+  "pinta2": [
+   54.5,
+   55.4
+  ],
+  "pula_fora": [
+   55.5,
+   56.2
+  ],
+  "brilho": 56.7,
+  "voa": [
+   58.1,
+   59.4
+  ],
+  "vira_neutro": 60.5
+ }
+}
