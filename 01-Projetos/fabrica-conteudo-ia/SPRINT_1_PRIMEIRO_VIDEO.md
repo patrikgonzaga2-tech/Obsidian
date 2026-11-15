@@ -3,6 +3,9 @@
 > Objetivo: provar em **7 a 14 dias** que conseguimos fazer vídeos bons, rápidos e baratos, e começar
 > a gerar dinheiro o quanto antes. **O escritório só é construído se o Sprint 1 passar.**
 > Atualizado em 15/11/2026.
+>
+> **Onde estamos:** Dia 1 · Passos 1 e 2 enviados, aguardando resposta do Patrik. Decisões e avanços
+> registrados em `DECISOES_E_AVANCOS.md`.
 
 ## REGRA FIXA DE COMUNICAÇÃO (pedido do Patrik, 15/11)
 Todo pedido ao Patrik vem SEMPRE neste formato, sem exceção:
