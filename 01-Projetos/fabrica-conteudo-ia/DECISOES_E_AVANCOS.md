@@ -32,7 +32,9 @@
 | Dia 2 · Teste da maçã | Desenho + pintura simulados | ✅ v2 "ficou bom", mas imitava demais | `arte/testes/teste_maca_v2.mp4` |
 | Dia 2 · Mecanismo próprio | O que é só nosso | ✅ criado 15/11 (ver abaixo) | `ROTEIRO_VIDEO_01.md` |
 | Dia 2 · Abertura + maçã com voz | 1º trecho real do vídeo 01 | ⏳ enviado, aguardando | `videos/video01_parte1_abertura_maca_v1.mp4` |
-| **Decisão · Ferramenta de produção** | Programa próprio × HyperFrames | ⏳ comparação feita; recomendação: HyperFrames, se rodar também na nuvem | aguardando o Patrik |
+| **Decisão · Ferramenta de produção** | Programa próprio × HyperFrames | ✅ **programa próprio (Claude)** 15/11 | "se foi igual, vamos manter o Claude" |
+| **Regra · Revisão de Potencial** | Gancho e chance de viralizar antes de publicar | ✅ criada 15/11 | `REVISAO_POTENCIAL.md` · nota mínima 70 |
+| Dia 2 · Parte 1 v2 (gancho) | Abertura nova | ⏳ enviada | `videos/video01_parte1_abertura_maca_v2.mp4` · nota ≈ 70 |
 | Dia 2 · Música | ~~1 faixa da Biblioteca de Áudio~~ | ❌ cancelado 15/11 | sem música (como o AKN); só efeitos sonoros, feitos por mim |
 
 ---
@@ -152,7 +154,8 @@ Passo 3 (Gmail) enviado junto, com o mesmo nome do @ escolhido.
 | 2 fotos de mão (caneta e pincel, Nano Banana Pro 1K) | 350 |
 | 2 recortes de fundo do Gravyx (ficaram ruins, refeitos aqui de graça) | 200 |
 | 15 falas do Pingo (abertura + maçã, ElevenLabs v3) | 425 |
-| **Total até agora** | **2.051** |
+| 1 fala nova da abertura (fala 16) | 64 |
+| **Total até agora** | **2.115** |
 
 ---
 
@@ -293,3 +296,23 @@ Vídeo do HyperFrames recebido (`pingo-maca.mp4`, 63,6 s, 1920x1080, 30 fps) e o
 **Recomendação (Claude):** padronizar no **HyperFrames**, com 1 condição: provar que ele renderiza aqui
 na nuvem também (para a fábrica produzir sem o computador do Patrik ligado). O programa próprio fica
 como plano B. **Decisão final: Patrik.**
+
+---
+
+## 15/11/2026 · Decisão da ferramenta e Revisão de Potencial
+
+- ✅ **Ferramenta: programa próprio (Claude).** Patrik: "se foi igual, vamos manter o Claude". O
+  HyperFrames fica testado e documentado como alternativa (`hyperframes_kit/`).
+- ✅ **Regra nova: nada sobe sem a Revisão de Potencial** (gancho e chance de viralizar no YouTube,
+  TikTok e Instagram). Critérios, pesos e nota mínima (70) em `REVISAO_POTENCIAL.md`.
+- 🔎 1ª revisão (parte 1 v1): **≈ 58, reprovada.** Principal problema: 14 s de tela quase branca, Pingo
+  pequeno e clarinho no canto, começando com "Oi, eu sou o Pingo"; a parte mais legal (o Pingo pintando)
+  só aos 45 s.
+- 🔧 **Parte 1 v2** (`videos/video01_parte1_abertura_maca_v2.mp4`, 60,1 s; código
+  `codigo/video01_maca_v2.py`):
+  - abre com **3,3 s do Pingo pintando a maçã + "Pinga, pinga, Pingo… vermelho!"** (com zoom) e corta
+    com um clarão branco para o convite;
+  - as 3 falas de abertura viraram 1 (fala 16: "Oi, amiguinho! Pega o seu lápis, que hoje a gente vai
+    desenhar junto… e completar o arco-íris!", 64 tokens);
+  - Pingo maior (380 px) e azul-claro quando está "sem cor" (antes quase sumia no papel branco).
+  - Nova nota: **≈ 70 (no limite).** Falta a versão vertical, a miniatura e o título.

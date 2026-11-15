@@ -4,9 +4,9 @@
 > a gerar dinheiro o quanto antes. **O escritório só é construído se o Sprint 1 passar.**
 > Atualizado em 15/11/2026.
 >
-> **Onde estamos:** Dia 1 ✅ · Dia 2: roteiro ✅, voz ✅, Pingo ✅, **mecanismo próprio criado** (o Pingo é a
-> tinta, "de que cor é?", completar o arco-íris) · abertura + maçã com voz em avaliação · teste do
-> HyperFrames no terminal do Patrik. Decisões e avanços em `DECISOES_E_AVANCOS.md`.
+> **Onde estamos:** Dia 1 ✅ · Dia 2: roteiro, voz, Pingo e mecanismo ✅ · ferramenta: **programa próprio** ✅ ·
+> **regra: nada sobe sem a Revisão de Potencial** (`REVISAO_POTENCIAL.md`) · parte 1 v2 com gancho novo
+> (nota ≈ 70) em avaliação. Decisões e avanços em `DECISOES_E_AVANCOS.md`.
 
 ## REGRA FIXA DE COMUNICAÇÃO (pedido do Patrik, 15/11)
 Todo pedido ao Patrik vem SEMPRE neste formato, sem exceção:
@@ -86,6 +86,7 @@ mesmos desenhos. Por isso o formato "desenhar e colorir" é a aposta do Sprint 1
 | ~~Música~~ → **efeitos sonoros** | 🤖 (decisão de 15/11: sem música, como o AKN) | lápis riscando, "plim", pincel, glitter, "pop" | grátis |
 | Thumbnail (2 opções), título, descrição | 🤖 com as skills `/yt-package` e `/yt-seo` | é o que faz a pessoa clicar e achar | grátis |
 | 3 Shorts cortados do vídeo | 🤖 com `/yt-shorts` | alcance extra e teste rápido | grátis |
+| **Revisão de Potencial** (gancho e chance de viralizar por plataforma, nota mínima 70) | 🤖 | regra do Patrik (15/11): nada sobe sem ela | grátis |
 | **✋ Aprovação 2: vídeo, thumb e Shorts** | 🧑 | nada sai sem o seu OK | — |
 
 Eu te entrego os arquivos prontos aqui na conversa.
