@@ -255,3 +255,8 @@ Passo 3 (Gmail) enviado junto, com o mesmo nome do @ escolhido.
 - 🪟 O Patrik usa **Windows**. Passo a passo refeito para o Claude Code do Windows fazer tudo sozinho
   (conferir Node/Git/FFmpeg, criar o projeto, baixar o kit, instalar a skill, montar e renderizar):
   `hyperframes_kit/PROMPT_WINDOWS.md`.
+- 🎯 Esclarecido: o Claude Code já está aberto no Windows do Patrik e a pasta do projeto HyperFrames
+  já existe (daqui não tenho acesso a ela). Feito o **prompt detalhado para refazer o MESMO vídeo**:
+  `hyperframes_kit/PROMPT_VIDEO_IGUAL.md`, com todas as medidas e tempos. Para sair igual, o kit
+  ganhou `caminhos.json` (o caminho exato que o Pingo percorre pintando e os traços da mão) e
+  `assets/efeitos.mp3` (a mesma trilha de efeitos do meu vídeo). Entrega pedida: vídeo lado a lado.

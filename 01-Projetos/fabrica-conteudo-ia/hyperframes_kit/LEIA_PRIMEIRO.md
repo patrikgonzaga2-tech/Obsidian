@@ -4,7 +4,10 @@ Este kit tem tudo para recriar a abertura + maçã do vídeo 01 no HyperFrames, 
 
 | Arquivo | O que é |
 |---|---|
-| `PROMPT_WINDOWS.md` | **comece por aqui no Windows**: pedido para o Claude Code montar tudo sozinho |
+| `PROMPT_VIDEO_IGUAL.md` | **use este**: prompt detalhado para refazer o mesmo vídeo (Claude já aberto na pasta do projeto) |
+| `PROMPT_WINDOWS.md` | versão anterior (criava o projeto do zero) |
+| `caminhos.json` | caminho exato do Pingo pintando e dos traços da mão |
+| `assets/efeitos.mp3` | a mesma trilha de efeitos do vídeo de referência |
 | `PROMPT_HYPERFRAMES.md` | as instruções da cena (o Claude lê sozinho no passo 6 do pedido do Windows) |
 | `tempos.json` | quando entra cada fala e cada ação (em segundos) |
 | `assets/maca.svg` | a maçã em vetor: contorno em 3 passos + áreas de tinta |
