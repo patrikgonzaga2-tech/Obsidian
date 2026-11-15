@@ -1,7 +1,20 @@
 # Pingo Pinta · Vídeo 01 · Roteiro (✋ Aprovação 1)
 
-> Status: **aguardando aprovação do Patrik** (15/11/2026). Nada é gerado antes do OK.
+> Status: **aguardando aprovação do Patrik** (15/11/2026). Voz A escolhida; falta escolher a voz nas
+> amostras e dar o "roteiro ok". Nada de imagem é gerado antes do OK.
 > Formato aprovado: infantil 2 a 5 anos, desenhar e colorir, 8 a 12 min + 3 Shorts.
+
+## De onde veio este roteiro (honesto)
+| Parte | Origem |
+|---|---|
+| Formato "aprenda as cores" + 1 objeto simples por vez, 8 a 16 min | **padrão medido** no AKN Kids House (títulos e durações dos 40 vídeos analisados, vídeo de 66x a mediana) |
+| Tom calmo, série repetível | **padrão medido** no Magic Fingers Art |
+| Shorts terminando com "assista o vídeo completo" | **padrão visto** nos Shorts do AKN |
+| Gancho "O que será?", o Pingo virando a cor, o ritmo de 65 s por fruta, a cesta no final, a escolha das 8 frutas | **criado por mim**, com base em boas práticas de retenção (curiosidade, repetição para criança pequena), **não medido** |
+
+Limite: nenhum vídeo de referência foi **assistido** ainda (só títulos, durações e views; o YouTube
+bloqueia download na nuvem e a chave do Gemini, que assiste pelo link, ainda não existe). Ou seja, a
+estrutura geral é dos canais; o "miolo" de cada parte é hipótese nossa, que o 1º vídeo testa.
 
 ## Ficha
 | Item | Proposta |
@@ -11,7 +24,7 @@
 | Duração | ~10 min (8 frutas × ~65 s + abertura + final) |
 | Personagem | **Pingo**, gotinha de tinta que **vira a cor do momento** (vermelho na maçã, amarelo na banana…) |
 | Estilo | fundo branco de papel, traço preto grosso e liso (o mesmo desenho vira página do livro), cores chapadas e vivas |
-| Voz | **decisão do Patrik** (ver abaixo) |
+| Voz | **A (voz curta), aprovada 15/11**, desde que a voz soe boa para criança: 3 amostras enviadas |
 | Música | 1 faixa calma e alegre da Biblioteca de Áudio do YouTube, volume baixo |
 
 ## Decisão pendente: voz

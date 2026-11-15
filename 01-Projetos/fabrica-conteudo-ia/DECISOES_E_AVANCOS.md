@@ -18,9 +18,10 @@
 | Dia 1 · Passo 1 | Confirmar o formato | ✅ decidido 15/11 | infantil 2 a 5 anos, desenhar e colorir, 8 a 12 min + 3 Shorts |
 | Dia 1 · Passo 2 | Nome e personagem | ✅ decidido 15/11 | **Pingo Pinta** · personagem Pingo (gotinha de tinta) |
 | Dia 1 · Passo 3 | Gmail do canal | ✅ criado 15/11 | **pingopintacolor@gmail.com**, duas etapas ativa |
-| Dia 1 · Passo 4 | Canal no YouTube | ✅ criado 15/11 (falta confirmar "para crianças") | [youtube.com/@pingopinta](https://www.youtube.com/@pingopinta), telefone verificado |
+| Dia 1 · Passo 4 | Canal no YouTube | ✅ criado 15/11, "para crianças" marcado | [youtube.com/@pingopinta](https://www.youtube.com/@pingopinta), telefone verificado |
 | Dia 1 · Extra | Instagram | ✅ criado 15/11 | [instagram.com/pingo_pinta](https://www.instagram.com/pingo_pinta/) |
-| Dia 2 · Aprovação 1 | Roteiro do vídeo 01 | ⏳ enviado, aguardando | `ROTEIRO_VIDEO_01.md` (falta decidir: voz A ou B) |
+| Dia 2 · Aprovação 1 | Roteiro do vídeo 01 | ⏳ aguardando "roteiro ok" | `ROTEIRO_VIDEO_01.md` · voz A escolhida |
+| Dia 2 · Voz | Escolher a voz do Pingo | ⏳ 3 amostras enviadas | — |
 | Dia 2 · Música | 1 faixa da Biblioteca de Áudio | ⏳ enviado, aguardando | — |
 
 ---
@@ -106,3 +107,31 @@ Passo 3 (Gmail) enviado junto, com o mesmo nome do @ escolhido.
 - 📝 Roteiro do vídeo 01 escrito: `ROTEIRO_VIDEO_01.md` ("Aprenda as cores com frutas", 8 frutas,
   ~10 min, 3 Shorts). Enviado para a **Aprovação 1**, com a decisão de voz (A curta ou B sem voz).
 - ⏳ Pedido ao Patrik: 1 faixa da Biblioteca de Áudio do YouTube.
+
+---
+
+## 15/11/2026 · Respostas: "para crianças", origem do roteiro e voz
+
+- ✅ **"Conteúdo para crianças" marcado** no canal. Dia 1 100% concluído.
+- ❓ Patrik perguntou se o roteiro foi inventado ou baseado nos canais. Resposta registrada em
+  `ROTEIRO_VIDEO_01.md` ("De onde veio este roteiro"): estrutura geral medida nos canais (AKN e Magic
+  Fingers); o miolo (gancho, Pingo mudando de cor, ritmo, cesta, frutas) é criação nossa, não medida,
+  porque nenhum vídeo de referência foi assistido ainda.
+- ✅ **Voz: opção A (voz curta)**, com a condição do dono: *"a voz precisa ser boa pra uma criança
+  ouvir"*. Regra nova do canal: **nenhuma voz entra no vídeo sem o Patrik ouvir antes.**
+- 🎙️ 3 amostras geradas no Gravyx ("Meu workspace", o único que existe; ainda não há workspace só do
+  projeto), ElevenLabs v3, mesmo texto (167 caracteres, ~10 a 12 s), **101 tokens cada = 303 tokens**
+  (saldo antes: 10.000):
+  | Amostra | Voz | Link |
+  |---|---|---|
+  | 1 | Jessica (feminina, brincalhona, calorosa) | https://img.gravyx.com.br/69ae61c5-a98f-4ad3-aa71-093fd055137c/audio/1794767608292-sy2c7oc.mp3 |
+  | 2 | Bella (feminina, calma, professora) | https://img.gravyx.com.br/69ae61c5-a98f-4ad3-aa71-093fd055137c/audio/1794767616392-6a0kv26.mp3 |
+  | 3 | Liam (masculina, animada) | https://img.gravyx.com.br/69ae61c5-a98f-4ad3-aa71-093fd055137c/audio/1794767625524-eot6dry.mp3 |
+- Risco anotado: as vozes do catálogo são americanas falando português; pode sair sotaque de
+  estrangeiro. Se nenhuma servir: plano B = procurar voz brasileira na biblioteca da ElevenLabs ou
+  clonar uma voz (Seed Audio do Gravyx), sempre com amostra antes.
+
+### Custos do vídeo 01 até agora
+| Item | Tokens Gravyx |
+|---|---|
+| 3 amostras de voz | 303 |
