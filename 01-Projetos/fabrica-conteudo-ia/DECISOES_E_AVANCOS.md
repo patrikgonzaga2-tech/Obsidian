@@ -20,9 +20,9 @@
 | Dia 1 · Passo 3 | Gmail do canal | ✅ criado 15/11 | **pingopintacolor@gmail.com**, duas etapas ativa |
 | Dia 1 · Passo 4 | Canal no YouTube | ✅ criado 15/11, "para crianças" marcado | [youtube.com/@pingopinta](https://www.youtube.com/@pingopinta), telefone verificado |
 | Dia 1 · Extra | Instagram | ✅ criado 15/11 | [instagram.com/pingo_pinta](https://www.instagram.com/pingo_pinta/) |
-| Dia 2 · Aprovação 1 | Roteiro do vídeo 01 | ⏳ aguardando "roteiro ok" | `ROTEIRO_VIDEO_01.md` · voz A escolhida |
-| Dia 2 · Voz | Escolher a voz do Pingo | ⏳ 3 amostras enviadas | — |
-| Dia 2 · Música | 1 faixa da Biblioteca de Áudio | ⏳ enviado, aguardando | — |
+| Dia 2 · Aprovação 1 | Roteiro do vídeo 01 | ⏳ v2 enviada, aguardando "roteiro ok" | `ROTEIRO_VIDEO_01.md` v2 "desenhe e pinte junto" · voz A |
+| Dia 2 · Voz | Escolher a voz do Pingo | ⏳ Liam escolhido; 3 versões mais jovens enviadas | `amostras_voz/` |
+| Dia 2 · Música | ~~1 faixa da Biblioteca de Áudio~~ | ❌ cancelado 15/11 | sem música (como o AKN); só efeitos sonoros, feitos por mim |
 
 ---
 
@@ -135,3 +135,30 @@ Passo 3 (Gmail) enviado junto, com o mesmo nome do @ escolhido.
 | Item | Tokens Gravyx |
 |---|---|
 | 3 amostras de voz | 303 |
+| 2 amostras novas (Liam e Will, texto "desenhar junto") | 248 |
+| **Total até agora** | **551** |
+
+---
+
+## 15/11/2026 · O que o Patrik viu no AKN, voz do Liam e música
+
+- 👀 **Patrik assistiu o AKN Kids House:** eles **desenham e pintam junto** com a criança (lápis,
+  pincel, glitter), mostram o que estão fazendo, pedem para a criança fazer também, perguntam "já
+  fez?", "vamos avançar". É como uma aula. **Não tem música, só efeitos sonoros.**
+- ✅ **Roteiro reescrito (v2)** no estilo "desenhe e pinte junto": 6 frutas do arco-íris × ~90 s, cada
+  uma em 3 ou 4 passos com "já fez?", material diferente por fruta (lápis de cor, giz de cera,
+  canetinha, pincel, glitter), sem música. A v1 ficou no histórico do arquivo.
+- ⚠️ Risco principal registrado: o AKN usa mão real; nós simulamos o lápis/pincel. **A maçã é feita e
+  mostrada sozinha primeiro**, antes das outras 5 frutas.
+- ❌ **Música cancelada** (decisão do dono, seguindo o AKN). Efeitos sonoros: eu crio (grátis, sem
+  problema de direitos); se ficarem fracos, plano B = aba "Efeitos sonoros" da Biblioteca de Áudio.
+- 🎙️ **Voz: Patrik gostou do Liam, mas achou mais velho; quer na idade da Bella.** Feito:
+  - Nova amostra do Liam já no tom "desenhar junto" (Gravyx, ElevenLabs v3, 206 caracteres, 124 tokens).
+  - Versões mais jovens feitas aqui mesmo (programa de áudio, grátis), subindo o tom 2 e 3 semitons:
+    `amostras_voz/pingo_liam_original.mp3`, `amostras_voz/pingo_liam_mais_jovem_2.mp3`,
+    `amostras_voz/pingo_liam_mais_jovem_3.mp3`.
+  - Alternativa: voz Will (catálogo "jovem"), mesmo texto, 124 tokens:
+    https://img.gravyx.com.br/69ae61c5-a98f-4ad3-aa71-093fd055137c/audio/1794768320807-qskjdal.mp3
+- 🛠️ **Ambiente próprio do projeto criado** no Claude Code: "Fábrica de Conteúdo IA" (pessoal), com
+  acesso a `img.gravyx.com.br` (baixar áudios e desenhos gerados no Gravyx) e aos endereços do YouTube.
+  Esta sessão já usa a rede dele.

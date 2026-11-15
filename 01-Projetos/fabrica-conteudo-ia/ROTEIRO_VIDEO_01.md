@@ -1,82 +1,93 @@
-# Pingo Pinta · Vídeo 01 · Roteiro (✋ Aprovação 1)
+# Pingo Pinta · Vídeo 01 · Roteiro v2 "desenhe e pinte junto" (✋ Aprovação 1)
 
-> Status: **aguardando aprovação do Patrik** (15/11/2026). Voz A escolhida; falta escolher a voz nas
-> amostras e dar o "roteiro ok". Nada de imagem é gerado antes do OK.
+> Status: **aguardando "roteiro ok" do Patrik** (15/11/2026). Nada de imagem é gerado antes do OK.
 > Formato aprovado: infantil 2 a 5 anos, desenhar e colorir, 8 a 12 min + 3 Shorts.
+> **v2** reescrita depois do Patrik assistir o AKN Kids House (v1 era só "assistir o desenho aparecer";
+> v2 é "fazer junto", como o AKN). Histórico da v1 no fim do arquivo.
 
 ## De onde veio este roteiro (honesto)
 | Parte | Origem |
 |---|---|
-| Formato "aprenda as cores" + 1 objeto simples por vez, 8 a 16 min | **padrão medido** no AKN Kids House (títulos e durações dos 40 vídeos analisados, vídeo de 66x a mediana) |
-| Tom calmo, série repetível | **padrão medido** no Magic Fingers Art |
-| Shorts terminando com "assista o vídeo completo" | **padrão visto** nos Shorts do AKN |
-| Gancho "O que será?", o Pingo virando a cor, o ritmo de 65 s por fruta, a cesta no final, a escolha das 8 frutas | **criado por mim**, com base em boas práticas de retenção (curiosidade, repetição para criança pequena), **não medido** |
+| "Aprenda as cores" + 1 objeto simples por vez, 8 a 16 min | **medido** no AKN Kids House (40 vídeos, um com 66x a mediana) |
+| **Desenhar e pintar junto, ensinando:** mostra o que está fazendo, pede para a criança fazer também, pergunta "já fez?", "vamos avançar" | **visto pelo Patrik** nos vídeos do AKN (15/11) |
+| **Vários materiais:** lápis, pincel, glitter | **visto pelo Patrik** no AKN |
+| **Sem música, só efeitos sonoros** | **visto pelo Patrik** no AKN |
+| Tom calmo, série repetível | **medido** no Magic Fingers Art |
+| Shorts com "assista o vídeo completo" | **visto** nos Shorts do AKN |
+| O Pingo virando a cor, 6 frutas do arco-íris, o ritmo de ~90 s por fruta, a cesta no final | **criado por nós**, não medido |
 
-Limite: nenhum vídeo de referência foi **assistido** ainda (só títulos, durações e views; o YouTube
-bloqueia download na nuvem e a chave do Gemini, que assiste pelo link, ainda não existe). Ou seja, a
-estrutura geral é dos canais; o "miolo" de cada parte é hipótese nossa, que o 1º vídeo testa.
+## ⚠️ O maior risco deste vídeo
+O AKN usa **mão de verdade em papel de verdade**. Nós vamos **simular**: um lápis/pincel desenhado
+percorrendo o traço, com textura de lápis, giz, tinta e brilho de glitter. Não sabemos se fica bom o
+bastante. **Por isso o 1º desenho (maçã) é feito e mostrado sozinho antes dos outros 5**: se não ficar
+bom, mudamos o caminho gastando pouco.
 
 ## Ficha
 | Item | Proposta |
 |---|---|
-| Tema | **Aprenda as cores com frutas** |
-| Título provisório | `🍎 Aprenda as Cores com o Pingo Pinta! Desenhar e Colorir Frutas para Crianças` (o final sai com `/yt-package`) |
-| Duração | ~10 min (8 frutas × ~65 s + abertura + final) |
-| Personagem | **Pingo**, gotinha de tinta que **vira a cor do momento** (vermelho na maçã, amarelo na banana…) |
-| Estilo | fundo branco de papel, traço preto grosso e liso (o mesmo desenho vira página do livro), cores chapadas e vivas |
-| Voz | **A (voz curta), aprovada 15/11**, desde que a voz soe boa para criança: 3 amostras enviadas |
-| Música | 1 faixa calma e alegre da Biblioteca de Áudio do YouTube, volume baixo |
-
-## Decisão pendente: voz
-| Opção | Como fica | Prós | Contras |
-|---|---|---|---|
-| **A ⭐ Voz curta** | narração de IA só nas falas abaixo (~25 frases curtas), voz alegre e calma | criança de 2 a 5 anos aprende ouvindo o nome da cor; mais retenção | custo pequeno de narração (mostro antes); só serve em português |
-| B Sem voz | só música, efeitos ("plim", "splash") e o nome escrito na tela | mais barato; serve em qualquer país sem refazer | a criança dessa idade não lê; aprende menos |
+| Tema | **Desenhe e pinte as frutas do arco-íris com o Pingo** |
+| Título provisório | `🍎 Vamos Desenhar e Pintar Frutas! Aprenda as Cores com o Pingo Pinta` (o final sai com `/yt-package`) |
+| Duração | ~10 min (6 frutas × ~90 s + abertura + final) |
+| Personagem | **Pingo**, gotinha de tinta que **vira a cor do momento** e conduz a aula |
+| Estilo | papel branco, traço preto grosso e liso (vira página do livro), cores vivas |
+| Voz | **A (voz curta)**, do Pingo, falando **com** a criança. Voz em escolha (amostras do Liam mais jovem) |
+| Som | **sem música**, só efeitos: lápis riscando, "plim" quando o Pingo muda de cor, pincel, brilho do glitter, "pop" no fim de cada fruta |
+| Narração estimada | ~3.300 caracteres ≈ **2.000 tokens** do Gravyx (custo mostrado e confirmado antes de gerar) |
 
 ## Estrutura
 
-### 0:00–0:15 · Gancho (o mais importante)
-- **0:00** sem abertura: já começa um traço preto aparecendo na tela. Voz: *"O que será que o Pingo está desenhando?"*
-- **0:04** Pingo pula na tela (sem cor, transparente): *"Oi! Eu sou o Pingo! Eu fico de todas as cores!"*
-- **0:09** *"Hoje vamos pintar 8 frutas. Vamos começar?"* → corta direto para a 1ª fruta.
+### 0:00–0:15 · Gancho
+- **0:00** já começa com o lápis fazendo o 1º traço. Pingo: *"Oi, amiguinho! Pega o seu lápis, que
+  hoje a gente vai desenhar junto!"*
+- **0:06** *"Eu sou o Pingo, e eu fico de todas as cores! Vamos desenhar as frutas do arco-íris?"*
+- **0:12** *"Primeiro, a cor… vermelho!"* → começa a 1ª fruta.
 
-### Cada fruta (~65 s, sempre o mesmo ritmo, a criança aprende a esperar)
-| Tempo | O que acontece | Fala |
+### Cada fruta (~90 s, sempre o mesmo ritmo)
+| Tempo | O que aparece | Fala do Pingo (exemplo: maçã) |
 |---|---|---|
-| 0–5 s | Pingo dá um pulinho e **vira a cor** (efeito "plim") | *"Vermelho!"* |
-| 5–30 s | o desenho aparece **traço a traço** | *"O que será?"* (curiosidade = a criança fica) |
-| 30–35 s | desenho completo | *"É uma maçã!"* |
-| 35–58 s | Pingo pula dentro do desenho ("splash") e a cor **enche** a fruta por partes | (só música e efeitos) |
-| 58–65 s | fruta pronta, brilho | *"Maçã vermelha!"* + *"Qual será a próxima cor?"* |
+| 0–5 s | Pingo dá um pulinho e vira a cor ("plim") | *"Agora é a vez do… vermelho!"* |
+| 5–40 s | desenho em **3 ou 4 passos**, o lápis aparece fazendo cada traço; pausa curta depois de cada passo | *"Primeiro, uma bolinha grande… assim. Já fez?"* · *"Muito bem! Agora um cabinho em cima."* · *"E uma folhinha do lado. Vamos avançar?"* |
+| 40–45 s | desenho pronto | *"O que é? É uma maçã!"* |
+| 45–75 s | pinta com o **material do dia**, por partes | *"Pega o seu lápis vermelho. Pinta devagarinho, sem sair da linha… isso!"* · *"Agora a folhinha de verde."* |
+| 75–90 s | toque final de brilho, "pop" | *"Uau, ficou linda! Maçã vermelha! Qual será a próxima cor?"* |
 
-### As 8 frutas (cores básicas, frutas que criança brasileira conhece)
-| # | Cor | Fruta | Por que |
+### As 6 frutas (ordem do arco-íris) e o material de cada uma
+| # | Cor | Fruta | Material (como o AKN, variando) |
 |---|---|---|---|
-| 1 | Vermelho | Maçã | a mais clássica, forma simples |
-| 2 | Amarelo | Banana | forma reconhecível de longe |
-| 3 | Laranja | Laranja | brincadeira: "a laranja é laranja!" |
-| 4 | Verde | Pera | forma simples |
-| 5 | Roxo | Uva | cachinho divertido de pintar bolinha por bolinha |
-| 6 | Azul | Mirtilo | única fruta azul comum; apresenta palavra nova |
-| 7 | Rosa | Pitaya | fruta brasileira, formato curioso |
-| 8 | Marrom | Coco | fruta brasileira, fecha com cor nova |
+| 1 | Vermelho | Maçã | lápis de cor |
+| 2 | Laranja | Laranja | giz de cera ("a laranja é laranja!") |
+| 3 | Amarelo | Banana | canetinha |
+| 4 | Verde | Pera | pincel com tinta |
+| 5 | Azul | Mirtilo | pincel com tinta (palavra nova) |
+| 6 | Roxo | Uva | **glitter** (bolinha por bolinha, o mais satisfatório) |
 
-### 9:00–10:00 · Final (retenção até o fim)
-- Todas as frutas pulam para uma **cesta** (essa imagem vira a capa do livro).
-- Revisão rápida: cada fruta pisca e o Pingo muda de cor junto: *"Vermelho! Amarelo! Laranja!…"* (~2 s cada).
-- *"Tchau! Até o próximo desenho!"* + tela final do YouTube (20 s) com o próximo vídeo.
+Pitaya rosa e coco marrom ficam para o vídeo 02.
 
-## 3 Shorts (cortados do vídeo, vertical)
-1. **Maçã vermelha** (gancho: traço aparecendo + "O que será?") ~50 s
-2. **Uva roxa** (pintar bolinha por bolinha é o mais satisfatório) ~50 s
-3. **Revisão das 8 cores** (Pingo mudando de cor rápido) ~30 s
-Todos terminam com *"Assista o vídeo completo!"* (padrão do AKN Kids House).
+### 9:00–10:00 · Final
+- As 6 frutas pulam para uma **cesta** e formam um arco-íris (imagem da capa do livro).
+- Revisão: cada fruta brilha e o Pingo muda de cor junto: *"Vermelho! Laranja! Amarelo! Verde! Azul!
+  Roxo!"*
+- *"Você desenhou tudo comigo! Parabéns! Tchau, até o próximo desenho!"* + tela final (20 s).
+
+## 3 Shorts (vertical, cortados do vídeo)
+1. **Maçã passo a passo** (o "já fez?" funciona bem em vídeo curto) ~50 s
+2. **Uva com glitter** ~50 s
+3. **Revisão do arco-íris** (Pingo mudando de cor rápido) ~30 s
+Todos terminam com *"Assista o vídeo completo!"*.
 
 ## O que este vídeo gera
-- 9 desenhos em linha (8 frutas + cesta) = **as primeiras 9 páginas do livro de colorir**.
-- 1 personagem fixo (Pingo) em 9 cores, reaproveitado em todos os próximos vídeos.
+- 7 desenhos em linha (6 frutas + cesta) = primeiras páginas do livro de colorir.
+- Pingo em 6 cores, reaproveitado nos próximos vídeos.
+- Biblioteca de efeitos sonoros do canal (reaproveitada em todos os vídeos).
 
-## Regras de segurança do conteúdo (checadas)
-- Nada assustador, nenhum barulho alto, nenhuma marca ou produto.
-- Tudo desenhado por nós (nada copiado de outro canal; do AKN só a estrutura "aprenda as cores").
-- Vocabulário simples; cada cor dita 3 vezes (entrada, nome, revisão final).
+## Regras de segurança do conteúdo
+- Nada assustador, nenhum barulho alto, nenhuma marca ou produto (materiais sem marca visível).
+- Tudo desenhado por nós; do AKN só a estrutura (desenhar junto, materiais variados, sem música).
+- Vocabulário simples; cada cor dita 3 vezes (entrada, pintura, revisão final).
+
+---
+
+## Histórico
+- **v1 (15/11):** 8 frutas × 65 s, o desenho só "aparecia" com a pergunta "o que será?", com música de
+  fundo. Trocada pela v2 porque o Patrik viu que o AKN desenha **junto** com a criança, usa vários
+  materiais e não tem música.

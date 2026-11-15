@@ -5,8 +5,8 @@
 > Atualizado em 15/11/2026.
 >
 > **Onde estamos:** Dia 1 ✅ concluído (canal **Pingo Pinta**: youtube.com/@pingopinta, Gmail e
-> Instagram criados) · Dia 2: roteiro do vídeo 01 enviado para a Aprovação 1 (`ROTEIRO_VIDEO_01.md`).
-> Decisões e avanços em `DECISOES_E_AVANCOS.md`.
+> Instagram criados) · Dia 2: roteiro v2 "desenhe e pinte junto" e voz do Pingo (Liam mais jovem) em
+> aprovação; sem música, só efeitos. Decisões e avanços em `DECISOES_E_AVANCOS.md`.
 
 ## REGRA FIXA DE COMUNICAÇÃO (pedido do Patrik, 15/11)
 Todo pedido ao Patrik vem SEMPRE neste formato, sem exceção:
@@ -83,7 +83,7 @@ mesmos desenhos. Por isso o formato "desenhar e colorir" é a aposta do Sprint 1
 | **✋ Aprovação 1: roteiro** | 🧑 | não gastar crédito com tema errado | — |
 | Personagem + 8 a 10 desenhos em linha (para colorir) | 🤖 no gerador de imagens, com o custo mostrado antes | são as peças do vídeo **e** do livro | tokens/créditos |
 | Animação "traço aparecendo + cor enchendo", com música de fundo | 🤖 (programa próprio, grátis) | o vídeo em si | grátis |
-| Música | 🧑 baixa 1 faixa da [Biblioteca de Áudio do YouTube](https://studio.youtube.com) (menu **Biblioteca de áudio**) e me manda | música sem problema de direitos | grátis |
+| ~~Música~~ → **efeitos sonoros** | 🤖 (decisão de 15/11: sem música, como o AKN) | lápis riscando, "plim", pincel, glitter, "pop" | grátis |
 | Thumbnail (2 opções), título, descrição | 🤖 com as skills `/yt-package` e `/yt-seo` | é o que faz a pessoa clicar e achar | grátis |
 | 3 Shorts cortados do vídeo | 🤖 com `/yt-shorts` | alcance extra e teste rápido | grátis |
 | **✋ Aprovação 2: vídeo, thumb e Shorts** | 🧑 | nada sai sem o seu OK | — |
