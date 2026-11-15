@@ -32,7 +32,7 @@
 | Dia 2 · Teste da maçã | Desenho + pintura simulados | ✅ v2 "ficou bom", mas imitava demais | `arte/testes/teste_maca_v2.mp4` |
 | Dia 2 · Mecanismo próprio | O que é só nosso | ✅ criado 15/11 (ver abaixo) | `ROTEIRO_VIDEO_01.md` |
 | Dia 2 · Abertura + maçã com voz | 1º trecho real do vídeo 01 | ⏳ enviado, aguardando | `videos/video01_parte1_abertura_maca_v1.mp4` |
-| **Decisão · Ferramenta de produção** | Programa próprio × HyperFrames | ⏳ aguardando o vídeo do HyperFrames | o vencedor faz todos os próximos vídeos |
+| **Decisão · Ferramenta de produção** | Programa próprio × HyperFrames | ⏳ comparação feita; recomendação: HyperFrames, se rodar também na nuvem | aguardando o Patrik |
 | Dia 2 · Música | ~~1 faixa da Biblioteca de Áudio~~ | ❌ cancelado 15/11 | sem música (como o AKN); só efeitos sonoros, feitos por mim |
 
 ---
@@ -271,3 +271,24 @@ os próximos vídeos passo a passo serão feitos.** Critérios para comparar, ne
 5. **Onde roda:** o programa próprio roda aqui na nuvem sem o computador do Patrik ligado; o HyperFrames
    roda no Windows dele (a automação futura do escritório precisa rodar sozinha).
 Até a decisão, nada de fruta nova; continua pendente a avaliação da parte 1.
+
+---
+
+## 15/11/2026 · Resultado da comparação: programa próprio × HyperFrames
+
+Vídeo do HyperFrames recebido (`pingo-maca.mp4`, 63,6 s, 1920x1080, 30 fps) e o lado a lado
+(`videos/hyperframes/comparacao_meu_x_hyperframes.mp4`; quadros em
+`arte/testes/comparacao_meu_x_hyperframes_quadros.png`).
+
+| Critério | Programa próprio | HyperFrames |
+|---|---|---|
+| Fidelidade | referência | fez **tudo** do mecanismo; diferença média de imagem **2 em 255** (quase idêntico) |
+| Diferenças vistas | tinta com borda um pouco mais escura | pintura do corpo um pouco mais lenta no começo (aos 46 s e 50 s está atrás); bordas da tinta mais lisas; mão e maçã voando com tamanho levemente diferente |
+| Som | referência | mesmas falas e efeitos, no tempo certo (60 ms de diferença), ~40% mais alto (sem normalizar) |
+| Ajustar | eu edito o código aqui e renderizo de novo (~1,5 min) | edição em HTML, **preview ao vivo no navegador**; o Patrik pode pedir ajustes ao Claude dele |
+| Onde roda | nuvem (sozinho) | Windows do Patrik; **a nuvem daqui também tem Node 22 e Chromium**, então deve rodar aqui (a testar) |
+| Futuro SaaS | código próprio | composição em HTML combina com o escritório (que é um app web) e é fácil de virar modelo por cliente; licença Apache 2.0 (conferir antes de vender) |
+
+**Recomendação (Claude):** padronizar no **HyperFrames**, com 1 condição: provar que ele renderiza aqui
+na nuvem também (para a fábrica produzir sem o computador do Patrik ligado). O programa próprio fica
+como plano B. **Decisão final: Patrik.**
