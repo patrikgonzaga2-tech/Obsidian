@@ -14,7 +14,7 @@
 ## Personagens e vozes (ficha)
 | Personagem | Voz | Status |
 |---|---|---|
-| **Pingo** (gotinha, vira a cor do momento) | **Liam original** · ElevenLabs v3 · id `TX3LPaxmHKxFdv7VOQHJ` (Gravyx) | ✅ voz aprovada 15/11; visual em escolha |
+| **Pingo** (gotinha, vira a cor do momento) | **Liam original** · ElevenLabs v3 · id `TX3LPaxmHKxFdv7VOQHJ` (Gravyx) | ✅ voz e visual aprovados 15/11 · visual = `arte/pingo/pingo_opcao_2.jpg` (ponta curvada) |
 | **2ª gotinha** (nome a definir) | **Bella** · ElevenLabs v3 · id `hpp4J3VqNfWAUOO0d1Us` (Gravyx) | 🔜 "mais pra frente"; voz guardada |
 
 ## Status do Sprint 1
@@ -28,8 +28,8 @@
 | Dia 1 · Extra | Instagram | ✅ criado 15/11 | [instagram.com/pingo_pinta](https://www.instagram.com/pingo_pinta/) |
 | Dia 2 · Aprovação 1 | Roteiro do vídeo 01 | ✅ "roteiro ok" 15/11 | `ROTEIRO_VIDEO_01.md` v2 "desenhe e pinte junto" |
 | Dia 2 · Voz | Escolher a voz do Pingo | ✅ Liam **original** 15/11 | Bella guardada para a 2ª gotinha |
-| Dia 2 · Visual do Pingo | Escolher 1 de 3 | ⏳ enviado, aguardando | `arte/pingo/` |
-| Dia 2 · Teste da maçã | Desenho + pintura simulados | ⏳ enviado, aguardando avaliação | `arte/testes/teste_maca_v1.mp4` |
+| Dia 2 · Visual do Pingo | Escolher 1 de 3 | ✅ opção 2 (15/11) | `arte/pingo/pingo_opcao_2.jpg` |
+| Dia 2 · Teste da maçã | Desenho + pintura simulados | ❌ v1 reprovada · ⏳ v2 enviada | `arte/testes/teste_maca_v2.mp4` |
 | Dia 2 · Música | ~~1 faixa da Biblioteca de Áudio~~ | ❌ cancelado 15/11 | sem música (como o AKN); só efeitos sonoros, feitos por mim |
 
 ---
@@ -146,7 +146,9 @@ Passo 3 (Gmail) enviado junto, com o mesmo nome do @ escolhido.
 | 2 amostras novas (Liam e Will, texto "desenhar junto") | 248 |
 | 3 opções do Pingo (Nano Banana Pro 1K) | 525 |
 | Troca de cor do Pingo e teste da maçã (programa próprio) | 0 |
-| **Total até agora** | **1.076** |
+| 2 fotos de mão (caneta e pincel, Nano Banana Pro 1K) | 350 |
+| 2 recortes de fundo do Gravyx (ficaram ruins, refeitos aqui de graça) | 200 |
+| **Total até agora** | **1.626** |
 
 ---
 
@@ -196,3 +198,31 @@ Passo 3 (Gmail) enviado junto, com o mesmo nome do @ escolhido.
   - Corrigido na 2ª versão: papel estava azulado e o lápis saía de dentro da maçã ao pintar.
   - A fazer antes do vídeo inteiro: deixar o programa mais rápido (hoje ~6 min para 27 s; o vídeo de
     10 min levaria ~2 h).
+
+---
+
+## 15/11/2026 · Pingo escolhido, maçã v1 reprovada, referência Chiki Art e maçã v2
+
+- ✅ **Visual do Pingo: opção 2** (gota com a ponta curvada, bracinhos e pezinhos pretos).
+- ❌ **Maçã v1 reprovada** pelo Patrik ("não ficou boa"). Ele mandou um vídeo de referência:
+  **Chiki Art Brazil, "NOVO Como desenhar … passo a passo"** (YouTube `kv-CY53q7rg`, 2 min 58 s,
+  arquivo enviado na conversa). Quadros em `arte/testes/referencia_chiki_art_quadros.png`.
+- 🔎 **O que a referência tem (analisado quadro a quadro):**
+  1. **Mão de verdade** desenhando com canetão e pintando com pincel; a mão é protagonista.
+  2. **Papel branco liso**, contorno **preto grosso** de canetão.
+  3. **Potes de tinta glitter** em coluna nas duas laterais (5 de cada lado), cor desde o 1º segundo.
+  4. **Pintura com glitter:** cores vivas, brilhantes, chapadas; cada parte de uma cor.
+  5. **Desenhos com carinha** (o caracol tem olhos e sorriso).
+  6. **Final mágico:** o desenho pronto vai para um fundo de nuvens em tom pastel (rosa e azul),
+     com brilhos e o nome escrito.
+  7. Vários desenhos em sequência no mesmo vídeo.
+  - Não verificado: se tem música ou voz (o áudio é contínuo, mas eu não consigo ouvir).
+- 🍎 **Maçã v2** feita nesse estilo: `arte/testes/teste_maca_v2.mp4` (33 s, sem voz ainda).
+  - Mão: 2 fotos geradas no Gravyx (caneta e pincel) e recortadas aqui (o recorte do Gravyx deixou a
+    pele transparente). O antebraço é alongado por programa para o corte do pulso nunca aparecer.
+    Arquivos: `arte/maos/mao_caneta.png`, `arte/maos/mao_pincel.png`.
+  - Contorno em 3 passos (bolinha · cabinho e folha · carinha), pintura glitter por áreas (como uma
+    pessoa pinta), potes de glitter nas laterais, final com nuvens, brilhos, o Pingo aparecendo e o
+    nome "Maçã".
+  - Código: `codigo/teste_maca_v2.py`. Agora ~4,5 min para 33 s (vídeo de 10 min ≈ 1 h 20 min de
+    computador, sem custo).
