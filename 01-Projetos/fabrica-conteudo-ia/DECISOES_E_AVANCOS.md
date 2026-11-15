@@ -35,7 +35,7 @@
 | **Decisão · Ferramenta de produção** | Programa próprio × HyperFrames | ✅ **programa próprio (Claude)** 15/11 | "se foi igual, vamos manter o Claude" |
 | **Regra · Revisão de Potencial** | Gancho e chance de viralizar antes de publicar | ✅ criada 15/11 | `REVISAO_POTENCIAL.md` · nota mínima 70 |
 | Dia 2 · Parte 1 v2 (gancho) | Abertura nova | ❌ "gancho não ficou bom" 15/11 · gancho será definido depois do vídeo completo | `videos/video01_parte1_abertura_maca_v2.mp4` |
-| Dias 2 e 3 · Vídeo completo | 5 frutas restantes + final | ⏳ plano enviado; aguardando OK do gasto de voz | ver plano abaixo |
+| Dias 2 e 3 · Vídeo completo | 5 frutas restantes + final | ⏳ falas geradas, frutas desenhadas, render em andamento | `codigo/video01_completo.py` |
 | Dia 2 · Música | ~~1 faixa da Biblioteca de Áudio~~ | ❌ cancelado 15/11 | sem música (como o AKN); só efeitos sonoros, feitos por mim |
 
 ---
@@ -156,7 +156,8 @@ Passo 3 (Gmail) enviado junto, com o mesmo nome do @ escolhido.
 | 2 recortes de fundo do Gravyx (ficaram ruins, refeitos aqui de graça) | 200 |
 | 15 falas do Pingo (abertura + maçã, ElevenLabs v3) | 425 |
 | 1 fala nova da abertura (fala 16) | 64 |
-| **Total até agora** | **2.115** |
+| 41 falas das 5 frutas + final (ElevenLabs v3) | 1.183 |
+| **Total até agora** | **3.298** |
 
 ---
 
@@ -335,3 +336,25 @@ como plano B. **Decisão final: Patrik.**
   5. 🤖 + 🧑 Definir o gancho (3 opções a partir do vídeo inteiro) → Revisão de Potencial (nota ≥ 70).
   6. 🤖 Miniatura, título e descrição; versões verticais (Shorts/TikTok/Reels) → ✋ Aprovação 2 →
      🧑 publicar (Dia 3).
+
+---
+
+## 15/11/2026 · Vídeo completo: falas, desenhos e programa
+
+- ✅ Patrik liberou o gasto ("pode gerar as falas"). **41 falas novas, 1.183 tokens** (estimativa era
+  1.000 a 1.200). Frases que se repetem igualzinho reaproveitam o mesmo áudio (ex.: "A folhinha, de
+  verde… e o cabinho, marrom!" serve para maçã, laranja e uva); as frases de incentivo variam de
+  ordem em cada fruta para o vídeo não ficar com cara de molde repetido.
+  Arquivos: `audio/video01/<fruta>_s1|s2|revela|pergunta|magia|detalhe|fim.mp3`, `pool_*.mp3`, `final_1..4.mp3`.
+- 🎨 **5 frutas desenhadas em vetor** (`codigo/frutas.py`), cada uma em 3 passos com carinha:
+  laranja (bolinha + cabinho/folha + carinha, com pontinhos da casca), banana (sorrisão de baixo e de
+  cima + pontinhas marrons + carinha), pera (cabecinha e corpo + cabinho/folha verde-escura + carinha),
+  mirtilo (bolinha + coroinha em estrela azul-escura + carinha), uva (6 bolinhas contadas + cabinho/folha
+  + carinha). Folhas: `arte/frutas/frutas_video01_coloridas.png` e `frutas_video01_contorno.png`
+  (esta já é a página do livro de colorir).
+- 🎬 **Programa do vídeo completo:** `codigo/video01_completo.py` (abertura da v1, pois o gancho será
+  definido depois; 6 frutas; cada uma acende a sua faixa; final: o arco-íris completo cresce no meio, as
+  6 faixas piscam com o Pingo mudando de cor junto em "vermelho, laranja, amarelo, verde, azul e roxo",
+  confete de respingos coloridos em "Parabéns!" e "Tchau, amiguinho!"). Duração: ~5 min 50 s.
+  - Observação: ficou menor que os 8 a 12 min do formato. Para chegar perto disso, dá para aumentar as
+    pausas de "já fez?" (a criança desenhando) ou fazer 8 frutas. Decidir depois de ver o vídeo.
