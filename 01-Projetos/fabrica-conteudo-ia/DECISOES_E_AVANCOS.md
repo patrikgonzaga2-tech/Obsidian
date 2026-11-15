@@ -8,9 +8,10 @@
 | Passo | O que é | Status | Resultado |
 |---|---|---|---|
 | Dia 1 · Passo 1 | Confirmar o formato | ✅ decidido 15/11 | infantil 2 a 5 anos, desenhar e colorir, 8 a 12 min + 3 Shorts |
-| Dia 1 · Passo 2 | Nome e personagem | 🟡 nome e personagem decididos; falta o @ único | **Pingo Pinta** · personagem Pingo (gotinha de tinta) · @pingopinta ocupado no Instagram → testar @pingopintakids |
-| Dia 1 · Passo 3 | Gmail do canal | ⏳ enviado, aguardando | sugestão: pingopintakids@gmail.com |
-| Dia 1 · Passo 4 | Canal no YouTube | ⬜ não começou | — |
+| Dia 1 · Passo 2 | Nome e personagem | ✅ decidido 15/11 | **Pingo Pinta** · personagem Pingo (gotinha de tinta) · @ único: **@canalpingopinta** |
+| Dia 1 · Passo 3 | Gmail do canal | ✅ criado 15/11 | Gmail do canal criado, verificação em duas etapas ativa (endereço exato: confirmar com o Patrik) |
+| Dia 1 · Passo 4 | Canal no YouTube | ⏳ enviado, aguardando | nome Pingo Pinta, @canalpingopinta, conteúdo para crianças |
+| Dia 1 · Extra | Reservar @canalpingopinta no Instagram | ⏳ enviado, aguardando | — |
 
 ---
 
@@ -65,3 +66,14 @@ Ordem de preferência enviada ao Patrik para testar no Instagram: 1) pingopintak
 2) canalpingopinta, 3) pingopintatv.
 
 Passo 3 (Gmail) enviado junto, com o mesmo nome do @ escolhido.
+
+---
+
+## 15/11/2026 · Passos 2 e 3 concluídos
+
+- ✅ **@ único do canal: `@canalpingopinta`** (livre no Instagram, conferido pelo Patrik; livre no
+  YouTube, conferido daqui em 15/11). Vale para YouTube, Instagram, TikTok e Gmail.
+- ✅ **Gmail do canal criado** pelo Patrik, com **verificação em duas etapas ativa**. A senha fica só no
+  gerenciador do navegador dele (nunca aqui). Endereço exato: pedido ao Patrik para registrar.
+- ⏳ Enviado: **Passo 4 (canal no YouTube)** e um extra, **reservar o @ no Instagram** antes que
+  alguém pegue (foi o @ que já deu problema uma vez).
