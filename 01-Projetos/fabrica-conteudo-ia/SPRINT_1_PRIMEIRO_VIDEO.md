@@ -4,9 +4,9 @@
 > a gerar dinheiro o quanto antes. **O escritório só é construído se o Sprint 1 passar.**
 > Atualizado em 15/11/2026.
 >
-> **Onde estamos:** Dia 1 · Passo 1 ✅ formato ok · Passo 2 ✅ **Pingo Pinta**, @canalpingopinta ·
-> Passo 3 ✅ Gmail criado · Passo 4 (canal no YouTube) enviado. Decisões e avanços registrados em
-> `DECISOES_E_AVANCOS.md`.
+> **Onde estamos:** Dia 1 ✅ concluído (canal **Pingo Pinta**: youtube.com/@pingopinta, Gmail e
+> Instagram criados) · Dia 2: roteiro do vídeo 01 enviado para a Aprovação 1 (`ROTEIRO_VIDEO_01.md`).
+> Decisões e avanços em `DECISOES_E_AVANCOS.md`.
 
 ## REGRA FIXA DE COMUNICAÇÃO (pedido do Patrik, 15/11)
 Todo pedido ao Patrik vem SEMPRE neste formato, sem exceção:

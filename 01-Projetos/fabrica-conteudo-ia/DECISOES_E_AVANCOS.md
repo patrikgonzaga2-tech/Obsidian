@@ -3,15 +3,25 @@
 > Registro de cada decisão do Patrik e de cada avanço, em ordem. Mais recente embaixo.
 > Status do Sprint 1 fica na tabela abaixo; o detalhe de cada passo está em `SPRINT_1_PRIMEIRO_VIDEO.md`.
 
+## Contas do canal (ficha)
+| Conta | Endereço |
+|---|---|
+| Nome do canal | **Pingo Pinta** |
+| Gmail (dono de tudo) | pingopintacolor@gmail.com · duas etapas ativa · senha só no navegador do Patrik |
+| YouTube | [youtube.com/@pingopinta](https://www.youtube.com/@pingopinta) |
+| Instagram | [instagram.com/pingo_pinta](https://www.instagram.com/pingo_pinta/) |
+
 ## Status do Sprint 1
 
 | Passo | O que é | Status | Resultado |
 |---|---|---|---|
 | Dia 1 · Passo 1 | Confirmar o formato | ✅ decidido 15/11 | infantil 2 a 5 anos, desenhar e colorir, 8 a 12 min + 3 Shorts |
-| Dia 1 · Passo 2 | Nome e personagem | ✅ decidido 15/11 | **Pingo Pinta** · personagem Pingo (gotinha de tinta) · @ único: **@canalpingopinta** |
-| Dia 1 · Passo 3 | Gmail do canal | ✅ criado 15/11 | Gmail do canal criado, verificação em duas etapas ativa (endereço exato: confirmar com o Patrik) |
-| Dia 1 · Passo 4 | Canal no YouTube | ⏳ enviado, aguardando | nome Pingo Pinta, @canalpingopinta, conteúdo para crianças |
-| Dia 1 · Extra | Reservar @canalpingopinta no Instagram | ⏳ enviado, aguardando | — |
+| Dia 1 · Passo 2 | Nome e personagem | ✅ decidido 15/11 | **Pingo Pinta** · personagem Pingo (gotinha de tinta) |
+| Dia 1 · Passo 3 | Gmail do canal | ✅ criado 15/11 | **pingopintacolor@gmail.com**, duas etapas ativa |
+| Dia 1 · Passo 4 | Canal no YouTube | ✅ criado 15/11 (falta confirmar "para crianças") | [youtube.com/@pingopinta](https://www.youtube.com/@pingopinta), telefone verificado |
+| Dia 1 · Extra | Instagram | ✅ criado 15/11 | [instagram.com/pingo_pinta](https://www.instagram.com/pingo_pinta/) |
+| Dia 2 · Aprovação 1 | Roteiro do vídeo 01 | ⏳ enviado, aguardando | `ROTEIRO_VIDEO_01.md` (falta decidir: voz A ou B) |
+| Dia 2 · Música | 1 faixa da Biblioteca de Áudio | ⏳ enviado, aguardando | — |
 
 ---
 
@@ -77,3 +87,22 @@ Passo 3 (Gmail) enviado junto, com o mesmo nome do @ escolhido.
   gerenciador do navegador dele (nunca aqui). Endereço exato: pedido ao Patrik para registrar.
 - ⏳ Enviado: **Passo 4 (canal no YouTube)** e um extra, **reservar o @ no Instagram** antes que
   alguém pegue (foi o @ que já deu problema uma vez).
+
+---
+
+## 15/11/2026 · Dia 1 concluído (contas criadas)
+
+- ✅ **YouTube:** `youtube.com/@pingopinta` (o Patrik conseguiu o @ curto, que estava livre no
+  YouTube). Telefone verificado. Conferido daqui: o canal abre com o nome "Pingo Pinta" (com um espaço
+  sobrando no fim do nome; corrigir em Personalização). Pendente: confirmar "conteúdo para crianças".
+- ✅ **Gmail:** pingopintacolor@gmail.com, duas etapas ativa.
+- ✅ **Instagram:** `instagram.com/pingo_pinta`.
+- **Decisão do dono:** os @ ficaram diferentes em cada rede (`@pingopinta` no YouTube, `@pingo_pinta`
+  no Instagram, Gmail `pingopintacolor`). Substitui a proposta de "@ único em tudo". Sem problema: todos
+  têm "pingo pinta"; nas bios, sempre apontar um para o outro.
+
+## 15/11/2026 · Dia 2 começou
+
+- 📝 Roteiro do vídeo 01 escrito: `ROTEIRO_VIDEO_01.md` ("Aprenda as cores com frutas", 8 frutas,
+  ~10 min, 3 Shorts). Enviado para a **Aprovação 1**, com a decisão de voz (A curta ou B sem voz).
+- ⏳ Pedido ao Patrik: 1 faixa da Biblioteca de Áudio do YouTube.
