@@ -28,6 +28,10 @@
 
 Tempos são estimativas, não promessa.
 
+## ⚠️ ANTES DE TUDO: Sprint 1
+Primeiro o canal no ar e 1 a 5 vídeos publicados à mão (`SPRINT_1_PRIMEIRO_VIDEO.md`). O escritório
+só começa se o Sprint 1 passar.
+
 ## Caminho rápido: cada conta só quando a fase precisar
 Para rodar e testar logo, não precisa criar tudo de uma vez:
 
