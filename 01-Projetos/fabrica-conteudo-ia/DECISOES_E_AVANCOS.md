@@ -287,6 +287,7 @@ Vídeo do HyperFrames recebido (`pingo-maca.mp4`, 63,6 s, 1920x1080, 30 fps) e o
 | Som | referência | mesmas falas e efeitos, no tempo certo (60 ms de diferença), ~40% mais alto (sem normalizar) |
 | Ajustar | eu edito o código aqui e renderizo de novo (~1,5 min) | edição em HTML, **preview ao vivo no navegador**; o Patrik pode pedir ajustes ao Claude dele |
 | Onde roda | nuvem (sozinho) | Windows do Patrik; **a nuvem daqui também tem Node 22 e Chromium**, então deve rodar aqui (a testar) |
+| Custo do render | grátis (computador da nuvem) | **grátis** (lembrado pelo Patrik): roda no computador dele com o Claude que ele já assina |
 | Futuro SaaS | código próprio | composição em HTML combina com o escritório (que é um app web) e é fácil de virar modelo por cliente; licença Apache 2.0 (conferir antes de vender) |
 
 **Recomendação (Claude):** padronizar no **HyperFrames**, com 1 condição: provar que ele renderiza aqui
