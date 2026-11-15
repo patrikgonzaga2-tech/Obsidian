@@ -35,7 +35,8 @@
 | **Decisão · Ferramenta de produção** | Programa próprio × HyperFrames | ✅ **programa próprio (Claude)** 15/11 | "se foi igual, vamos manter o Claude" |
 | **Regra · Revisão de Potencial** | Gancho e chance de viralizar antes de publicar | ✅ criada 15/11 | `REVISAO_POTENCIAL.md` · nota mínima 70 |
 | Dia 2 · Parte 1 v2 (gancho) | Abertura nova | ❌ "gancho não ficou bom" 15/11 · gancho será definido depois do vídeo completo | `videos/video01_parte1_abertura_maca_v2.mp4` |
-| Dias 2 e 3 · Vídeo completo | 5 frutas restantes + final | ⏳ falas geradas, frutas desenhadas, render em andamento | `codigo/video01_completo.py` |
+| Dias 2 e 3 · Vídeo completo | 5 frutas restantes + final | ⏳ **v1 pronto (5 min 49 s)**, aguardando avaliação | `videos/video01_completo_v1.mp4` |
+| Gancho do vídeo 01 | Escolher 1 de 3 opções | ⏳ opções enviadas junto com o vídeo | ver abaixo |
 | Dia 2 · Música | ~~1 faixa da Biblioteca de Áudio~~ | ❌ cancelado 15/11 | sem música (como o AKN); só efeitos sonoros, feitos por mim |
 
 ---
@@ -358,3 +359,14 @@ como plano B. **Decisão final: Patrik.**
   confete de respingos coloridos em "Parabéns!" e "Tchau, amiguinho!"). Duração: ~5 min 50 s.
   - Observação: ficou menor que os 8 a 12 min do formato. Para chegar perto disso, dá para aumentar as
     pausas de "já fez?" (a criança desenhando) ou fazer 8 frutas. Decidir depois de ver o vídeo.
+- 🎬 **Vídeo 01 completo v1 pronto:** `videos/video01_completo_v1.mp4` (5 min 49 s; render ~8 min,
+  grátis). Quadros em `arte/testes/video01_completo_v1_quadros.png`. Conferido: as 6 frutas, as 6 faixas
+  acendendo, as 6 miniaturas nas vaguinhas, o final com o arco-íris grande e o confete.
+- 🪝 **3 opções de gancho** enviadas para o Patrik escolher depois de ver o vídeo:
+  - **A · "Olha o que a gente vai fazer"** (recomendada): abre com o arco-íris COMPLETO e as 6 frutas +
+    Pingo: "Vamos desenhar e completar esse arco-íris juntos?", e a tela "volta" para o papel em branco.
+    Mostra a recompensa no 1º segundo (padrão de vídeo de desenho: mostrar o resultado antes).
+  - **B · "Desafio da cor"**: 3 frutas cinzas passam rápido e ficam coloridas, com o Pingo grande no meio:
+    "Você sabe de que cor é a banana?". Pergunta que a criança responde em voz alta no 1º segundo.
+  - **C · "Splash do Pingo"**: o Pingo cai de cima, explode em respingos de todas as cores que enchem a
+    tela e viram o papel em branco. Energia e marca, mas sem promessa.
