@@ -252,3 +252,6 @@ Passo 3 (Gmail) enviado junto, com o mesmo nome do @ escolhido.
 - 🧪 **HyperFrames:** o Patrik instalou no terminal dele e quer testar. Kit pronto em
   `hyperframes_kit/` (prompt, tempos.json, maçã em SVG, Pingo em 8 cores com fundo transparente, mão,
   15 falas). Serve para comparar os 2 caminhos (programa próprio × HyperFrames) no mesmo trecho.
+- 🪟 O Patrik usa **Windows**. Passo a passo refeito para o Claude Code do Windows fazer tudo sozinho
+  (conferir Node/Git/FFmpeg, criar o projeto, baixar o kit, instalar a skill, montar e renderizar):
+  `hyperframes_kit/PROMPT_WINDOWS.md`.

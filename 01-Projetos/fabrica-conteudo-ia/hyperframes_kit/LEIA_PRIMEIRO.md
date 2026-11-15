@@ -4,7 +4,8 @@ Este kit tem tudo para recriar a abertura + maçã do vídeo 01 no HyperFrames, 
 
 | Arquivo | O que é |
 |---|---|
-| `PROMPT_HYPERFRAMES.md` | o texto para colar no Claude Code do terminal |
+| `PROMPT_WINDOWS.md` | **comece por aqui no Windows**: pedido para o Claude Code montar tudo sozinho |
+| `PROMPT_HYPERFRAMES.md` | as instruções da cena (o Claude lê sozinho no passo 6 do pedido do Windows) |
 | `tempos.json` | quando entra cada fala e cada ação (em segundos) |
 | `assets/maca.svg` | a maçã em vetor: contorno em 3 passos + áreas de tinta |
 | `assets/pingo_<cor>.png` | o Pingo recortado em 8 cores (neutro + 6 do arco-íris + marrom) |
