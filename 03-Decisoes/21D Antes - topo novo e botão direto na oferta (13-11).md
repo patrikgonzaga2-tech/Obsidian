@@ -33,3 +33,11 @@ Preço (R$ 37 na Greenn, 12x de R$ 3,80), checkout, rastreio e medição de comp
 
 ## Como medir
 Comparar no /painel (aba 21D Antes) a saída na 1ª tela e os cliques em comprar, antes e depois de 13/11.
+
+## Atualização 15/11: o botão voltou para o lugar antigo
+- Resultado com o botão direto no cartão de preço (13/11 11h a 15/11 manhã, só anúncio, R$ 37): 113 visitas, 7 cliques em comprar, 0 pedidos e 0 vendas.
+  Com o topo antigo e o mesmo preço: 173 visitas, 18 cliques, 8 vendas. O topo novo segurou igual (36% chegam no preço); a queda foi depois do preço.
+- Junto, o gasto da 21D Antes caiu (R$ 627 em 11/11 → R$ 54 em 14/11) e foi para a VSL, então não dá para culpar só o botão.
+- Decisão do Patrik: "volta só o botão pro lugar antigo". O botão desce de novo para o bloco 8 ("Coloque na balança", canetinha R$ 500+ × R$ 37). O texto novo do topo ficou.
+- As /efeito-lipo-21d/vsl (A e B) seguem com o botão direto no cartão de preço. VSL no mesmo período: 113 visitas, 4 vendas, R$ 154 de gasto, R$ 156 de líquido (empatou).
+- Aprendizado: pular a comparação "canetinha R$ 500+ × R$ 37" pode tirar a sensação de economia antes do preço. Medir de novo com o botão antigo.
