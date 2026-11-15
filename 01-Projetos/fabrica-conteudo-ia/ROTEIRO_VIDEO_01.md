@@ -62,6 +62,8 @@ bom, mudamos o caminho gastando pouco.
 | 75–90 s | toque final de brilho, "pop" | *"Uau, ficou linda! Maçã vermelha! Qual será a próxima cor?"* |
 
 ### As 6 frutas (ordem do arco-íris) e o material de cada uma
+> Nota 15/11: a coluna "Material" ficou de fora com o mecanismo Pingo (quem pinta é o Pingo).
+
 | # | Cor | Fruta | Material (como o AKN, variando) |
 |---|---|---|---|
 | 1 | Vermelho | Maçã | lápis de cor |

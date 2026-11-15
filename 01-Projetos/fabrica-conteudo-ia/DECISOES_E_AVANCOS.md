@@ -34,7 +34,8 @@
 | Dia 2 · Abertura + maçã com voz | 1º trecho real do vídeo 01 | ⏳ enviado, aguardando | `videos/video01_parte1_abertura_maca_v1.mp4` |
 | **Decisão · Ferramenta de produção** | Programa próprio × HyperFrames | ✅ **programa próprio (Claude)** 15/11 | "se foi igual, vamos manter o Claude" |
 | **Regra · Revisão de Potencial** | Gancho e chance de viralizar antes de publicar | ✅ criada 15/11 | `REVISAO_POTENCIAL.md` · nota mínima 70 |
-| Dia 2 · Parte 1 v2 (gancho) | Abertura nova | ⏳ enviada | `videos/video01_parte1_abertura_maca_v2.mp4` · nota ≈ 70 |
+| Dia 2 · Parte 1 v2 (gancho) | Abertura nova | ❌ "gancho não ficou bom" 15/11 · gancho será definido depois do vídeo completo | `videos/video01_parte1_abertura_maca_v2.mp4` |
+| Dias 2 e 3 · Vídeo completo | 5 frutas restantes + final | ⏳ plano enviado; aguardando OK do gasto de voz | ver plano abaixo |
 | Dia 2 · Música | ~~1 faixa da Biblioteca de Áudio~~ | ❌ cancelado 15/11 | sem música (como o AKN); só efeitos sonoros, feitos por mim |
 
 ---
@@ -316,3 +317,21 @@ como plano B. **Decisão final: Patrik.**
     desenhar junto… e completar o arco-íris!", 64 tokens);
   - Pingo maior (380 px) e azul-claro quando está "sem cor" (antes quase sumia no papel branco).
   - Nova nota: **≈ 70 (no limite).** Falta a versão vertical, a miniatura e o título.
+
+---
+
+## 15/11/2026 · Gancho reprovado; primeiro o vídeo completo
+
+- ❌ Patrik: **"o gancho não ficou bom"** (v2: abrir com o Pingo pintando). Decisão: **fazer o vídeo completo
+  primeiro e definir o gancho depois**, com o vídeo inteiro na mão (dá para escolher o melhor momento).
+- Plano enviado ao Patrik (próximos passos):
+  1. 🤖 Desenhar as 5 frutas restantes em vetor, com carinha, 3 passos cada (laranja, banana, pera,
+     mirtilo, uva) e uma folha com as 5 para aprovar (grátis).
+  2. 🤖 Falas das 5 frutas + final (~55 falas, ~3.000 caracteres ≈ 1.000 a 1.200 tokens do Gravyx).
+     **Precisa do OK do Patrik antes de gerar.**
+  3. 🤖 Programa para o vídeo inteiro: cada fruta acende a sua faixa; final com o arco-íris completo,
+     as 6 frutas e a despedida. Render ~15 a 20 min (grátis).
+  4. 🧑 Avaliar o vídeo completo.
+  5. 🤖 + 🧑 Definir o gancho (3 opções a partir do vídeo inteiro) → Revisão de Potencial (nota ≥ 70).
+  6. 🤖 Miniatura, título e descrição; versões verticais (Shorts/TikTok/Reels) → ✋ Aprovação 2 →
+     🧑 publicar (Dia 3).
