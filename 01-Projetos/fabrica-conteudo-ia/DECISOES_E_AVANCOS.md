@@ -32,7 +32,7 @@
 | Dia 2 · Teste da maçã | Desenho + pintura simulados | ✅ v2 "ficou bom", mas imitava demais | `arte/testes/teste_maca_v2.mp4` |
 | Dia 2 · Mecanismo próprio | O que é só nosso | ✅ criado 15/11 (ver abaixo) | `ROTEIRO_VIDEO_01.md` |
 | Dia 2 · Abertura + maçã com voz | 1º trecho real do vídeo 01 | ⏳ enviado, aguardando | `videos/video01_parte1_abertura_maca_v1.mp4` |
-| Extra · HyperFrames | Testar o mesmo trecho no terminal do Patrik | ⏳ kit enviado | `hyperframes_kit/` |
+| **Decisão · Ferramenta de produção** | Programa próprio × HyperFrames | ⏳ aguardando o vídeo do HyperFrames | o vencedor faz todos os próximos vídeos |
 | Dia 2 · Música | ~~1 faixa da Biblioteca de Áudio~~ | ❌ cancelado 15/11 | sem música (como o AKN); só efeitos sonoros, feitos por mim |
 
 ---
@@ -260,3 +260,14 @@ Passo 3 (Gmail) enviado junto, com o mesmo nome do @ escolhido.
   `hyperframes_kit/PROMPT_VIDEO_IGUAL.md`, com todas as medidas e tempos. Para sair igual, o kit
   ganhou `caminhos.json` (o caminho exato que o Pingo percorre pintando e os traços da mão) e
   `assets/efeitos.mp3` (a mesma trilha de efeitos do meu vídeo). Entrega pedida: vídeo lado a lado.
+
+### Decisão combinada (15/11): a comparação escolhe a ferramenta
+O Patrik vai rodar o HyperFrames no Windows dele e mandar o vídeo. **O resultado decide por onde todos
+os próximos vídeos passo a passo serão feitos.** Critérios para comparar, nesta ordem:
+1. **Qualidade aos olhos do Patrik** (fica bonito e claro para a criança?).
+2. **Fidelidade:** fez tudo do mecanismo (Pingo pintando, "de que cor é?", arco-íris) sem faltar nada?
+3. **Facilidade de ajustar:** quanto custa mudar uma coisa (ex.: velocidade, posição)?
+4. **Tempo de render** (programa próprio: ~1,5 min para 64 s).
+5. **Onde roda:** o programa próprio roda aqui na nuvem sem o computador do Patrik ligado; o HyperFrames
+   roda no Windows dele (a automação futura do escritório precisa rodar sozinha).
+Até a decisão, nada de fruta nova; continua pendente a avaliação da parte 1.
