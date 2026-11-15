@@ -32,7 +32,7 @@
 | Conecta a própria conta com autorização clara e segura? | Login oficial do Google (OAuth), pedindo só a permissão de publicar e ler dados do canal; dá para desconectar a qualquer hora | F4 (nosso canal) / F9 (clientes) | 🆕 |
 | Mostra em qual canal vai publicar? | Antes de publicar: foto, nome e @ do canal de destino em destaque | F4 | 🆕 |
 | Publicar, agendar ou rascunho? | 3 botões: Publicar agora · Agendar (data e hora) · Enviar como privado/rascunho | F4 | 🆕 |
-| Confirma e mostra o link? | Só marca "publicado" depois que o YouTube devolve o ID; mostra o link e avisa no Telegram | F4 | 🆕 |
+| Confirma e mostra o link? | Só marca "publicado" depois que o YouTube devolve o ID; mostra o link e manda notificação no celular | F4 | 🆕 |
 | Se falhar, informa o motivo e evita duplicata? | Cada item tem uma "chave única"; antes de tentar de novo, o sistema confere no canal se o vídeo já subiu; mensagem com o motivo em português | F4 | 🆕 |
 | Regras atuais do YouTube conferidas? | Confirmado em fonte oficial: conteúdo inautêntico (jul/2025), conteúdo para crianças, conteúdo reutilizado. **A confirmar:** auditoria da API para apps (upload privado até aprovar), cota diária, campo de declaração de conteúdo sintético na API, requisitos novos do YPP (2027) | antes de F4 | ❓ |
 

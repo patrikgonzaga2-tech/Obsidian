@@ -44,7 +44,7 @@ vídeos de 30 a 37 min, versões em indonésio, agora Shorts diários "número 1
 
 ## 4. Ferramentas encontradas
 - YouTube Agent Skill (Jakeschincariol, MIT, ~6 mil ★): 11 skills /yt-*; notas do hookscore e
-  title.py feitas para inglês (adaptar). Instalada no Obsidian em 14/11 (PR #24).
+  title.py feitas para inglês (adaptar). Vai para o repositório do projeto.
 - Habblaud (marmottajr, MIT, ~1,3 mil ★): escritório pixel art de agentes; só mostra sessões locais.
 - Hypit (hypit-ai, ~30 mil ★, Apache modificada): modelagem de vídeo; proibido como SaaS sem licença.
 - ScrapeCreators social-media-research-skills (~6,4 mil ★, API paga); TubeLab youtube-research-skills

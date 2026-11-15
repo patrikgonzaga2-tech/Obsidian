@@ -14,13 +14,13 @@ não da página oficial. Conferir antes de assinar.
 | # | Conta | Para quê | Custo para começar | Custo no SaaS |
 |---|---|---|---|---|
 | 1 | **Conta Google nova** | dona do canal do YouTube, Gemini, YouTube Data API, Google Cloud | grátis | grátis + uso |
-| 2 | **Organização no GitHub** + 1 repositório | código separado da `patrikgonzaga2-tech` | grátis | grátis ou Team (a confirmar) |
+| 2 | **Organização no GitHub** + 1 repositório | código do projeto numa organização própria | grátis | grátis ou Team (a confirmar) |
 | 3 | App do Claude instalado na organização | eu trabalhar no repositório | grátis | — |
 | 4 | **Equipe na Vercel** | painel/escritório no ar | Hobby grátis (**uso não comercial**, a confirmar) | Pro ~US$ 20/mês por membro (a confirmar) |
 | 5 | **Organização no Supabase** | banco de dados | Free grátis (pausa se ficar parado, a confirmar) | Pro ~US$ 25/mês (a confirmar) |
 | 6 | Gravyx: conta separada ou workspace só do projeto | imagens, thumbs, narração | já assinado (Starter, 10.000 tokens); conta nova: preço a confirmar | substituir por API direta |
 | 7 | Metricool: marca nova (ou conta nova) | agendar nas redes | a confirmar se o plano atual aceita 2ª marca | API de publicação própria |
-| 8 | Bot do Telegram (ou e-mail da conta nova) | aviso antes da reunião e alertas 🔴 | grátis | grátis |
+| 8 | Notificações | aviso da reunião e alertas 🔴 pelo próprio escritório instalado no celular (sem conta extra) | grátis | grátis |
 | 9 | Gerenciador de senhas (cofre do projeto) | guardar logins | grátis | grátis |
 | 10 | *(depois)* Domínio | endereço do SaaS | .com.br ~R$ 40/ano (a confirmar) | idem |
 | 11 | *(depois)* Amazon KDP | livro de colorir | grátis (Amazon fica com parte da venda) | — |
@@ -35,7 +35,6 @@ não da página oficial. Conferir antes de assinar.
 | Chave da YouTube Data API | segredo do ambiente novo (host `www.googleapis.com`) |
 | OAuth do Google para publicar no YouTube | variáveis da Vercel (fase de publicação automática) |
 | URL e chaves do Supabase | variáveis da Vercel |
-| Token do bot do Telegram | variáveis da Vercel |
 
 ## C. Conexões no Claude
 
@@ -45,7 +44,7 @@ não da página oficial. Conferir antes de assinar.
 | Supabase | conectado às organizações atuais | conectar a organização nova; nas sessões do projeto, usar só ela |
 | Vercel | conectado à equipe atual | conectar a equipe nova |
 | Gravyx | conta atual | criar workspace do projeto; perguntar o workspace antes de gerar |
-| Metricool | marca "Corpo Feliz" | criar a marca do projeto |
+| Metricool | só depois do canal criado | criar uma marca só do projeto (ou conta nova) |
 | Ambiente do Claude Code | hoje tudo roda no "Default" | criar ambiente próprio do projeto, só com o repositório novo |
 
 As conexões do claude.ai são da sua conta inteira; a separação vem de usar sempre a organização,

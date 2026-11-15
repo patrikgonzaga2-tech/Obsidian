@@ -1,8 +1,7 @@
 # Fábrica de Conteúdo IA (nome provisório) · Dossiê do projeto
 
-> **Projeto SEPARADO** da Laura Rosa / Corpo Feliz e da agência PTK. Esta pasta é só um depósito
-> temporário: quando o repositório próprio existir, tudo aqui vai para lá (`docs/`) e no Obsidian
-> fica só uma nota de ponteiro. Nada de contas, dados, textos ou infraestrutura da Laura/PTK aqui.
+> **Projeto independente**, com contas, dados e infraestrutura próprios. Esta pasta é só um depósito
+> temporário: quando o repositório do projeto existir, tudo aqui vai para lá (`docs/`).
 
 Atualizado em 15/11/2026. Origem: conversa de 14 e 15/11 com o Patrik.
 
@@ -94,8 +93,8 @@ lógica entra no Radar como código nosso.
 - Não marcou = não tem reunião no dia seguinte.
 - **Obrigatória 1 por semana.** Se passar 7 dias sem reunião: a esteira continua produzindo, mas
   **segura publicação e qualquer gasto acima do teto base** até a reunião acontecer.
-- Aviso antes da reunião por canal PRÓPRIO do projeto (ex.: bot do Telegram ou e-mail da conta nova).
-  **Não usar o WhatsApp/Metrifiquei da PTK.**
+- Aviso antes da reunião e alertas 🔴: notificação no celular pelo próprio escritório (instalado como
+  app na tela inicial) e aviso dentro do escritório. Sem aplicativo de mensagens.
 
 ### Pauta da reunião (por ordem de importância)
 1. Aprovações pendentes (nota de potencial, motivo, viral de origem lado a lado).
