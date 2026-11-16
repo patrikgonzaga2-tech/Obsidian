@@ -469,3 +469,5 @@ Conferido no Metricool conectado ao Claude:
   Instagram, TikTok), com todas as configurações: `PERFIS_CONFIGURACAO.md`. Ordem: perfis → publicar → Metricool.
 - ✅ **YouTube: perfil configurado** pelo Patrik (16/11). Instagram em andamento: na escolha de categoria (app em
   português de Portugal), orientado a buscar "Criador de conteúdos digitais" (ou "Educação") e mostrar no perfil.
+- ✅ **Instagram: perfil configurado** pelo Patrik (16/11): conta profissional, foto, nome, bio, link e privacidade.
+  Falta o TikTok (Parte 3).
