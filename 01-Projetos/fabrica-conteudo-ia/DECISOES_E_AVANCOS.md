@@ -21,7 +21,7 @@
 ## ⏳ Pendências do Patrik (conferir antes de cada passo)
 | Pendência | Desde |
 |---|---|
-| Escritório · Passo 5 (parte 2): abrir a sessão nova no ambiente "Nexo Studio" com o repo `escritorio` e escrever COMEÇAR ESCRITÓRIO | 16/11 |
+| (Escritório segue na sessão nova do ambiente "Nexo Studio"; ver `docs/ONDE_PARAMOS.md` no repo `nexo-studio-br/escritorio`) | 16/11 |
 | @ do TikTok | 16/11 |
 | Tema do vídeo 02 ("mais frutas" ou "bichos") | 16/11 |
 | Ler os números de 48 h do vídeo 01 | 18/11 |
@@ -597,3 +597,5 @@ Metricool (publicação nas 3 redes). Pendência antiga que volta: **nome do pro
 - ✅ **Ambiente "Nexo Studio" criado** no Claude Code (env_01R6k4Mu4zWk4uD19VAKRW1K), só com o repositório do
   escritório; rede: Gravyx, YouTube e as documentações do GitHub, Vercel e Supabase (para pesquisar antes de cada
   passo). **A partir daqui o trabalho do escritório continua na sessão nova** desse ambiente.
+- ✅ **Sessão nova do escritório aberta** pelo Patrik (16/11). **Contas do escritório: 5 de 5.** O trabalho do
+  Nexo Studio continua lá; esta pasta do Obsidian fica como histórico do Sprint 1.
