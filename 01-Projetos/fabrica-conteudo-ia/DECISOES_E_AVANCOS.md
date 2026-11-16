@@ -494,3 +494,4 @@ Conferido no Metricool conectado ao Claude:
   notificação aos inscritos, o crescimento vem de página inicial/sugestões e dos Shorts/Reels/TikTok.
 - ✅ **Short da maçã publicado no YouTube** (16/11). Explicado: Short não precisa de miniatura (no app dá para
   escolher um quadro; no feed quase não aparece). Próximo: Reels da maçã no Instagram.
+- ✅ **Reels da maçã publicado no Instagram** (16/11). Próximo: TikTok da maçã.
