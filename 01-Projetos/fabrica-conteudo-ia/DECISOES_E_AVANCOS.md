@@ -471,3 +471,5 @@ Conferido no Metricool conectado ao Claude:
   português de Portugal), orientado a buscar "Criador de conteúdos digitais" (ou "Educação") e mostrar no perfil.
 - ✅ **Instagram: perfil configurado** pelo Patrik (16/11): conta profissional, foto, nome, bio, link e privacidade.
   Falta o TikTok (Parte 3).
+- ✅ **TikTok: perfil configurado** pelo Patrik (16/11). @ ainda não informado. **Os 3 perfis estão prontos.**
+  Próximo: publicar o vídeo longo no YouTube.
