@@ -21,7 +21,7 @@
 ## ⏳ Pendências do Patrik (conferir antes de cada passo)
 | Pendência | Desde |
 |---|---|
-| Escritório · Passo 5: OK para copiar os documentos do projeto para o repositório `escritorio` (base da sessão nova) | 16/11 |
+| Escritório · Passo 5 (parte 2): abrir a sessão nova no ambiente "Nexo Studio" com o repo `escritorio` e escrever COMEÇAR ESCRITÓRIO | 16/11 |
 | @ do TikTok | 16/11 |
 | Tema do vídeo 02 ("mais frutas" ou "bichos") | 16/11 |
 | Ler os números de 48 h do vídeo 01 | 18/11 |
@@ -591,3 +591,9 @@ Metricool (publicação nas 3 redes). Pendência antiga que volta: **nome do pro
 - ✅ **Conector `Supabase_Nexo` ligado e testado daqui** (16/11): projeto `pjigawdvtoujlriydrlq`
   (https://pjigawdvtoujlriydrlq.supabase.co), banco vazio. O conector está **limitado a esse projeto** (não tem as
   ferramentas de conta, como listar projetos), então não enxerga a Corpo Feliz. **Contas do escritório: 4 de 5 prontas.**
+- ✅ **Base do escritório no repositório** (autorizado: "pode copiar"): commit `d019872` em
+  `nexo-studio-br/escritorio` (main) com `CLAUDE.md` (regras fixas), `docs/ONDE_PARAMOS.md` (passagem de sessão),
+  `docs/projeto/`, `docs/canal-pingo-pinta/` e `producao/` (código, artes e falas do vídeo 01).
+- ✅ **Ambiente "Nexo Studio" criado** no Claude Code (env_01R6k4Mu4zWk4uD19VAKRW1K), só com o repositório do
+  escritório; rede: Gravyx, YouTube e as documentações do GitHub, Vercel e Supabase (para pesquisar antes de cada
+  passo). **A partir daqui o trabalho do escritório continua na sessão nova** desse ambiente.
