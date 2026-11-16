@@ -35,8 +35,8 @@
 | **Decisão · Ferramenta de produção** | Programa próprio × HyperFrames | ✅ **programa próprio (Claude)** 15/11 | "se foi igual, vamos manter o Claude" |
 | **Regra · Revisão de Potencial** | Gancho e chance de viralizar antes de publicar | ✅ criada 15/11 | `REVISAO_POTENCIAL.md` · nota mínima 70 |
 | Dia 2 · Parte 1 v2 (gancho) | Abertura nova | ❌ "gancho não ficou bom" 15/11 · gancho será definido depois do vídeo completo | `videos/video01_parte1_abertura_maca_v2.mp4` |
-| Dias 2 e 3 · Vídeo completo | 5 frutas restantes + final | ⏳ **v1 pronto (5 min 49 s)**, aguardando avaliação | `videos/video01_completo_v1.mp4` |
-| Gancho do vídeo 01 | Escolher 1 de 3 opções | ⏳ opções enviadas junto com o vídeo | ver abaixo |
+| Dias 2 e 3 · Vídeo completo | 5 frutas restantes + final | ✅ "vídeo ok" 16/11 · duração mantida (~6 min) | `videos/video01_completo_v1.mp4` |
+| Gancho do vídeo 01 | Escolher 1 de 3 opções | ✅ **A** 16/11 · v2 com gancho em render | `videos/video01_completo_v2.mp4` |
 | Dia 2 · Música | ~~1 faixa da Biblioteca de Áudio~~ | ❌ cancelado 15/11 | sem música (como o AKN); só efeitos sonoros, feitos por mim |
 
 ---
@@ -158,7 +158,8 @@ Passo 3 (Gmail) enviado junto, com o mesmo nome do @ escolhido.
 | 15 falas do Pingo (abertura + maçã, ElevenLabs v3) | 425 |
 | 1 fala nova da abertura (fala 16) | 64 |
 | 41 falas das 5 frutas + final (ElevenLabs v3) | 1.183 |
-| **Total até agora** | **3.298** |
+| 2 falas do gancho A ("Vamos desenhar e completar esse arco-íris juntos?", "Pega o seu lápis… e vamos começar!") | 64 |
+| **Total até agora** | **3.362** |
 
 ---
 
@@ -370,3 +371,17 @@ como plano B. **Decisão final: Patrik.**
     "Você sabe de que cor é a banana?". Pergunta que a criança responde em voz alta no 1º segundo.
   - **C · "Splash do Pingo"**: o Pingo cai de cima, explode em respingos de todas as cores que enchem a
     tela e viram o papel em branco. Energia e marca, mas sem promessa.
+
+---
+
+## 16/11/2026 · Vídeo aprovado, gancho A, tempo mantido
+
+- ✅ Patrik: **"vídeo ok, gancho A, pode manter esse tempo"**.
+- 🪝 **Gancho A implementado** em `codigo/video01_completo.py`: o 1º quadro é o arco-íris completo
+  (grande, no meio) com as 6 frutas nas vaguinhas e o Pingo trocando de cor a cada 0,45 s, com a fala
+  "Vamos desenhar e completar esse arco-íris juntos?". Aos 3,3 s a tela "volta" (1,2 s): o arco-íris
+  encolhe para o canto e as faixas e frutas somem uma a uma, com som de vento. Depois: "Oi, amiguinho!
+  Eu sou o Pingo!" + "Pega o seu lápis… e vamos começar!". O desenho começa aos ~10 s (antes 14 s).
+  Saíram da abertura as falas 2 e 3 (o Pingo trocando de cor já mostra que ele "fica de todas as cores").
+- 📊 Revisão de Potencial do vídeo completo: **≈ 71, aprovado para o YouTube** (falta miniatura, título
+  e descrição); Shorts/TikTok/Reels só com versões verticais (`REVISAO_POTENCIAL.md`).

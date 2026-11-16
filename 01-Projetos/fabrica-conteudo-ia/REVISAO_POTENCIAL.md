@@ -49,3 +49,22 @@
 1. Versão vertical (Shorts/TikTok/Reels) com gancho no 1º segundo.
 2. Miniatura e título (skill `/yt-package`).
 3. Começar o desenho mais cedo (hoje aos ~10 s): a mão pode entrar já no "pega o seu lápis".
+
+---
+
+## Vídeo 01 · completo com gancho A (16/11)
+
+Patrik: "vídeo ok, gancho A, pode manter esse tempo" (5 min 45 s).
+
+| Critério | Nota | Por quê |
+|---|---|---|
+| Gancho | 80 | o 1º quadro já é o arco-íris completo com as 6 frutas e o Pingo trocando de cor + "Vamos desenhar e completar esse arco-íris juntos?" (mostra o prêmio antes); a tela "volta" aos 3,3 s |
+| Ritmo | 65 | desenho começa aos ~10 s; cada fruta ~52 s sempre no mesmo ritmo |
+| Mecanismo próprio | 85 | Pingo é a tinta, "de que cor é?", arco-íris acendendo em todas as 6 frutas |
+| Clareza para 2 a 5 anos | 85 | cada cor dita ao menos 3 vezes; frases curtas; nada assustador |
+| Recompensa | 90 | promessa no 1º segundo e pagamento no fim (arco-íris grande, cores piscando, confete) |
+| Pronto para vertical | 20 | ainda só 16:9 |
+| **Nota** | **≈ 71** | **aprovado para o YouTube (vídeo longo)**, depois de ter miniatura e título; **reprovado para Shorts/TikTok/Reels** até ter as versões verticais |
+
+Para publicar no YouTube ainda falta: miniatura (que mostre o que o gancho mostra: arco-íris + frutas +
+Pingo), título e descrição. Para Shorts/TikTok/Reels: 3 cortes verticais com gancho no 1º segundo.

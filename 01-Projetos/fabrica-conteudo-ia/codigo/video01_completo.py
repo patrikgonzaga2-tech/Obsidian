@@ -177,16 +177,49 @@ SALTOS = []        # (início, fim, de, para, alt_de, alt_para, giro)
 PINTANDO = []      # (início, fim, fruta, índice_da_pintura)
 PARADO = []        # (início, fim, posição dos pés, altura)  — Pingo esperando dentro do desenho
 
-# ----- abertura (a mesma da parte 1 v1; o gancho será definido depois) -----
-t = 0.4
-SFX.append((0.05, "boing", .25))
-t = fala(t, "fala_01") + 0.35
-f2 = t; t = fala(t, "fala_02") + 0.35
-CORES_ABERTURA = (f2 + 1.6, f2 + dur("fala_02") + 0.2)
-for k in range(6): COR_EV.append((CORES_ABERTURA[0] + k * (CORES_ABERTURA[1] - CORES_ABERTURA[0] - 0.2) / 6, NOMES_CORES[k])); SFX.append((COR_EV[-1][0], "pinga", .18))
-COR_EV.append((CORES_ABERTURA[1], "neutro"))
-f3 = t; t = fala(t, "fala_03") + 0.35
-ARCO_APARECE = (f3 + 0.8, f3 + 2.0)
+# ----- abertura com o GANCHO A (escolhido pelo Patrik em 16/11) -----
+# 1º segundo: o arco-íris COMPLETO com as 6 frutas e o Pingo trocando de cor ("olha o que a gente vai fazer").
+# Depois a tela "volta": o arco-íris encolhe para o canto e esvazia, e o desenho começa.
+def mini_fruta(spec, altura=62):
+    s = cairo.ImageSurface(cairo.FORMAT_ARGB32, W, H); c = cairo.Context(s)
+    def poly(q, fechado=True):
+        c.move_to(*q[0]); [c.line_to(*r) for r in q[1:]]
+        if fechado: c.close_path()
+    for q in spec["corpo"]: poly(q)
+    c.set_source_rgb(*[v / 255 for v in spec["cor"]]); c.fill()
+    for (o, r) in spec["olhos"]: c.arc(o[0], o[1], r, 0, 2 * math.pi); c.set_source_rgb(1, 1, 1); c.fill()
+    for d in spec["detalhes"]:
+        c.set_source_rgb(*[v / 255 for v in d["cor"]])
+        if d["tipo"] == "area":
+            for q in d["forma"]: poly(q)
+            c.fill()
+        else:
+            c.set_line_width(d.get("larg", 24)); c.set_line_cap(cairo.LINE_CAP_ROUND)
+            for q in d["forma"]: poly(q, False); c.stroke()
+    c.set_source_rgb(.11, .11, .11); c.set_line_width(17); c.set_line_cap(cairo.LINE_CAP_ROUND); c.set_line_join(cairo.LINE_JOIN_ROUND)
+    for passo in spec["passos"]:
+        for q in passo: poly(q, False); c.stroke()
+    for q in spec.get("enfeites", []): poly(q); c.fill()
+    for (o, r) in spec["olhos"]: c.arc(o[0] + r * .16, o[1] + r * .16, r * .45, 0, 2 * math.pi); c.fill()
+    s.flush(); arr = np.ndarray((H, W, 4), np.uint8, s.get_data()).astype(np.float32)
+    a = arr[..., 3] / 255; ys_, xs_ = np.nonzero(a > .05); y0, y1, x0, x1 = ys_.min(), ys_.max() + 1, xs_.min(), xs_.max() + 1
+    rgb = arr[y0:y1, x0:x1, 2::-1] / np.maximum(a[y0:y1, x0:x1, None], 1e-3); a = a[y0:y1, x0:x1]
+    e = altura / (y1 - y0); w_, h_ = max(int((x1 - x0) * e), 2), altura
+    return cv2.resize(rgb, (w_, h_), interpolation=cv2.INTER_AREA), cv2.resize(a, (w_, h_), interpolation=cv2.INTER_AREA)[..., None]
+MINIS_GANCHO = [(*mini_fruta(fn()), i) for i, fn in enumerate(FRUTAS)]
+CENTRO_GRANDE = np.array([1000.0, 560.0])
+
+t = 0.3
+t = fala(t, "gancho_a") + 0.5
+GANCHO = (0.0, t)
+CORES_ABERTURA = GANCHO
+for k in range(int(t / 0.45)): COR_EV.append((k * 0.45, NOMES_CORES[k % 6])); SFX.append((k * 0.45, "pinga", .12))
+SFX.append((0.0, "sininho", .18))
+VOLTA = (t, t + 1.2); SFX.append((VOLTA[0], "whoosh", VOLTA[1])); COR_EV.append((VOLTA[0] + 0.6, "neutro")); SFX.append((VOLTA[1], "pinga", .25))
+t = VOLTA[1] + 0.2
+t = fala(t, "fala_01") + 0.3
+t = fala(t, "comecar") + 0.35
+ARCO_APARECE = (0.0, 0.001)
 t -= 0.2
 
 # ======================= frutas =======================
@@ -357,6 +390,7 @@ for ev_ in SFX:
     elif ev_[1] == "pinta": ruido(ev_[0], ev_[2], .05, 3.5, False)
     elif ev_[1] == "pinga": toque(ev_[0], lambda tt: 1400 * np.exp(-tt * 18) + 380, .35, 9, ev_[2])
     elif ev_[1] == "boing": toque(ev_[0], lambda tt: 220 + 500 * tt, .4, 6, ev_[2])
+    elif ev_[1] == "whoosh": ruido(ev_[0], ev_[2], .07, 0.8)
     elif ev_[1] == "sininho":
         for k, fq in enumerate([1047, 1319, 1568, 2093]): toque(ev_[0] + k * .09, lambda tt, fq=fq: np.full_like(tt, fq), 1.2, 4, ev_[2])
 env_voz = np.convolve(np.abs(voz), np.ones(1200) / 1200, "same")
@@ -406,7 +440,15 @@ for fr in range(int(TINI * FPS), NF):
             if p("voa") >= 1:
                 minis.append((cv2.resize(rgbf, (w_, h_)), cv2.resize(af[..., 0], (w_, h_))[..., None], f.slot)); f.voou = True
     # arco-íris
-    if tt >= ARCO_APARECE[0]:
+    if tt < VOLTA[1]:  # gancho: arco-íris completo no meio, depois volta para o canto e esvazia
+        if tt < VOLTA[0]:
+            esc, centro, n = 2.0, CENTRO_GRANDE, 6
+            k = int(tt / 0.45) % 6; pulsos = {k: math.sin(((tt / 0.45) % 1) * math.pi)}
+        else:
+            u = suave((tt - VOLTA[0]) / (VOLTA[1] - VOLTA[0])); esc = 2.0 - u; centro = CENTRO_GRANDE + u * (ARCO_C - CENTRO_GRANDE)
+            n = int(round(6 * (1 - u))); pulsos = {}
+        desenha_arco(img, esc, centro, set(range(n)), None, MINIS_GANCHO[:n], pulsos)
+    elif tt >= ARCO_APARECE[0]:
         u = min(max((tt - ARCO_APARECE[0]) / (ARCO_APARECE[1] - ARCO_APARECE[0]), 0), 1)
         esc = 0.2 + 0.8 * suave(u) + 0.08 * math.sin(u * math.pi); centro = ARCO_C.copy(); enchendo = None; pulsos = {}
         for x in frutas:
@@ -427,9 +469,7 @@ for fr in range(int(TINI * FPS), NF):
     cor = cor_em(tt); sq = 1 + min(env_voz[min(int(tt * SR), N - 1)] * 2.2, 0.08) * math.sin(tt * 26)
     salto = next((s_ for s_ in SALTOS if s_[0] <= tt < s_[1]), None)
     parado = None
-    if tt < 0.6:
-        u = suave(tt / 0.6); desenha_pingo(img, cor, -120 + (CASA[0] + 120) * u, CASA[1] - 220 * math.sin(math.pi * tt / 0.6), ALT)
-    elif pintando is not None:
+    if pintando is not None:
         desenha_pingo(img, cor, pintando[0], pintando[1] + 75, 150, 1 + .06 * math.sin(tt * 20), 1 - .06 * math.sin(tt * 20), ang=math.sin(tt * 18) * 8)
     elif salto is not None:
         a, b, de, para, h1, h2, giro = salto; u = suave((tt - a) / (b - a))
