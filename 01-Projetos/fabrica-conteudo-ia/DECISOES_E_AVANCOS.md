@@ -21,7 +21,7 @@
 ## ⏳ Pendências do Patrik (conferir antes de cada passo)
 | Pendência | Desde |
 |---|---|
-| Escritório · Passo 4 (parte 2): conta do Supabase do Nexo (studionexo512) + org "Nexo Studio" + projeto `escritorio` | 16/11 |
+| Escritório · Passo 4 (parte 3): conector `Supabase_Nexo` (só o projeto `escritorio`) + mandar o ID do projeto | 16/11 |
 | @ do TikTok | 16/11 |
 | Tema do vídeo 02 ("mais frutas" ou "bichos") | 16/11 |
 | Ler os números de 48 h do vídeo 01 | 18/11 |
@@ -584,3 +584,7 @@ Metricool (publicação nas 3 redes). Pendência antiga que volta: **nome do pro
   Gmail (cadastro por e-mail, **não** "Continue with GitHub", que é o login pessoal).
 - ✅ **Gmail do Nexo Studio criado:** **studionexo512@gmail.com**, verificação em duas etapas **ativada** (16/11).
   Senha só com o Patrik. Próximo: conta do Supabase com esse Gmail.
+- ✅ **Supabase do Nexo:** conta studionexo512, organização **Nexo Studio** (Free) e projeto **`escritorio`** criados
+  (16/11). Travou antes em "você precisa de permissões adicionais" (resolvido pelo Patrik). Próximo: conector próprio
+  `Supabase_Nexo` limitado ao projeto (`https://mcp.supabase.com/mcp?project_ref=<ID>`), autorizado **com a conta do
+  Nexo** (cuidado: o navegador normal está logado no Supabase da Corpo Feliz).
