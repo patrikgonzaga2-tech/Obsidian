@@ -536,3 +536,5 @@ Metricool (publicação nas 3 redes). Pendência antiga que volta: **nome do pro
 - 🏢 Patrik: "vamos pro escritório". Começando as contas (caminho rápido, Passos 6 a 9). Conferido no GitHub:
   `nexo-studio` e `nexostudio` ocupados; sugerido **`nexo-studio-br`** (reserva `nexo-studio-ia`), repositório
   privado `escritorio`, display name "Nexo Studio".
+- 📋 Patrik pediu o passo a passo completo e como dar acesso ao Claude. Enviado e salvo em `ESCRITORIO_CONTAS.md`
+  (GitHub org + repo, app do Claude, Vercel, Supabase com conector próprio `Supabase_Nexo`, sessão nova do escritório).
