@@ -21,7 +21,7 @@
 ## ⏳ Pendências do Patrik (conferir antes de cada passo)
 | Pendência | Desde |
 |---|---|
-| Escritório · Passo 1: endereço do repositório no GitHub (org `nexo-studio-br`, repo `escritorio`) | 16/11 |
+| Escritório · Passo 2: instalar o app do Claude no repositório `escritorio` | 16/11 |
 | @ do TikTok | 16/11 |
 | Tema do vídeo 02 ("mais frutas" ou "bichos") | 16/11 |
 | Ler os números de 48 h do vídeo 01 | 18/11 |
@@ -52,7 +52,7 @@
 | Identidade do canal | foto, banner, descrição, bios | ✅ feita 16/11 · ⏳ Patrik aplicar | `IDENTIDADE_CANAL.md` |
 | Publicar vídeo 01 | YouTube (longo) | ✅ **no ar 16/11** · [youtu.be/7WEMcxoDSOg](https://youtu.be/7WEMcxoDSOg) | conferido: público, título e miniatura A certos |
 | Shorts, Reels e TikTok | maçã hoje; banana 17/11 18h; arco-íris 18/11 18h | ✅ maçã publicada nas 3 redes · ✅ banana e arco-íris agendados (16/11) | `PUBLICACAO_VIDEO01.md` |
-| **Escritório Nexo Studio · contas** | 1 GitHub org+repo · 2 app do Claude · 3 Vercel · 4 Supabase · 5 sessão do escritório | ⏳ **Passo 1 (GitHub) enviado, nada criado ainda** | `ESCRITORIO_CONTAS.md` |
+| **Escritório Nexo Studio · contas** | 1 GitHub org+repo · 2 app do Claude · 3 Vercel · 4 Supabase · 5 sessão do escritório | ✅ 1 feito (github.com/nexo-studio-br/escritorio) · ⏳ 2 enviado | `ESCRITORIO_CONTAS.md` |
 | Medição 48 h | views, retenção 30 s, cliques na miniatura | ⏳ ler em 18/11 | YouTube Studio → Análises |
 | Dia 2 · Música | ~~1 faixa da Biblioteca de Áudio~~ | ❌ cancelado 15/11 | sem música (como o AKN); só efeitos sonoros, feitos por mim |
 
@@ -554,3 +554,5 @@ Metricool (publicação nas 3 redes). Pendência antiga que volta: **nome do pro
   code via email" (ou Retry passkey com outro dispositivo). Faltou avisar antes; também faltava o quebra-cabeça
   "Verify your account" e a tela de membros (Skip). Patrik pediu para **pesquisar melhor antes**. Os sites de
   documentação (docs.github.com etc.) estão bloqueados nesta sessão; oferecido liberar (precisa aprovação).
+- ✅ **Escritório Passo 1 concluído:** organização **nexo-studio-br** e repositório privado
+  **https://github.com/nexo-studio-br/escritorio** (16/11). Próximo: Passo 2, app do Claude só nesse repositório.
