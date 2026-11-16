@@ -36,7 +36,9 @@
 | **Regra · Revisão de Potencial** | Gancho e chance de viralizar antes de publicar | ✅ criada 15/11 | `REVISAO_POTENCIAL.md` · nota mínima 70 |
 | Dia 2 · Parte 1 v2 (gancho) | Abertura nova | ❌ "gancho não ficou bom" 15/11 · gancho será definido depois do vídeo completo | `videos/video01_parte1_abertura_maca_v2.mp4` |
 | Dias 2 e 3 · Vídeo completo | 5 frutas restantes + final | ✅ "vídeo ok" 16/11 · duração mantida (~6 min) | `videos/video01_completo_v1.mp4` |
-| Gancho do vídeo 01 | Escolher 1 de 3 opções | ✅ **A** 16/11 · v2 com gancho em render | `videos/video01_completo_v2.mp4` |
+| Gancho do vídeo 01 | Escolher 1 de 3 opções | ✅ **A** 16/11 · "gancho ok" | `videos/video01_completo_v2.mp4` |
+| Pacote de publicação | título, miniatura, descrição, tags, capítulos, 3 Shorts | ✅ pronto 16/11 · Revisão de Potencial aprovada | `PUBLICACAO_VIDEO01.md` |
+| **✋ Aprovação 2** | vídeo + miniatura + título + Shorts | ⏳ enviada ao Patrik | — |
 | Dia 2 · Música | ~~1 faixa da Biblioteca de Áudio~~ | ❌ cancelado 15/11 | sem música (como o AKN); só efeitos sonoros, feitos por mim |
 
 ---
@@ -385,3 +387,22 @@ como plano B. **Decisão final: Patrik.**
   Saíram da abertura as falas 2 e 3 (o Pingo trocando de cor já mostra que ele "fica de todas as cores").
 - 📊 Revisão de Potencial do vídeo completo: **≈ 71, aprovado para o YouTube** (falta miniatura, título
   e descrição); Shorts/TikTok/Reels só com versões verticais (`REVISAO_POTENCIAL.md`).
+
+---
+
+## 16/11/2026 · Pacote de publicação pronto (antes da Aprovação 2)
+
+- ✅ "gancho ok, pode seguir".
+- 🏷️ **Título** (skill `/yt-package`, 10 testados): "Aprenda as Cores Desenhando 6 Frutas 🍎🍌🍇"
+  (40 caracteres, nota 100) + texto da miniatura "DESENHE COMIGO". Reserva: "6 Frutas, 6 Cores: Vamos
+  Desenhar Juntos? 🌈" + "ARCO-ÍRIS!".
+- 🖼️ **2 miniaturas** feitas com as artes do vídeo (grátis), fonte Fredoka (licença livre OFL, em
+  `arte/fontes/`): A "resultado" (recomendada, igual ao 1º segundo do vídeo) e B "processo".
+  Programa: `codigo/miniatura.py`.
+- 📝 **Descrição, 12 tags e 8 capítulos** (skill `/yt-seo`) em `PUBLICACAO_VIDEO01.md`. Corrigido um erro
+  meu: o 1º capítulo tinha 9,7 s (o YouTube exige 10 s); a maçã foi para 0:10.
+- 📱 **3 Shorts verticais** (modo `VERTICAL=1` no programa): maçã 57 s, banana 55 s, arco-íris 33 s, todos com
+  "Assista o vídeo completo!" no fim. Em `videos/shorts/`.
+- 📊 **Revisão de Potencial:** vídeo longo ≈ 71 ✅; Shorts ≈ 80, 80 e 83 ✅.
+- Recomendação registrada: marcar "conteúdo alterado ou sintético" = Sim (mão realista gerada por IA e voz
+  sintética).

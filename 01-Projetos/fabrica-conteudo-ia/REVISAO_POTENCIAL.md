@@ -68,3 +68,17 @@ Patrik: "vídeo ok, gancho A, pode manter esse tempo" (5 min 45 s).
 
 Para publicar no YouTube ainda falta: miniatura (que mostre o que o gancho mostra: arco-íris + frutas +
 Pingo), título e descrição. Para Shorts/TikTok/Reels: 3 cortes verticais com gancho no 1º segundo.
+
+## Vídeo 01 · Shorts verticais (16/11)
+| Critério | Short 1 maçã | Short 2 banana | Short 3 arco-íris |
+|---|---|---|---|
+| Gancho | 75 (arco-íris completo no 1º quadro) | 75 | 70 (começa no meio da ação: Pingo pulando na uva) |
+| Ritmo | 60 (57 s, longo para Short) | 60 (55 s) | 85 (33 s) |
+| Mecanismo próprio | 85 | 85 | 85 |
+| Clareza | 85 | 85 | 80 |
+| Recompensa | 80 | 80 | 95 (o arco-íris se completa) |
+| Pronto para vertical | 100 | 100 | 100 |
+| **Nota** | **≈ 80 ✅** | **≈ 80 ✅** | **≈ 83 ✅** |
+
+Vídeo longo: **≈ 71 ✅** (com miniatura A e o título escolhido). **Tudo aprovado na Revisão de Potencial;
+falta só a ✋ Aprovação 2 do Patrik.**

@@ -13,7 +13,20 @@ from frutas import FRUTAS, FALAS
 PROJ = sys.argv[1]; SAIDA = sys.argv[2]; TMAX = float(sys.argv[3]) if len(sys.argv) > 3 else None
 TINI = float(sys.argv[4]) if len(sys.argv) > 4 else 0.0  # só para teste rápido de um trecho
 ARTE = os.path.join(PROJ, "arte"); AUDIO = os.path.join(PROJ, "audio", "video01")
-W, H, FPS, SR = 1920, 1080, 30, 44100
+VERT = os.environ.get("VERTICAL") == "1"   # versão em pé (9:16) para Shorts, TikTok e Reels
+W, H, FPS, SR = (1080, 1920, 30, 44100) if VERT else (1920, 1080, 30, 44100)
+DXV, DYV = (-360, 420) if VERT else (0, 0)    # desloca as frutas para o meio da tela em pé
+def desloca(spec):
+    if not VERT: return spec
+    mv = lambda q: np.asarray(q, float) + (DXV, DYV)
+    s2 = dict(spec)
+    for k in ("corpo", "buracos", "enfeites"):
+        if k in s2: s2[k] = [mv(q) for q in s2[k]]
+    s2["passos"] = [[mv(q) for q in passo] for passo in s2["passos"]]
+    s2["olhos"] = [((o[0] + DXV, o[1] + DYV), r) for o, r in s2["olhos"]]
+    s2["sorriso"] = mv(s2["sorriso"])
+    s2["detalhes"] = [dict(d, forma=[mv(q) for q in d["forma"]]) for d in s2["detalhes"]]
+    return s2
 rng = np.random.default_rng(11)
 def suave(x): x = min(max(x, 0.0), 1.0); return x * x * (3 - 2 * x)
 
@@ -120,7 +133,7 @@ def mao(img, q):
     cola(img, np.zeros_like(rgb), MAO_SOMBRA, x + 25, y + 30); cola(img, rgb, a, x, y)
 
 # ======================= arco-íris =======================
-ARCO_C = np.array([1665.0, 330.0])
+ARCO_C = np.array([540.0, 400.0]) if VERT else np.array([1665.0, 330.0])
 ARCO_CORES = [(232, 36, 48), (247, 140, 30), (250, 205, 40), (70, 195, 70), (50, 140, 230), (150, 70, 200)]
 NOMES_CORES = ["vermelho", "laranja", "amarelo", "verde", "azul", "roxo"]
 def slot_local(i): return (20 + 42 + i * 84 - 8, 315)
@@ -168,7 +181,9 @@ def balao(img, x, y, txt, alfa):
     cola(img, arr[..., 2::-1] / np.maximum(arr[..., 3:4] / 255, 1e-3), arr[..., 3:4] / 255 * alfa, x, y)
 
 # ======================= linha do tempo global =======================
-CASA = np.array([250.0, 1000.0]); ALT = 300; FORA = np.array([1500.0, 1250.0])
+CASA = np.array([200.0, 1820.0]) if VERT else np.array([250.0, 1000.0]); ALT = 300
+FORA = np.array([1000.0, 2250.0]) if VERT else np.array([1500.0, 1250.0])
+ESC_GRANDE = 1.85 if VERT else 2.0
 COR_EV = []        # (t, cor_do_pingo)
 RESP_EV = []       # (t, cor_rgb, posição ou None=no Pingo)
 SFX = []           # (t, tipo, extra)
@@ -206,8 +221,8 @@ def mini_fruta(spec, altura=62):
     rgb = arr[y0:y1, x0:x1, 2::-1] / np.maximum(a[y0:y1, x0:x1, None], 1e-3); a = a[y0:y1, x0:x1]
     e = altura / (y1 - y0); w_, h_ = max(int((x1 - x0) * e), 2), altura
     return cv2.resize(rgb, (w_, h_), interpolation=cv2.INTER_AREA), cv2.resize(a, (w_, h_), interpolation=cv2.INTER_AREA)[..., None]
-MINIS_GANCHO = [(*mini_fruta(fn()), i) for i, fn in enumerate(FRUTAS)]
-CENTRO_GRANDE = np.array([1000.0, 560.0])
+MINIS_GANCHO = [(*mini_fruta(desloca(fn())), i) for i, fn in enumerate(FRUTAS)]
+CENTRO_GRANDE = np.array([540.0, 900.0]) if VERT else np.array([1000.0, 560.0])
 
 t = 0.3
 t = fala(t, "gancho_a") + 0.5
@@ -356,7 +371,7 @@ class Fruta:
 # monta a linha do tempo de todas as frutas (precisa preparar cada uma para saber o tamanho do caminho)
 frutas = []
 for i, fn in enumerate(FRUTAS):
-    f = Fruta(fn(), i, t); f.preparar(); t = f.agenda_resto(); f.libera(); f.preparada = False; frutas.append(f)
+    f = Fruta(desloca(fn()), i, t); f.preparar(); t = f.agenda_resto(); f.libera(); f.preparada = False; frutas.append(f)
 
 # ----- final -----
 FINAL = {}
@@ -442,10 +457,10 @@ for fr in range(int(TINI * FPS), NF):
     # arco-íris
     if tt < VOLTA[1]:  # gancho: arco-íris completo no meio, depois volta para o canto e esvazia
         if tt < VOLTA[0]:
-            esc, centro, n = 2.0, CENTRO_GRANDE, 6
+            esc, centro, n = ESC_GRANDE, CENTRO_GRANDE, 6
             k = int(tt / 0.45) % 6; pulsos = {k: math.sin(((tt / 0.45) % 1) * math.pi)}
         else:
-            u = suave((tt - VOLTA[0]) / (VOLTA[1] - VOLTA[0])); esc = 2.0 - u; centro = CENTRO_GRANDE + u * (ARCO_C - CENTRO_GRANDE)
+            u = suave((tt - VOLTA[0]) / (VOLTA[1] - VOLTA[0])); esc = ESC_GRANDE - (ESC_GRANDE - 1) * u; centro = CENTRO_GRANDE + u * (ARCO_C - CENTRO_GRANDE)
             n = int(round(6 * (1 - u))); pulsos = {}
         desenha_arco(img, esc, centro, set(range(n)), None, MINIS_GANCHO[:n], pulsos)
     elif tt >= ARCO_APARECE[0]:
@@ -456,15 +471,15 @@ for fr in range(int(TINI * FPS), NF):
                 if tt >= x.ev["faixa"][1]: cheias.add(x.slot)
                 elif tt >= x.ev["faixa"][0]: enchendo = (x.slot, suave((tt - x.ev["faixa"][0]) / 0.8))
         if tt >= FINAL["cresce"][0]:
-            u2 = suave((tt - FINAL["cresce"][0]) / (FINAL["cresce"][1] - FINAL["cresce"][0])); esc = 1 + 1.0 * u2
-            centro = ARCO_C + u2 * (np.array([1000.0, 560.0]) - ARCO_C)
+            u2 = suave((tt - FINAL["cresce"][0]) / (FINAL["cresce"][1] - FINAL["cresce"][0])); esc = 1 + (ESC_GRANDE - 1) * u2
+            centro = ARCO_C + u2 * (CENTRO_GRANDE - ARCO_C)
             for k, tp in enumerate(FINAL["pulsos"]):
                 if 0 <= tt - tp < 0.6: pulsos[k] = math.sin((tt - tp) / 0.6 * math.pi)
         desenha_arco(img, esc, centro, cheias, enchendo, minis, pulsos)
         if tt >= FINAL["confete"]:
             u3 = (tt - FINAL["confete"]) / 1.4
             for k, cor in enumerate(ARCO_CORES):
-                respingos(img, 1000 + 260 * math.cos(k), 420 + 120 * math.sin(k * 1.7), cor, u3 - k * 0.06, n=8, dist=220)
+                respingos(img, CENTRO_GRANDE[0] + 260 * math.cos(k), CENTRO_GRANDE[1] - 140 + 120 * math.sin(k * 1.7), cor, u3 - k * 0.06, n=8, dist=220)
     # Pingo
     cor = cor_em(tt); sq = 1 + min(env_voz[min(int(tt * SR), N - 1)] * 2.2, 0.08) * math.sin(tt * 26)
     salto = next((s_ for s_ in SALTOS if s_[0] <= tt < s_[1]), None)
@@ -492,7 +507,7 @@ for fr in range(int(TINI * FPS), NF):
             q = pos if pos is not None else ((CASA[0], CASA[1] - 150) if pintando is None and salto is None else (pintando if pintando is not None else (CASA[0], CASA[1] - 150)))
             respingos(img, q[0], q[1], cor_rgb, u)
     for (a, b, tp) in ESPERA:
-        if tp <= tt < b: balao(img, CASA[0] + 90, CASA[1] - 520, "?", min(1, (tt - tp) / .3))
+        if tp <= tt < b: balao(img, *((CASA[0] + 170, CASA[1] - 330) if VERT else (CASA[0] + 90, CASA[1] - 520)), "?", min(1, (tt - tp) / .3))
     if mao_on: mao(img, ponta_mao)
     proc.stdin.write(np.clip(img, 0, 255).astype(np.uint8).tobytes())
     if fr % (FPS * 30) == 0: print(f"  {tt:.0f}s / {DUR:.0f}s", flush=True)

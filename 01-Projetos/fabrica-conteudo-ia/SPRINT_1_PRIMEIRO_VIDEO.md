@@ -4,9 +4,9 @@
 > a gerar dinheiro o quanto antes. **O escritório só é construído se o Sprint 1 passar.**
 > Atualizado em 15/11/2026.
 >
-> **Onde estamos:** Dia 1 ✅ · Dia 2: roteiro, voz, Pingo e mecanismo ✅ · ferramenta: **programa próprio** ✅ ·
-> **regra: nada sobe sem a Revisão de Potencial** (`REVISAO_POTENCIAL.md`) · parte 1 v2 com gancho novo
-> (nota ≈ 70) em avaliação. Decisões e avanços em `DECISOES_E_AVANCOS.md`.
+> **Onde estamos:** vídeo 01 pronto (6 frutas, gancho A, 5 min 45 s) + miniatura, título, descrição e 3 Shorts ·
+> Revisão de Potencial aprovada · **aguardando a ✋ Aprovação 2** para publicar (`PUBLICACAO_VIDEO01.md`).
+> Decisões e avanços em `DECISOES_E_AVANCOS.md`.
 
 ## REGRA FIXA DE COMUNICAÇÃO (pedido do Patrik, 15/11)
 Todo pedido ao Patrik vem SEMPRE neste formato, sem exceção:
