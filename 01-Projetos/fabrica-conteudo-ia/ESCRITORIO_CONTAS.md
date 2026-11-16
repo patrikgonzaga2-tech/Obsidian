@@ -13,6 +13,7 @@
 | 6 | Ambiente do Claude Code com o repositório + sessão nova com "COMEÇAR ESCRITÓRIO" | 🤖 + 🧑 aprova 1 tela | base do escritório montada | sessão nova lê os conectores |
 
 Observações
+- **E-mail do Nexo Studio:** studionexo512@gmail.com (duas etapas ativa). Dono das contas do Nexo (Supabase, e depois chaves de IA/Gemini/YouTube).
 - Os conectores "Supabase" e "Supabase_Clientes" que já existem são de outras organizações: **não usar** no Nexo.
 - Metricool: falta criar a marca "Pingo Pinta" (ver `DECISOES_E_AVANCOS.md`, Automação Passo 1).
 - Supabase Free pausa após 1 semana parado (religa com 1 clique).
