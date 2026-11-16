@@ -502,3 +502,23 @@ Conferido no Metricool conectado ao Claude:
   conectadas (não @pingo_pinta). Recomendação: Gravyx continua como fábrica de voz/imagem; **automação de publicação
   pelo Metricool** (3 redes, "para crianças" e "IA"); esta semana terminar o agendamento à mão; vídeo 02 já agendado
   pelo Claude. Se o Patrik quiser o Gravyx no Instagram: workspace "Pingo Pinta" separado no Gravyx.
+
+---
+
+## 16/11/2026 · "Está na hora de automatizar / ligar o escritório?"
+
+Situação do Sprint 1 (o escritório só começa se ele passar, regra do próprio plano):
+| Critério | Situação |
+|---|---|
+| Qualidade (aprovado sem refazer tudo) | ✅ |
+| Tempo (3º vídeo em menos de 1 dia de trabalho) | ⏳ só existe o vídeo 01 |
+| Custo (< US$ 5 por vídeo) | ⏳ provável (~1.250 tokens de voz por vídeo + render grátis); falta o preço do token do Gravyx |
+| Público (retenção 30 s, views crescendo do 1º ao 5º) | ⏳ medir em 18/11 |
+| Dinheiro (livro na Amazon) | ⏳ 6 páginas prontas, faltam ~24 |
+
+Recomendação dada: **começar já a parte de contas do escritório (caminho rápido do `PASSO_A_PASSO_DO_ZERO.md`:
+Passos 6 a 9 = GitHub org + repo `escritorio`, app do Claude, equipe Vercel, organização Supabase)**, porque
+é só configuração e não depende dos números; e **construir o escritório (fase D1) depois do vídeo 02 + leitura das
+48 h**. Decisão final: Patrik. Ferramentas que o Claude controla e que vão compor o escritório: Claude Code
+(tarefas agendadas = a rotina diária), GitHub (código), Supabase (banco), Vercel (painel), Gravyx (voz e imagem),
+Metricool (publicação nas 3 redes). Pendência antiga que volta: **nome do projeto/organização**.
