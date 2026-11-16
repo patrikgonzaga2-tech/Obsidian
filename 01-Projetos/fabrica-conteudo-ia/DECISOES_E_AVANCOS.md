@@ -427,3 +427,25 @@ como plano B. **Decisão final: Patrik.**
   (`videos/tiktok_reels/`), com legendas para os pais. Falta só **criar a conta do TikTok** (ainda não existe).
 - ✅ **Conta do TikTok criada** pelo Patrik (16/11). Pedido: o @ da conta e aplicar foto, nome e bio
   (`IDENTIDADE_CANAL.md`).
+
+---
+
+## 16/11/2026 · Perguntas do Patrik: postar tudo hoje? todo dia? e a automação?
+
+Respostas dadas (recomendação do Claude; decisão do Patrik):
+- **Postar tudo hoje:** sim para fazer tudo hoje, mas **agendado**: vídeo longo + Short da maçã hoje;
+  banana amanhã; arco-íris depois de amanhã (YouTube Studio, Instagram e TikTok têm "programar").
+  Motivo: um por dia mantém o canal com novidade todo dia e deixa comparar os números de cada Short.
+- **Fazer todo dia:** **Short todo dia, sim** (cada vídeo longo rende 3 a 6 Shorts). **Vídeo longo todo
+  dia, não por enquanto:** recomendação de **2 a 3 por semana**. Gargalos: (1) tokens do Gravyx: cada vídeo
+  longo gasta ~1.100 a 1.300 tokens de voz; com ~6.600 de saldo dá ~5 vídeos; (2) desenhar frutas/bichos
+  novos em vetor ainda é trabalho meu de algumas horas por vídeo; (3) regra do YouTube contra conteúdo
+  "em massa/repetitivo": qualidade e variedade valem mais que volume.
+- **Automação:** o Sprint 1 já automatizou a produção (vídeo, Shorts, miniatura, textos saem de programas).
+  O que ainda é manual: escolher o tema, aprovar e **publicar**. Próximos passos de automação, nesta ordem:
+  1. medir 48 h do vídeo 01 (critério do Sprint);
+  2. vídeo 02 inteiro em menos de 1 dia (critério do Sprint);
+  3. testar o **Metricool** (já conectado ao Claude) para agendar TikTok, Reels e Shorts daqui
+     (precisa de uma marca do Metricool só do Pingo Pinta; a confirmar se o plano aceita e se dá para marcar
+     "para crianças" no YouTube por ele);
+  4. o "escritório" automático (DOSSIE) só depois do Sprint 1 passar.
