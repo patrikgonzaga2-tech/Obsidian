@@ -10,6 +10,7 @@
 | Gmail (dono de tudo) | pingopintacolor@gmail.com · duas etapas ativa · senha só no navegador do Patrik |
 | YouTube | [youtube.com/@pingopinta](https://www.youtube.com/@pingopinta) |
 | Instagram | [instagram.com/pingo_pinta](https://www.instagram.com/pingo_pinta/) |
+| TikTok | ✅ criada 16/11 · @ a confirmar com o Patrik |
 
 ## Personagens e vozes (ficha)
 | Personagem | Voz | Status |
@@ -424,3 +425,5 @@ como plano B. **Decisão final: Patrik.**
 - 📱 Patrik perguntou se os vídeos do YouTube e do TikTok estão prontos. Sim: vídeo longo (enviado em qualidade
   máxima), 3 Shorts do YouTube e, agora, **3 versões para TikTok/Reels sem o texto "Assista o vídeo completo!"**
   (`videos/tiktok_reels/`), com legendas para os pais. Falta só **criar a conta do TikTok** (ainda não existe).
+- ✅ **Conta do TikTok criada** pelo Patrik (16/11). Pedido: o @ da conta e aplicar foto, nome e bio
+  (`IDENTIDADE_CANAL.md`).

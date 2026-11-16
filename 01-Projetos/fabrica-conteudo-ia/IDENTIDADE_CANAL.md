@@ -40,6 +40,8 @@ Desenhos, personagem e vozes criados pelo canal, com ajuda de inteligência arti
 - **Link:** youtube.com/@pingopinta
 - No Instagram quem lê são os pais (a rede só aceita maiores de 13 anos), por isso a bio fala com eles.
 
-## TikTok (conta ainda não criada)
+## TikTok (conta criada em 16/11)
 - **Bio** (48 de 80 caracteres): `Desenhe junto com o Pingo e aprenda as cores! 🎨🌈`
-- Criar só depois do YouTube no ar (mesmo Gmail do canal).
+- **Nome:** `Pingo Pinta`
+- **Foto:** `arte/canal/perfil_instagram_1080.png`
+- **Link na bio:** youtube.com/@pingopinta (só se o campo "Site" aparecer; o TikTok libera esse campo conforme o tipo de conta e o número de seguidores)
