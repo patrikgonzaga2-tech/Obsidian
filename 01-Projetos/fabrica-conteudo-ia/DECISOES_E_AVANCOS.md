@@ -449,3 +449,19 @@ Respostas dadas (recomendação do Claude; decisão do Patrik):
      (precisa de uma marca do Metricool só do Pingo Pinta; a confirmar se o plano aceita e se dá para marcar
      "para crianças" no YouTube por ele);
   4. o "escritório" automático (DOSSIE) só depois do Sprint 1 passar.
+
+---
+
+## 16/11/2026 · "Podemos agendar tudo automático com nossas ferramentas?"
+
+Conferido no Metricool conectado ao Claude:
+- ✅ A ferramenta agenda YouTube (vídeo e Short), Instagram Reels e TikTok, e tem os campos que precisamos:
+  `madeForKids` e `isAiGeneratedContent` (YouTube), `isAiGenerated` (Instagram), `isAigc` (TikTok).
+- ❌ Hoje a conta só tem a marca **"Corpo Feliz"** (outro projeto). **Não usar.** Falta criar a marca
+  **Pingo Pinta** e ligar YouTube (pingopintacolor), Instagram @pingo_pinta e o TikTok novo.
+- ❌ O Metricool só aceita vídeo por **link público** ou **Google Drive ligado a ele**; os vídeos estão na nuvem do
+  Claude. Caminho escolhido: Google Drive do Gmail do canal, ligado à marca Pingo Pinta.
+- ⚠️ Instagram precisa virar **conta profissional (Criador)** para publicar sozinho.
+- Recomendação: **hoje publicar/agendar à mão**; montar o Metricool em paralelo; a partir do **vídeo 02** o
+  Claude agenda tudo e o Patrik só aprova. Antes, 1 post de teste privado.
+- Enviado: "Automação · Passo 1 de 2" (Instagram profissional + marca no Metricool + redes + Drive).
