@@ -21,7 +21,7 @@
 ## ⏳ Pendências do Patrik (conferir antes de cada passo)
 | Pendência | Desde |
 |---|---|
-| Escritório · Passo 4: plano da Corpo Feliz Org (Free/Pro) + criar org "Nexo Studio" e projeto `escritorio` no Supabase | 16/11 |
+| Escritório · Passo 4: decidir o banco do Nexo (A conta Supabase nova com e-mail do Nexo · B org Pro · C mexer na Corpo Feliz) | 16/11 |
 | @ do TikTok | 16/11 |
 | Tema do vídeo 02 ("mais frutas" ou "bichos") | 16/11 |
 | Ler os números de 48 h do vídeo 01 | 18/11 |
@@ -572,3 +572,9 @@ Metricool (publicação nas 3 redes). Pendência antiga que volta: **nome do pro
   `escritorio` (São Paulo); se recusar, mandar print (saídas: pausar um projeto parado, conta nova, ou Pro).
   Observação: o conector `Supabase_Clientes` não deixou listar organizações (bloqueado pelo modo automático);
   não é necessário para o Nexo.
+- 🔎 Patrik sugeriu juntar os 2 projetos Supabase da Corpo Feliz e apagar um. **Conferido (só leitura):** eles **não
+  são iguais** — "Projeto Corpo Feliz" guarda vendas, assinaturas, quiz, Meta Ads e o app (~16 mil vendas, ~665 mil
+  eventos); "Corpo Feliz – CRM e Ideias" guarda leads, conversas, relatórios, hub de ideias e o painel do bot
+  (~1.500 leads, ~11 mil mensagens). Juntar = migração arriscada em projeto que vende; não recomendado (e o Nexo é
+  independente). Recomendado: **A) conta nova do Supabase com um e-mail do Nexo Studio** (limite é por pessoa;
+  grátis; separado; bom para vender). Nada foi alterado na Corpo Feliz.
