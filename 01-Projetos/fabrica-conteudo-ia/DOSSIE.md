@@ -1,4 +1,6 @@
-# Fábrica de Conteúdo IA (nome provisório) · Dossiê do projeto
+# Nexo Studio (antes "Fábrica de Conteúdo IA") · Dossiê do projeto
+
+> **Nome definido pelo Patrik em 16/11/2026: Nexo Studio.** O canal Pingo Pinta é o 1º cliente.
 
 > **Projeto independente**, com contas, dados e infraestrutura próprios. Esta pasta é só um depósito
 > temporário: quando o repositório do projeto existir, tudo aqui vai para lá (`docs/`).
@@ -202,7 +204,7 @@ Detalhe de contas, custos e conexões: `CONTAS_E_CUSTOS.md`. Dados da pesquisa: 
 
 ## 10. Pendências do dono (15/11)
 
-- [ ] Nome provisório do projeto.
+- [x] Nome do projeto: **Nexo Studio** (16/11/2026).
 - [ ] Contas da Etapa 1 (ver `CONTAS_E_CUSTOS.md`).
 - [ ] Teto diário inicial e horário de trabalho.
 - [ ] Link do "Color Koala" (não encontrado em nenhuma busca).

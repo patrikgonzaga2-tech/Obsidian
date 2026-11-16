@@ -522,3 +522,12 @@ Passos 6 a 9 = GitHub org + repo `escritorio`, app do Claude, equipe Vercel, org
 48 h**. Decisão final: Patrik. Ferramentas que o Claude controla e que vão compor o escritório: Claude Code
 (tarefas agendadas = a rotina diária), GitHub (código), Supabase (banco), Vercel (painel), Gravyx (voz e imagem),
 Metricool (publicação nas 3 redes). Pendência antiga que volta: **nome do projeto/organização**.
+
+---
+
+## 16/11/2026 · Nome do projeto: **Nexo Studio**
+
+- ✅ Patrik definiu o nome da fábrica/escritório: **Nexo Studio** (organização no GitHub, equipe na Vercel,
+  organização no Supabase). Registrado no `DOSSIE.md`.
+- Patrik vai agendar à mão a banana e o arco-íris nas 3 redes; pediu só as descrições (enviadas). Depois disso:
+  **escritório** (contas do Nexo Studio).
