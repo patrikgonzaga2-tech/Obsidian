@@ -16,6 +16,10 @@ Todo pedido ao Patrik vem SEMPRE neste formato, sem exceção:
 5. **O que me mandar** quando terminar.
 Nunca pedir algo "solto", sem esses 5 itens. Esta regra entra no CLAUDE.md do repositório do projeto.
 
+**Complemento (16/11, pedido do Patrik):** antes de cada passo, conferir **em que fase estamos, onde paramos e
+se o Patrik já enviou o que o passo anterior pedia**. Só então mandar **um passo por vez** (nunca vários de uma
+vez). Pendências do Patrik ficam listadas no topo de `DECISOES_E_AVANCOS.md`.
+
 ---
 
 ## 1. O que vamos criar

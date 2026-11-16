@@ -18,6 +18,15 @@
 | **Pingo** (gotinha, vira a cor do momento) | **Liam original** · ElevenLabs v3 · id `TX3LPaxmHKxFdv7VOQHJ` (Gravyx) | ✅ voz e visual aprovados 15/11 · visual = `arte/pingo/pingo_opcao_2.jpg` (ponta curvada) |
 | **2ª gotinha** (nome a definir) | **Bella** · ElevenLabs v3 · id `hpp4J3VqNfWAUOO0d1Us` (Gravyx) | 🔜 "mais pra frente"; voz guardada |
 
+## ⏳ Pendências do Patrik (conferir antes de cada passo)
+| Pendência | Desde |
+|---|---|
+| Escritório · Passo 1: endereço do repositório no GitHub (org `nexo-studio-br`, repo `escritorio`) | 16/11 |
+| @ do TikTok | 16/11 |
+| Tema do vídeo 02 ("mais frutas" ou "bichos") | 16/11 |
+| Ler os números de 48 h do vídeo 01 | 18/11 |
+| Metricool: marca Pingo Pinta + 3 redes + Drive | 16/11 (depois do escritório) |
+
 ## Status do Sprint 1
 
 | Passo | O que é | Status | Resultado |
@@ -43,7 +52,7 @@
 | Identidade do canal | foto, banner, descrição, bios | ✅ feita 16/11 · ⏳ Patrik aplicar | `IDENTIDADE_CANAL.md` |
 | Publicar vídeo 01 | YouTube (longo) | ✅ **no ar 16/11** · [youtu.be/7WEMcxoDSOg](https://youtu.be/7WEMcxoDSOg) | conferido: público, título e miniatura A certos |
 | Shorts, Reels e TikTok | maçã hoje; banana 17/11 18h; arco-íris 18/11 18h | ✅ maçã publicada nas 3 redes · ✅ banana e arco-íris agendados (16/11) | `PUBLICACAO_VIDEO01.md` |
-| **Escritório Nexo Studio · contas** | GitHub org + repo, app Claude, Vercel, Supabase | ⏳ Passo 2 (GitHub) enviado | `PASSO_A_PASSO_DO_ZERO.md` Passos 6–9 |
+| **Escritório Nexo Studio · contas** | 1 GitHub org+repo · 2 app do Claude · 3 Vercel · 4 Supabase · 5 sessão do escritório | ⏳ **Passo 1 (GitHub) enviado, nada criado ainda** | `ESCRITORIO_CONTAS.md` |
 | Medição 48 h | views, retenção 30 s, cliques na miniatura | ⏳ ler em 18/11 | YouTube Studio → Análises |
 | Dia 2 · Música | ~~1 faixa da Biblioteca de Áudio~~ | ❌ cancelado 15/11 | sem música (como o AKN); só efeitos sonoros, feitos por mim |
 
@@ -538,3 +547,6 @@ Metricool (publicação nas 3 redes). Pendência antiga que volta: **nome do pro
   privado `escritorio`, display name "Nexo Studio".
 - 📋 Patrik pediu o passo a passo completo e como dar acesso ao Claude. Enviado e salvo em `ESCRITORIO_CONTAS.md`
   (GitHub org + repo, app do Claude, Vercel, Supabase com conector próprio `Supabase_Nexo`, sessão nova do escritório).
+- ⚠️ Patrik: "você está pulando etapas". Eu tinha mandado os passos 2 a 6 de uma vez. **Regra nova** (nos
+  documentos): conferir fase, onde paramos e o que o Patrik já enviou; **um passo por vez**. Reenviado só o
+  **Escritório · Passo 1 de 5 (GitHub)**. Pendências do Patrik agora ficam no topo deste arquivo.
