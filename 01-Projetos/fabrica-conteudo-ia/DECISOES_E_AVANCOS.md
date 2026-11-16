@@ -42,7 +42,7 @@
 | **✋ Aprovação 2** | vídeo + miniatura + título + Shorts | ✅ 16/11 · miniatura A · conteúdo sintético: sim | — |
 | Identidade do canal | foto, banner, descrição, bios | ✅ feita 16/11 · ⏳ Patrik aplicar | `IDENTIDADE_CANAL.md` |
 | Publicar vídeo 01 | YouTube (longo) | ✅ **no ar 16/11** · [youtu.be/7WEMcxoDSOg](https://youtu.be/7WEMcxoDSOg) | conferido: público, título e miniatura A certos |
-| Shorts, Reels e TikTok | maçã hoje; banana 17/11 18h; arco-íris 18/11 18h | ⏳ passo a passo enviado | `PUBLICACAO_VIDEO01.md` |
+| Shorts, Reels e TikTok | maçã hoje; banana 17/11 18h; arco-íris 18/11 18h | ✅ maçã publicada nas 3 redes (16/11) · ⏳ agendar banana e arco-íris | `PUBLICACAO_VIDEO01.md` |
 | Medição 48 h | views, retenção 30 s, cliques na miniatura | ⏳ ler em 18/11 | YouTube Studio → Análises |
 | Dia 2 · Música | ~~1 faixa da Biblioteca de Áudio~~ | ❌ cancelado 15/11 | sem música (como o AKN); só efeitos sonoros, feitos por mim |
 
@@ -495,3 +495,5 @@ Conferido no Metricool conectado ao Claude:
 - ✅ **Short da maçã publicado no YouTube** (16/11). Explicado: Short não precisa de miniatura (no app dá para
   escolher um quadro; no feed quase não aparece). Próximo: Reels da maçã no Instagram.
 - ✅ **Reels da maçã publicado no Instagram** (16/11). Próximo: TikTok da maçã.
+- ✅ **TikTok da maçã publicado** (16/11). **Maçã no ar nas 3 redes.** Próximo: agendar banana (17/11 18h) e
+  arco-íris (18/11 18h) nas 3 redes. @ do TikTok ainda não informado.
