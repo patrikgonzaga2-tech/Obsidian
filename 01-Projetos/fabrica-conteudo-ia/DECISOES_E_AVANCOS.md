@@ -467,3 +467,5 @@ Conferido no Metricool conectado ao Claude:
 - Enviado: "Automação · Passo 1 de 2" (Instagram profissional + marca no Metricool + redes + Drive).
 - 🧭 Patrik: "vamos por partes, me perdi". Enviado o checklist completo dos perfis, rede por rede (YouTube,
   Instagram, TikTok), com todas as configurações: `PERFIS_CONFIGURACAO.md`. Ordem: perfis → publicar → Metricool.
+- ✅ **YouTube: perfil configurado** pelo Patrik (16/11). Instagram em andamento: na escolha de categoria (app em
+  português de Portugal), orientado a buscar "Criador de conteúdos digitais" (ou "Educação") e mostrar no perfil.
