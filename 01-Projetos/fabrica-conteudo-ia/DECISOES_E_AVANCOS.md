@@ -497,3 +497,8 @@ Conferido no Metricool conectado ao Claude:
 - ✅ **Reels da maçã publicado no Instagram** (16/11). Próximo: TikTok da maçã.
 - ✅ **TikTok da maçã publicado** (16/11). **Maçã no ar nas 3 redes.** Próximo: agendar banana (17/11 18h) e
   arco-íris (18/11 18h) nas 3 redes. @ do TikTok ainda não informado.
+- 🤖 Patrik: "vamos usar o Gravyx para começar a automatizar?". Conferido: o Gravyx só agenda **Instagram** (não
+  YouTube nem TikTok), só com mídia **dentro do Gravyx**, e hoje só tem @eupatrickgonzaga e @laurarosapersonal
+  conectadas (não @pingo_pinta). Recomendação: Gravyx continua como fábrica de voz/imagem; **automação de publicação
+  pelo Metricool** (3 redes, "para crianças" e "IA"); esta semana terminar o agendamento à mão; vídeo 02 já agendado
+  pelo Claude. Se o Patrik quiser o Gravyx no Instagram: workspace "Pingo Pinta" separado no Gravyx.
