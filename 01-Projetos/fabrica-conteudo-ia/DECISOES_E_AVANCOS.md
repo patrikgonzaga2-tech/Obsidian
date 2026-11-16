@@ -550,3 +550,7 @@ Metricool (publicação nas 3 redes). Pendência antiga que volta: **nome do pro
 - ⚠️ Patrik: "você está pulando etapas". Eu tinha mandado os passos 2 a 6 de uma vez. **Regra nova** (nos
   documentos): conferir fase, onde paramos e o que o Patrik já enviou; **um passo por vez**. Reenviado só o
   **Escritório · Passo 1 de 5 (GitHub)**. Pendências do Patrik agora ficam no topo deste arquivo.
+- ⚠️ Escritório Passo 1 travou na tela **"Confirm access" (modo sudo do GitHub)**: passkey falhou. Orientado: "Send a
+  code via email" (ou Retry passkey com outro dispositivo). Faltou avisar antes; também faltava o quebra-cabeça
+  "Verify your account" e a tela de membros (Skip). Patrik pediu para **pesquisar melhor antes**. Os sites de
+  documentação (docs.github.com etc.) estão bloqueados nesta sessão; oferecido liberar (precisa aprovação).
