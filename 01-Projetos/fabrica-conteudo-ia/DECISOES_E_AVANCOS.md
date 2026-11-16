@@ -465,3 +465,5 @@ Conferido no Metricool conectado ao Claude:
 - Recomendação: **hoje publicar/agendar à mão**; montar o Metricool em paralelo; a partir do **vídeo 02** o
   Claude agenda tudo e o Patrik só aprova. Antes, 1 post de teste privado.
 - Enviado: "Automação · Passo 1 de 2" (Instagram profissional + marca no Metricool + redes + Drive).
+- 🧭 Patrik: "vamos por partes, me perdi". Enviado o checklist completo dos perfis, rede por rede (YouTube,
+  Instagram, TikTok), com todas as configurações: `PERFIS_CONFIGURACAO.md`. Ordem: perfis → publicar → Metricool.
