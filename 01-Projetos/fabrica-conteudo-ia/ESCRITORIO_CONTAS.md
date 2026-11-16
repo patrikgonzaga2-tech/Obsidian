@@ -9,7 +9,7 @@
 | 2 ✅ | GitHub: organização `nexo-studio-br` (reserva `nexo-studio-ia`) + repositório privado `escritorio` (com README) | 🧑 | casa do código | — |
 | 3 ✅ | App do Claude: github.com/apps/claude/installations/select_target → org nexo-studio-br → Only select repositories → escritorio → Install; conferir claude.ai/connect-github | 🧑 | Claude lê/escreve o código | app do Claude (só no `escritorio`) |
 | 4 ✅ | Vercel: o Patrik já é **Pro**. Projeto `nexo-escritorio` na equipe atual (sem custo extra), criado na D1 | 🤖 na D1 | onde o painel fica no ar | conector Vercel (já ligado) |
-| 5 | Supabase (⚠️ limite Free: 2 projetos ativos somando todas as orgs; a Corpo Feliz Org já tem 2): organização "Nexo Studio" (Personal, Free) + projeto `escritorio` em São Paulo; senha do banco só no gerenciador de senhas | 🧑 | banco do escritório | **conector novo `Supabase_Nexo`** (URL `https://mcp.supabase.com/mcp`) autorizado só na organização Nexo Studio |
+| 5 ✅ | Supabase (conta studionexo512 · projeto `pjigawdvtoujlriydrlq` · conector Supabase_Nexo limitado ao projeto) (⚠️ limite Free: 2 projetos ativos somando todas as orgs; a Corpo Feliz Org já tem 2): organização "Nexo Studio" (Personal, Free) + projeto `escritorio` em São Paulo; senha do banco só no gerenciador de senhas | 🧑 | banco do escritório | **conector novo `Supabase_Nexo`** (URL `https://mcp.supabase.com/mcp`) autorizado só na organização Nexo Studio |
 | 6 | Ambiente do Claude Code com o repositório + sessão nova com "COMEÇAR ESCRITÓRIO" | 🤖 + 🧑 aprova 1 tela | base do escritório montada | sessão nova lê os conectores |
 
 Observações

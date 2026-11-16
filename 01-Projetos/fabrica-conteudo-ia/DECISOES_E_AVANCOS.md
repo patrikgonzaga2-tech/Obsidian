@@ -21,7 +21,7 @@
 ## ⏳ Pendências do Patrik (conferir antes de cada passo)
 | Pendência | Desde |
 |---|---|
-| Escritório · Passo 4 (parte 3): conector `Supabase_Nexo` (só o projeto `escritorio`) + mandar o ID do projeto | 16/11 |
+| Escritório · Passo 5: OK para copiar os documentos do projeto para o repositório `escritorio` (base da sessão nova) | 16/11 |
 | @ do TikTok | 16/11 |
 | Tema do vídeo 02 ("mais frutas" ou "bichos") | 16/11 |
 | Ler os números de 48 h do vídeo 01 | 18/11 |
@@ -52,7 +52,7 @@
 | Identidade do canal | foto, banner, descrição, bios | ✅ feita 16/11 · ⏳ Patrik aplicar | `IDENTIDADE_CANAL.md` |
 | Publicar vídeo 01 | YouTube (longo) | ✅ **no ar 16/11** · [youtu.be/7WEMcxoDSOg](https://youtu.be/7WEMcxoDSOg) | conferido: público, título e miniatura A certos |
 | Shorts, Reels e TikTok | maçã hoje; banana 17/11 18h; arco-íris 18/11 18h | ✅ maçã publicada nas 3 redes · ✅ banana e arco-íris agendados (16/11) | `PUBLICACAO_VIDEO01.md` |
-| **Escritório Nexo Studio · contas** | 1 GitHub org+repo · 2 app do Claude · 3 Vercel · 4 Supabase · 5 sessão do escritório | ✅ 1 repo · ✅ 2 app do Claude (acesso testado: leitura e envio) · ✅ 3 Vercel (projeto na equipe Pro atual, criado na D1) · ⏳ 4 Supabase | `ESCRITORIO_CONTAS.md` |
+| **Escritório Nexo Studio · contas** | 1 GitHub org+repo · 2 app do Claude · 3 Vercel · 4 Supabase · 5 sessão do escritório | ✅ 1 repo · ✅ 2 app do Claude (acesso testado: leitura e envio) · ✅ 3 Vercel (projeto na equipe Pro atual, criado na D1) · ✅ 4 Supabase (conta studionexo512, projeto `escritorio`, conector `Supabase_Nexo` testado) · ⏳ 5 sessão do escritório | `ESCRITORIO_CONTAS.md` |
 | Medição 48 h | views, retenção 30 s, cliques na miniatura | ⏳ ler em 18/11 | YouTube Studio → Análises |
 | Dia 2 · Música | ~~1 faixa da Biblioteca de Áudio~~ | ❌ cancelado 15/11 | sem música (como o AKN); só efeitos sonoros, feitos por mim |
 
@@ -588,3 +588,6 @@ Metricool (publicação nas 3 redes). Pendência antiga que volta: **nome do pro
   (16/11). Travou antes em "você precisa de permissões adicionais" (resolvido pelo Patrik). Próximo: conector próprio
   `Supabase_Nexo` limitado ao projeto (`https://mcp.supabase.com/mcp?project_ref=<ID>`), autorizado **com a conta do
   Nexo** (cuidado: o navegador normal está logado no Supabase da Corpo Feliz).
+- ✅ **Conector `Supabase_Nexo` ligado e testado daqui** (16/11): projeto `pjigawdvtoujlriydrlq`
+  (https://pjigawdvtoujlriydrlq.supabase.co), banco vazio. O conector está **limitado a esse projeto** (não tem as
+  ferramentas de conta, como listar projetos), então não enxerga a Corpo Feliz. **Contas do escritório: 4 de 5 prontas.**
