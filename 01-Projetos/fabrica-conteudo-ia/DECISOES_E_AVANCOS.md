@@ -42,7 +42,8 @@
 | **✋ Aprovação 2** | vídeo + miniatura + título + Shorts | ✅ 16/11 · miniatura A · conteúdo sintético: sim | — |
 | Identidade do canal | foto, banner, descrição, bios | ✅ feita 16/11 · ⏳ Patrik aplicar | `IDENTIDADE_CANAL.md` |
 | Publicar vídeo 01 | YouTube (longo) | ✅ **no ar 16/11** · [youtu.be/7WEMcxoDSOg](https://youtu.be/7WEMcxoDSOg) | conferido: público, título e miniatura A certos |
-| Shorts, Reels e TikTok | maçã hoje; banana 17/11 18h; arco-íris 18/11 18h | ✅ maçã publicada nas 3 redes (16/11) · ⏳ agendar banana e arco-íris | `PUBLICACAO_VIDEO01.md` |
+| Shorts, Reels e TikTok | maçã hoje; banana 17/11 18h; arco-íris 18/11 18h | ✅ maçã publicada nas 3 redes · ✅ banana e arco-íris agendados (16/11) | `PUBLICACAO_VIDEO01.md` |
+| **Escritório Nexo Studio · contas** | GitHub org + repo, app Claude, Vercel, Supabase | ⏳ Passo 2 (GitHub) enviado | `PASSO_A_PASSO_DO_ZERO.md` Passos 6–9 |
 | Medição 48 h | views, retenção 30 s, cliques na miniatura | ⏳ ler em 18/11 | YouTube Studio → Análises |
 | Dia 2 · Música | ~~1 faixa da Biblioteca de Áudio~~ | ❌ cancelado 15/11 | sem música (como o AKN); só efeitos sonoros, feitos por mim |
 
@@ -531,3 +532,7 @@ Metricool (publicação nas 3 redes). Pendência antiga que volta: **nome do pro
   organização no Supabase). Registrado no `DOSSIE.md`.
 - Patrik vai agendar à mão a banana e o arco-íris nas 3 redes; pediu só as descrições (enviadas). Depois disso:
   **escritório** (contas do Nexo Studio).
+- ✅ **Banana e arco-íris agendados** pelo Patrik nas 3 redes. **Vídeo 01 100% publicado/agendado.**
+- 🏢 Patrik: "vamos pro escritório". Começando as contas (caminho rápido, Passos 6 a 9). Conferido no GitHub:
+  `nexo-studio` e `nexostudio` ocupados; sugerido **`nexo-studio-br`** (reserva `nexo-studio-ia`), repositório
+  privado `escritorio`, display name "Nexo Studio".
