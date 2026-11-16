@@ -29,6 +29,12 @@ Material completo no repositório CLIENTES, pasta `millena-merlo/` (branch `clau
 - 16/11: o Patrik pediu a página no visual da efeitolipo.com.br/c com os blocos do Maxxima. Feita com 16 blocos. Endereço previsto
   desafiomagrapromax.com.br/oferta/ (noindex). **Não publicada:** a subida pela Hostinger foi bloqueada pela trava da sessão e espera o OK do Patrik.
 
+## Estudo cruzado das respostas (16/11, 818 que terminaram o quiz; medida = clique no checkout, média 57,6%)
+- Dois públicos: falsa magra (55%, mais nova, clica 56,6%) e acima do peso (34%, 79% "ganho rápido e perco devagar", clica 61%; 29–39 anos clica 70%).
+- Mais clicam: 29–39 anos, "jeans e cropped", "100% comprometida", "corpo todo desenhado", "linda e forte". Menos: "biquíni cavado", "já emagreci mas flácida", 17–28 anos.
+- Só 9% querem treino de 10–20 min: "treino rápido" não é a dor. Detalhes em CLIENTES/millena-merlo/PLANO_PAGINA_E_VSL.md (seção 2b).
+- Limite: a planilha não tem e-mail; não dá para ligar resposta a compra (não conferido).
+
 ## Pendências
 - OK para subir a página; respostas da Millena (preço à vista, garantia 21 ou 30 dias, o que entra, acesso, duração dos treinos, história dela).
 - Gravações da Millena (VSL nova, versão curta, hipopressivo, tour da área, depoimentos com autorização).
