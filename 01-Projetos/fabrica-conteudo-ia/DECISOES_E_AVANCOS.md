@@ -489,3 +489,6 @@ Conferido no Metricool conectado ao Claude:
   texto, **a partir do vídeo 02** (frase proposta: "Gostou? Peça pra alguém da família seguir o Pingo Pinta!").
 - Enviado: Publicar · Parte 2 (Shorts no YouTube, Reels e TikTok: maçã hoje, banana 17/11 18h, arco-íris 18/11 18h),
   com títulos e legendas prontos.
+- ℹ️ Patrik viu no Studio o aviso "funcionalidades limitadas: comentários e notificações desativados" (vídeo criado
+  para crianças, COPPA). Resposta: **normal e esperado**, não desmarcar "para crianças". Consequência: sem
+  notificação aos inscritos, o crescimento vem de página inicial/sugestões e dos Shorts/Reels/TikTok.
