@@ -1,6 +1,6 @@
 # Vídeo 01 · Pacote de publicação (YouTube)
 
-> Status: **aguardando ✋ Aprovação 2 do Patrik** (16/11/2026). Nada é publicado antes.
+> Status: ✅ **Aprovação 2 dada pelo Patrik em 16/11/2026**: "aprovado, miniatura A, conteúdo sintético: sim".
 > Vídeo: `videos/video01_completo_v2.mp4` (5 min 45 s, gancho A). Arquivo para subir: a versão em
 > alta qualidade gerada pelo programa (eu entrego na hora da publicação).
 
@@ -62,11 +62,11 @@ Conferidos com as regras do YouTube: começa em 0:00, 8 capítulos, todos com 10
 | Campo | Valor | Por quê |
 |---|---|---|
 | Público | **Sim, é conteúdo para crianças** | obrigatório por lei |
-| Conteúdo alterado ou sintético | **Sim** (recomendação) | a mão é uma foto gerada por IA com aparência real e a voz é sintética; marcar é o mais seguro e transparente. Desenho animado sozinho não precisaria |
+| Conteúdo alterado ou sintético | **Sim** (decidido pelo Patrik, 16/11) | a mão é uma foto gerada por IA com aparência real e a voz é sintética; marcar é o mais seguro e transparente. Desenho animado sozinho não precisaria |
 | Categoria | Educação | |
 | Idioma do vídeo | Português (Brasil) | |
 | Visibilidade | Público (ou Agendado) | |
-| Tela final | "Vídeo mais recente" ou "Melhor para o espectador" nos últimos 20 s | o final tem ~16 s de festa do arco-íris; dá para encaixar |
+| Tela final e cards | **não existem** em vídeo "para crianças" (o YouTube desliga) | corrigido em 16/11: antes eu tinha sugerido tela final, o que não é possível |
 
 ---
 
@@ -80,8 +80,9 @@ cortados. Todos terminam com "Assista o vídeo completo!" nos últimos 2,6 s.
 | 2 | `videos/shorts/short2_banana.mp4` | 55 s | arco-íris completo → banana inteira | Banana amarela! 🍌 Desenhe e pinte comigo #shorts |
 | 3 | `videos/shorts/short3_arco_iris.mp4` | 33 s | Pingo pulando na uva → uva voa → arco-íris completo | Completamos o arco-íris! 🌈 #shorts |
 
-- **Publicar 1 por dia**, depois do vídeo longo (o Sprint pede "um por dia"). No Studio, em cada Short,
-  usar **"Vídeo relacionado"** apontando para o vídeo longo (é o link que funciona dentro do Short).
+- **Publicar 1 por dia**, depois do vídeo longo (o Sprint pede "um por dia"). Se o Studio mostrar a opção
+  **"Vídeo relacionado"** no Short, apontar para o vídeo longo (em conteúdo para crianças essa opção pode
+  não aparecer; não confirmei).
 - **TikTok e Instagram (@pingo_pinta):** mesmos arquivos. Lá o público real são os pais (as redes só
   aceitam maiores de 13 anos), então a legenda fala com eles:
   `Atividade de cores para fazer com seu filho: desenhe junto com o Pingo! 🍎🌈 #desenhoparacriancas #aprenderascores #atividadeinfantil`

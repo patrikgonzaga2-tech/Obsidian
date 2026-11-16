@@ -38,7 +38,9 @@
 | Dias 2 e 3 · Vídeo completo | 5 frutas restantes + final | ✅ "vídeo ok" 16/11 · duração mantida (~6 min) | `videos/video01_completo_v1.mp4` |
 | Gancho do vídeo 01 | Escolher 1 de 3 opções | ✅ **A** 16/11 · "gancho ok" | `videos/video01_completo_v2.mp4` |
 | Pacote de publicação | título, miniatura, descrição, tags, capítulos, 3 Shorts | ✅ pronto 16/11 · Revisão de Potencial aprovada | `PUBLICACAO_VIDEO01.md` |
-| **✋ Aprovação 2** | vídeo + miniatura + título + Shorts | ⏳ enviada ao Patrik | — |
+| **✋ Aprovação 2** | vídeo + miniatura + título + Shorts | ✅ 16/11 · miniatura A · conteúdo sintético: sim | — |
+| Identidade do canal | foto, banner, descrição, bios | ✅ feita 16/11 · ⏳ Patrik aplicar | `IDENTIDADE_CANAL.md` |
+| Publicar vídeo 01 | YouTube (longo) | ⏳ passo a passo enviado | `PUBLICACAO_VIDEO01.md` |
 | Dia 2 · Música | ~~1 faixa da Biblioteca de Áudio~~ | ❌ cancelado 15/11 | sem música (como o AKN); só efeitos sonoros, feitos por mim |
 
 ---
@@ -406,3 +408,16 @@ como plano B. **Decisão final: Patrik.**
 - 📊 **Revisão de Potencial:** vídeo longo ≈ 71 ✅; Shorts ≈ 80, 80 e 83 ✅.
 - Recomendação registrada: marcar "conteúdo alterado ou sintético" = Sim (mão realista gerada por IA e voz
   sintética).
+
+---
+
+## 16/11/2026 · Aprovação 2 e identidade do canal
+
+- ✅ **Aprovação 2:** "aprovado, miniatura A, conteúdo sintético: sim".
+- Patrik lembrou que faltavam **foto de perfil, banner, descrição e bio**. Feito (grátis, `codigo/identidade.py`,
+  arquivos em `arte/canal/`, textos em `IDENTIDADE_CANAL.md`): foto com o Pingo dentro de um anel de
+  arco-íris (800 e 1080 px), banner 2560x1440 com tudo na área segura, descrição do YouTube (509
+  caracteres, inclui que usamos IA), bio do Instagram (146/150) e do TikTok (48/80).
+- 🔧 Correção minha: vídeos "para crianças" **não têm tela final nem cards** no YouTube; tirei essa
+  sugestão de `PUBLICACAO_VIDEO01.md`. "Vídeo relacionado" nos Shorts: pode não aparecer (não confirmei).
+- Enviado ao Patrik: passo a passo para aplicar a identidade e publicar o vídeo longo.
