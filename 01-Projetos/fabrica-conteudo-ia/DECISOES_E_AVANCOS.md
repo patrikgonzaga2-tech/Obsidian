@@ -21,7 +21,7 @@
 ## ⏳ Pendências do Patrik (conferir antes de cada passo)
 | Pendência | Desde |
 |---|---|
-| Escritório · Passo 4: decidir o banco do Nexo (A conta Supabase nova com e-mail do Nexo · B org Pro · C mexer na Corpo Feliz) | 16/11 |
+| Escritório · Passo 4 (parte 1): criar o Gmail do Nexo Studio + duas etapas | 16/11 |
 | @ do TikTok | 16/11 |
 | Tema do vídeo 02 ("mais frutas" ou "bichos") | 16/11 |
 | Ler os números de 48 h do vídeo 01 | 18/11 |
@@ -578,3 +578,7 @@ Metricool (publicação nas 3 redes). Pendência antiga que volta: **nome do pro
   (~1.500 leads, ~11 mil mensagens). Juntar = migração arriscada em projeto que vende; não recomendado (e o Nexo é
   independente). Recomendado: **A) conta nova do Supabase com um e-mail do Nexo Studio** (limite é por pessoa;
   grátis; separado; bom para vender). Nada foi alterado na Corpo Feliz.
+- ✅ Patrik escolheu **A**: Supabase em **conta própria do Nexo**, com um **Gmail do Nexo Studio** (sugestões:
+  nexostudio.br, nexostudio.ia, contato.nexostudio). Enviado o passo do Gmail (janela anônima, verificação por SMS
+  ou QR code, aviso do limite de contas por celular, duas etapas). Próximo (parte 2): conta do Supabase com esse
+  Gmail (cadastro por e-mail, **não** "Continue with GitHub", que é o login pessoal).
