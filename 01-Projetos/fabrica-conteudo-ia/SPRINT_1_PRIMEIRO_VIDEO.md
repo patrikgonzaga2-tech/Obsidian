@@ -4,9 +4,9 @@
 > a gerar dinheiro o quanto antes. **O escritório só é construído se o Sprint 1 passar.**
 > Atualizado em 15/11/2026.
 >
-> **Onde estamos:** vídeo 01 pronto (6 frutas, gancho A, 5 min 45 s) + miniatura, título, descrição e 3 Shorts ·
-> Revisão de Potencial aprovada · **aguardando a ✋ Aprovação 2** para publicar (`PUBLICACAO_VIDEO01.md`).
-> Decisões e avanços em `DECISOES_E_AVANCOS.md`.
+> **Onde estamos:** 🎉 **vídeo 01 no ar** (16/11): https://youtu.be/7WEMcxoDSOg · perfis de YouTube, Instagram e
+> TikTok prontos · Shorts/Reels/TikTok: maçã 16/11, banana 17/11, arco-íris 18/11 · medição de 48 h em 18/11 ·
+> próximo: vídeo 02. Decisões e avanços em `DECISOES_E_AVANCOS.md`.
 
 ## REGRA FIXA DE COMUNICAÇÃO (pedido do Patrik, 15/11)
 Todo pedido ao Patrik vem SEMPRE neste formato, sem exceção:

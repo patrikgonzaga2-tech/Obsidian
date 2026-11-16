@@ -41,7 +41,9 @@
 | Pacote de publicação | título, miniatura, descrição, tags, capítulos, 3 Shorts | ✅ pronto 16/11 · Revisão de Potencial aprovada | `PUBLICACAO_VIDEO01.md` |
 | **✋ Aprovação 2** | vídeo + miniatura + título + Shorts | ✅ 16/11 · miniatura A · conteúdo sintético: sim | — |
 | Identidade do canal | foto, banner, descrição, bios | ✅ feita 16/11 · ⏳ Patrik aplicar | `IDENTIDADE_CANAL.md` |
-| Publicar vídeo 01 | YouTube (longo) | ⏳ passo a passo enviado | `PUBLICACAO_VIDEO01.md` |
+| Publicar vídeo 01 | YouTube (longo) | ✅ **no ar 16/11** · [youtu.be/7WEMcxoDSOg](https://youtu.be/7WEMcxoDSOg) | conferido: público, título e miniatura A certos |
+| Shorts, Reels e TikTok | maçã hoje; banana 17/11 18h; arco-íris 18/11 18h | ⏳ passo a passo enviado | `PUBLICACAO_VIDEO01.md` |
+| Medição 48 h | views, retenção 30 s, cliques na miniatura | ⏳ ler em 18/11 | YouTube Studio → Análises |
 | Dia 2 · Música | ~~1 faixa da Biblioteca de Áudio~~ | ❌ cancelado 15/11 | sem música (como o AKN); só efeitos sonoros, feitos por mim |
 
 ---
@@ -473,3 +475,17 @@ Conferido no Metricool conectado ao Claude:
   Falta o TikTok (Parte 3).
 - ✅ **TikTok: perfil configurado** pelo Patrik (16/11). @ ainda não informado. **Os 3 perfis estão prontos.**
   Próximo: publicar o vídeo longo no YouTube.
+
+---
+
+## 16/11/2026 · 🎉 Vídeo 01 no ar
+
+- ✅ **Publicado pelo Patrik:** https://youtu.be/7WEMcxoDSOg. Conferido daqui: título certo, canal "Pingo Pinta"
+  (já sem o espaço sobrando), miniatura A, público. Começa a medição de 48 h (ler em 18/11).
+- 💡 Patrik sugeriu **chamada para seguir / para o vídeo longo**. Resposta: canal "para crianças" não tem sininho, tela
+  final nem cards, e quem segue são os pais; convite deve ser curto e no fim, falando com a família. Como o vídeo
+  longo já estava publicado (e o YouTube **não permite trocar o arquivo**; corrigi uma informação errada que eu
+  tinha dado), o convite entra **na legenda** do Instagram e do TikTok ("Siga @… para mais desenhos") e, por voz e
+  texto, **a partir do vídeo 02** (frase proposta: "Gostou? Peça pra alguém da família seguir o Pingo Pinta!").
+- Enviado: Publicar · Parte 2 (Shorts no YouTube, Reels e TikTok: maçã hoje, banana 17/11 18h, arco-íris 18/11 18h),
+  com títulos e legendas prontos.

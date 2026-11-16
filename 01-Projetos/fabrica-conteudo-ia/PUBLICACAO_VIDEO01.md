@@ -1,5 +1,6 @@
 # Vídeo 01 · Pacote de publicação (YouTube)
 
+> 🎉 **Publicado em 16/11/2026: https://youtu.be/7WEMcxoDSOg**
 > Status: ✅ **Aprovação 2 dada pelo Patrik em 16/11/2026**: "aprovado, miniatura A, conteúdo sintético: sim".
 > Vídeo: `videos/video01_completo_v2.mp4` (5 min 45 s, gancho A). Arquivo para subir: a versão em
 > alta qualidade gerada pelo programa (eu entrego na hora da publicação).
@@ -97,3 +98,13 @@ não existe o vídeo completo). Por isso há versões **sem esse texto**, em `vi
 | TikTok e Reels · maçã | De que cor é a maçã? 🍎 Atividade de cores para fazer com seu filho: desenhe junto com o Pingo! #desenhoparacriancas #aprenderascores #atividadeinfantil |
 | TikTok e Reels · banana | Banana amarela! 🍌 Pegue papel e lápis e desenhe junto com seu filho. #desenhoparacriancas #aprenderascores #atividadeinfantil |
 | TikTok e Reels · arco-íris | Completamos o arco-íris! 🌈 O Pingo pinta cada fruta e ela vai para o arco-íris. #desenhoparacriancas #aprenderascores #atividadeinfantil |
+
+### Agenda de publicação (definida em 16/11)
+| Dia | YouTube Shorts | Instagram Reels | TikTok |
+|---|---|---|---|
+| 16/11 (hoje) | maçã | maçã | maçã |
+| 17/11 18h | banana | banana | banana |
+| 18/11 18h | arco-íris | arco-íris | arco-íris |
+
+Legendas de Instagram/TikTok ganharam o convite "Siga @pingo_pinta para mais desenhos 🎨" (no TikTok, com o @ de lá).
+Descrição dos Shorts: "Desenhe a maçã junto com o Pingo e aprenda as cores! O vídeo completo com 6 frutas está no canal Pingo Pinta. 🌈"
