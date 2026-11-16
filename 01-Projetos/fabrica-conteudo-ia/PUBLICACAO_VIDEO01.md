@@ -86,3 +86,14 @@ cortados. Todos terminam com "Assista o vídeo completo!" nos últimos 2,6 s.
 - **TikTok e Instagram (@pingo_pinta):** mesmos arquivos. Lá o público real são os pais (as redes só
   aceitam maiores de 13 anos), então a legenda fala com eles:
   `Atividade de cores para fazer com seu filho: desenhe junto com o Pingo! 🍎🌈 #desenhoparacriancas #aprenderascores #atividadeinfantil`
+
+### Versões para TikTok e Instagram Reels (16/11)
+Os Shorts terminam com "Assista o vídeo completo!", que só faz sentido no YouTube (no TikTok e no Instagram
+não existe o vídeo completo). Por isso há versões **sem esse texto**, em `videos/tiktok_reels/`:
+`tiktok_reels_maca.mp4` (57 s), `tiktok_reels_banana.mp4` (55 s), `tiktok_reels_arco_iris.mp4` (33 s).
+
+| Plataforma | Legenda (fala com os pais) |
+|---|---|
+| TikTok e Reels · maçã | De que cor é a maçã? 🍎 Atividade de cores para fazer com seu filho: desenhe junto com o Pingo! #desenhoparacriancas #aprenderascores #atividadeinfantil |
+| TikTok e Reels · banana | Banana amarela! 🍌 Pegue papel e lápis e desenhe junto com seu filho. #desenhoparacriancas #aprenderascores #atividadeinfantil |
+| TikTok e Reels · arco-íris | Completamos o arco-íris! 🌈 O Pingo pinta cada fruta e ela vai para o arco-íris. #desenhoparacriancas #aprenderascores #atividadeinfantil |

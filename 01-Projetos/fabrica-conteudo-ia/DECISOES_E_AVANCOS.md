@@ -421,3 +421,6 @@ como plano B. **Decisão final: Patrik.**
 - 🔧 Correção minha: vídeos "para crianças" **não têm tela final nem cards** no YouTube; tirei essa
   sugestão de `PUBLICACAO_VIDEO01.md`. "Vídeo relacionado" nos Shorts: pode não aparecer (não confirmei).
 - Enviado ao Patrik: passo a passo para aplicar a identidade e publicar o vídeo longo.
+- 📱 Patrik perguntou se os vídeos do YouTube e do TikTok estão prontos. Sim: vídeo longo (enviado em qualidade
+  máxima), 3 Shorts do YouTube e, agora, **3 versões para TikTok/Reels sem o texto "Assista o vídeo completo!"**
+  (`videos/tiktok_reels/`), com legendas para os pais. Falta só **criar a conta do TikTok** (ainda não existe).
