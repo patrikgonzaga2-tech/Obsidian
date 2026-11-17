@@ -35,6 +35,12 @@ Material completo no repositório CLIENTES, pasta `millena-merlo/` (branch `clau
 - Só 9% querem treino de 10–20 min: "treino rápido" não é a dor. Detalhes em CLIENTES/millena-merlo/PLANO_PAGINA_E_VSL.md (seção 2b).
 - Limite: a planilha não tem e-mail; não dá para ligar resposta a compra (não conferido).
 
+## Página no WordPress dela (17/11)
+- Acesso por senha de aplicativo do WordPress (Millena e efeitolipo), salvo no ambiente da nuvem. A API da Hostinger só lê a conta dela.
+- Página ID 260 em desafiomagrapromax.com.br/desafio-pro-max/, protegida por senha, copiada do Elementor da efeitolipo.com.br/c
+  (página 388) com preto + laranja #F85A00. Montador em CLIENTES/millena-merlo/elementor/montar.py (seção 8 do plano).
+- /oferta/ está ocupado pela pasta estática do zip antigo (pasta ganha da página do WordPress).
+
 ## Pendências
 - OK para subir a página; respostas da Millena (preço à vista, garantia 21 ou 30 dias, o que entra, acesso, duração dos treinos, história dela).
 - Gravações da Millena (VSL nova, versão curta, hipopressivo, tour da área, depoimentos com autorização).
