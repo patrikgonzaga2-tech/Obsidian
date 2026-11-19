@@ -36,6 +36,14 @@ summary: "5 páginas de vendas (uma por promessa nova) no WordPress do teamlaura
 - Ofertas sem mudança ("não mexe nas ofertas"); botões com o link da Greenn QN7gci que o Patrik mandou (utm da VSL do 21D, provisório).
 - Capas e mockups com o nome de cada página no lugar do selo "efeito lipo" (mesmo cenário da C).
 
+## Pixel e medição (19/11)
+- Pixel: só o Oficial (o mesmo em que todos os conjuntos ativos otimizam compra): PageView e ViewContent ao abrir, InitiateCheckout no
+  clique. A compra vem da Greenn.
+- Medição de comportamento (o mesmo medidor dos outros sites) e painel próprio `/painel/promessas` ("5 promessas · bloco a bloco"),
+  com filtro para comparar as 5. O funil para no clique em comprar: a venda não se separa por página enquanto o link da Greenn tiver
+  a utm da VSL do 21D.
+
 ## Pendente
 - Link de checkout próprio de cada página (hoje as vendas entram com a utm da VSL do 21D).
-- Confirmar que cada treino é a "sequência de 3 exercícios"; pixel, Analytics e medição antes de anunciar.
+- Link de checkout próprio por página, para o painel ligar as vendas a cada uma.
+- Confirmar que cada treino é a "sequência de 3 exercícios".
