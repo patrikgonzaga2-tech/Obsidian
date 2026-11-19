@@ -1,5 +1,6 @@
 ---
 name: yt-shorts
+disable-model-invocation: true
 description: >-
   Find the Shorts hiding inside a long video and write them, using the
   transcript to pick self-contained moments. Use for "cut this into shorts",

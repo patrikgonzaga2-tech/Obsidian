@@ -1,5 +1,6 @@
 ---
 name: yt-comment
+disable-model-invocation: true
 description: >-
   Draft replies to YouTube comments in the creator's voice, triaged by which
   ones are worth answering. Use for "reply to my comments", "handle the

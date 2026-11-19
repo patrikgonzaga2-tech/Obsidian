@@ -1,5 +1,6 @@
 ---
 name: yt-edit
+disable-model-invocation: true
 description: >-
   Turn a raw recording's transcript into an edit decision list - dead air,
   filler cues and retakes, with timecodes. Use for "edit this", "cut the

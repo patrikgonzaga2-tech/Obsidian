@@ -1,5 +1,6 @@
 ---
 name: yt-package
+disable-model-invocation: true
 description: >-
   Write and lint the title and thumbnail for a YouTube video as one pairing,
   checking truncation, duplication and vagueness before publish. Use for

@@ -1,5 +1,6 @@
 ---
 name: yt-seo
+disable-model-invocation: true
 description: >-
   Write the description, tags and search-facing text for a YouTube video,
   aimed at the query a real person types. Use for "write my description",
