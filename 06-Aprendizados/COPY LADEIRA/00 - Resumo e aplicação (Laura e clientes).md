@@ -96,3 +96,7 @@ Estão na conversa de 19/11. Quando ele escolher, registrar a decisão em `03-De
 - **07 Vendas 1:1 (SPIN):** Situação, Problema, Implicação, Necessidade de solução, com perguntas-modelo. Serve para a Aline no WhatsApp.
 - **08 Mensageria:** regras de e-mail e WhatsApp (iguais ao M04-14) e a sequência de pico: convite → confirmação →
   pesquisa e primeira impressão → antecipação, lembrete e chamada → pré-abertura → carrinho aberto.
+
+## Material extra (fora do curso do Ladeira)
+- **Imersão Filemon VSL** (enviado em 19/11): [[Links - Imersão Filemon VSL (aulas 4, 5.1 e bônus)]] e o roteiro [[Filemon VSL - O Mapa (aula 4)]]
+  (oferta → público → mecanismo → tese → história em 7 beats → lead). O doc dos Agentes (aula 5.1) e as pastas da aula bônus não abriram: falta acesso.
