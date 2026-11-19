@@ -96,3 +96,9 @@ Estão na conversa de 19/11. Quando ele escolher, registrar a decisão em `03-De
 - **07 Vendas 1:1 (SPIN):** Situação, Problema, Implicação, Necessidade de solução, com perguntas-modelo. Serve para a Aline no WhatsApp.
 - **08 Mensageria:** regras de e-mail e WhatsApp (iguais ao M04-14) e a sequência de pico: convite → confirmação →
   pesquisa e primeira impressão → antecipação, lembrete e chamada → pré-abertura → carrinho aberto.
+
+## STORY 10X (stories, Instagram) · 19/11
+- `STORY 10X - Dispositivos de Engenharia Social.md`: os 38 dispositivos do Ladeira para sequência de stories (alcance,
+  engajamento, antecipação, venda, pesquisa). O exemplo do nº 34 (suco detox, "perdeu 5 quilos") não serve: quebra a promessa segura.
+- `STORY 10X - Instruções do GPT.md`: texto do campo "Instruções" do projeto STORY 10X no ChatGPT (pergunta antes, depois
+  entrega ideias de Reels gravado, Reels editado, carrossel ou stories, cada uma com a técnica e a aula/dispositivo usado).
