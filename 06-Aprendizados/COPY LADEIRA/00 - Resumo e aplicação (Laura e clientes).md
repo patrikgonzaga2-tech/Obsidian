@@ -1,6 +1,6 @@
 # COPY LADEIRA · resumo e aplicação
 
-> Curso "Marketing de Premissas" (Leandro Ladeira). 104 apostilas + 1 planilha enviadas pelo Patrik em 19/11/2026.
+> Curso "Marketing de Premissas" (Leandro Ladeira). 97 PDFs (96 aulas + 1 de referências) e 1 planilha enviadas pelo Patrik em 19/11/2026.
 > Texto de cada aula em `aulas/` (prefixo = módulo). Este arquivo é o resumo vivo.
 
 ## Mapa do curso
