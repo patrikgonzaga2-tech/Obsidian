@@ -6,7 +6,7 @@ tags: [tipo/decisao, projeto/corpo-feliz-comunidade, pagina-de-vendas, wordpress
 keywords: [maxxima, efeito lipo c, trio lipo, lipo sem agulha, pós-queima 15, liga a queima, barriga em 3, promessa, teamlaurarosa.com.br]
 created: 2026-11-19
 updated: 2026-11-19
-summary: "5 páginas de vendas (uma por promessa nova) no WordPress do teamlaurarosa.com.br, em rascunho: blocos da MAXXIMA, visual da página C, entregáveis do Efeito Lipo com nome chiclete próprio e copy revisada bloco a bloco pelo método do Ladeira."
+summary: "5 páginas de vendas (uma por promessa nova) no WordPress do teamlaurarosa.com.br, NO AR desde 19/11: blocos da MAXXIMA, visual da página C, entregáveis do Efeito Lipo com nome chiclete próprio e copy revisada bloco a bloco pelo método do Ladeira."
 ---
 
 # 5 páginas de promessa no teamlaurarosa (19/11)
@@ -29,7 +29,13 @@ summary: "5 páginas de vendas (uma por promessa nova) no WordPress do teamlaura
   o porquê do "hormonal", demonstração, proposta única de valor, garantia de 21 dias em seção própria e objeções novas no FAQ.
 - Código: repositório LR_LauraRosaPersonal, `tools/teamlaurarosa/` (gerador, `REVISAO_LADEIRA.md`), PR #487.
 
+## No ar (19/11, versão 2)
+- Publicadas: teamlaurarosa.com.br/trio-lipo, /lipo-sem-agulha, /pos-queima-15, /liga-a-queima e /barriga-em-3.
+- Versão enxuta a pedido do Patrik ("não tem esse monte de informação assim, as copy não batem"): cada bloco igual ao modelo
+  da MAXXIMA e um fio só por página. Passo a passo = os 3 blocos de 7 treinos ("só muda o nome").
+- Ofertas sem mudança ("não mexe nas ofertas"); botões com o link da Greenn QN7gci que o Patrik mandou (utm da VSL do 21D, provisório).
+- Capas e mockups com o nome de cada página no lugar do selo "efeito lipo" (mesmo cenário da C).
+
 ## Pendente
-- Link do checkout e OK nas propostas de oferta: âncora coerente no lugar do "valeria R$ 573" (o curso chama essa âncora de jeito
-  errado), "por que só R$ 37", acesso no cartão e preço no topo.
-- Capas sem o selo "efeito lipo"; confirmar que cada treino é a "sequência de 3 exercícios"; pixel, Analytics e medição antes de anunciar.
+- Link de checkout próprio de cada página (hoje as vendas entram com a utm da VSL do 21D).
+- Confirmar que cada treino é a "sequência de 3 exercícios"; pixel, Analytics e medição antes de anunciar.
