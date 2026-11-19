@@ -1,0 +1,135 @@
+# Mapa mental: 04 - Vídeo de vendasVSL
+
+> Convertido do arquivo .mind (MindMeister) enviado pelo Patrik em 19/11/2026.
+
+- Modelos Clássicos
+  - VSL de Jon Benson
+    - Estrutura
+      - 1. Big Idea (Abertura Forte) → Um conceito poderoso que prende a atenção.
+      - 2. Proposição de Problema → Apresentação da dor que o público sente.
+      - 3. Conexão e Identificação → Mostra que o criador do VSL passou pelo mesmo problema.
+      - 4. Solução (Única e Específica) → Introduz a oferta como a solução ideal.
+      - 5. Prova e Credibilidade → Depoimentos, dados e validação social.
+      - 6. Oferta e Bônus → Explica os benefícios da compra.
+      - 7. Escassez e Urgência → Limitação de tempo e quantidade.
+      - 8. Call to Action (Chamada para Ação) → Direciona o usuário para comprar.
+  - P.A.S.T.O.R. de Ray Edwards
+    - Estrutura
+      - P (Problem - Problema) → Explica a dor do cliente.
+      - A (Amplify - Amplificação da Dor) → Mostra o que acontece se ele não resolver o problema.
+      - S (Story & Solution - História e Solução) → Apresenta a solução.
+      - T (Testimony - Prova e Autoridade) → Mostra evidências de que funciona.
+      - O (Offer - Oferta Irresistível) → Explica os benefícios da compra.
+      - R (Response - Resposta ou Chamada para Ação) → Finaliza com CTA forte.
+  - VSL de Russell Brunson
+    - Estrutura
+      - 1. Hook (Gancho) → Chama atenção com uma promessa impactante.
+      - 2. Epiphany Bridge (Ponte da Epifania) → Conta uma história de transformação.
+      - 3. O que você Aprendeu? → Explica o conhecimento adquirido.
+      - 4. Como Resolver o Problema? → Apresenta a solução e o produto.
+      - 5. Stack Offer (Oferta Irresistível) → Mostra valor extra (bônus, garantias, etc.).
+      - 6. Scarcity & Urgency (Escassez e Urgência) → Motiva a compra imediata.
+      - 7. Call to Action (Chamada para Ação) → Direciona a compra.
+  - AIDA de Elias St. Elmo Lewis
+    - Estrutura
+      - 1. Atenção (Attention) → Chama a atenção logo nos primeiros segundos.
+      - 2. Interesse (Interest) → Mantém o espectador engajado, explorando um problema relevante.
+      - 3. Desejo (Desire) → Cria desejo pela solução, mostrando benefícios e provas.
+      - 4. Ação (Action) → Finaliza com uma oferta irresistível e uma chamada para ação.
+    - Recomendado
+      - Infoprodutos
+        - Cursos
+        - Mentorias
+        - Comunidades
+        - Apps e SaaS*
+      - Ticket
+        - de R$300,00 a 2.500,00
+      - Consciência
+        - Produtos de baixa e alta consciência
+      - Tempo
+        - de 10 minutos a uma hora
+          - Se ticket baixo, menos tempo
+          - Se ticket alto, mais tmpo
+          - Se baixa consciência, mais tempo
+          - Se alta consciência, menos tempo
+          - Se baixa autoridade, mais tempo
+          - Se alta autoridade, mais tempo
+    - Referência específica
+      - https://www.youtube.com/watch?v=Wow3GagqS_E
+  - VVV de Leandro Ladeira
+    - Estrutura
+      - 1. Promessa com QFD
+        - Q
+          - Objeto de desejo
+            - barriga de tanquinho
+        - F
+          - Como
+            - dieta setogênica
+        - D
+          - Por que
+            - Autoestima
+            - Saúde
+            - Aceitação
+            - Performance
+            - Parceiro
+      - 2. Pra quem é
+      - 3. Prova
+        - Evidencia que comprova
+      - 4. História
+        - Proscedência do método
+          - Sumária
+          - Cênica
+      - 5. Conteúdo
+        - Jeito errado
+          - Comum
+          - Tradicional
+          - Mainstream
+        - Jeito Certo
+          - Mecanismo único (F)
+            - Contra-intuitivo
+        - Sempre que então
+      - 6. Explicação da oferta
+        - Entregáveis
+        - Tempo de acesso
+        - Bônus
+          - Paliativo
+            - Resultado rápido
+            - Alívio imediato
+            - Pilula mágica
+        - Garantia
+        - Ancorragem
+        - Preço
+      - 7. CTA emocional
+    - Recomendado
+      - Infoprodutos
+        - Cursos
+        - Mentorias
+        - Comunidades
+        - Apps e SaaS*
+      - Ticket
+        - de R$300,00 a 2.500,00
+      - Consciência
+        - Produtos de baixa e alta consciência
+      - Tempo
+        - de 10 minutos a uma hora
+          - Se ticket baixo, menos tempo
+          - Se ticket alto, mais tmpo
+          - Se baixa consciência, mais tempo
+          - Se alta consciência, menos tempo
+          - Se baixa autoridade, mais tempo
+          - Se alta autoridade, mais tempo
+- Importante
+  - A parte mais importante deuma copy é a primeira frase
+    - Filtro de copy é importantíssimo
+  - Tirar tudo o que não ajuda
+    - Ex
+      - Depoimentos ruins
+      - Repetições de promessas e deargumentos de autoridades
+        - Falar bem de si mesmo demaispassa insegurança
+      - Explicações intuitivas demais
+  - Lembrar sempre
+    - Emoção
+    - Razão
+  - Bom senso
+- Disclaimer
+  - O melhor VSL do mundo, perdepara uma estrutura de marketingeficiente.

@@ -82,3 +82,17 @@ conversas reais), processo em 8 etapas, 4T2R (técnica, treino, tempo, talento, 
 ## Aplicações propostas em 19/11 (aguardando decisão do Patrik)
 
 Estão na conversa de 19/11. Quando ele escolher, registrar a decisão em `03-Decisoes`.
+
+## Mapas mentais (.mind, enviados depois, em `mapas/`)
+- **01 Fundamentos:** decisão por emoção, justificada pela lógica (Kahneman); 3 elementos (lógica, emoção, credibilidade);
+  frase de Blair Warren; lista ampliada de 26 gatilhos; coesão, coerência e simplicidade.
+- **03 Página de vendas** e **04 VSL:** mesmo conteúdo do M04, com o QFD do VVV detalhado.
+- **05 Captura, confirme e confirmado:** o arquivo só tem o título e um nó "IA" (sem conteúdo).
+- **06 Quebra de objeções:** como levantar (caixinha, enquete, comentários próprios e de concorrentes, atendimento);
+  objeções comuns; **objeções de emagrecimento** ("medo de prejudicar a saúde", "rotina muito complicada", "pouco dinheiro
+  para comida natural"); como quebrar (encadeamento lógico, provas, história, analogia: "tem um vazamento em casa, você diria
+  que não tem tempo?"); onde usar (VSL com cuidado, página, lives, pós-pitch, 1:1). Atenção: o exemplo de fisioterapia
+  pélvica faz alegação médica; não serve de modelo para a Laura.
+- **07 Vendas 1:1 (SPIN):** Situação, Problema, Implicação, Necessidade de solução, com perguntas-modelo. Serve para a Aline no WhatsApp.
+- **08 Mensageria:** regras de e-mail e WhatsApp (iguais ao M04-14) e a sequência de pico: convite → confirmação →
+  pesquisa e primeira impressão → antecipação, lembrete e chamada → pré-abertura → carrinho aberto.
