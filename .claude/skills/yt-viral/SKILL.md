@@ -1,5 +1,6 @@
 ---
 name: yt-viral
+disable-model-invocation: true
 description: >-
   Find what is actually working in the user's niche on YouTube and rank it
   by how far each video beat its own channel, then name the formula. Use for

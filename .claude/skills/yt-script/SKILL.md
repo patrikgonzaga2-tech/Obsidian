@@ -1,5 +1,6 @@
 ---
 name: yt-script
+disable-model-invocation: true
 description: >-
   Write a YouTube video script from a raw idea - hook options off 21
   formulas, scored, then the full spoken script with the retention beats

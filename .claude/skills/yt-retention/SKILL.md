@@ -1,5 +1,6 @@
 ---
 name: yt-retention
+disable-model-invocation: true
 description: >-
   Read a YouTube Studio audience-retention export and find where viewers
   actually leave, then say what to change. Use for "why do people stop

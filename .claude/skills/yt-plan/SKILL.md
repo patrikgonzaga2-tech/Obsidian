@@ -1,5 +1,6 @@
 ---
 name: yt-plan
+disable-model-invocation: true
 description: >-
   Plan a week or a month of YouTube uploads - what to post, when, and in
   what order, sized to the creator's actual capacity. Use for "plan my

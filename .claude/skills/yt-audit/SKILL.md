@@ -1,5 +1,6 @@
 ---
 name: yt-audit
+disable-model-invocation: true
 description: >-
   Audit a YouTube channel end to end - packaging, consistency, the first
   fifteen seconds, and what to fix first. Use for "audit my channel", "why

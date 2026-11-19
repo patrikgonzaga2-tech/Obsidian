@@ -1,5 +1,6 @@
 ---
 name: yt-chapters
+disable-model-invocation: true
 description: >-
   Write YouTube chapters from a transcript, validated against YouTube's own
   rules so they actually render. Use for "add chapters", "timestamps",
